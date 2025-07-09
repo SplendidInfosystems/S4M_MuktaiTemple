@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './features/auth/login/login.component';
-import { HomeComponent } from './shared/components/home/home.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import {SharedModule} from './shared/shared.module'
+import { HomeComponent } from './shared/components/home/home.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 export const routes: Routes = [
       {
@@ -12,6 +14,11 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path:'header',
+        component:HeaderComponent
+
     },
     {
         path: 'Home',
