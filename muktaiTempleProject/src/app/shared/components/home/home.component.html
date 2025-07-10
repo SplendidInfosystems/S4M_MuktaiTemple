@@ -1,12 +1,10 @@
-
-
 <app-header></app-header>
 
 
 <!-- header section component here -->
 
 
-<main class="relative pt-[64px] min-h-screen overflow-hidden">
+<main class="relative pt-[64px] min-h-fit">
 
   <!-- Top Half Section with Gradient Background -->
   <div class="bg-gradient-to-t from-[#cc4b00] via-[#f7b570] to-[#f5f5f5] pb-10">
@@ -50,6 +48,9 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Events Section -->
 <div class="max-w-5xl mx-auto p-4">
   <div class="bg-white rounded-xl overflow-hidden shadow border flex flex-col md:flex-row h-auto md:h-80">
     
@@ -59,8 +60,6 @@
            class="w-full h-full object-cover transform transition duration-300 hover:scale-110" />
     </div>
 
-    <!-- Right Text Section -->
-   
     <!-- Right Text Section -->
     <div class="md:w-1/2 w-full p-4 flex flex-col justify-center">
       <h2 class="text-3xl font-semibold text-gray-800 mb-6">Events</h2>
@@ -82,8 +81,169 @@
 
   
 
+
+  
+
   </div>
 </div>
+
+<!-- schedule Section -->
+
+<div class="max-w-5xl mx-auto p-4">
+  <div class="bg-white rounded-xl overflow-hidden shadow border flex flex-col md:flex-row h-auto md:h-80">
+    
+    <!-- Left Image Section -->
+    <div class="md:w-1/3 w-full">
+      <img src="assets/images/imagecard2.png" alt="Temple Events"
+           class="w-full h-full object-cover transform transition duration-300 hover:scale-110" />
+    </div>
+
+    <!-- Right Text Section -->
+    <div class="md:w-1/2 w-full p-4 flex flex-col justify-center">
+       <h2 class="text-2xl font-semibold mb-4 text-gray-800">Scheduled</h2>
+
+    <ul class="space-y-2 text-gray-800">
+      <li><strong class="text-lg">Morning Darshan:</strong> Starting around 5:00 AM</li>
+      <li><strong class="text-lg">Mangala Aarti:</strong> Approximately 5:30 AM</li>
+      <li><strong class="text-lg">Naivedya (Offering):</strong> Around 12:00 PM</li>
+      <li><strong class="text-lg">Sandhya Aarti (Evening Aarti):</strong> Approximately 6:00 PM</li>
+      <li><strong class="text-lg">Temple Closing:</strong> Around 9:00 PM</li>
+    </ul>
+
+    <div class="mt-4 text-gray-800">
+      <strong class="text-lg">Opening / Closing Timing</strong>
+      <p>5:00 AM to 9:00 PM, Open all days</p>
+    </div>
+    </div>
+
+  
+
+
+  
+
+  </div>
+</div>
+
+<!-- how to rich section -->
+
+
+<div class="max-w-5xl mx-auto p-4">
+  <div class="bg-white rounded-xl overflow-hidden shadow border flex flex-col md:flex-row h-auto md:h-80">
+    
+    <!-- Left Image Section -->
+    <div class="md:w-1/3 w-full">
+          <iframe
+      class="w-full h-full"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.7194243183024!2d76.21850837521195!3d21.045413880604708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd828d104c514ff%3A0x3f9353828d56ed28!2sMuktainagar%2C%20Maharashtra%20425106!5e0!3m2!1sen!2sin!4v1720569947335!5m2!1sen!2sin">
+    </iframe>   
+    </div>
+
+    <!-- Right Text Section -->
+   
+  <!-- Text Info Section -->
+  <div class="md:w-1/2 p-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">How to Reach:</h2>
+
+    <div class="text-gray-800 space-y-4 text-sm md:text-base">
+      <div>
+        <p class="font-bold">By Road:</p>
+        <p>
+          The temple is accessible via road from Jalgaon, Bhusawal, and Muktainagar. Regular state transport buses and private taxis operate along these routes.
+        </p>
+      </div>
+
+      <div>
+        <p class="font-bold">By Train:</p>
+        <p>
+          The nearest railway stations are Bhusawal and Jalgaon, both well-connected to major cities across India.
+        </p>
+      </div>
+
+      <div>
+        <p class="font-bold">By Air:</p>
+        <p>
+          The closest airports are Aurangabad and Nagpur. From there, road or rail travel is needed to reach the temple.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  
+
+  </div>
+</div>
+
+
+<!-- contact us page design -->
+
+
+<div class="max-w-5xl mx-auto p-4">
+  <div class="rounded-xl overflow-hidden shadow border flex flex-col md:flex-row h-auto">
+    <!-- Left Column -->
+    <div class="bg-[#BF4D3D] text-white w-full md:w-1/2 flex flex-col justify-center items-center p-6 space-y-4">
+      <h2 class="text-2xl font-semibold mb-4 text-white text-center">Contact Us</h2>
+      <ul class="space-y-2 text-white text-sm md:text-base text-center md:text-left">
+        <li><strong class="text-lg">Address :</strong> Muktabai Temple,<br> Muktainagar, Jalgaon District, <br> Maharashtra – 425306, India</li>
+        <li><strong class="text-lg">Phone:</strong> <a href="tel:02582266673" class="underline">02582266673</a></li>
+        <li><strong class="text-lg">Email:</strong> <a href="mailto:gaurip123@gmail.com" class="underline">gaurip123gmail.com</a></li>
+      </ul>
+    </div>
+    <!-- Right Column (Form) -->
+    <div class="bg-white w-full md:w-1/2 flex items-center justify-center p-4 md:p-6">
+      <form class="w-full flex flex-col gap-4">
+        <!-- Name & Surname -->
+        <div class="flex flex-col md:flex-row gap-4 w-full">
+          <input
+            type="text"
+            placeholder="Enter Your Name"
+            class="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="text"
+            placeholder="Enter Your Surname"
+            class="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Email -->
+        <input
+          type="email"
+          placeholder="Enter Your Email"
+          class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <!-- Message -->
+        <textarea
+          rows="4"
+          placeholder="Enter Your Message"
+          class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[120px]"
+        ></textarea>
+        <!-- Button -->
+        <button
+          type="submit"
+          class="bg-[#007B9E] text-white py-2 px-6 rounded-md hover:bg-[#006689] transition-shadow shadow-md w-full md:w-auto self-end"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

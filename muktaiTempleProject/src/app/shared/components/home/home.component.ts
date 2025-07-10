@@ -3,15 +3,18 @@ import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent,CommonModule],
+  imports: [HeaderComponent,CommonModule,GoogleMapsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+    zoom = 14;
+  center: google.maps.LatLngLiteral = { lat: 21.0465, lng: 76.2221 };
    constructor(private auth: AuthService, private router: Router) {}
 
   logout() {
