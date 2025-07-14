@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         // Add your custom color here
-        'my-custom-color': '#C55449',
+        'my-custom-color': 'bg-red-500',
       },
     },
   },

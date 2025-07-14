@@ -4,6 +4,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import {SharedModule} from './shared/shared.module'
 import { HomeComponent } from './shared/components/home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import {DashboardRoutingModule} from './features/dashboard/dashboard-routing.module';
 
 export const routes: Routes = [
       {
@@ -20,6 +21,11 @@ export const routes: Routes = [
         component:HeaderComponent
 
     },
+     {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./features/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
+  },
     {
         path: 'Home',
         component: HomeComponent,
