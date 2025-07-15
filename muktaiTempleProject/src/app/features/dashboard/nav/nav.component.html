@@ -1,19 +1,26 @@
-<!-- Navbar -->
-<div class="bg-red-500 shadow px-6 py-4 flex items-center justify-between ml-64">
-  <!-- Search Bar -->
-  <div class="flex items-center w-1/2 relative">
-    <i class="fas fa-search absolute left-3 text-gray-400"></i>
-    <input
-      type="text"
-      placeholder="Search here"
-      class="w-full pl-10 pr-4 py-2 border   rounded-md focus:outline-none  focus:ring-[#BF4D3D]"
-    />
+<!-- Add md:ml-64 to push navbar content on desktop -->
+<div class="bg-red-500 shadow px-4 py-3 flex items-center justify-between md:ml-64">
+  <div class="flex items-center gap-4">
+    <!-- Mobile Toggle -->
+    <button class="md:hidden text-white text-2xl" (click)="onToggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Search (hidden on mobile) -->
+    <div class="hidden md:flex items-center relative w-64">
+      <i class="fas fa-search absolute  left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+      <input
+        type="text"
+        placeholder="Search here"
+        class="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-[#BF4D3D]"
+      />
+    </div>
   </div>
 
-  <!-- Action Icons -->
-  <div class="flex items-center space-x-6 text-white">
-    <i class="fas fa-cog cursor-pointer text-lg hover:text-gray-200"></i>
-    <i class="fas fa-bell cursor-pointer text-lg hover:text-gray-200"></i>
-    <i class="fas fa-user-circle cursor-pointer text-2xl hover:text-gray-200"></i>
+  <!-- Right icons -->
+  <div class="flex items-center space-x-4 text-white">
+    <i class="fas fa-cog"></i>
+    <i class="fas fa-bell"></i>
+    <i class="fas fa-user-circle text-xl"></i>
   </div>
 </div>

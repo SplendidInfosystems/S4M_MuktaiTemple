@@ -12,88 +12,104 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-
-    
   errorMessage = '';
+  showPassword = false;
 
-  constructor(private router: Router,private fb: FormBuilder) {
-     this.loginForm = this.fb.group({
+  constructor(private router: Router, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
         Validators.minLength(6),
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/) // at least one letter and one number
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/)
       ]]
     });
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
-
- allowOnlyDigits(event: KeyboardEvent) {
+  allowOnlyDigits(event: KeyboardEvent) {
     const charCode = event.key;
     if (!/^\d$/.test(charCode)) {
       event.preventDefault();
     }
   }
- 
 
   onInput(event: any, index: number) {
-  const input = event.target;
-  const value = input.value;
+    const input = event.target;
+    const value = input.value;
 
-  // Allow only digits
-  if (!/^[0-9]$/.test(value)) {
-    input.value = '';
-    return;
-  }
+    if (!/^[0-9]$/.test(value)) {
+      input.value = '';
+      return;
+    }
 
-  // Move to next input
-  const nextInput = document.getElementById(`input-${index + 1}`);
-  if (nextInput && value) {
-    (nextInput as HTMLInputElement).focus();
-  }
-}
-
-onKeyDown(event: KeyboardEvent, index: number) {
-  const input = event.target as HTMLInputElement;
-
-  if (event.key === 'Backspace') {
-    if (!input.value) {
-      const prevInput = document.getElementById(`input-${index - 1}`);
-      if (prevInput) {
-        (prevInput as HTMLInputElement).focus();
-      }
-    } else {
-      input.value = ''; // Clear the input manually
+    const nextInput = document.getElementById(`input-${index + 1}`);
+    if (nextInput && value) {
+      (nextInput as HTMLInputElement).focus();
     }
   }
 
-  // Prevent non-numeric input
-  if (event.key.length === 1 && !/[0-9]/.test(event.key)) {
-    event.preventDefault();
+  onKeyDown(event: KeyboardEvent, index: number) {
+    const input = event.target as HTMLInputElement;
+
+    if (event.key === 'Backspace') {
+      if (!input.value) {
+        const prevInput = document.getElementById(`input-${index - 1}`);
+        if (prevInput) {
+          (prevInput as HTMLInputElement).focus();
+        }
+      } else {
+        input.value = '';
+      }
+    }
+
+    if (event.key.length === 1 && !/[0-9]/.test(event.key)) {
+      event.preventDefault();
+    }
   }
-}
 
-
-    onSubmit() {
-    console.log(this.loginForm.value);
+  onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       if (email === 'admin@gmail.com' && password === 'admin123') {
-        localStorage.setItem('token', 'hgjghggsfdyyjhg');
+        localStorage.setItem('token', 'example_token');
         this.router.navigate(['/Home']);
       } else {
+        this.loginForm.markAllAsTouched();
         this.errorMessage = 'Invalid credentials';
       }
+    } else {
+      this.loginForm.markAllAsTouched();
     }
   }
 
-   
 
-  showPassword = false;
+    get password(): string {
+    return this.loginForm.get('password')?.value || '';
+  }
 
-togglePasswordVisibility() {
-  this.showPassword = !this.showPassword;
-}
+  hasUpperCase(): boolean {
+    return /[A-Z]/.test(this.password);
+  }
+
+  hasLowerCase(): boolean {
+    return /[a-z]/.test(this.password);
+  }
+
+  hasNumber(): boolean {
+    return /[0-9]/.test(this.password);
+  }
+
+  hasSpecialChar(): boolean {
+    return /[\W_]/.test(this.password);
+  }
+
+  hasMinLength(): boolean {
+    return this.password.length >= 6;
+  }
+
 
 }

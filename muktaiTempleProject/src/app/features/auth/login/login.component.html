@@ -1,53 +1,66 @@
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
-  <!-- Card container -->
-  <div
-    class="flex flex-col md:flex-row bg-white border border-gray-200 rounded-lg shadow-md md:max-w-4xl w-full p-6 md:p-0">
+  <div class="flex flex-col md:flex-row bg-white border border-gray-200 rounded-lg shadow-md md:max-w-4xl w-full p-6 md:p-0">
 
     <!-- Left: Form Section -->
     <div class="w-full md:w-1/2 p-6">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="max-w-md w-full">
-        <span class="text-xl font-semibold flex items-center justify-center  ">Login Now</span>
-        <span class=" flex items-center justify-center  ">Welcome back</span>
+        <h2 class="text-xl font-semibold text-center mb-1">Login Now</h2>
+        <p class="text-center mb-6">Welcome back</p>
 
-        <div class="mb-3">
-          <label for="email" name="email"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-          <input type="email" formControlName="email" id="email"
-            class="bg-white outline-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="Enter Your Email" required />
-          <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
-            class="text-sm text-red-600 mt-1">
-            <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
-            <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email</div>
-          </div>
-        </div>
-       <div class="mb-5">
-  <label for="password" name="password" class="block mb-2  text-sm font-medium text-gray-900 dark:text-white">
-    Password
-  </label>
+        <!-- Email -->
+      <!-- Email Field -->
+<div class="mb-4">
+  <label for="email" class="block text-sm font-medium text-gray-900">Email</label>
+  <input
+    type="email"
+    id="email"
+    formControlName="email"
+    placeholder="Enter your email"
+    class="w-full p-2.5 text-sm rounded-lg border bg-white text-gray-900 transition duration-150 ease-in-out focus:outline-none"
+    [ngClass]="{
+      'border-red-600 ring-2 ring-red-300': loginForm.get('email')?.touched && loginForm.get('email')?.invalid,
+      'border-gray-300 focus:ring-2 focus:ring-gray-300': loginForm.get('email')?.touched && loginForm.get('email')?.valid,
+      'border-gray-300': !loginForm.get('email')?.touched
+    }"
+  />
 
-  <!-- Only input and eye inside this container -->
+  <!-- Error messages -->
+  <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-sm text-red-600 mt-1">
+    <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
+    <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email</div>
+  </div>
+</div>
+
+
+        <!-- Password -->
+       <!-- Password Field -->
+<!-- Password Field -->
+<div class="mb-4">
+  <label for="password" class="block text-sm font-medium text-gray-900">Password</label>
   <div class="relative">
     <input
       [type]="showPassword ? 'text' : 'password'"
-      formControlName="password"
       id="password"
-      class="bg-white outline-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 pr-10"
-      placeholder="Enter Your Password"
-      required
+      formControlName="password"
+      placeholder="Enter your password"
+      class="w-full p-2.5 pr-10 text-sm rounded-lg border bg-white text-gray-900 transition duration-150 ease-in-out focus:outline-none"
+      [ngClass]="{
+        'border-red-600 ring-2 ring-red-300': loginForm.get('password')?.touched && loginForm.get('password')?.invalid,
+        'border-gray-300 focus:ring-2 focus:ring-gray-300': loginForm.get('password')?.touched && loginForm.get('password')?.valid,
+        'border-gray-300': !loginForm.get('password')?.touched
+      }"
     />
 
-    <!-- Eye icon toggle -->
+    <!-- Toggle password visibility -->
     <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" (click)="togglePasswordVisibility()">
-      <!-- Eye SVG -->
+      <!-- Eye Icons -->
       <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
         stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12z" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
-
-      <!-- Eye off SVG -->
       <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
         stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -56,64 +69,66 @@
     </span>
   </div>
 
-  <!-- Move validation block OUTSIDE the input wrapper -->
-  <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
-    class="text-sm text-red-600 mt-1">
-    <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</div>
-    <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Minimum 6 characters required</div>
-    <div *ngIf="loginForm.get('password')?.errors?.['pattern']">Must contain at least one letter and one number</div>
+  <!-- Password Requirement Feedback -->
+  <div class="mt-2 space-y-1 text-sm">
+    <div [ngClass]="hasUpperCase() ? 'text-green-600' : 'text-red-600'">
+      • At least one uppercase letter
+    </div>
+    <div [ngClass]="hasLowerCase() ? 'text-green-600' : 'text-red-600'">
+      • At least one lowercase letter
+    </div>
+    <div [ngClass]="hasNumber() ? 'text-green-600' : 'text-red-600'">
+      • At least one number
+    </div>
+    <div [ngClass]="hasSpecialChar() ? 'text-green-600' : 'text-red-600'">
+      • At least one special character
+    </div>
+    <div [ngClass]="hasMinLength() ? 'text-green-600' : 'text-red-600'">
+      • Minimum 6 characters
+    </div>
   </div>
 </div>
 
-        <div class="flex flex-row">
-          <div class="flex items-start mb-5">
-            <input id="remember" type="checkbox"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" required />
-            <label for="remember" class="ms-2 text-sm font-medium text-gray-900">Remember me</label>
-          </div>
-          <div class="flex items-start mb-5 ms-auto">
-            <a href="" class="text-sm text-blue-600  focus:no-underline">Forgot Password?</a>
-          </div>
+
+
+        <!-- Remember & Forgot -->
+        <div class="flex justify-between items-center mb-5">
+          <label class="flex items-center space-x-2 text-sm">
+            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
         </div>
+
+        <!-- Submit -->
         <button type="submit"
-          class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">Code
-          Sent</button>
+          class="w-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
+          Code Sent
+        </button>
       </form>
     </div>
 
-    <!-- Right: Extra Content -->
-    <div
-      class="w-full md:w-1/2 bg-red-500 text-white flex flex-col items-center justify-center md:rounded-l-[50px]  p-8">
-
-      <!-- Text Paragraph -->
-      <p class="text-lg text-white text-center">
-        Verification Code SMS / Email <br />
-
-      </p>
-      <p class="text-lg text-white text-center"> We sent a code to 81******01</p>
-
-      <!-- Input Box on New Line -->
-      <div class="mt-4">
-        <div class="flex gap-2">
-  <input id="input-1" maxlength="1" (input)="onInput($event, 1)" (keydown)="onKeyDown($event, 1)"
-    class="otp-box" type="text" />
-  <input id="input-2" maxlength="1" (input)="onInput($event, 2)" (keydown)="onKeyDown($event, 2)"
-    class="otp-box" type="text" />
-  <input id="input-3" maxlength="1" (input)="onInput($event, 3)" (keydown)="onKeyDown($event, 3)"
-    class="otp-box" type="text" />
-  <input id="input-4" maxlength="1" (input)="onInput($event, 4)" (keydown)="onKeyDown($event, 4)"
-    class="otp-box" type="text" />
-  <input id="input-5" maxlength="1" (input)="onInput($event, 5)" (keydown)="onKeyDown($event, 5)"
-    class="otp-box" type="text" />
-  <input id="input-6" maxlength="1" (input)="onInput($event, 6)" (keydown)="onKeyDown($event, 6)"
-    class="otp-box" type="text" />
-</div>
-
-
+    <!-- Right: OTP Section -->
+    <div class="w-full md:w-1/2 bg-red-500 text-white flex flex-col items-center justify-center md:rounded-l-[50px] p-8">
+      <p class="text-lg text-white text-center">Verification Code SMS / Email</p>
+      <p class="text-lg text-white text-center mb-4">We sent a code to 81******01</p>
+      <div class="flex gap-2">
+        <ng-container *ngFor="let i of [1,2,3,4,5,6]">
+          <input
+            [id]="'input-' + i"
+            maxlength="1"
+            type="text"
+            (input)="onInput($event, i)"
+            (keydown)="onKeyDown($event, i)"
+            class="w-10 h-10 text-center text-black text-lg rounded-md border border-gray-300
+              focus:outline focus:outline-2 focus:outline-white transition"
+          />
+        </ng-container>
       </div>
       <div class="mt-4">
-        <a href="" class="text-white focus:outline-none no-underline">Didn't get a Code ?
-
-        </a>
+        <a href="#" class="text-white no-underline hover:underline text-sm">Didn't get a code?</a>
       </div>
     </div>
+
+  </div>
+</div>

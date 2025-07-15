@@ -1,6 +1,7 @@
-<app-sidebar></app-sidebar>
-<app-nav></app-nav>
+<app-sidebar [sidebarOpen]="sidebarOpen"></app-sidebar>
 
-<div class="ml-64 mt-[72px] p-6">
+<app-nav (toggleSidebarEvent)="toggleSidebar()"></app-nav>
+
+<div class="ml-64 mt-[72px] p-6" [class.ml-0]="!sidebarOpen" [class.ml-64]="sidebarOpen">
   <router-outlet></router-outlet>
 </div>
