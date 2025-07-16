@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterOutlet } from '@angular/router';
@@ -11,11 +11,15 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
    sidebarOpen = false;
-
+ screenIsSmall: boolean = false;
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
+  ngOnInit() {
+  this.screenIsSmall = window.innerWidth < 768;
+}
+
 
 }

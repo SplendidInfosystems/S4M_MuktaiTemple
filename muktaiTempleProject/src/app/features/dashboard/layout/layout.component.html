@@ -1,7 +1,13 @@
-<app-sidebar [sidebarOpen]="sidebarOpen"></app-sidebar>
+<!-- Sidebar -->
+<app-sidebar></app-sidebar>
 
-<app-nav (toggleSidebarEvent)="toggleSidebar()"></app-nav>
+<!-- Main layout -->
+<div class="ml-64 flex flex-col min-h-screen bg-gray-100">
+  <!-- Header -->
+  <app-nav></app-nav>
 
-<div class="ml-64 mt-[72px] p-6" [class.ml-0]="!sidebarOpen" [class.ml-64]="sidebarOpen">
-  <router-outlet></router-outlet>
+  <!-- Router Content (Main Page) -->
+  <main class="p-6 flex-1">
+    <router-outlet></router-outlet>
+  </main>
 </div>

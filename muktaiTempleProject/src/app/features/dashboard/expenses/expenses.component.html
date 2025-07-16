@@ -1,0 +1,42 @@
+<div class="flex">
+  
+
+  <!-- Main Content -->
+  <div class="flex-1 p-8 bg-gray-100 min-h-screen">
+    <div class="bg-white rounded shadow-lg p-6">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-semibold">Expenses</h3>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          + Add Expenses
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-300 text-sm text-left">
+          <thead class="bg-gray-100 text-gray-700 font-medium">
+            <tr>
+              <th class="px-4 py-2 border">Expenses Name</th>
+              <th class="px-4 py-2 border">Expenses Date</th>
+              <th class="px-4 py-2 border">Description</th>
+              <th class="px-4 py-2 border">Category</th>
+              <th class="px-4 py-2 border">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Repeat this row as needed -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-2 border">Travelling exp.</td>
+              <td class="px-4 py-2 border">01.01.25</td>
+              <td class="px-4 py-2 border">Fixed Asset Purchase</td>
+              <td class="px-4 py-2 border">Fixed Asset</td>
+              <td class="px-4 py-2 border">100</td>
+            </tr>
+            <!-- Add more rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

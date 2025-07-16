@@ -1,0 +1,72 @@
+<div class="w-full max-w-xl mx-auto mt-10 bg-white rounded shadow-md">
+  <!-- Form Header -->
+  <div class="bg-cyan-700 text-white px-6 py-4 flex justify-between items-center rounded-t">
+    <h2 class="text-lg font-semibold">Add Expenses Name</h2>
+    <button class="text-white text-xl font-bold">&times;</button>
+  </div>
+
+  <!-- Form Body -->
+  <form class="px-6 py-6 space-y-4">
+    <!-- Expense Name -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        Expences Name <span class="text-red-500">*</span>
+      </label>
+      <input type="text" placeholder="Enter Exp. Name"
+             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+    </div>
+
+    <!-- Date -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        Date <span class="text-red-500">*</span>
+      </label>
+      <input type="date"
+             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+    </div>
+
+    <!-- Category -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        Category <span class="text-red-500">*</span>
+      </label>
+      <input type="text" placeholder="Enter Category"
+             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+    </div>
+
+    <!-- Amount -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        Amount <span class="text-red-500">*</span>
+      </label>
+      <input type="number" placeholder="Enter Amount"
+             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        Description <span class="text-red-500">*</span>
+      </label>
+      <textarea rows="3" placeholder="Enter Expenses Description"
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+    </div>
+
+    <!-- States -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        States <span class="text-red-500">*</span>
+      </label>
+      <input type="text" placeholder="Enter State"
+             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="pt-4">
+      <button type="submit"
+              class="w-full bg-cyan-700 text-white font-semibold py-2 rounded hover:bg-cyan-800 transition duration-200">
+        SUBMIT
+      </button>
+    </div>
+  </form>
+</div>

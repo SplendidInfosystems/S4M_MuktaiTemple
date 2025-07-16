@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { ExpensesComponent } from './expenses/expenses.component';
 
 const routes: Routes = [
   
@@ -18,10 +19,16 @@ const routes: Routes = [
         path: 'nav-bar',
         loadComponent: () =>
           import('./nav/nav.component').then(m => m.NavComponent)
+      },
+      {
+        path:'expenses',
+        loadComponent: () => import('./expenses/expenses.component').then(m => m.ExpensesComponent)
       }
+     
 
       ]
     
+       
 
 }
 ];

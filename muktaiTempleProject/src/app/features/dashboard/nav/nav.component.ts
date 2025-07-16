@@ -9,12 +9,10 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-    @Output() toggleSidebarEvent = new EventEmitter<void>();
+ @Output() sidebarToggle = new EventEmitter<void>();
 
-   sidebarOpen = false;
-
-   onToggleSidebar() {
-    this.toggleSidebarEvent.emit();
+  toggle() {
+    this.sidebarToggle.emit(); // Call from template button
   }
 
 
