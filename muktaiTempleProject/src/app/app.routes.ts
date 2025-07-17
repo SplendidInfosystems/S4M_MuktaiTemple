@@ -27,7 +27,7 @@ export const routes: Routes = [
       import('./features/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
   },
     {
-        path: 'Home',
+        path: 'home',
         component: HomeComponent,
         canActivate: [AuthGuard]
     }

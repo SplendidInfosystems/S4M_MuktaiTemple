@@ -72,20 +72,28 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      if (email === 'admin@gmail.com' && password === 'admin123') {
-        localStorage.setItem('token', 'example_token');
-        this.router.navigate(['/Home']);
-      } else {
-        this.loginForm.markAllAsTouched();
-        this.errorMessage = 'Invalid credentials';
-      }
-    } else {
-      this.loginForm.markAllAsTouched();
-    }
-  }
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
 
+    // ✅ Admin credentials
+    if (email === 'admin@gmail.com' && password === 'Admin@123') {
+      localStorage.setItem('token', 'admin_token');
+      this.router.navigate(['/dashboard']); // ✅ Admin goes to dashboard
+    }
+    // ✅ Any other valid user
+    else if (email === 'user@gmail.com' && password === 'User@123') {
+      localStorage.setItem('token', 'user_token');
+      this.router.navigate(['/home']); // ✅ Normal user goes to home
+    }
+    // ❌ Invalid credentials
+    else {
+      this.loginForm.markAllAsTouched();
+      this.errorMessage = 'Invalid credentials';
+    }
+  } else {
+    this.loginForm.markAllAsTouched();
+  }
+  }
 
     get password(): string {
     return this.loginForm.get('password')?.value || '';

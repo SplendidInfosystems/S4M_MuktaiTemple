@@ -10,19 +10,23 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      {
-        path: 'side-bar',
-        loadComponent: () =>
-          import('./sidebar/sidebar.component').then(m => m.SidebarComponent)
-      },
-      {
-        path: 'nav-bar',
-        loadComponent: () =>
-          import('./nav/nav.component').then(m => m.NavComponent)
-      },
+      // {
+      //   path: 'side-bar',
+      //   loadComponent: () =>
+      //     import('./sidebar/sidebar.component').then(m => m.SidebarComponent)
+      // },
+      // {
+      //   path: 'nav-bar',
+      //   loadComponent: () =>
+      //     import('./nav/nav.component').then(m => m.NavComponent)
+      // },
       {
         path:'expenses',
         loadComponent: () => import('./expenses/expenses.component').then(m => m.ExpensesComponent)
+      },
+      {
+        path:'add-expenses',
+        loadComponent:()=> import('./add-expences/add-expences.component').then(m =>m.AddExpencesComponent)
       }
      
 
