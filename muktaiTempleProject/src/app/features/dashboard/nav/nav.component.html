@@ -1,14 +1,25 @@
-<header class="bg-red-500 text-white p-4 flex justify-between items-center shadow-md">
+<header class="bg-red-500 text-white p-4 flex items-center justify-between shadow-md">
   <!-- Left: Hamburger on small screens -->
-  <button class="md:hidden text-white text-2xl" (click)="toggle()">
+  <button class="md:hidden text-white text-2xl mr-4" (click)="toggle()">
     <i class="fas fa-bars"></i>
   </button>
 
-  <!-- Center: Title -->
-  <h1 class="text-xl font-semibold">Dashboard</h1>
+  <!-- Search Input: aligned left -->
+  <div class="flex-grow max-w-sm">
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Search Here"
+        class="w-full pl-10 pr-4 py-2 rounded text-black focus:outline-none"
+      />
+      <span class="absolute left-3 top-2.5 text-gray-300">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
 
   <!-- Right: Icons -->
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-4 ml-4">
     <i class="fas fa-cog cursor-pointer"></i>
     <i class="fas fa-bell cursor-pointer"></i>
     <i class="fas fa-user-circle text-2xl cursor-pointer"></i>

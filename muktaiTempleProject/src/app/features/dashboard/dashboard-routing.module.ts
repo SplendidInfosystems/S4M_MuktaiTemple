@@ -10,16 +10,7 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      // {
-      //   path: 'side-bar',
-      //   loadComponent: () =>
-      //     import('./sidebar/sidebar.component').then(m => m.SidebarComponent)
-      // },
-      // {
-      //   path: 'nav-bar',
-      //   loadComponent: () =>
-      //     import('./nav/nav.component').then(m => m.NavComponent)
-      // },
+    
       {
         path:'expenses',
         loadComponent: () => import('./expenses/expenses.component').then(m => m.ExpensesComponent)
@@ -27,6 +18,14 @@ const routes: Routes = [
       {
         path:'add-expenses',
         loadComponent:()=> import('./add-expences/add-expences.component').then(m =>m.AddExpencesComponent)
+      },
+      {
+        path :'donation',
+        loadComponent: () => import('./donation/donation.component').then(m => m.DonationComponent)
+      },
+      {
+        path:'add-donor',
+        loadComponent: () => import('./add-donor/add-donor.component').then(m => m.AddDonorComponent)
       }
      
 

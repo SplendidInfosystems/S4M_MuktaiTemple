@@ -1,0 +1,41 @@
+<div class="w-full max-w-6xl mx-auto mt-10 p-4 bg-white rounded shadow overflow-x-auto">
+  <!-- Report Header -->
+  <div class="flex flex-wrap items-center justify-between mb-4 space-y-2 sm:space-y-0 sm:space-x-4">
+    <!-- Button Group -->
+    <div class="flex flex-wrap gap-2">
+      <button class="report-btn">WEEKLY REPORT</button>
+      <button class="report-btn">MONTHLY REPORT</button>
+      <button class="report-btn">YEARLY REPORT</button>
+    </div>
+    <button class="report-btn" (click)="openAddDonorModal()">+ Add Donors</button>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-300 text-sm text-left">
+      <thead class="bg-gray-100 text-gray-700 uppercase">
+        <tr>
+          <th class="table-heading">Date</th>
+          <th class="table-heading">Donor Name</th>
+          <th class="table-heading">Address</th>
+          <th class="table-heading">Mobile No</th>
+          <th class="table-heading">Amount</th>
+          <th class="table-heading">Payment M</th>
+          <th class="table-heading">Amt In Words</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hover:bg-gray-50">
+          <td class="table-heading">01.01.25</td>
+          <td class="table-heading">Kiran Patil</td>
+          <td class="table-heading">Muktainagar</td>
+          <td class="table-heading">9112345667</td>
+          <td class="table-heading">500 Rs</td>
+          <td class="table-heading">Offline</td>
+          <td class="table-heading">Five Hundred</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+</div>
