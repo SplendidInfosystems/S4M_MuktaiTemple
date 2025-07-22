@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path:'add-donor',
         loadComponent: () => import('./add-donor/add-donor.component').then(m => m.AddDonorComponent)
+      },
+      {
+        path:'contact-us',
+        loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent)
       }
      
 
