@@ -1,76 +1,147 @@
 <div class="max-w-6xl mx-auto mt-10 px-6 overflow-y-auto">
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-semibold text-left text-cyan-700 mb-6">Contact Us</h2>
 
-    <div class="bg-white shadow-lg rounded-lg p-6">
-        <h2 class="text-2xl font-semibold text-left text-cyan-700 mb-6">Contact Us</h2>
-
-        <!-- Form & Address Section -->
-        <div class="grid md:grid-cols-2 gap-6">
-            <!-- Contact Form -->
-            <form class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Name <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" placeholder="Enter Your Name" class="contact-form" />
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Email <span class="text-red-500">*</span>
-                    </label>
-                    <input type="email" placeholder="Enter Your Email" class="contact-form" />
-                </div>
-                <div>
-
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Mobile No <span class="text-red-500">*</span>
-                    </label>
-
-                    <input type="tel" placeholder="Enter Your Mobile No" class="contact-form" />
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Message <span class="text-red-500">*</span>
-                    </label>
-
-                    <textarea rows="4" placeholder="Type Massage" class="contact-form"></textarea>
-                </div>
-
-                <button type="submit"
-                    class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded w-full">
-                    Send Message
-                </button>
-            </form>
-
-            <!-- Contact Info Buttons -->
-            <div class="space-y-4 mt-4">
-                <button class="contact-button">
-                    <i class="fas fa-map-marker-alt text-red-500 mr-3"></i> Office Address
-                </button>
-
-                <button class="contact-button">
-                    <i class="fas fa-envelope text-red-500 mr-3"></i> Mail Address
-                </button>
-
-                <button class="contact-button">
-                    <i class="fas fa-phone text-red-500 mr-3"></i> Telephone No
-                </button>
-            </div>
+    <!-- Form & Address Section -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Contact Form -->
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
+        <!-- Name -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Name <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Enter Your Name"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+            [ngClass]="{
+              'border-red-500 focus:ring-red-500': contactForm.get('name')?.touched && contactForm.get('name')?.invalid,
+              'border-blue-500 focus:ring-blue-500': contactForm.get('name')?.touched && contactForm.get('name')?.valid,
+              'border-gray-300': !contactForm.get('name')?.touched
+            }"
+          />
+          <small
+            *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
+            class="text-red-500"
+          >
+            Name is required
+          </small>
         </div>
 
-        <!-- Map Section -->
-        <div class="mt-6">
-            <div class="flex items-center justify-between mb-2">
-                <h3 class="text-sm font-semibold text-gray-700">Track Near by</h3>
-                <i class="fas fa-map-marker-alt text-gray-500 text-sm"></i>
-            </div>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.981088925477!2d73.835598!3d18.512578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c10d8f4311f5%3A0x3e2c14c5c43e31f6!2sMuktainagar!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                width="100%" height="250" class="rounded border" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Email <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter Your Email"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+            [ngClass]="{
+              'border-red-500 focus:ring-red-500': contactForm.get('email')?.touched && contactForm.get('email')?.invalid,
+              'border-blue-500 focus:ring-blue-500': contactForm.get('email')?.touched && contactForm.get('email')?.valid,
+              'border-gray-300': !contactForm.get('email')?.touched
+            }"
+          />
+          <small
+            *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+            class="text-red-500"
+          >
+            Valid email is required
+          </small>
         </div>
+
+        <!-- Mobile No -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Mobile No <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="tel"
+            formControlName="mobileNo"
+            placeholder="Enter Your Mobile No"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+            [ngClass]="{
+              'border-red-500 focus:ring-red-500': contactForm.get('mobileNo')?.touched && contactForm.get('mobileNo')?.invalid,
+              'border-blue-500 focus:ring-blue-500': contactForm.get('mobileNo')?.touched && contactForm.get('mobileNo')?.valid,
+              'border-gray-300': !contactForm.get('mobileNo')?.touched
+            }"
+          />
+          <small
+            *ngIf="contactForm.get('mobileNo')?.touched && contactForm.get('mobileNo')?.invalid"
+            class="text-red-500"
+          >
+            Valid 10-digit mobile number is required
+          </small>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Message <span class="text-red-500">*</span>
+          </label>
+          <textarea
+            rows="4"
+            formControlName="message"
+            placeholder="Type Message"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+            [ngClass]="{
+              'border-red-500 focus:ring-red-500': contactForm.get('message')?.touched && contactForm.get('message')?.invalid,
+              'border-blue-500 focus:ring-blue-500': contactForm.get('message')?.touched && contactForm.get('message')?.valid,
+              'border-gray-300': !contactForm.get('message')?.touched
+            }"
+          ></textarea>
+          <small
+            *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"
+            class="text-red-500"
+          >
+            Message is required
+          </small>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded w-full"
+        >
+          Send Message
+        </button>
+      </form>
+
+      <!-- Contact Info Buttons -->
+      <div class="space-y-4 mt-4">
+        <button class="contact-button">
+          <i class="fas fa-map-marker-alt text-red-500 mr-3"></i> Office Address
+        </button>
+
+        <button class="contact-button">
+          <i class="fas fa-envelope text-red-500 mr-3"></i> Mail Address
+        </button>
+
+        <button class="contact-button">
+          <i class="fas fa-phone text-red-500 mr-3"></i> Telephone No
+        </button>
+      </div>
     </div>
-    <!-- <div class="h-20"></div> -->
 
+    <!-- Map Section -->
+    <div class="mt-6">
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="text-sm font-semibold text-gray-700">Track Near by</h3>
+        <i class="fas fa-map-marker-alt text-gray-500 text-sm"></i>
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.981088925477!2d73.835598!3d18.512578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c10d8f4311f5%3A0x3e2c14c5c43e31f6!2sMuktainagar!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+        width="100%"
+        height="250"
+        class="rounded border"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
 </div>

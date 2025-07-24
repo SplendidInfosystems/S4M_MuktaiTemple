@@ -13,9 +13,12 @@ import { GoogleMapsModule } from '@angular/google-maps';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  
     zoom = 14;
   center: google.maps.LatLngLiteral = { lat: 21.0465, lng: 76.2221 };
-   constructor(private auth: AuthService, private router: Router) {}
+   constructor(private auth: AuthService, private router: Router) {
+    
+   }
 
   logout() {
     this.auth.logout();
@@ -44,5 +47,7 @@ temples: {id: number; text: string; image: string }[] = [
   },
 
 ]
+
+
 
 }

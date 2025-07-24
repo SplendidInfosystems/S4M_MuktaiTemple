@@ -1,5 +1,5 @@
 .report-btn {
-    @apply bg-orange-500 hover:bg-orange-600 text-white font-medium px-4 py-2 rounded text-sm;
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-4 py-2 rounded text-sm;
   }
 
   .table-heading{
