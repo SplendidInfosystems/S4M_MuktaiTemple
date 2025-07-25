@@ -27,12 +27,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="hover:bg-gray-50">
-              <td class="px-4 py-2 border">Travelling exp.</td>
-              <td class="px-4 py-2 border">01.01.25</td>
-              <td class="px-4 py-2 border">Fixed Asset Purchase</td>
-              <td class="px-4 py-2 border">Fixed Asset</td>
-              <td class="px-4 py-2 border">₹100</td>
+            <tr *ngFor="let expense of expenseData" class="hover:bg-gray-50">
+              <td class="px-4 py-2 border">{{ expense.expenseName }}</td>
+              <td class="px-4 py-2 border">{{ expense.date }}</td>
+              <td class="px-4 py-2 border">{{ expense.description }}</td>
+              <td class="px-4 py-2 border">{{ expense.category }}</td>
+              <td class="px-4 py-2 border">{{ expense.amount }}</td>
             </tr>
           </tbody>
         </table>

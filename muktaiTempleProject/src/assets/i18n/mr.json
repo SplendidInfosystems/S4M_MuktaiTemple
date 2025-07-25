@@ -1,0 +1,84 @@
+{
+  "ADD_DONORS": "दाता जोडा",
+  "DONOR_NAME": "दाता नाव",
+  "ENTER_DONOR_NAME": "दाता नाव प्रविष्ट करा",
+  "DONOR_NAME_REQUIRED": "दाता नाव आवश्यक आहे",
+  "DATE": "तारीख",
+  "DATE_REQUIRED": "तारीख आवश्यक आहे",
+  "ADDRESS": "पत्ता",
+  "ENTER_ADDRESS": "पत्ता प्रविष्ट करा",
+  "ADDRESS_REQUIRED": "पत्ता आवश्यक आहे",
+  "MOBILE_NO": "मोबाईल क्रमांक",
+  "ENTER_MOBILE_NO": "मोबाईल क्रमांक प्रविष्ट करा",
+  "MOBILE_REQUIRED": "मोबाईल क्रमांक आवश्यक आहे",
+  "DONATION_AMOUNT": "दान रक्कम",
+  "ENTER_AMOUNT": "रक्कम प्रविष्ट करा",
+  "AMOUNT_REQUIRED": "रक्कम आवश्यक आहे",
+  "PAYMENT_METHOD": "पेमेंट पद्धत",
+  "ENTER_PAYMENT_METHOD": "पेमेंट पद्धत प्रविष्ट करा",
+  "PAYMENT_METHOD_REQUIRED": "पेमेंट पद्धत आवश्यक आहे",
+  "SUBMIT": "सबमिट करा",
+
+
+
+  
+
+  "ADD_EXPENSE": "खर्चाचे नाव जोडा",
+  "EXPENSE_TITLE": "खर्चाचे नाव",
+  "ENTER_EXPENSE_TITLE": "खर्चाचे नाव टाका",
+  "EXPENSE_TITLE_REQUIRED": "खर्चाचे नाव आवश्यक आहे",
+  "EXPENSE_DATE": "तारीख",
+  "EXPENSE_DATE_REQUIRED": "खर्चाची तारीख आवश्यक आहे",
+  "EXPENSE_AMOUNT": "रक्कम",
+  "ENTER_EXPENSE_AMOUNT": "रक्कम टाका",
+  "EXPENSE_AMOUNT_REQUIRED": "खर्चाची रक्कम आवश्यक आहे",
+  "EXPENSE_CATEGORY": "श्रेणी",
+  "ENTER_EXPENSE_CATEGORY": "खर्चाची श्रेणी टाका",
+  "EXPENSE_CATEGORY_REQUIRED": "खर्चाची श्रेणी आवश्यक आहे",
+  "EXPENSE_STATE": "राज्य",
+  "ENTER_EXPENSE_STATE": "खर्चाचे राज्य टाका",
+  "EXPENSE_STATE_REQUIRED": "खर्चाचे राज्य आवश्यक आहे",
+  "NOTES": "वर्णन",
+  "ENTER_NOTES": "वर्णन टाका (पर्यायी)",
+  "SUBMIT_EXPENSE": "सबमिट",
+
+
+
+  "CONTACT_US": "आमच्याशी संपर्क साधा",
+  "CONTACT_US_NAME": "नाव",
+  "CONTACT_US_ENTER_NAME": "आपले नाव टाका",
+  "CONTACT_US_NAME_REQUIRED": "नाव आवश्यक आहे",
+  "CONTACT_US_EMAIL": "ई-मेल",
+  "CONTACT_US_ENTER_EMAIL": "आपला ई-मेल टाका",
+  "CONTACT_US_EMAIL_REQUIRED": "वैध ई-मेल आवश्यक आहे",
+  "CONTACT_US_MOBILE_NO": "मोबाईल क्रमांक",
+  "CONTACT_US_ENTER_MOBILE_NO": "आपला मोबाईल क्रमांक टाका",
+  "CONTACT_US_MOBILE_REQUIRED": "वैध 10-अंकी मोबाईल क्रमांक आवश्यक आहे",
+  "CONTACT_US_MESSAGE": "संदेश",
+  "CONTACT_US_ENTER_MESSAGE": "संदेश लिहा",
+  "CONTACT_US_MESSAGE_REQUIRED": "संदेश आवश्यक आहे",
+  "CONTACT_US_SEND_MESSAGE": "संदेश पाठवा",
+  "CONTACT_US_OFFICE_ADDRESS": "कार्यालयाचा पत्ता",
+  "CONTACT_US_MAIL_ADDRESS": "मेल पत्ता",
+  "CONTACT_US_TELEPHONE_NO": "दूरध्वनी क्रमांक",
+  "CONTACT_US_TRACK_NEARBY": "जवळपास ट्रॅक करा",
+
+
+  "DONATION_REPORT": {
+  "WEEKLY": "साप्ताहिक अहवाल",
+  "MONTHLY": "मासिक अहवाल",
+  "YEARLY": "वार्षिक अहवाल",
+  "ADD_DONORS": "देणगीदार जोडा",
+  "DATE": "दिनांक",
+  "DONOR_NAME": "देणगीदाराचे नाव",
+  "ADDRESS": "पत्ता",
+  "MOBILE_NO": "मोबाईल क्रमांक",
+  "AMOUNT": "रक्कम",
+  "PAYMENT_METHOD": "पेमेंट पद्धत",
+  "AMOUNT_IN_WORDS": "रकमेचे शब्दात रूपांतर"
+}
+}
+
+
+
+

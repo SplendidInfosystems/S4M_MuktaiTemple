@@ -1,21 +1,21 @@
 <div class="w-full max-w-xl mx-auto mt-10 bg-white rounded shadow-md">
   <!-- Form Header -->
   <div class="bg-emerald-500 text-white px-6 py-4 flex justify-between items-center rounded-t">
-    <h2 class="text-lg font-semibold">Add Expenses Name</h2>
+    <h2 class="text-lg font-semibold">{{ 'ADD_EXPENSE' | translate }}</h2>
     <button class="text-white text-xl font-bold">&times;</button>
   </div>
 
   <!-- Form Body -->
   <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()" class="px-6 py-6 space-y-4">
-    <!-- Expense Name -->
+    <!-- Expense Title -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">
-        Expense Name <span class="text-red-500">*</span>
+        {{ 'EXPENSE_TITLE' | translate }} <span class="text-red-500">*</span>
       </label>
       <input
         type="text"
         formControlName="expenseName"
-        placeholder="Enter Exp. Name"
+        [placeholder]="'ENTER_EXPENSE_TITLE' | translate"
         class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
         [ngClass]="{
           'border-red-500 focus:ring-red-500': expenseForm.get('expenseName')?.touched && expenseForm.get('expenseName')?.invalid,
@@ -24,14 +24,14 @@
         }"
       />
       <small *ngIf="expenseForm.get('expenseName')?.touched && expenseForm.get('expenseName')?.invalid" class="text-red-500">
-        Expense Name is required
+        {{ 'EXPENSE_TITLE_REQUIRED' | translate }}
       </small>
     </div>
 
     <!-- Date -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">
-        Date <span class="text-red-500">*</span>
+        {{ 'EXPENSE_DATE' | translate }} <span class="text-red-500">*</span>
       </label>
       <input
         type="date"
@@ -44,19 +44,19 @@
         }"
       />
       <small *ngIf="expenseForm.get('date')?.touched && expenseForm.get('date')?.invalid" class="text-red-500">
-        Date is required
+        {{ 'EXPENSE_DATE_REQUIRED' | translate }}
       </small>
     </div>
 
     <!-- Category -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">
-        Category <span class="text-red-500">*</span>
+        {{ 'EXPENSE_CATEGORY' | translate }} <span class="text-red-500">*</span>
       </label>
       <input
         type="text"
         formControlName="category"
-        placeholder="Enter Category"
+        [placeholder]="'ENTER_EXPENSE_CATEGORY' | translate"
         class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
         [ngClass]="{
           'border-red-500 focus:ring-red-500': expenseForm.get('category')?.touched && expenseForm.get('category')?.invalid,
@@ -65,19 +65,19 @@
         }"
       />
       <small *ngIf="expenseForm.get('category')?.touched && expenseForm.get('category')?.invalid" class="text-red-500">
-        Category is required
+        {{ 'EXPENSE_CATEGORY_REQUIRED' | translate }}
       </small>
     </div>
 
     <!-- Amount -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">
-        Amount <span class="text-red-500">*</span>
+        {{ 'EXPENSE_STATE' | translate }} <span class="text-red-500">*</span>
       </label>
       <input
-        type="number"
-        formControlName="amount"
-        placeholder="Enter Amount"
+        type="text"
+        formControlName="state"
+        [placeholder]="'ENTER_EXPENSE_STATE' | translate"
         class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
         [ngClass]="{
           'border-red-500 focus:ring-red-500': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid,
@@ -86,50 +86,46 @@
         }"
       />
       <small *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid" class="text-red-500">
-        Amount is required and must be greater than 0
+        {{ 'EXPENSE_STATE_REQUIRED' | translate }}
       </small>
     </div>
 
-    <!-- Description -->
+<!-- state -->
+ <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'EXPENSE_AMOUNT' | translate }} <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="number"
+        formControlName="amount"
+        [placeholder]="'ENTER_EXPENSE_AMOUNT' | translate"
+        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+        [ngClass]="{
+          'border-red-500 focus:ring-red-500': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid,
+          'border-blue-500 focus:ring-blue-500': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.valid,
+          'border-gray-300': !expenseForm.get('amount')?.touched
+        }"
+      />
+      <small *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid" class="text-red-500">
+        {{ 'EXPENSE_AMOUNT_REQUIRED' | translate }}
+      </small>
+    </div>
+
+
+
+
+
+    <!-- Notes -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">
-        Description <span class="text-red-500">*</span>
+        {{ 'NOTES' | translate }}
       </label>
       <textarea
         rows="3"
         formControlName="description"
-        placeholder="Enter Expenses Description"
+        [placeholder]="'ENTER_NOTES' | translate"
         class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-        [ngClass]="{
-          'border-red-500 focus:ring-red-500': expenseForm.get('description')?.touched && expenseForm.get('description')?.invalid,
-          'border-blue-500 focus:ring-blue-500': expenseForm.get('description')?.touched && expenseForm.get('description')?.valid,
-          'border-gray-300': !expenseForm.get('description')?.touched
-        }"
       ></textarea>
-      <small *ngIf="expenseForm.get('description')?.touched && expenseForm.get('description')?.invalid" class="text-red-500">
-        Description is required
-      </small>
-    </div>
-
-    <!-- States -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        States <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="text"
-        formControlName="state"
-        placeholder="Enter State"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-        [ngClass]="{
-          'border-red-500 focus:ring-red-500': expenseForm.get('state')?.touched && expenseForm.get('state')?.invalid,
-          'border-blue-500 focus:ring-blue-500': expenseForm.get('state')?.touched && expenseForm.get('state')?.valid,
-          'border-gray-300': !expenseForm.get('state')?.touched
-        }"
-      />
-      <small *ngIf="expenseForm.get('state')?.touched && expenseForm.get('state')?.invalid" class="text-red-500">
-        State is required
-      </small>
     </div>
 
     <!-- Submit Button -->
@@ -138,7 +134,7 @@
         type="submit"
         class="w-full bg-emerald-500 text-white font-semibold py-2 rounded hover:bg-emerald-600 transition duration-200"
       >
-        SUBMIT
+        {{ 'SUBMIT_EXPENSE' | translate }}
       </button>
     </div>
   </form>

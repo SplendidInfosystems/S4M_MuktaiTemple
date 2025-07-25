@@ -1,6 +1,8 @@
 <div class="max-w-6xl mx-auto mt-10 px-6 overflow-y-auto">
   <div class="bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-2xl font-semibold text-left text-cyan-700 mb-6">Contact Us</h2>
+    <h2 class="text-2xl font-semibold text-left text-cyan-700 mb-6">
+      {{ 'CONTACT_US' | translate }}
+    </h2>
 
     <!-- Form & Address Section -->
     <div class="grid md:grid-cols-2 gap-6">
@@ -9,12 +11,12 @@
         <!-- Name -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
-            Name <span class="text-red-500">*</span>
+            {{ 'CONTACT_US_NAME' | translate }} <span class="text-red-500">*</span>
           </label>
           <input
             type="text"
             formControlName="name"
-            placeholder="Enter Your Name"
+            [placeholder]="'CONTACT_US_ENTER_NAME' | translate"
             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
             [ngClass]="{
               'border-red-500 focus:ring-red-500': contactForm.get('name')?.touched && contactForm.get('name')?.invalid,
@@ -26,19 +28,19 @@
             *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
             class="text-red-500"
           >
-            Name is required
+            {{ 'CONTACT_US_NAME_REQUIRED' | translate }}
           </small>
         </div>
 
         <!-- Email -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
-            Email <span class="text-red-500">*</span>
+            {{ 'CONTACT_US_EMAIL' | translate }} <span class="text-red-500">*</span>
           </label>
           <input
             type="email"
             formControlName="email"
-            placeholder="Enter Your Email"
+            [placeholder]="'CONTACT_US_ENTER_EMAIL' | translate"
             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
             [ngClass]="{
               'border-red-500 focus:ring-red-500': contactForm.get('email')?.touched && contactForm.get('email')?.invalid,
@@ -50,19 +52,19 @@
             *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
             class="text-red-500"
           >
-            Valid email is required
+            {{ 'CONTACT_US_EMAIL_REQUIRED' | translate }}
           </small>
         </div>
 
         <!-- Mobile No -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
-            Mobile No <span class="text-red-500">*</span>
+            {{ 'CONTACT_US_MOBILE_NO' | translate }} <span class="text-red-500">*</span>
           </label>
           <input
             type="tel"
             formControlName="mobileNo"
-            placeholder="Enter Your Mobile No"
+            [placeholder]="'CONTACT_US_ENTER_MOBILE_NO' | translate"
             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
             [ngClass]="{
               'border-red-500 focus:ring-red-500': contactForm.get('mobileNo')?.touched && contactForm.get('mobileNo')?.invalid,
@@ -74,19 +76,19 @@
             *ngIf="contactForm.get('mobileNo')?.touched && contactForm.get('mobileNo')?.invalid"
             class="text-red-500"
           >
-            Valid 10-digit mobile number is required
+            {{ 'CONTACT_US_MOBILE_REQUIRED' | translate }}
           </small>
         </div>
 
         <!-- Message -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
-            Message <span class="text-red-500">*</span>
+            {{ 'CONTACT_US_MESSAGE' | translate }} <span class="text-red-500">*</span>
           </label>
           <textarea
             rows="4"
             formControlName="message"
-            placeholder="Type Message"
+            [placeholder]="'CONTACT_US_ENTER_MESSAGE' | translate"
             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
             [ngClass]="{
               'border-red-500 focus:ring-red-500': contactForm.get('message')?.touched && contactForm.get('message')?.invalid,
@@ -98,7 +100,7 @@
             *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"
             class="text-red-500"
           >
-            Message is required
+            {{ 'CONTACT_US_MESSAGE_REQUIRED' | translate }}
           </small>
         </div>
 
@@ -107,22 +109,25 @@
           type="submit"
           class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded w-full"
         >
-          Send Message
+          {{ 'CONTACT_US_SEND_MESSAGE' | translate }}
         </button>
       </form>
 
       <!-- Contact Info Buttons -->
       <div class="space-y-4 mt-4">
         <button class="contact-button">
-          <i class="fas fa-map-marker-alt text-red-500 mr-3"></i> Office Address
+          <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
+          {{ 'CONTACT_US_OFFICE_ADDRESS' | translate }}
         </button>
 
         <button class="contact-button">
-          <i class="fas fa-envelope text-red-500 mr-3"></i> Mail Address
+          <i class="fas fa-envelope text-red-500 mr-3"></i>
+          {{ 'CONTACT_US_MAIL_ADDRESS' | translate }}
         </button>
 
         <button class="contact-button">
-          <i class="fas fa-phone text-red-500 mr-3"></i> Telephone No
+          <i class="fas fa-phone text-red-500 mr-3"></i>
+          {{ 'CONTACT_US_TELEPHONE_NO' | translate }}
         </button>
       </div>
     </div>
@@ -130,7 +135,9 @@
     <!-- Map Section -->
     <div class="mt-6">
       <div class="flex items-center justify-between mb-2">
-        <h3 class="text-sm font-semibold text-gray-700">Track Near by</h3>
+        <h3 class="text-sm font-semibold text-gray-700">
+          {{ 'CONTACT_US_TRACK_NEARBY' | translate }}
+        </h3>
         <i class="fas fa-map-marker-alt text-gray-500 text-sm"></i>
       </div>
       <iframe

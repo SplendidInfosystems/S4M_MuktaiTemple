@@ -1,11 +1,12 @@
 <nav class="bg-red-500 fixed top-0 left-0 w-full z-20 border-b border-gray-200 ">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 h-16">
-    
+
     <!-- Left: Logo or title -->
     <div class="text-white text-xl font-bold">MuktaTemple</div>
 
     <!-- Center: Navigation Menu -->
-    <div class="hidden md:flex items-center justify-center bg-white border rounded-2xl  px-6 py-2.5 shadow gap-8 text-black font-medium">
+    <div
+      class="hidden md:flex items-center justify-center bg-white border rounded-2xl  px-6 py-2.5 shadow gap-8 text-black font-medium">
 
       <a (click)="scrollTo('about')" class="hover:text-yellow-300">About Us</a>
       <a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a>
@@ -18,13 +19,15 @@
     <!-- Right: Icons -->
     <div class="flex items-center space-x-4">
       <!-- Logout icon -->
-      <svg class="w-6 h-6 text-white cursor-pointer" (click)="logout()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+      <svg class="w-6 h-6 text-white cursor-pointer" (click)="logout()" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 18 16">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
       </svg>
 
       <!-- Mobile menu toggle -->
-      <button (click)="toggleMobileMenu()" class="md:hidden p-2 w-9 h-9 justify-center text-sm text-white rounded hover:bg-red-600 focus:outline-none">
+      <button (click)="toggleMobileMenu()"
+        class="md:hidden p-2 w-9 h-9 justify-center text-sm text-white rounded hover:bg-red-600 focus:outline-none">
         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M1 1h15M1 7h15M1 13h15" />
@@ -34,14 +37,14 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div *ngIf="isMobileMenuOpen" class="md:hidden px-4 pb-4 bg-[#B2412F]">
+  <div *ngIf="isMobileMenuOpen" class="md:hidden px-4 pb-4 bg-red-500">
     <ul class="space-y-2 text-white">
-      <li><a href="#" class="block py-1">About Us</a></li>
-      <li><a href="#" class="block py-1">Temples</a></li>
-      <li><a href="#" class="block py-1">Events</a></li>
-      <li><a href="#" class="block py-1">Scheduled</a></li>
-      <li><a href="#" class="block py-1">How To Reach</a></li>
-      <li><a href="#" class="block py-1">Contact Us</a></li>
+      <li> <a (click)="scrollTo('about')" class="hover:text-yellow-300 block py1">About Us</a></li>
+      <li><a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a></li>
+      <li> <a (click)="scrollTo('Events')" class="hover:text-yellow-300">Events</a></li>
+      <li><a (click)="scrollTo('schedule')" class="hover:text-yellow-300">Scheduled</a></li>
+      <li> <a (click)="scrollTo('how-to-rich')" class="hover:text-yellow-300">How To Reach</a></li>
+      <li> <a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">Contact Us</a></li>
     </ul>
   </div>
 </nav>

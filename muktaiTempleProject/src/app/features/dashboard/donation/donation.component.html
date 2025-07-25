@@ -3,11 +3,13 @@
   <div class="flex flex-wrap items-center justify-between mb-4 space-y-2 sm:space-y-0 sm:space-x-4">
     <!-- Button Group -->
     <div class="flex flex-wrap gap-2">
-      <button class="report-btn">WEEKLY REPORT</button>
-      <button class="report-btn">MONTHLY REPORT</button>
-      <button class="report-btn">YEARLY REPORT</button>
+      <button class="report-btn">{{ 'DONATION_REPORT.WEEKLY' | translate }}</button>
+      <button class="report-btn">{{ 'DONATION_REPORT.MONTHLY' | translate }}</button>
+      <button class="report-btn">{{ 'DONATION_REPORT.YEARLY' | translate }}</button>
     </div>
-    <button class="report-btn" (click)="openAddDonorModal()">+ Add Donors</button>
+    <button class="report-btn" (click)="openAddDonorModal()">
+      + {{ 'DONATION_REPORT.ADD_DONORS' | translate }}
+    </button>
   </div>
 
   <!-- Table -->
@@ -15,26 +17,25 @@
     <table class="min-w-full border border-gray-300 text-sm text-left">
       <thead class="bg-gray-100 text-gray-700 uppercase">
         <tr>
-          <th class="table-heading">Date</th>
-          <th class="table-heading">Donor Name</th>
-          <th class="table-heading">Address</th>
-          <th class="table-heading">Mobile No</th>
-          <th class="table-heading">Amount</th>
-          <th class="table-heading">Payment M</th>
-          <th class="table-heading">Amt In Words</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.DATE' | translate }}</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.DONOR_NAME' | translate }}</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.ADDRESS' | translate }}</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.MOBILE_NO' | translate }}</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.AMOUNT' | translate }}</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.PAYMENT_METHOD' | translate }}</th>
+          <th class="table-heading">{{ 'DONATION_REPORT.AMOUNT_IN_WORDS' | translate }}</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="hover:bg-gray-50">
-          <td class="table-heading">01.01.25</td>
-          <td class="table-heading">Kiran Patil</td>
-          <td class="table-heading">Muktainagar</td>
-          <td class="table-heading">9112345667</td>
-          <td class="table-heading">500 Rs</td>
-          <td class="table-heading">Offline</td>
-          <td class="table-heading">Five Hundred</td>
+        <tr *ngFor="let donation of donationData" class="hover:bg-gray-50">
+          <td class="table-heading">{{ donation.date }}</td>
+          <td class="table-heading">{{ donation.donorName }}</td>
+          <td class="table-heading">{{ donation.address }}</td>
+          <td class="table-heading">{{ donation.mobileNo }}</td>
+          <td class="table-heading">{{ donation.amount }}</td>
+          <td class="table-heading">{{ donation.paymentMethod }}</td>
+          <td class="table-heading">{{ donation.amountInWords }}</td>
         </tr>
-        <!-- Add more rows as needed -->
       </tbody>
     </table>
   </div>

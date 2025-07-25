@@ -1,10 +1,10 @@
-<header class="bg-red-500 text-white p-4 flex items-center justify-between shadow-md">
+<header class="bg-red-500 text-white p-4 flex items-center justify-between shadow-md relative">
   <!-- Left: Hamburger on small screens -->
   <button class="md:hidden text-white text-2xl mr-4" (click)="toggle()">
     <i class="fas fa-bars"></i>
   </button>
 
-  <!-- Search Input: aligned left -->
+  <!-- Search Input -->
   <div class="flex-grow max-w-sm">
     <div class="relative">
       <input
@@ -19,8 +19,21 @@
   </div>
 
   <!-- Right: Icons -->
-  <div class="flex items-center gap-4 ml-4">
-    <i class="fas fa-cog cursor-pointer"></i>
+  <div class="flex items-center gap-4 ml-4 relative">
+    <!-- Settings Dropdown -->
+    <div class="relative">
+      <i class="fas fa-cog cursor-pointer" (click)="toggleDropdown()"></i>
+      
+      <!-- Dropdown menu -->
+      <div *ngIf="showDropdown"
+           class="absolute right-0 mt-2 w-32 bg-white text-black rounded shadow-md">
+        <button class="w-full text-left px-4 py-2 hover:bg-gray-200"
+                (click)="setLanguage('en')">English</button>
+        <button class="w-full text-left px-4 py-2 hover:bg-gray-200"
+                (click)="setLanguage('mr')">Marathi</button>
+      </div>
+    </div>
+
     <i class="fas fa-bell cursor-pointer"></i>
     <i class="fas fa-user-circle text-2xl cursor-pointer"></i>
   </div>

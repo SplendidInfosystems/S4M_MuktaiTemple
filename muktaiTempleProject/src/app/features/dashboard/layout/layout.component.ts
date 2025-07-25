@@ -4,6 +4,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-layout',

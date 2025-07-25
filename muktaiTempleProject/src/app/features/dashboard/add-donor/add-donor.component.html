@@ -1,170 +1,129 @@
-<!-- donor-form.component.html -->
 <div class="flex justify-center">
   <div class="w-full max-w-xl bg-white rounded shadow-md mt-4 mx-2 sm:mx-0">
     <!-- Header -->
     <div class="bg-emerald-500 text-white px-4 py-3 flex justify-between items-center rounded-t">
-      <h2 class="text-lg font-semibold">Add Donors</h2>
+      <h2 class="text-lg font-semibold">{{ 'ADD_DONORS' | translate }}</h2>
       <button class="text-white text-2xl font-bold leading-none">&times;</button>
     </div>
 
     <!-- Form -->
-    <form
-      [formGroup]="donorForm"
-      (ngSubmit)="onSubmit()"
-      class="px-4 sm:px-6 py-6 space-y-4"
-    >
+    <form [formGroup]="donorForm" (ngSubmit)="onSubmit()" class="px-4 sm:px-6 py-6 space-y-4">
+
       <!-- Donor Name -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Donor Name <span class="text-red-500">*</span></label
-        >
-        <input
-          formControlName="donorName"
-          type="text"
-          placeholder="Enter donor name"
-          class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-          [ngClass]="{
-            'border-red-500 focus:ring-red-500': donorForm.get('donorName')?.touched && donorForm.get('donorName')?.invalid,
-            'border-blue-500 focus:ring-blue-500': donorForm.get('donorName')?.touched && donorForm.get('donorName')?.valid,
-            'border-gray-300': !donorForm.get('donorName')?.touched
-          }"
-        />
-        <small
-          *ngIf="donorForm.get('donorName')?.touched && donorForm.get('donorName')?.invalid"
-          class="text-red-500"
-        >
-          Donor Name is required
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'DONOR_NAME' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="donorName" type="text"
+               [placeholder]="'ENTER_DONOR_NAME' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': donorForm.get('donorName')?.touched && donorForm.get('donorName')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': donorForm.get('donorName')?.touched && donorForm.get('donorName')?.valid,
+                 'border-gray-300': !donorForm.get('donorName')?.touched
+               }" />
+        <small *ngIf="donorForm.get('donorName')?.touched && donorForm.get('donorName')?.invalid" class="text-red-500">
+          {{ 'DONOR_NAME_REQUIRED' | translate }}
         </small>
       </div>
 
       <!-- Date -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Date <span class="text-red-500">*</span></label
-        >
-        <input
-          formControlName="date"
-          type="date"
-          class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-          [ngClass]="{
-            'border-red-500 focus:ring-red-500': donorForm.get('date')?.touched && donorForm.get('date')?.invalid,
-            'border-blue-500 focus:ring-blue-500': donorForm.get('date')?.touched && donorForm.get('date')?.valid,
-            'border-gray-300': !donorForm.get('date')?.touched
-          }"
-        />
-        <small
-          *ngIf="donorForm.get('date')?.touched && donorForm.get('date')?.invalid"
-          class="text-red-500"
-        >
-          Date is required
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'DATE' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="date" type="date"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': donorForm.get('date')?.touched && donorForm.get('date')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': donorForm.get('date')?.touched && donorForm.get('date')?.valid,
+                 'border-gray-300': !donorForm.get('date')?.touched
+               }" />
+        <small *ngIf="donorForm.get('date')?.touched && donorForm.get('date')?.invalid" class="text-red-500">
+          {{ 'DATE_REQUIRED' | translate }}
         </small>
       </div>
 
       <!-- Address -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Address <span class="text-red-500">*</span></label
-        >
-        <input
-          formControlName="address"
-          type="text"
-          placeholder="Enter address"
-          class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-          [ngClass]="{
-            'border-red-500 focus:ring-red-500': donorForm.get('address')?.touched && donorForm.get('address')?.invalid,
-            'border-blue-500 focus:ring-blue-500': donorForm.get('address')?.touched && donorForm.get('address')?.valid,
-            'border-gray-300': !donorForm.get('address')?.touched
-          }"
-        />
-        <small
-          *ngIf="donorForm.get('address')?.touched && donorForm.get('address')?.invalid"
-          class="text-red-500"
-        >
-          Address is required
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'ADDRESS' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="address" type="text"
+               [placeholder]="'ENTER_ADDRESS' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': donorForm.get('address')?.touched && donorForm.get('address')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': donorForm.get('address')?.touched && donorForm.get('address')?.valid,
+                 'border-gray-300': !donorForm.get('address')?.touched
+               }" />
+        <small *ngIf="donorForm.get('address')?.touched && donorForm.get('address')?.invalid" class="text-red-500">
+          {{ 'ADDRESS_REQUIRED' | translate }}
         </small>
       </div>
 
       <!-- Mobile No -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Mobile No <span class="text-red-500">*</span></label
-        >
-        <input
-          formControlName="mobileNo"
-          type="tel"
-          placeholder="Enter mobile no"
-          class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-          [ngClass]="{
-            'border-red-500 focus:ring-red-500': donorForm.get('mobileNo')?.touched && donorForm.get('mobileNo')?.invalid,
-            'border-blue-500 focus:ring-blue-500': donorForm.get('mobileNo')?.touched && donorForm.get('mobileNo')?.valid,
-            'border-gray-300': !donorForm.get('mobileNo')?.touched
-          }"
-        />
-        <small
-          *ngIf="donorForm.get('mobileNo')?.touched && donorForm.get('mobileNo')?.invalid"
-          class="text-red-500"
-        >
-          Valid 10-digit mobile number is required
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'MOBILE_NO' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="mobileNo" type="tel"
+               [placeholder]="'ENTER_MOBILE_NO' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': donorForm.get('mobileNo')?.touched && donorForm.get('mobileNo')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': donorForm.get('mobileNo')?.touched && donorForm.get('mobileNo')?.valid,
+                 'border-gray-300': !donorForm.get('mobileNo')?.touched
+               }" />
+        <small *ngIf="donorForm.get('mobileNo')?.touched && donorForm.get('mobileNo')?.invalid" class="text-red-500">
+          {{ 'MOBILE_REQUIRED' | translate }}
         </small>
       </div>
 
       <!-- Donation Amount -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Donation Amount <span class="text-red-500">*</span></label
-        >
-        <input
-          formControlName="amount"
-          type="number"
-          placeholder="Enter amount"
-          class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-          [ngClass]="{
-            'border-red-500 focus:ring-red-500': donorForm.get('amount')?.touched && donorForm.get('amount')?.invalid,
-            'border-blue-500 focus:ring-blue-500': donorForm.get('amount')?.touched && donorForm.get('amount')?.valid,
-            'border-gray-300': !donorForm.get('amount')?.touched
-          }"
-        />
-        <small
-          *ngIf="donorForm.get('amount')?.touched && donorForm.get('amount')?.invalid"
-          class="text-red-500"
-        >
-          Minimum amount is ₹1
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'DONATION_AMOUNT' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="amount" type="number"
+               [placeholder]="'ENTER_AMOUNT' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': donorForm.get('amount')?.touched && donorForm.get('amount')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': donorForm.get('amount')?.touched && donorForm.get('amount')?.valid,
+                 'border-gray-300': !donorForm.get('amount')?.touched
+               }" />
+        <small *ngIf="donorForm.get('amount')?.touched && donorForm.get('amount')?.invalid" class="text-red-500">
+          {{ 'AMOUNT_REQUIRED' | translate }}
         </small>
       </div>
 
       <!-- Payment Method -->
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Payment Method <span class="text-red-500">*</span></label
-        >
-        <input
-          formControlName="paymentMethod"
-          type="text"
-          placeholder="Enter payment method"
-          class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-          [ngClass]="{
-            'border-red-500 focus:ring-red-500': donorForm.get('paymentMethod')?.touched && donorForm.get('paymentMethod')?.invalid,
-            'border-blue-500 focus:ring-blue-500': donorForm.get('paymentMethod')?.touched && donorForm.get('paymentMethod')?.valid,
-            'border-gray-300': !donorForm.get('paymentMethod')?.touched
-          }"
-        />
-        <small
-          *ngIf="donorForm.get('paymentMethod')?.touched && donorForm.get('paymentMethod')?.invalid"
-          class="text-red-500"
-        >
-          Payment method is required
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'PAYMENT_METHOD' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="paymentMethod" type="text"
+               [placeholder]="'ENTER_PAYMENT_METHOD' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': donorForm.get('paymentMethod')?.touched && donorForm.get('paymentMethod')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': donorForm.get('paymentMethod')?.touched && donorForm.get('paymentMethod')?.valid,
+                 'border-gray-300': !donorForm.get('paymentMethod')?.touched
+               }" />
+        <small *ngIf="donorForm.get('paymentMethod')?.touched && donorForm.get('paymentMethod')?.invalid" class="text-red-500">
+          {{ 'PAYMENT_METHOD_REQUIRED' | translate }}
         </small>
       </div>
 
       <!-- Submit Button -->
       <div class="pt-4">
-        <button
-          type="submit"
-          class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 rounded"
-        >
-          SUBMIT
+        <button type="submit"
+                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 rounded">
+          {{ 'SUBMIT' | translate }}
         </button>
       </div>
+
     </form>
   </div>
 </div>
