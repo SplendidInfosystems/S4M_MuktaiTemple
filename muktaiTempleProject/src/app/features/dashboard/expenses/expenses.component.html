@@ -5,12 +5,12 @@
       
       <!-- Header -->
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
-        <h3 class="text-lg sm:text-xl font-semibold">Expenses</h3>
+        <h3 class="text-lg sm:text-xl font-semibold">{{ 'EXPENSES_DATA.EXPENSES' | translate }}</h3>
         <button
           class="bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-600 w-full sm:w-auto"
           (click)="openAddExpenseModal()"
         >
-          + Add Expenses
+          + {{ 'EXPENSES_DATA.ADD_EXPENSE' | translate }}
         </button>
       </div>
 
@@ -19,11 +19,11 @@
         <table class="min-w-full text-sm text-left border border-gray-300">
           <thead class="bg-gray-100 text-gray-700">
             <tr>
-              <th class="px-4 py-2 border">Expenses Name</th>
-              <th class="px-4 py-2 border">Expenses Date</th>
-              <th class="px-4 py-2 border">Description</th>
-              <th class="px-4 py-2 border">Category</th>
-              <th class="px-4 py-2 border">Amount</th>
+              <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.EXPENSE_TITLE' | translate }}</th>
+              <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.EXPENSE_DATE' | translate }}</th>
+              <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.NOTES' | translate }}</th>
+              <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.EXPENSE_CATEGORY' | translate }}</th>
+              <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.EXPENSE_AMOUNT' | translate }}</th>
             </tr>
           </thead>
           <tbody>

@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent,CommonModule,GoogleMapsModule],
+  imports: [HeaderComponent,CommonModule,GoogleMapsModule,TranslateModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
