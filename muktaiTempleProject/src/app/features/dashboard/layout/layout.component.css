@@ -1,0 +1,20 @@
+@media screen and (max-width: 640px) {
+  /* Allow main container to grow instead of forcing h-screen */
+  .flex.h-screen {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    flex-direction: column;
+  }
+
+  /* Ensure scroll works inside main content */
+  .flex-1.flex.flex-col.overflow-hidden {
+    overflow: visible !important;
+  }
+
+  main.flex-1.overflow-y-auto.min-h-0.p-4 {
+    overflow-y: auto !important;
+    max-height: none !important;
+    padding-bottom: 100px; /* prevents last field being hidden */
+  }
+}

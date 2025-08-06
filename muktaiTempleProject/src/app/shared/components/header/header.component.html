@@ -2,7 +2,7 @@
   <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 h-16">
 
     <!-- Left: Logo or title -->
-    <div class="text-white text-xl font-bold">MuktaTemple</div>
+    <div class="text-white text-xl font-bold">MuktaiTemple</div>
 
     <!-- Center: Navigation Menu -->
     <div
@@ -18,12 +18,29 @@
 
     <!-- Right: Icons -->
     <div class="flex items-center space-x-4">
+            <!-- english marathi buttuon -->
+
+            <i class="fas fa-cog cursor-pointer text-white" (click)="toggleDropdown()"></i>
+
       <!-- Logout icon -->
       <svg class="w-6 h-6 text-white cursor-pointer" (click)="logout()" xmlns="http://www.w3.org/2000/svg" fill="none"
         viewBox="0 0 18 16">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
       </svg>
+
+
+       <div class="relative">
+      
+      <!-- Dropdown menu -->
+      <div *ngIf="showDropdown"
+           class="absolute right-0 mt-2 w-32 bg-white text-black rounded shadow-md">
+        <button class="w-full text-left px-4 py-2 hover:bg-gray-200"
+                (click)="setLanguage('en')">English</button>
+        <button class="w-full text-left px-4 py-2 hover:bg-gray-200"
+                (click)="setLanguage('mr')">Marathi</button>
+      </div>
+    </div>
 
       <!-- Mobile menu toggle -->
       <button (click)="toggleMobileMenu()"

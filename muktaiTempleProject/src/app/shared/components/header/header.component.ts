@@ -2,19 +2,26 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-     constructor(private auth: AuthService, private router: Router) {}
+     constructor(private auth: AuthService, private router: Router,private translate: TranslateService) {
+       this.translate.setDefaultLang(this.currentLang);
+      this.translate.use(this.currentLang);
+     }
 
       isMobileMenuOpen: boolean = false;
 
+        showDropdown = false;
+        currentLang = 'en';
+      
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
@@ -35,5 +42,18 @@ export class HeaderComponent {
     this.isMobileMenuOpen = false; // close menu on mobile after click
   }
 
+
+
+ 
+  
+    toggleDropdown() {
+      this.showDropdown = !this.showDropdown;
+    }
+  
+    setLanguage(lang: string) {
+      this.currentLang = lang;
+      this.translate.use(lang);
+      this.showDropdown = false; // Close dropdown
+    }
 
 }
