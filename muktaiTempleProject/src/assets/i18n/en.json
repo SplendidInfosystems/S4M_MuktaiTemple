@@ -80,8 +80,8 @@
     "EXPENSE_AMOUNT": "Amount"
   },
    "HOME": {
-    "SAINT_NAME": "Saint Muktabai",
-    "SAINT_DESC": "Saint Muktabai, also known as Muktai, was a revered 13th-century saint in the Varkari tradition and the younger sister of Saint Dnyaneshwar. She is celebrated for her deep spiritual insight and poetic contributions, which continue to inspire followers of the Bhakti movement. One of the prominent temples dedicated to her is located in Mehun, near Muktainagar in the Jalgaon district of Maharashtra",
+    "SAINT_NAME": "SAINT MUKTABAI",
+    "SAINT_DESC": "Saint Muktabai, also known as Muktai, was a revered 13th-century saint in the Varkari tradition and the younger sister of Saint Dnyaneshwar. She is celebrated for her deep spiritual insight and poetic contributions, which continue to inspire followers of the Bhakti movement. One of the prominent temples dedicated to her is located in Mehun, near Muktainagar in the Jalgaon district of Maharashtra.",
     "TEMPLES": "Temples",
     "EVENTS": "Events",
     "EVENT_JAYANTI": "Sant Muktabai Jayanti (Birth Anniversary)",
@@ -117,7 +117,12 @@
     "ENTER_EMAIL": "Enter Your Email",
     "MESSAGE": "Message",
     "ENTER_MESSAGE": "Enter Your Message",
-    "SEND_MESSAGE": "Send Message"
+    "SEND_MESSAGE": "Send Message",
+    "TEMPLE_NAME":"Saint Muktabai Temple Kothali",
+    "TEMPLE_NAME_1":"Saint Muktabai Temple",
+    "TEMPLE_NAME_2":"Saint Muktabai Temple Mehun",
+    "EXPLORE_TEMPLES":"Explore Temples"
+
   }
 
 }

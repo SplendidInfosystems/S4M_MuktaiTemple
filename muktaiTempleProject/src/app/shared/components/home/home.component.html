@@ -19,7 +19,7 @@
       <!-- Title with decorative underline -->
       <div>
         <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-wide leading-tight">
-          SANT MUKTABAI
+          {{'HOME.SAINT_NAME' | translate}}
         </h2>
         <div class="flex justify-start mt-2">
           <div class="h-[2px] bg-[#d4af37] w-16 mr-2"></div>
@@ -29,14 +29,14 @@
       </div>
 
       <!-- Description -->
-      <p class="text-base md:text-lg text-gray-800 leading-relaxed mt-2">
-        Sant Muktabai was a revered saint in the Varkari tradition and the younger sister of Saint Dnyaneshwar. She is celebrated for her deep spiritual insight and poetic contributions, inspiring countless followers of the Bhakti movement. One of the prominent temples dedicated to her is located in Mehun, near Muktainagar in the Jalgaon district.
+      <p class="text-base md:text-xl text-gray-800  leading-relaxed mt-2">
+        {{ 'HOME.SAINT_DESC' | translate }}
       </p>
 
       <!-- Button -->
       <div class="mt-3">
         <a href="/temples" class="px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg shadow-md transition">
-          Explore Temples
+          {{'HOME.EXPLORE_TEMPLES' | translate}}
         </a>
       </div>
 
@@ -51,16 +51,16 @@
 
 
   <!-- Temples Section -->
-  <div id="templates" class="scroll-mt-20 bg-white relative z-10 max-w-5xl mx-auto p-2">
+  <div id="templates" class="scroll-mt-25 bg-white relative z-10 max-w-5xl mx-auto p-2">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white shadow-lg rounded-xl p-6">
         <h3 class="text-2xl font-bold mb-4">{{ 'HOME.TEMPLES' | translate }}</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="bg-white rounded-xl overflow-hidden shadow border" *ngFor="let temple of temples">
-            <img [src]="temple.image"
+            <img [src]="temple.image" alt=""
                  class="w-full h-52 object-cover transform transition duration-300 hover:scale-110" />
             <div class="p-3 text-center">
-              <h4 class="text-green-700 font-bold">{{ temple.text |translate}}</h4>
+              <h4 class="text-green-700 font-bold">{{ temple.text | translate}}</h4>
             </div>
           </div>
         </div>

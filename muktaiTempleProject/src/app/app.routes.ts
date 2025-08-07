@@ -9,8 +9,13 @@ import {DashboardRoutingModule} from './features/dashboard/dashboard-routing.mod
 export const routes: Routes = [
       {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'home',
         pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'login',
@@ -26,9 +31,5 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
   },
-    {
-        path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
-    }
+    
 ];

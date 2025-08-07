@@ -126,7 +126,12 @@
     "ENTER_EMAIL": "तुमचा ईमेल टाका",
     "MESSAGE": "संदेश",
     "ENTER_MESSAGE": "तुमचा संदेश टाका",
-    "SEND_MESSAGE": "संदेश पाठवा"
+    "SEND_MESSAGE": "संदेश पाठवा",
+    "TEMPLE_NAME": "संत मुक्ताबाई मंदिर, कोठळी",
+    "TEMPLE_NAME_1":"संत मुक्ताबाई मंदिर",
+    "TEMPLE_NAME_2":"संत मुक्ताबाई मंदिर, मेहुण ",
+      "EXPLORE_TEMPLES": "मंदिरे पहा"
+
   }
 }
 

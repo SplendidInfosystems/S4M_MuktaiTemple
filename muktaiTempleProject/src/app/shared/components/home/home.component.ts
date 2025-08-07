@@ -33,17 +33,17 @@ description: { text: string } = {
 temples: {id: number; text: string; image: string }[] = [
   {
     id: 1,
-    text: 'Saint Muktabai Temple Kothali',
+    text: 'HOME.TEMPLE_NAME',
     image: 'assets/images/imagetem1.png'
   },
   {
     id: 2,
-    text: 'Saint Muktabai Temple',
+    text: 'HOME.TEMPLE_NAME_1',
     image: 'assets/images/imagetem2.png'
   },
    {
     id: 3,
-    text: 'Saint Muktabai Temple Mehun',
+    text: 'HOME.TEMPLE_NAME_2',
     image: 'assets/images/imagetem3.png'
   },
 

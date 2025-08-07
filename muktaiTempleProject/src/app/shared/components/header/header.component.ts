@@ -12,6 +12,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  isLoggedIn = false; // Change this to real auth check
+
      constructor(private auth: AuthService, private router: Router,private translate: TranslateService) {
        this.translate.setDefaultLang(this.currentLang);
       this.translate.use(this.currentLang);
@@ -27,8 +29,11 @@ export class HeaderComponent {
   }
   
     logout() {
-      this.auth.logout();
-      this.router.navigate(['/login']);
+
+       this.isLoggedIn = false;
+    }
+    login(){
+      this.router.navigate(['/login'])
     }
   description: { text: string } = {
     text: 'Saint Muktabai, also known as Muktai, was a revered 13th-century saint in the Varkari tradition and the younger sister of Saint Dnyaneshwar. She is celebrated for her deep spiritual insight and poetic contributions, which continue to inspire followers of the Bhakti movement. One of the prominent temples dedicated to her is located in Mehun, near Muktainagar in the Jalgaon district of Maharashtra',
