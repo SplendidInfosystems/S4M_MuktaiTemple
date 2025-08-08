@@ -49,46 +49,80 @@
     </div>
 
     <!-- Category -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'EXPENSE_CATEGORY' | translate }} <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="text"
-        formControlName="category"
-        [placeholder]="'ENTER_EXPENSE_CATEGORY' | translate"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-        [ngClass]="{
-          'border-red-500 focus:ring-red-500': expenseForm.get('category')?.touched && expenseForm.get('category')?.invalid,
-          'border-blue-500 focus:ring-blue-500': expenseForm.get('category')?.touched && expenseForm.get('category')?.valid,
-          'border-gray-300': !expenseForm.get('category')?.touched
-        }"
-      />
-      <small *ngIf="expenseForm.get('category')?.touched && expenseForm.get('category')?.invalid" class="text-red-500">
-        {{ 'EXPENSE_CATEGORY_REQUIRED' | translate }}
-      </small>
-    </div>
+  <!-- Temple Expense Category Dropdown -->
+<!-- Dropdown (same as before) -->
+<div>
+  <label class="block text-sm font-medium text-gray-700 mb-1">
+    {{ 'EXPENSE_CATEGORY' | translate }} <span class="text-red-500">*</span>
+  </label>
+  <select
+    formControlName="category"
+    class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+    [ngClass]="{
+      'border-red-500 focus:ring-red-500': expenseForm.get('category')?.touched && expenseForm.get('category')?.invalid,
+      'border-blue-500 focus:ring-blue-500': expenseForm.get('category')?.touched && expenseForm.get('category')?.valid,
+      'border-gray-300': !expenseForm.get('category')?.touched
+    }"
+  >
+    <option value="" disabled selected>{{ 'SELECT_CATEGORY' | translate }}</option>
+    <option value="PoojaMaterials">{{ 'POOJA_MATERIALS' | translate }}</option>
+    <option value="PriestHonorarium">{{ 'PRIEST_HONORARIUM' | translate }}</option>
+    <option value="DailySeva">{{ 'DAILY_SEVA' | translate }}</option>
+    <option value="ElectricityBill">{{ 'ELECTRICITY_BILL' | translate }}</option>
+    <option value="WaterBill">{{ 'WATER_BILL' | translate }}</option>
+    <option value="Maintenance">{{ 'MAINTENANCE' | translate }}</option>
+    <option value="Cleaning">{{ 'CLEANING' | translate }}</option>
+    <option value="Decoration">{{ 'DECORATION' | translate }}</option>
+    <option value="EventExpenses">{{ 'EVENT_EXPENSES' | translate }}</option>
+    <option value="FoodPrasad">{{ 'FOOD_PRASAD' | translate }}</option>
+    <option value="TempleDonation">{{ 'TEMPLE_DONATION' | translate }}</option>
+    <option value="Construction">{{ 'CONSTRUCTION' | translate }}</option>
+    <option value="Others">{{ 'OTHERS' | translate }}</option>
+  </select>
+  <small *ngIf="expenseForm.get('category')?.touched && expenseForm.get('category')?.invalid" class="text-red-500">
+    {{ 'EXPENSE_CATEGORY_REQUIRED' | translate }}
+  </small>
+</div>
+
+<!-- 👇 Conditionally displayed input for "Other" category -->
+<div *ngIf="expenseForm.get('category')?.value === 'Others'" class="mt-4">
+  <label class="block text-sm font-medium text-gray-700 mb-1">
+    {{ 'SPECIFY_OTHER_CATEGORY' | translate }}
+  </label>
+  <input
+    type="text"
+    formControlName="otherCategory"
+    [placeholder]="'ENTER_OTHER_CATEGORY' | translate"
+    class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300"
+  />
+</div>
+
+
 
     <!-- Amount -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'EXPENSE_STATE' | translate }} <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="text"
-        formControlName="state"
-        [placeholder]="'ENTER_EXPENSE_STATE' | translate"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
-        [ngClass]="{
-          'border-red-500 focus:ring-red-500': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid,
-          'border-blue-500 focus:ring-blue-500': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.valid,
-          'border-gray-300': !expenseForm.get('amount')?.touched
-        }"
-      />
-      <small *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid" class="text-red-500">
-        {{ 'EXPENSE_STATE_REQUIRED' | translate }}
-      </small>
-    </div>
+   <!-- Status -->
+<div>
+  <label class="block text-sm font-medium text-gray-700 mb-1">
+    {{ 'EXPENSE_STATUS' | translate }} <span class="text-red-500">*</span>
+  </label>
+  <select
+    formControlName="status"
+    class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+    [ngClass]="{
+      'border-red-500 focus:ring-red-500': expenseForm.get('status')?.touched && expenseForm.get('status')?.invalid,
+      'border-blue-500 focus:ring-blue-500': expenseForm.get('status')?.touched && expenseForm.get('status')?.valid,
+      'border-gray-300': !expenseForm.get('status')?.touched
+    }"
+  >
+    <option value="" disabled selected>{{ 'SELECT_STATUS' | translate }}</option>
+    <option value="Pending">{{ 'PENDING' | translate }}</option>
+    <option value="Paid">{{ 'PAID' | translate }}</option>
+    <option value="Unpaid">{{ 'UNPAID' | translate }}</option>
+  </select>
+  <small *ngIf="expenseForm.get('status')?.touched && expenseForm.get('status')?.invalid" class="text-red-500">
+    {{ 'EXPENSE_STATUS_REQUIRED' | translate }}
+  </small>
+</div>
 
 <!-- state -->
  <div>
@@ -106,6 +140,9 @@
           'border-gray-300': !expenseForm.get('amount')?.touched
         }"
       />
+      <div *ngIf="convertedAmountInWords" class="text-sm text-gray-700 mt-1 italic">
+         {{ convertedAmountInWords }}
+        </div>
       <small *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid" class="text-red-500">
         {{ 'EXPENSE_AMOUNT_REQUIRED' | translate }}
       </small>

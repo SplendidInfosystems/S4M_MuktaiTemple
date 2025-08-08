@@ -18,6 +18,8 @@
   "ENTER_PAYMENT_METHOD": "Enter payment method",
   "PAYMENT_METHOD_REQUIRED": "Payment method is required",
   "SUBMIT": "SUBMIT",
+      "SELECT_PAYMENT_METHOD" : "Select Payment Method",
+
 
   "ADD_EXPENSE": "Add Expenses Name",
   "EXPENSE_TITLE": "Expenses Name",
@@ -28,12 +30,33 @@
   "EXPENSE_AMOUNT": "Amount",
   "ENTER_EXPENSE_AMOUNT": "Enter amount",
   "EXPENSE_AMOUNT_REQUIRED": "Expenses amount is required",
+
+  
+  "SELECT_CATEGORY": "Select Category",
+  "SPECIFY_OTHER_CATEGORY": "Specify Other Category",
+  "ENTER_OTHER_CATEGORY": "Enter category name",
+  "POOJA_MATERIALS": "Pooja Materials",
+  "PRIEST_HONORARIUM": "Priest Honorarium",
+  "DAILY_SEVA": "Daily Seva",
+  "ELECTRICITY_BILL": "Electricity Bill",
+  "WATER_BILL": "Water Bill",
+  "MAINTENANCE": "Maintenance",
+  "CLEANING": "Cleaning",
+  "DECORATION": "Decoration",
+  "EVENT_EXPENSES": "Event Expenses",
+  "FOOD_PRASAD": "Food / Prasad",
+  "TEMPLE_DONATION": "Donations to Other Temples",
+  "CONSTRUCTION": "Construction / Renovation",
+  "OTHERS": "Others",
+
+
   "EXPENSE_CATEGORY": "Category",
   "ENTER_EXPENSE_CATEGORY": "Enter expenses category",
   "EXPENSE_CATEGORY_REQUIRED": "Expenses category is required",
-  "EXPENSE_STATE": "State",
-  "ENTER_EXPENSE_STATE": "Enter expenses state",
-  "EXPENSE_STATE_REQUIRED": "Expenses state is required",
+  "EXPENSE_STATUS": "Status",
+  "ENTER_EXPENSE_STATUS": "Select expenses Status",
+  "SELECT_STATUS":" Select Status ",
+  "EXPENSE_STATUS_REQUIRED": "Expenses status is required",
   "NOTES": "Description",
   "ENTER_NOTES": "Enter description (optional)",
   "SUBMIT_EXPENSE": "SUBMIT",
@@ -69,6 +92,7 @@
     "AMOUNT": "Amount",
     "PAYMENT_METHOD": "Payment Method",
     "AMOUNT_IN_WORDS": "Amount In Words"
+
   },
   "EXPENSES_DATA": {
     "EXPENSES": "Expenses",

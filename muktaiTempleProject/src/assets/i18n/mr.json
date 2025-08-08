@@ -18,6 +18,8 @@
   "ENTER_PAYMENT_METHOD": "पेमेंट पद्धत प्रविष्ट करा",
   "PAYMENT_METHOD_REQUIRED": "पेमेंट पद्धत आवश्यक आहे",
   "SUBMIT": "सबमिट करा",
+    "SELECT_PAYMENT_METHOD" : "पेमेंट पद्धत निवडा",
+
 
 
 
@@ -35,9 +37,29 @@
   "EXPENSE_CATEGORY": "श्रेणी",
   "ENTER_EXPENSE_CATEGORY": "खर्चाची श्रेणी टाका",
   "EXPENSE_CATEGORY_REQUIRED": "खर्चाची श्रेणी आवश्यक आहे",
-  "EXPENSE_STATE": "राज्य",
-  "ENTER_EXPENSE_STATE": "खर्चाचे राज्य टाका",
-  "EXPENSE_STATE_REQUIRED": "खर्चाचे राज्य आवश्यक आहे",
+  "SPECIFY_OTHER_CATEGORY": "इतर श्रेणी निर्दिष्ट करा",
+  "ENTER_OTHER_CATEGORY": "इतर श्रेणीचे नाव टाका",
+  "SELECT_CATEGORY": "श्रेणी निवडा",
+  "POOJA_MATERIALS": "पूजेची सामग्री",
+  "PRIEST_HONORARIUM": "पुजाऱ्याचे मानधन",
+  "DAILY_SEVA": "दैनिक सेवा",
+  "ELECTRICITY_BILL": "वीज बिल",
+  "WATER_BILL": "पाणी बिल",
+  "MAINTENANCE": "देखभाल",
+  "CLEANING": "स्वच्छता",
+  "DECORATION": "सजावट",
+  "EVENT_EXPENSES": "कार्यक्रम खर्च",
+  "FOOD_PRASAD": "प्रसाद / अन्नदान",
+  "TEMPLE_DONATION": "इतर मंदिरांना देणगी",
+  "CONSTRUCTION": "बांधकाम / नूतनीकरण",
+  "OTHERS": "इतर",
+  "EXPENSE_STATUS": "स्थिती",
+  "ENTER_EXPENSE_STATUS": "खर्चाचे स्थिती टाका",
+  "SELECT_STATUS": "स्थिती निवडा",
+  "PENDING": "प्रलंबित",
+  "PAID": "देय दिले",
+  "UNPAID": "अदेय",
+  "EXPENSE_STATUS_REQUIRED": "खर्चाचे स्थिती आवश्यक आहे",
   "NOTES": "वर्णन",
   "ENTER_NOTES": "वर्णन टाका (पर्यायी)",
   "SUBMIT_EXPENSE": "सबमिट",
@@ -76,6 +98,7 @@
   "AMOUNT": "रक्कम",
   "PAYMENT_METHOD": "पेमेंट पद्धत",
   "AMOUNT_IN_WORDS": "रकमेचे शब्दात रूपांतर"
+
 },
 "EXPENSES_DATA": {
     "EXPENSES": "खर्च",
