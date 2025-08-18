@@ -1,0 +1,27 @@
+<section class="w-full bg-white rounded-2xl shadow-lg p-6">
+  <h2 class="text-xl font-bold text-gray-800 mb-6">Analytics Overview</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div
+      *ngFor="let s of stats"
+      class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-md transition"
+    >
+      <p class="text-sm text-gray-500">{{ s.label }}</p>
+      <h3 class="text-2xl font-bold text-gray-800">{{ s.value }}</h3>
+
+      <span
+        class="text-sm font-medium"
+        [ngClass]="{
+          'text-green-500': s.trend === 'up',
+          'text-red-500': s.trend === 'down',
+          'text-gray-500': !s.trend
+        }"
+      >
+        <ng-container *ngIf="s.change !== undefined">
+          {{ s.trend === 'up' ? '▲' : (s.trend === 'down' ? '▼' : '•') }}
+          {{ s.change }}
+        </ng-container>
+      </span>
+    </div>
+  </div>
+</section>
