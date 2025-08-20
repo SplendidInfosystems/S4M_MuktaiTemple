@@ -1,5 +1,7 @@
 <section class="w-full bg-white rounded-2xl shadow-lg p-6">
-  <h2 class="text-xl font-bold text-gray-800 mb-6">Analytics Overview</h2>
+  <h2 class="text-xl font-bold text-gray-800 mb-6">
+    {{ 'ANALYTICS_OVERVIEW' | translate }}
+  </h2>
 
   <!-- Stat Cards -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -7,8 +9,8 @@
       *ngFor="let s of stats"
       class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-md transition"
     >
-      <p class="text-sm text-gray-500">{{ s.label }}</p>
-      <h3 class="text-2xl font-bold text-gray-800">{{ s.value }}</h3>
+      <p class="text-sm text-gray-500">{{ s.label |translate }}</p>
+      <h3 class="text-2xl font-bold text-gray-800">{{ s.value  }}</h3>
       <span
         class="text-sm font-medium"
         [ngClass]="{
@@ -18,7 +20,7 @@
         }"
       >
         <ng-container *ngIf="s.change !== undefined">
-          {{ s.trend === 'up' ? '▲' : (s.trend === 'down' ? '▼' : '•') }}
+          {{ s.trend === 'up' ? ('UP' | translate) : (s.trend === 'down' ? ('DOWN' | translate) : ('NO_CHANGE' | translate)) }}
           {{ s.change }}
         </ng-container>
       </span>
@@ -28,27 +30,27 @@
   <!-- Toggle Controls -->
   <div class="flex justify-end mt-6 space-x-2">
     <button
-      (click)="changeView('daily')"
-      [class.bg-blue-600]="selectedView === 'daily'"
+      (click)="changeView('DAILY_REPORT')"
+      [class.bg-blue-600]="selectedView === 'DAILY_REPORT'"
       class="px-3 py-1.5 rounded-full text-sm text-white bg-emerald-500 transition"
     >
-      Daily
+      {{ 'DAILY_REPORT' | translate }}
     </button>
     <button
-      (click)="changeView('monthly')"
-      [class.bg-blue-600]="selectedView === 'monthly'"
+      (click)="changeView('MONTHLY_REPORT')"
+      [class.bg-blue-600]="selectedView === 'MONTHLY_REPORT'"
       class="px-3 py-1.5 rounded-full text-sm text-white bg-emerald-500 transition"
     >
-      Monthly
+      {{ 'MONTHLY_REPORT' | translate }}
     </button>
   </div>
 
   <!-- Charts Row -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
     <!-- Donut Chart -->
-    <div class=" p-4 rounded-xl shadow flex flex-col items-center">
+    <div class="p-4 rounded-xl shadow flex flex-col items-center">
       <h3 class="text-sm font-semibold text-gray-600 mb-3">
-        Total Donations vs Expenses
+        {{ 'TOTAL_DONATIONS_VS_EXPENSES' | translate }}
       </h3>
       <div class="w-64 h-64">
         <canvas
@@ -62,9 +64,9 @@
     </div>
 
     <!-- Pie Chart -->
-    <div class=" p-4 rounded-xl shadow flex flex-col items-center">
+    <div class="p-4 rounded-xl shadow flex flex-col items-center">
       <h3 class="text-sm font-semibold text-gray-600 mb-3">
-        {{ selectedView | titlecase }} Report
+        {{ selectedView | translate }} 
       </h3>
       <div class="w-64 h-64">
         <canvas

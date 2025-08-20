@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 type Trend = 'up' | 'down' | null;
 interface StatCard {
@@ -14,20 +16,20 @@ interface StatCard {
 @Component({
   selector: 'app-home-dashboard',
   standalone: true,
-  imports: [CommonModule, NgChartsModule],
+  imports: [CommonModule, NgChartsModule ,TranslateModule],
   templateUrl: './home-dashboard.component.html',
   styleUrls: ['./home-dashboard.component.css']
 })
 export class HomeDashboardComponent {
  // Stats Cards
   stats = [
-    { label: 'Daily Donors', value: '21.2k', change: '12.17%', trend: 'up' },
-    { label: 'Total Donations', value: '20k', change: '21.17%', trend: 'up' },
-    { label: 'Daily Expenses', value: '₹18.2k', change: '19.71%', trend: 'up' },
-    { label: 'Total Expenses', value: '₹826k', change: '2.70%', trend: 'down' }
+    { label: 'DAILY_DONORS', value: '21.2k', change: '12.17%', trend: 'up' },
+    { label: 'TOTAL_DONATIONS', value: '20k', change: '21.17%', trend: 'up' },
+    { label: 'DAILY_EXPENSES', value: '₹18.2k', change: '19.71%', trend: 'up' },
+    { label: 'TOTAL_EXPENSES', value: '₹826k', change: '2.70%', trend: 'down' }
   ];
 
-  selectedView: 'daily' | 'monthly' = 'daily';
+  selectedView: 'DAILY_REPORT' | 'MONTHLY_REPORT' = 'DAILY_REPORT';
 
   // Donut Chart (Donations vs Expenses)
   donutChartType: any = 'doughnut';
@@ -42,7 +44,7 @@ export class HomeDashboardComponent {
     ]
   };
 
-  // Pie Chart (Daily / Monthly Reports)
+  // Pie Chart (DAILY_REPORT / MONTHLY_REPORT Reports)
   pieChartType: any = 'pie';
   pieChartData: ChartConfiguration<'pie'>['data'] = {
     labels: ['Donors', 'Expenses'],
@@ -70,10 +72,10 @@ export class HomeDashboardComponent {
     }
   };
 
-  // Toggle View (Daily / Monthly)
-  changeView(view: 'daily' | 'monthly') {
+  // Toggle View (DAILY_REPORT / MONTHLY_REPORT)
+  changeView(view: 'DAILY_REPORT' | 'MONTHLY_REPORT') {
     this.selectedView = view;
-    if (view === 'daily') {
+    if (view === 'DAILY_REPORT') {
       this.pieChartData.datasets[0].data = [21200, 18200]; // Daily data
     } else {
       this.pieChartData.datasets[0].data = [600000, 300000]; // Monthly data

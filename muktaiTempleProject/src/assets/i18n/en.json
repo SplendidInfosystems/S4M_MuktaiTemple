@@ -1,4 +1,22 @@
 {
+
+  "ANALYTICS_OVERVIEW": "Analytics Overview",
+  "TOTAL_DONATIONS_VS_EXPENSES": "Total Donations vs Expenses",
+  "REPORT": "Report",
+  "DAILY": "Daily",
+  "MONTHLY": "Monthly",
+  "UP": "▲",
+  "DOWN": "▼",
+  "NO_CHANGE": "•",
+  "DAILY_DONORS": "Daily Donors",
+  "TOTAL_DONATIONS": "Total Donations",
+  "DAILY_EXPENSES": "Daily Expenses",
+  "TOTAL_EXPENSES": "Total Expenses",
+  "DAILY_REPORT": "Daily Report",
+  "MONTHLY_REPORT":"Monthly Report",
+
+
+
   "ADD_DONORS": "Add Donor",
   "DONOR_NAME": "Donor Name",
   "ENTER_DONOR_NAME": "Enter donor name",

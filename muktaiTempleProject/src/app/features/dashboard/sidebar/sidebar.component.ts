@@ -13,4 +13,7 @@ import { RouterModule } from '@angular/router';
 export class SidebarComponent {
  @Input() sidebarOpen = true;
   @Input() screenIsSmall = false;
+
+  role = localStorage.getItem('role');
+
 }

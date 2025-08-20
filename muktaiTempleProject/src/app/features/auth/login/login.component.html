@@ -1,134 +1,97 @@
-<div class="flex items-center justify-center min-h-screen bg-gray-100">
-  <div class="flex flex-col md:flex-row bg-white border border-gray-200 rounded-lg shadow-md md:max-w-4xl w-full p-6 md:p-0">
+<div class="flex items-center justify-center min-h-screen bg-gray-100 p-2">
+  <div
+    class="flex flex-col md:flex-row bg-white border border-gray-200 rounded-lg shadow-md w-full max-w-md md:max-w-4xl overflow-hidden">
 
-    <!-- Left: Form Section -->
-    <div class="w-full md:w-1/2 p-6">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="max-w-md w-full">
-        <h2 class="text-xl font-semibold text-center mb-1">Login Now</h2>
-        <p class="text-center mb-6">Welcome back</p>
+    <!-- Left Section (Login Form) -->
+    <div class="w-full p-4 md:w-1/2 overflow-y-auto">
+      <!-- Role Buttons -->
+      <div class="flex justify-center mb-4 space-x-2">
+        <button type="button"
+          (click)="selectedRole = 'owner'"
+          [ngClass]="selectedRole === 'owner' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'"
+          class="px-3 py-1.5 rounded-lg font-medium text-sm transition">
+          Owner Login
+        </button>
+        <button type="button"
+          (click)="selectedRole = 'admin'"
+          [ngClass]="selectedRole === 'admin' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'"
+          class="px-3 py-1.5 rounded-lg font-medium text-sm transition">
+          Admin Login
+        </button>
+      </div>
 
+      <h2 class="text-lg font-semibold text-center mb-1">
+        {{ selectedRole === 'admin' ? 'Welcome Admin Login' : 'Welcome Owner Login' }}
+      </h2>
+      <p class="text-center mb-4 text-sm">Please enter your credentials</p>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-3">
         <!-- Email -->
-      <!-- Email Field -->
-<div class="mb-4">
-  <label for="email" class="block text-sm font-medium text-gray-900">Email</label>
-  <input
-    type="email"
-    id="email"
-    formControlName="email"
-    placeholder="Enter your email"
-    class="w-full p-2.5 text-sm rounded-lg border bg-white text-gray-900 transition duration-150 ease-in-out focus:outline-none"
-    [ngClass]="{
-      'border-red-600 ring-2 ring-red-300': loginForm.get('email')?.touched && loginForm.get('email')?.invalid,
-      'border-gray-300 focus:ring-2 focus:ring-gray-300': loginForm.get('email')?.touched && loginForm.get('email')?.valid,
-      'border-gray-300': !loginForm.get('email')?.touched
-    }"
-  />
-
-  <!-- Error messages -->
-  <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-sm text-red-600 mt-1">
-    <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</div>
-    <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email</div>
-  </div>
-</div>
-
+        <div>
+          <label for="email" class="block text-xs font-medium text-gray-900">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Enter your email"
+            class="w-full p-2 text-sm rounded-lg border bg-white text-gray-900 transition focus:outline-none" />
+        </div>
 
         <!-- Password -->
-       <!-- Password Field -->
-<!-- Password Field -->
-<div class="mb-4">
-  <label for="password" class="block text-sm font-medium text-gray-900">Password</label>
-  <div class="relative">
-    <input
-      [type]="showPassword ? 'text' : 'password'"
-      id="password"
-      formControlName="password"
-      placeholder="Enter your password"
-      class="w-full p-2.5 pr-10 text-sm rounded-lg border bg-white text-gray-900 transition duration-150 ease-in-out focus:outline-none"
-      [ngClass]="{
-        'border-red-600 ring-2 ring-red-300': loginForm.get('password')?.touched && loginForm.get('password')?.invalid,
-        'border-gray-300 focus:ring-2 focus:ring-gray-300': loginForm.get('password')?.touched && loginForm.get('password')?.valid,
-        'border-gray-300': !loginForm.get('password')?.touched
-      }"
-    />
+        <div>
+          <label for="password" class="block text-xs font-medium text-gray-900">Password</label>
+          <div class="relative">
+            <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+              placeholder="Enter your password"
+              class="w-full p-2 text-sm rounded-lg border bg-white text-gray-900 transition focus:outline-none" />
+            <button type="button" (click)="togglePasswordVisibility()"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-blue-600">
+              {{ showPassword ? 'Hide' : 'Show' }}
+            </button>
+          </div>
+        </div>
 
-    <!-- Toggle password visibility -->
-    <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" (click)="togglePasswordVisibility()">
-      <!-- Eye Icons -->
-      <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12z" />
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-      <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M3 3l18 18M4.5 4.5A10.5 10.5 0 0121.75 12s-3.75 6.75-9.75 6.75A10.5 10.5 0 012.25 12c0-1.61.38-3.13 1.06-4.5M9.75 9.75a3 3 0 014.5 4.5" />
-      </svg>
-    </span>
-  </div>
+        <!-- Password Rules -->
+        <ul class="text-red-500 font-bold text-xs space-y-0.5">
+          <li [class.text-green-600]="hasUpperCase()">• At least one uppercase letter</li>
+          <li [class.text-green-600]="hasLowerCase()">• At least one lowercase letter</li>
+          <li [class.text-green-600]="hasNumber()">• At least one number</li>
+          <li [class.text-green-600]="hasSpecialChar()">• At least one special character</li>
+          <li [class.text-green-600]="hasMinLength()">• Minimum 6 characters</li>
+        </ul>
 
-  <!-- Password Requirement Feedback -->
-  <div class="mt-2 space-y-1 text-sm">
-    <div [ngClass]="hasUpperCase() ? 'text-green-600' : 'text-red-600'">
-      • At least one uppercase letter
-    </div>
-    <div [ngClass]="hasLowerCase() ? 'text-green-600' : 'text-red-600'">
-      • At least one lowercase letter
-    </div>
-    <div [ngClass]="hasNumber() ? 'text-green-600' : 'text-red-600'">
-      • At least one number
-    </div>
-    <div [ngClass]="hasSpecialChar() ? 'text-green-600' : 'text-red-600'">
-      • At least one special character
-    </div>
-    <div [ngClass]="hasMinLength() ? 'text-green-600' : 'text-red-600'">
-      • Minimum 6 characters
-    </div>
-  </div>
-</div>
-
-
-
-        <!-- Remember & Forgot -->
-        <div class="flex justify-between items-center mb-5">
-          <label class="flex items-center space-x-2 text-sm">
-            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded" />
+        <!-- Remember + Forgot -->
+        <div class="flex justify-between items-center text-xs">
+          <label class="flex items-center space-x-1">
+            <input type="checkbox" class="w-3.5 h-3.5 text-blue-600 border-gray-300 rounded" />
             <span>Remember me</span>
           </label>
-          <a href="#" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
+          <a href="#" class="text-blue-600 hover:underline">Forgot Password?</a>
         </div>
+
+        <!-- Error -->
+        <div *ngIf="errorMessage" class="text-red-600 text-xs">{{ errorMessage }}</div>
 
         <!-- Submit -->
         <button type="submit"
-          class="w-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
-          Code Sent
+          class="w-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium px-4 py-2 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
+          Login
         </button>
       </form>
     </div>
 
-    <!-- Right: OTP Section -->
-    <div class="w-full md:w-1/2 bg-red-500 text-white flex flex-col items-center justify-center md:rounded-l-[50px] p-8">
-      <p class="text-lg text-white text-center">Verification Code SMS / Email</p>
-      <p class="text-lg text-white text-center mb-4">We sent a code to 81******01</p>
-      <div class="flex gap-2">
-        <ng-container *ngFor="let i of [1,2,3,4,5,6]">
-          <input
-            [id]="'input-' + i"
-            maxlength="1"
-            type="text"
-            (input)="onInput($event, i)"
-            (keydown)="onKeyDown($event, i)"
-            class="w-10 h-10 text-center text-black text-lg rounded-md border border-gray-300
-              focus:outline focus:outline-2 focus:outline-white transition"
-          />
-        </ng-container>
-      </div>
-      <div class="mt-4">
-        <a href="#" class="text-white no-underline hover:underline text-sm">Didn't get a code?</a>
-      </div>
-    </div>
+    <!-- Right Section (OTP) -->
+    <div class="w-full md:w-1/2 bg-red-500 text-white flex flex-col items-center justify-center p-4 md:rounded-r-lg rounded-b-lg">
+      <h2 class="text-lg font-bold mb-2">
+        Verification Code SMS / Email
+      </h2>
+      <p class="text-center mb-3 text-sm">We sent a code to 81******01</p>
 
+      <!-- OTP Boxes -->
+      <div class="flex space-x-1.5 mb-2">
+        <input *ngFor="let i of [0,1,2,3,4,5]; let idx = index" id="input-{{idx}}" type="text"
+          maxlength="1" (keydown)="onKeyDown($event, idx)" (input)="onInput($event, idx)"
+          class="w-10 h-10 text-center rounded-md text-black border" />
+      </div>
+
+      <p class="text-xs">Didn't get a code?</p>
+    </div>
   </div>
 </div>

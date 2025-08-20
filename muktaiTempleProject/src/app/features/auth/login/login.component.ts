@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -14,6 +14,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage = '';
   showPassword = false;
+  selectedRole: 'owner' | 'admin' = 'owner';  // default role
 
   constructor(private router: Router, private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -28,13 +29,6 @@ export class LoginComponent {
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
-  }
-
-  allowOnlyDigits(event: KeyboardEvent) {
-    const charCode = event.key;
-    if (!/^\d$/.test(charCode)) {
-      event.preventDefault();
-    }
   }
 
   onInput(event: any, index: number) {
@@ -72,52 +66,39 @@ export class LoginComponent {
   }
 
   onSubmit() {
-  if (this.loginForm.valid) {
-    const { email, password } = this.loginForm.value;
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
 
-    // ✅ Admin credentials
-    if (email === 'admin@gmail.com' && password === 'Admin@123') {
-      localStorage.setItem('token', 'admin_token');
-      this.router.navigate(['/dashboard']); // ✅ Admin goes to dashboard
-    }
-    // ✅ Any other valid user
-    else if (email === 'user@gmail.com' && password === 'User@123') {
-      localStorage.setItem('token', 'user_token');
-      this.router.navigate(['/home']); // ✅ Normal user goes to home
-    }
-    // ❌ Invalid credentials
-    else {
+      if (this.selectedRole === 'owner') {
+        if (email === 'owner@gmail.com' && password === 'Owner@123') {
+          localStorage.setItem('role', 'owner');
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage = 'Invalid Owner credentials';
+        }
+      }
+
+      if (this.selectedRole === 'admin') {
+        if (email === 'admin@gmail.com' && password === 'Admin@123') {
+          localStorage.setItem('role', 'admin');
+          this.router.navigate(['/dashboard/donation']);
+        } else {
+          this.errorMessage = 'Invalid Admin credentials';
+        }
+      }
+    } else {
       this.loginForm.markAllAsTouched();
-      this.errorMessage = 'Invalid credentials';
+      this.errorMessage = 'Please enter valid details';
     }
-  } else {
-    this.loginForm.markAllAsTouched();
-  }
   }
 
-    get password(): string {
+  // ✅ Password validation rules
+  get password(): string {
     return this.loginForm.get('password')?.value || '';
   }
-
-  hasUpperCase(): boolean {
-    return /[A-Z]/.test(this.password);
-  }
-
-  hasLowerCase(): boolean {
-    return /[a-z]/.test(this.password);
-  }
-
-  hasNumber(): boolean {
-    return /[0-9]/.test(this.password);
-  }
-
-  hasSpecialChar(): boolean {
-    return /[\W_]/.test(this.password);
-  }
-
-  hasMinLength(): boolean {
-    return this.password.length >= 6;
-  }
-
-
+  hasUpperCase(): boolean { return /[A-Z]/.test(this.password); }
+  hasLowerCase(): boolean { return /[a-z]/.test(this.password); }
+  hasNumber(): boolean { return /[0-9]/.test(this.password); }
+  hasSpecialChar(): boolean { return /[\W_]/.test(this.password); }
+  hasMinLength(): boolean { return this.password.length >= 6; }
 }

@@ -1,4 +1,21 @@
 {
+
+"ANALYTICS_OVERVIEW": "विश्लेषण आढावा",
+  "TOTAL_DONATIONS_VS_EXPENSES": "एकूण देणग्या व खर्च",
+  "REPORT": "अहवाल",
+  "DAILY": "दैनिक",
+  "MONTHLY": "मासिक",
+  "UP": "▲",
+  "DOWN": "▼",
+  "NO_CHANGE": "•",
+   "DAILY_DONORS": "दैनिक दाते",
+  "TOTAL_DONATIONS": "एकूण देणग्या",
+  "DAILY_EXPENSES": "दैनिक खर्च",
+  "TOTAL_EXPENSES": "एकूण खर्च",
+  "DAILY_REPORT": "दैनिक अहवाल",
+  "MONTHLY_REPORT":"मासिक अहवाल ",
+
+
   "ADD_DONORS": "देणगी दार जोडा",
   "DONOR_NAME": "देणगी दाराचे नाव",
   "ENTER_DONOR_NAME": "देणगी दाराचे नाव प्रविष्ट करा",
