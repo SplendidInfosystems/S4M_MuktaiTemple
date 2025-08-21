@@ -41,6 +41,16 @@ const routes: Routes = [
       {
         path:'contact-us',
         loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent)
+      },
+      {
+        path: 'expenses-request',
+        loadComponent: () => import('./expences-request/expences-request.component').then(m => m.ExpencesRequestComponent)
+      },
+      {
+         path: 'add-expences-request',
+         loadComponent: ()=>import('./add-expences-request/add-expences-request.component').then(m => m.AddExpencesRequestComponent)
+
+
       }
      
 

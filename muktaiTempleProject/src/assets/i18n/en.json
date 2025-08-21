@@ -79,6 +79,17 @@
   "ENTER_NOTES": "Enter description (optional)",
   "SUBMIT_EXPENSE": "SUBMIT",
 
+
+"ADD_EXPENSE_REQUEST": "Add Expense Request",
+  "REQUESTER_NAME": "Requester Name",
+  "ENTER_REQUESTER_NAME": "Enter requester name",
+  "REQUESTER_NAME_REQUIRED": "Requester name is required",
+  "SUBMIT_REQUEST": "Submit Request",
+
+
+
+
+
   "CONTACT_US": "Contact Us",
   "CONTACT_US_NAME": "Name",
   "CONTACT_US_ENTER_NAME": "Enter Your Name",
@@ -120,6 +131,22 @@
     "NOTES": "Description",
     "EXPENSE_CATEGORY": "Category",
     "EXPENSE_AMOUNT": "Amount"
+  },
+  "EXPENSES_REQUESTS_DATA": {
+    "EXPENSE_REQUESTS": "Expense Requests",
+    "ADD_REQUEST": "Add Request",
+    "REQUESTER": "Requester",
+  "CATEGORY": "Category",
+    "AMOUNT": "Amount",
+    "DATE": "Date",
+    "STATUS": "Status",
+    "ACTIONS": "Actions",
+    "PENDING": "Pending",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "APPROVE": "Approve",
+    "REJECT": "Reject",
+    "VIEW": "View"
   },
    "HOME": {
     "SAINT_NAME": "SAINT MUKTABAI",

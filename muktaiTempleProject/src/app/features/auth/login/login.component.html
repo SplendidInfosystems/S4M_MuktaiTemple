@@ -8,13 +8,13 @@
       <div class="flex justify-center mb-4 space-x-2">
         <button type="button"
           (click)="selectedRole = 'owner'"
-          [ngClass]="selectedRole === 'owner' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'"
+          [ngClass]="selectedRole === 'owner' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
           class="px-3 py-1.5 rounded-lg font-medium text-sm transition">
           Owner Login
         </button>
         <button type="button"
           (click)="selectedRole = 'admin'"
-          [ngClass]="selectedRole === 'admin' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'"
+          [ngClass]="selectedRole === 'admin' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
           class="px-3 py-1.5 rounded-lg font-medium text-sm transition">
           Admin Login
         </button>

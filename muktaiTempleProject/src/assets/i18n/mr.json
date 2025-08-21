@@ -80,6 +80,12 @@
   "NOTES": "वर्णन",
   "ENTER_NOTES": "वर्णन टाका (पर्यायी)",
   "SUBMIT_EXPENSE": "सबमिट",
+    "ADD_EXPENSE_REQUEST": "खर्च विनंती जोडा",
+  "REQUESTER_NAME": "विनंती करणाऱ्याचे नाव",
+  "ENTER_REQUESTER_NAME": "विनंती करणाऱ्याचे नाव प्रविष्ट करा",
+  "REQUESTER_NAME_REQUIRED": "विनंती करणाऱ्याचे नाव आवश्यक आहे",
+  "SUBMIT_REQUEST": "विनंती सबमिट करा",
+
 
 
 
@@ -125,6 +131,22 @@
     "NOTES": "वर्णन",
     "EXPENSE_CATEGORY": "श्रेणी",
     "EXPENSE_AMOUNT": "रक्कम"
+  },
+    "EXPENSES_REQUESTS_DATA": {
+    "EXPENSE_REQUESTS": "खर्च विनंत्या",
+    "ADD_REQUEST": "नवीन विनंती जोडा",
+    "REQUESTER": "विनंती करणारा",
+  "CATEGORY": "खर्चाचा प्रकार",
+    "AMOUNT": "रक्कम",
+    "DATE": "तारीख",
+    "STATUS": "स्थिती",
+    "ACTIONS": "क्रिया",
+    "PENDING": "प्रलंबित",
+    "APPROVED": "मंजूर",
+    "REJECTED": "नाकारले",
+    "APPROVE": "मंजूर करा",
+    "REJECT": "नाका",
+    "VIEW": "पहा"
   },
 
 

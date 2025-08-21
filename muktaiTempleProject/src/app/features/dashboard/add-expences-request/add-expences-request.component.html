@@ -1,0 +1,111 @@
+<div class="w-full max-w-xl mx-auto mt-10 bg-white rounded shadow-md">
+  <!-- Form Header -->
+  <div class="bg-emerald-500 text-white px-6 py-4 flex justify-between items-center rounded-t">
+    <h2 class="text-lg font-semibold">{{ 'ADD_EXPENSE_REQUEST' | translate }}</h2>
+    <button class="text-white text-xl font-bold" (click)="closeForm()">&times;</button>
+  </div>
+
+  <!-- Form Body -->
+  <form [formGroup]="expenseRequestForm" (ngSubmit)="onSubmit()" class="px-6 py-6 space-y-4">
+    
+    <!-- Requester Name -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'REQUESTER_NAME' | translate }} <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        formControlName="requester"
+        [placeholder]="'ENTER_REQUESTER_NAME' | translate"
+        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+        [ngClass]="{
+          'border-red-500 focus:ring-red-500': expenseRequestForm.get('requester')?.touched && expenseRequestForm.get('requester')?.invalid,
+          'border-blue-500 focus:ring-blue-500': expenseRequestForm.get('requester')?.touched && expenseRequestForm.get('requester')?.valid,
+          'border-gray-300': !expenseRequestForm.get('requester')?.touched
+        }"
+      />
+      <small *ngIf="expenseRequestForm.get('requester')?.touched && expenseRequestForm.get('requester')?.invalid" class="text-red-500">
+        {{ 'REQUESTER_NAME_REQUIRED' | translate }}
+      </small>
+    </div>
+
+    <!-- Expense Category -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'EXPENSE_CATEGORY' | translate }} <span class="text-red-500">*</span>
+      </label>
+      <select
+        formControlName="category"
+        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+        [ngClass]="{
+          'border-red-500 focus:ring-red-500': expenseRequestForm.get('category')?.touched && expenseRequestForm.get('category')?.invalid,
+          'border-blue-500 focus:ring-blue-500': expenseRequestForm.get('category')?.touched && expenseRequestForm.get('category')?.valid,
+          'border-gray-300': !expenseRequestForm.get('category')?.touched
+        }"
+      >
+        <option value="" disabled selected>{{ 'SELECT_CATEGORY' | translate }}</option>
+        <option value="PoojaMaterials">{{ 'POOJA_MATERIALS' | translate }}</option>
+        <option value="EventExpenses">{{ 'EVENT_EXPENSES' | translate }}</option>
+        <option value="FoodPrasad">{{ 'FOOD_PRASAD' | translate }}</option>
+        <option value="Maintenance">{{ 'MAINTENANCE' | translate }}</option>
+        <option value="Decoration">{{ 'DECORATION' | translate }}</option>
+        <option value="Others">{{ 'OTHERS' | translate }}</option>
+      </select>
+      <small *ngIf="expenseRequestForm.get('category')?.touched && expenseRequestForm.get('category')?.invalid" class="text-red-500">
+        {{ 'EXPENSE_CATEGORY_REQUIRED' | translate }}
+      </small>
+    </div>
+
+    <!-- Other Category (only if selected) -->
+    <div *ngIf="expenseRequestForm.get('category')?.value === 'Others'">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'SPECIFY_OTHER_CATEGORY' | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="otherCategory"
+        [placeholder]="'ENTER_OTHER_CATEGORY' | translate"
+        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300"
+      />
+    </div>
+
+    <!-- Amount -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'EXPENSE_AMOUNT' | translate }} <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="number"
+        formControlName="amount"
+        [placeholder]="'ENTER_EXPENSE_AMOUNT' | translate"
+        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+      />
+      <div *ngIf="convertedAmountInWords" class="text-sm text-gray-700 mt-1 italic">
+        {{ convertedAmountInWords }}
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'NOTES' | translate }}
+      </label>
+      <textarea
+        rows="3"
+        formControlName="notes"
+        [placeholder]="'ENTER_NOTES' | translate"
+        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all"
+      ></textarea>
+    </div>
+
+    <!-- Submit -->
+    <div class="pt-4">
+      <button
+        type="submit"
+        class="w-full bg-emerald-500 text-white font-semibold py-2 rounded hover:bg-emerald-600 transition"
+      >
+        {{ 'SUBMIT_REQUEST' | translate }}
+      </button>
+    </div>
+  </form>
+</div>
