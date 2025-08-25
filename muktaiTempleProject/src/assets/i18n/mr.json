@@ -192,7 +192,20 @@
     "TEMPLE_NAME": "संत मुक्ताबाई मंदिर, कोठळी",
     "TEMPLE_NAME_1":"संत मुक्ताबाई मंदिर",
     "TEMPLE_NAME_2":"संत मुक्ताबाई मंदिर, मेहुण ",
-      "EXPLORE_TEMPLES": "मंदिरे पहा"
+      "EXPLORE_TEMPLES": "मंदिरे पहा",
+       "CREATE_ADMIN": "प्रशासक तयार करा",
+  "FULL_NAME": "पूर्ण नाव",
+  "ENTER_FULL_NAME": "पूर्ण नाव टाका",
+  "USERNAME": "वापरकर्ता नाव",
+  "ENTER_USERNAME": "वापरकर्ता नाव टाका",
+  "PASSWORD": "संकेतशब्द",
+  "ENTER_PASSWORD": "संकेतशब्द टाका",
+  "ROLE": "भूमिका",
+  "SELECT_ROLE": "भूमिका निवडा",
+  "SUPER_ADMIN": "सुपर प्रशासक",
+  "ADMIN": "प्रशासक",
+  "MODERATOR": "मध्यस्थ",
+  "PROFILE_PICTURE": "प्रोफाईल फोटो"
 
   }
 }

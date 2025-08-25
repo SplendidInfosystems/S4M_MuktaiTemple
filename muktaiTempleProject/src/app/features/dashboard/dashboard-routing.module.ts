@@ -51,6 +51,12 @@ const routes: Routes = [
          loadComponent: ()=>import('./add-expences-request/add-expences-request.component').then(m => m.AddExpencesRequestComponent)
 
 
+      },
+      {
+        path:'create-profile',
+        loadComponent() {
+          return import('./create-profile/create-profile.component').then(m => m.CreateProfileComponent);
+        },
       }
      
 

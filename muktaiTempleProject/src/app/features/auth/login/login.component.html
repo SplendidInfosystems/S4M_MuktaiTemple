@@ -4,90 +4,113 @@
 
     <!-- Left Section (Login Form) -->
     <div class="w-full p-4 md:w-1/2 overflow-y-auto">
-      <!-- Role Buttons -->
+
+      <!-- Role Buttons (always visible) -->
       <div class="flex justify-center mb-4 space-x-2">
-        <button type="button"
-          (click)="selectedRole = 'owner'"
+        <button type="button" (click)="selectedRole = 'owner'"
           [ngClass]="selectedRole === 'owner' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
           class="px-3 py-1.5 rounded-lg font-medium text-sm transition">
           Owner Login
         </button>
-        <button type="button"
-          (click)="selectedRole = 'admin'"
+        <button type="button" (click)="selectedRole = 'admin'"
           [ngClass]="selectedRole === 'admin' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
           class="px-3 py-1.5 rounded-lg font-medium text-sm transition">
           Admin Login
         </button>
       </div>
 
-      <h2 class="text-lg font-semibold text-center mb-1">
-        {{ selectedRole === 'admin' ? 'Welcome Admin Login' : 'Welcome Owner Login' }}
-      </h2>
-      <p class="text-center mb-4 text-sm">Please enter your credentials</p>
-
       <!-- Login Form -->
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-3">
-        <!-- Email -->
-        <div>
-          <label for="email" class="block text-xs font-medium text-gray-900">Email</label>
-          <input type="email" id="email" formControlName="email" placeholder="Enter your email"
-            class="w-full p-2 text-sm rounded-lg border bg-white text-gray-900 transition focus:outline-none" />
-        </div>
+      <div>
+        <h2 class="text-lg font-semibold text-center mb-1">
+          {{ selectedRole === 'admin' ? 'Welcome Admin Login' : 'Welcome Owner Login' }}
+        </h2>
+        <p class="text-center mb-4 text-sm">
+          Please enter your credentials
+        </p>
 
-        <!-- Password -->
-        <div>
-          <label for="password" class="block text-xs font-medium text-gray-900">Password</label>
-          <div class="relative">
-            <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
-              placeholder="Enter your password"
-              class="w-full p-2 text-sm rounded-lg border bg-white text-gray-900 transition focus:outline-none" />
-            <button type="button" (click)="togglePasswordVisibility()"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-blue-600">
-              {{ showPassword ? 'Hide' : 'Show' }}
-            </button>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-3">
+
+          <!-- Temple Selection -->
+         <div>
+  <label for="temple" class="block text-xs font-medium text-gray-900">Select Temple</label>
+  <div class="relative">
+    <select id="temple" formControlName="temple"
+      class="w-full p-2.5 mt-2 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 
+             focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+             outline-none">
+      <option value="" disabled selected>Select a temple</option>
+      <option *ngFor="let temple of temples" [value]="temple">{{ temple }}</option>
+    </select>
+    <!-- Dropdown Icon -->
+    <!-- <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
+      fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg> -->
+  </div>
+</div>
+
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-xs font-medium text-gray-900">Email</label>
+            <input type="email" id="email" formControlName="email" placeholder="Enter your email"
+              class="w-full p-2 text-sm rounded-lg border bg-white text-gray-900 transition focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
-        </div>
 
-        <!-- Password Rules -->
-        <ul class="text-red-500 font-bold text-xs space-y-0.5">
-          <li [class.text-green-600]="hasUpperCase()">• At least one uppercase letter</li>
-          <li [class.text-green-600]="hasLowerCase()">• At least one lowercase letter</li>
-          <li [class.text-green-600]="hasNumber()">• At least one number</li>
-          <li [class.text-green-600]="hasSpecialChar()">• At least one special character</li>
-          <li [class.text-green-600]="hasMinLength()">• Minimum 6 characters</li>
-        </ul>
+          <!-- Password -->
+          <div>
+            <label for="password" class="block text-xs font-medium text-gray-900">Password</label>
+            <div class="relative">
+              <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+                placeholder="Enter your password"
+                class="w-full p-2 text-sm rounded-lg border bg-white text-gray-900 transition focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <button type="button" (click)="togglePasswordVisibility()"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-blue-600">
+                {{ showPassword ? 'Hide' : 'Show' }}
+              </button>
+            </div>
+          </div>
 
-        <!-- Remember + Forgot -->
-        <div class="flex justify-between items-center text-xs">
-          <label class="flex items-center space-x-1">
-            <input type="checkbox" class="w-3.5 h-3.5 text-blue-600 border-gray-300 rounded" />
-            <span>Remember me</span>
-          </label>
-          <a href="#" class="text-blue-600 hover:underline">Forgot Password?</a>
-        </div>
+          <!-- Password Rules -->
+          <ul class="text-red-500 font-bold text-xs space-y-0.5">
+            <li [class.text-green-600]="hasUpperCase()">• At least one uppercase letter</li>
+            <li [class.text-green-600]="hasLowerCase()">• At least one lowercase letter</li>
+            <li [class.text-green-600]="hasNumber()">• At least one number</li>
+            <li [class.text-green-600]="hasSpecialChar()">• At least one special character</li>
+            <li [class.text-green-600]="hasMinLength()">• Minimum 6 characters</li>
+          </ul>
 
-        <!-- Error -->
-        <div *ngIf="errorMessage" class="text-red-600 text-xs">{{ errorMessage }}</div>
+          <!-- Remember + Forgot -->
+          <div class="flex justify-between items-center text-xs">
+            <label class="flex items-center space-x-1">
+              <input type="checkbox" class="w-3.5 h-3.5 text-blue-600 border-gray-300 rounded" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="text-blue-600 hover:underline">Forgot Password?</a>
+          </div>
 
-        <!-- Submit -->
-        <button type="submit"
-          class="w-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium px-4 py-2 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
-          Login
-        </button>
-      </form>
+          <!-- Error -->
+          <div *ngIf="errorMessage" class="text-red-600 text-xs">{{ errorMessage }}</div>
+
+          <!-- Submit -->
+          <button type="submit"
+            class="w-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium px-4 py-2 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- Right Section (OTP) -->
-    <div class="w-full md:w-1/2 bg-red-500 text-white flex flex-col items-center justify-center p-4 md:rounded-r-lg rounded-b-lg">
-      <h2 class="text-lg font-bold mb-2">
-        Verification Code SMS / Email
-      </h2>
+    <div
+      class="w-full md:w-1/2 bg-red-500 text-white flex flex-col items-center justify-center p-4 md:rounded-r-lg rounded-b-lg">
+      <h2 class="text-lg font-bold mb-2">Verification Code SMS / Email</h2>
       <p class="text-center mb-3 text-sm">We sent a code to 81******01</p>
 
       <!-- OTP Boxes -->
       <div class="flex space-x-1.5 mb-2">
-        <input *ngFor="let i of [0,1,2,3,4,5]; let idx = index" id="input-{{idx}}" type="text"
-          maxlength="1" (keydown)="onKeyDown($event, idx)" (input)="onInput($event, idx)"
+        <input *ngFor="let i of [0,1,2,3,4,5]; let idx = index" id="input-{{idx}}" type="text" maxlength="1"
+          (keydown)="onKeyDown($event, idx)" (input)="onInput($event, idx)"
           class="w-10 h-10 text-center rounded-md text-black border" />
       </div>
 

@@ -8,16 +8,21 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage = '';
   showPassword = false;
-  selectedRole: 'owner' | 'admin' = 'owner';  // default role
+
+  selectedTemple: string = '';   // temple selection
+selectedRole: 'owner' | 'admin' | null = 'owner';
+
+  temples: string[] = ['Kothali', 'Mehun', 'Another Temple'];
 
   constructor(private router: Router, private fb: FormBuilder) {
     this.loginForm = this.fb.group({
+  temple: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
@@ -31,24 +36,50 @@ export class LoginComponent {
     this.showPassword = !this.showPassword;
   }
 
-  onInput(event: any, index: number) {
-    const input = event.target;
-    const value = input.value;
+  onSubmit() {
+  const temple = this.loginForm.value.temple;   // ✅ get temple directly from form
 
-    if (!/^[0-9]$/.test(value)) {
-      input.value = '';
-      return;
-    }
-
-    const nextInput = document.getElementById(`input-${index + 1}`);
-    if (nextInput && value) {
-      (nextInput as HTMLInputElement).focus();
-    }
+  if (!temple) {
+    this.errorMessage = 'Please select a temple first';
+    return;
   }
+
+  if (!this.selectedRole) {
+    this.errorMessage = 'Please select login type (Owner/Admin)';
+    return;
+  }
+
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
+
+    if (this.selectedRole === 'owner') {
+      if (email === 'owner@gmail.com' && password === 'Owner@123') {
+        localStorage.setItem('role', 'owner');
+        localStorage.setItem('temple', temple);   // ✅ save temple
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.errorMessage = 'Invalid Owner credentials';
+      }
+    }
+
+    if (this.selectedRole === 'admin') {
+      if (email === 'admin@gmail.com' && password === 'Admin@123') {
+        localStorage.setItem('role', 'admin');
+        localStorage.setItem('temple', temple);   // ✅ save temple
+        this.router.navigate(['/dashboard/donation']);
+      } else {
+        this.errorMessage = 'Invalid Admin credentials';
+      }
+    }
+  } else {
+    this.loginForm.markAllAsTouched();
+    this.errorMessage = 'Please enter valid details';
+  }
+}
+
 
   onKeyDown(event: KeyboardEvent, index: number) {
     const input = event.target as HTMLInputElement;
-
     if (event.key === 'Backspace') {
       if (!input.value) {
         const prevInput = document.getElementById(`input-${index - 1}`);
@@ -59,40 +90,26 @@ export class LoginComponent {
         input.value = '';
       }
     }
-
     if (event.key.length === 1 && !/[0-9]/.test(event.key)) {
       event.preventDefault();
     }
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
 
-      if (this.selectedRole === 'owner') {
-        if (email === 'owner@gmail.com' && password === 'Owner@123') {
-          localStorage.setItem('role', 'owner');
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.errorMessage = 'Invalid Owner credentials';
-        }
-      }
-
-      if (this.selectedRole === 'admin') {
-        if (email === 'admin@gmail.com' && password === 'Admin@123') {
-          localStorage.setItem('role', 'admin');
-          this.router.navigate(['/dashboard/donation']);
-        } else {
-          this.errorMessage = 'Invalid Admin credentials';
-        }
-      }
-    } else {
-      this.loginForm.markAllAsTouched();
-      this.errorMessage = 'Please enter valid details';
-    }
+onInput(event: any, index: number) {
+  const input = event.target as HTMLInputElement;
+  const value = input.value;
+  if (!/^[0-9]$/.test(value)) {
+    input.value = '';
+    return;
   }
+  const nextInput = document.getElementById(`input-${index + 1}`);
+  if (nextInput && value) {
+    (nextInput as HTMLInputElement).focus();
+  }
+}
 
-  // ✅ Password validation rules
+  // Password checks
   get password(): string {
     return this.loginForm.get('password')?.value || '';
   }

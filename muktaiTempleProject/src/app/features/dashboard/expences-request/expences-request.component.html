@@ -27,7 +27,7 @@
               <th class="px-4 py-2 border">{{ 'EXPENSES_REQUESTS_DATA.AMOUNT' | translate }}</th>
               <th class="px-4 py-2 border">{{ 'EXPENSES_REQUESTS_DATA.DATE' | translate }}</th>
               <th class="px-4 py-2 border">{{ 'EXPENSES_REQUESTS_DATA.STATUS' | translate }}</th>
-              <th class="px-4 py-2 border">{{ 'EXPENSES_REQUESTS_DATA.ACTIONS' | translate }}</th>
+              <th class="px-4 py-2 border text-center">{{ 'EXPENSES_REQUESTS_DATA.ACTIONS' | translate }}</th>
             </tr>
           </thead>
           <tbody>
@@ -48,16 +48,37 @@
                   {{ 'EXPENSES_REQUESTS_DATA.REJECTED' | translate }}
                 </span>
               </td>
-              <td class="px-4 py-2 border flex space-x-2">
-                <button class="text-green-600 hover:text-green-800" (click)="approveRequest(request)">
-                  {{ 'EXPENSES_REQUESTS_DATA.APPROVE' | translate }}
-                </button>
-                <button class="text-red-600 hover:text-red-800" (click)="rejectRequest(request)">
-                  {{ 'EXPENSES_REQUESTS_DATA.REJECT' | translate }}
-                </button>
-                <button class="text-gray-600 hover:text-gray-900" (click)="viewRequest(request)">
-                  {{ 'EXPENSES_REQUESTS_DATA.VIEW' | translate }}
-                </button>
+              <td class="px-4 py-2 border text-center">
+                <div class="flex justify-center space-x-3">
+                  
+                  <!-- Approve -->
+                  <button
+                    class="text-green-600 hover:text-green-800"
+                    (click)="approveRequest(request)"
+                    title="{{ 'EXPENSES_REQUESTS_DATA.APPROVE' | translate }}"
+                  >
+                    <i class="fas fa-check-circle text-lg"></i>
+                  </button>
+                  
+                  <!-- Reject -->
+                  <button
+                    class="text-red-600 hover:text-red-800"
+                    (click)="rejectRequest(request)"
+                    title="{{ 'EXPENSES_REQUESTS_DATA.REJECT' | translate }}"
+                  >
+                    <i class="fas fa-times-circle text-lg"></i>
+                  </button>
+                  
+                  <!-- View -->
+                  <button
+                    class="text-gray-600 hover:text-gray-900"
+                    (click)="viewRequest(request)"
+                    title="{{ 'EXPENSES_REQUESTS_DATA.VIEW' | translate }}"
+                  >
+                    <i class="fas fa-eye text-lg"></i>
+                  </button>
+
+                </div>
               </td>
             </tr>
           </tbody>

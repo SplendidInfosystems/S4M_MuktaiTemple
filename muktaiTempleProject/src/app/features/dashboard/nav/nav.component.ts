@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -22,7 +22,7 @@ export class NavComponent {
   }
 
 
- constructor(private translate: TranslateService) {
+ constructor(private translate: TranslateService , private router:Router) {
     this.translate.setDefaultLang(this.currentLang);
     this.translate.use(this.currentLang);
   }
@@ -35,5 +35,9 @@ export class NavComponent {
     this.currentLang = lang;
     this.translate.use(lang);
     this.showDropdown = false; // Close dropdown
+  }
+  openProfile(){
+    this.router.navigate(['/dashboard/create-profile']);
+
   }
 }

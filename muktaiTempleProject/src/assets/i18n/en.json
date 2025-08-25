@@ -190,7 +190,22 @@
     "TEMPLE_NAME":"Saint Muktabai Temple Kothali",
     "TEMPLE_NAME_1":"Saint Muktabai Temple",
     "TEMPLE_NAME_2":"Saint Muktabai Temple Mehun",
-    "EXPLORE_TEMPLES":"Explore Temples"
+    "EXPLORE_TEMPLES":"Explore Temples",
+
+
+    "CREATE_ADMIN": "Create Admin",
+  "FULL_NAME": "Full Name",
+  "ENTER_FULL_NAME": "Enter full name",
+  "USERNAME": "Username",
+  "ENTER_USERNAME": "Enter username",
+  "PASSWORD": "Password",
+  "ENTER_PASSWORD": "Enter password",
+  "ROLE": "Role",
+  "SELECT_ROLE": "Select role",
+  "SUPER_ADMIN": "Super Admin",
+  "ADMIN": "Admin",
+  "MODERATOR": "Moderator",
+  "PROFILE_PICTURE": "Profile Picture"
 
   }
 
