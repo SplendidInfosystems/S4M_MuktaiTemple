@@ -1,103 +1,114 @@
-<div class="w-full max-w-2xl mx-auto mt-10 bg-white rounded-lg shadow-lg">
-  
-  <!-- Header -->
-  <div class="bg-emerald-500 text-white px-6 py-4 rounded-t-lg">
-    <h2 class="text-lg font-semibold">{{ 'CREATE_ADMIN' | translate }}</h2>
+<div class="flex justify-center">
+  <div class="w-full max-w-xl bg-white rounded shadow-md mt-4 mx-2 sm:mx-0">
+    <!-- Header -->
+    <div class="bg-emerald-500 text-white px-4 py-3 flex justify-between items-center rounded-t">
+      <h2 class="text-lg font-semibold">{{ 'CREATE_PROFILE' | translate }}</h2>
+      <button class="text-white text-2xl font-bold leading-none">&times;</button>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="px-4 sm:px-6 py-6 space-y-4">
+
+      <!-- Full Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'FULL_NAME' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="fullName" type="text"
+               [placeholder]="'ENTER_FULL_NAME' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': profileForm.get('fullName')?.touched && profileForm.get('fullName')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': profileForm.get('fullName')?.touched && profileForm.get('fullName')?.valid,
+                 'border-gray-300': !profileForm.get('fullName')?.touched
+               }" />
+        <small *ngIf="profileForm.get('fullName')?.touched && profileForm.get('fullName')?.invalid" class="text-red-500">
+          {{ 'FULL_NAME_REQUIRED' | translate }}
+        </small>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'EMAIL' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="email" type="email"
+               [placeholder]="'ENTER_EMAIL' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': profileForm.get('email')?.touched && profileForm.get('email')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': profileForm.get('email')?.touched && profileForm.get('email')?.valid,
+                 'border-gray-300': !profileForm.get('email')?.touched
+               }" />
+        <small *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.invalid" class="text-red-500">
+          {{ 'EMAIL_REQUIRED' | translate }}
+        </small>
+      </div>
+
+      <!-- Username -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'USERNAME' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="username" type="text"
+               [placeholder]="'ENTER_USERNAME' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': profileForm.get('username')?.touched && profileForm.get('username')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': profileForm.get('username')?.touched && profileForm.get('username')?.valid,
+                 'border-gray-300': !profileForm.get('username')?.touched
+               }" />
+        <small *ngIf="profileForm.get('username')?.touched && profileForm.get('username')?.invalid" class="text-red-500">
+          {{ 'USERNAME_REQUIRED' | translate }}
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'PASSWORD' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="password" type="password"
+               [placeholder]="'ENTER_PASSWORD' | translate"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+               [ngClass]="{
+                 'border-red-500 focus:ring-red-500': profileForm.get('password')?.touched && profileForm.get('password')?.invalid,
+                 'border-blue-500 focus:ring-blue-500': profileForm.get('password')?.touched && profileForm.get('password')?.valid,
+                 'border-gray-300': !profileForm.get('password')?.touched
+               }" />
+        <small *ngIf="profileForm.get('password')?.touched && profileForm.get('password')?.invalid" class="text-red-500">
+          {{ 'PASSWORD_REQUIRED' | translate }}
+        </small>
+      </div>
+
+      <!-- Role -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ 'ROLE' | translate }} <span class="text-red-500">*</span>
+        </label>
+        <select formControlName="role"
+                class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 transition-all duration-150"
+                [ngClass]="{
+                  'border-red-500 focus:ring-red-500': profileForm.get('role')?.touched && profileForm.get('role')?.invalid,
+                  'border-blue-500 focus:ring-blue-500': profileForm.get('role')?.touched && profileForm.get('role')?.valid,
+                  'border-gray-300': !profileForm.get('role')?.touched
+                }">
+          <option value="" disabled selected>{{ 'SELECT_ROLE' | translate }}</option>
+          <option value="Admin">Admin</option>
+          <option value="User">User</option>
+        </select>
+        <small *ngIf="profileForm.get('role')?.touched && profileForm.get('role')?.invalid" class="text-red-500">
+          {{ 'ROLE_REQUIRED' | translate }}
+        </small>
+      </div>
+
+      <!-- Submit -->
+      <div class="pt-4">
+        <button type="submit"
+                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 rounded">
+          {{ 'SUBMIT' | translate }}
+        </button>
+      </div>
+    </form>
   </div>
-
-  <!-- Form -->
-  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()" class="px-6 py-6 space-y-4">
-    
-    <!-- Full Name -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'FULL_NAME' | translate }} <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="text"
-        formControlName="fullName"
-        [placeholder]="'ENTER_FULL_NAME' | translate"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300 focus:ring-emerald-500"
-      />
-    </div>
-
-    <!-- Email -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'EMAIL' | translate }} <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="email"
-        formControlName="email"
-        [placeholder]="'ENTER_EMAIL' | translate"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300 focus:ring-emerald-500"
-      />
-    </div>
-
-    <!-- Username -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'USERNAME' | translate }} <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="text"
-        formControlName="username"
-        [placeholder]="'ENTER_USERNAME' | translate"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300 focus:ring-emerald-500"
-      />
-    </div>
-
-    <!-- Password -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'PASSWORD' | translate }} <span class="text-red-500">*</span>
-      </label>
-      <input
-        type="password"
-        formControlName="password"
-        [placeholder]="'ENTER_PASSWORD' | translate"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300 focus:ring-emerald-500"
-      />
-    </div>
-
-    <!-- Role -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'ROLE' | translate }}
-      </label>
-      <select
-        formControlName="role"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300 focus:ring-emerald-500"
-      >
-        <option value="">{{ 'SELECT_ROLE' | translate }}</option>
-        <option value="SuperAdmin">{{ 'SUPER_ADMIN' | translate }}</option>
-        <option value="Admin">{{ 'ADMIN' | translate }}</option>
-        <option value="Moderator">{{ 'MODERATOR' | translate }}</option>
-      </select>
-    </div>
-
-    <!-- Profile Picture -->
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">
-        {{ 'PROFILE_PICTURE' | translate }}
-      </label>
-      <input
-        type="file"
-        formControlName="profilePic"
-        accept="image/*"
-        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 border-gray-300 focus:ring-emerald-500"
-      />
-    </div>
-
-    <!-- Submit Button -->
-    <div class="pt-4">
-      <button
-        type="submit"
-        class="w-full bg-emerald-500 text-white font-semibold py-2 rounded hover:bg-emerald-600 transition"
-      >
-        {{ 'CREATE_ADMIN' | translate }}
-      </button>
-    </div>
-
-  </form>
 </div>

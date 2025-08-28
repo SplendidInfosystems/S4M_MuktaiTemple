@@ -18,7 +18,7 @@ export class LoginComponent {
   selectedTemple: string = '';   // temple selection
 selectedRole: 'owner' | 'admin' | null = 'owner';
 
-  temples: string[] = ['Kothali', 'Mehun', 'Another Temple'];
+  temples: string[] = [' Muktainagar', ' Kothali', ' Pandharpur '];
 
   constructor(private router: Router, private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -37,7 +37,9 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
   }
 
   onSubmit() {
-  const temple = this.loginForm.value.temple;   // ✅ get temple directly from form
+  const temple = this.loginForm.value.temple?.trim();
+  const email = this.loginForm.value.email?.trim();
+  const password = this.loginForm.value.password?.trim();
 
   if (!temple) {
     this.errorMessage = 'Please select a temple first';
@@ -50,12 +52,10 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
   }
 
   if (this.loginForm.valid) {
-    const { email, password } = this.loginForm.value;
-
     if (this.selectedRole === 'owner') {
       if (email === 'owner@gmail.com' && password === 'Owner@123') {
         localStorage.setItem('role', 'owner');
-        localStorage.setItem('temple', temple);   // ✅ save temple
+        localStorage.setItem('temple', temple);
         this.router.navigate(['/dashboard']);
       } else {
         this.errorMessage = 'Invalid Owner credentials';
@@ -65,7 +65,7 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
     if (this.selectedRole === 'admin') {
       if (email === 'admin@gmail.com' && password === 'Admin@123') {
         localStorage.setItem('role', 'admin');
-        localStorage.setItem('temple', temple);   // ✅ save temple
+        localStorage.setItem('temple', temple);
         this.router.navigate(['/dashboard/donation']);
       } else {
         this.errorMessage = 'Invalid Admin credentials';
@@ -76,6 +76,7 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
     this.errorMessage = 'Please enter valid details';
   }
 }
+
 
 
   onKeyDown(event: KeyboardEvent, index: number) {
