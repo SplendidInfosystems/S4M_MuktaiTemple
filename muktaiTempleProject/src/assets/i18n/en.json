@@ -91,6 +91,26 @@
   "CONTACT_US_MAIL_ADDRESS": "Mail Address",
   "CONTACT_US_TELEPHONE_NO": "Telephone No",
   "CONTACT_US_TRACK_NEARBY": "Track Near by",
+
+
+    "CREATE_PROFILE": "Create Profile",
+  "FULL_NAME": "Full Name",
+  "ENTER_FULL_NAME": "Enter your full name",
+  "FULL_NAME_REQUIRED": "Full name is required",
+  "EMAIL_REQUIRED": "Email is required",
+  "USERNAME": "Username",
+  "ENTER_USERNAME": "Enter your username",
+  "USERNAME_REQUIRED": "Username is required",
+  "PASSWORD": "Password",
+  "ENTER_PASSWORD": "Enter your password",
+  "PASSWORD_REQUIRED": "Password is required",
+  "ROLE": "Role",
+  "SELECT_ROLE": "Select a role",
+  "ROLE_REQUIRED": "Role is required",
+
+
+
+
   "DONATION_REPORT": {
     "WEEKLY": "Weekly Report",
     "MONTHLY": "Monthly Report",
@@ -102,7 +122,9 @@
     "MOBILE_NO": "Mobile No",
     "AMOUNT": "Amount",
     "PAYMENT_METHOD": "Payment Method",
-    "AMOUNT_IN_WORDS": "Amount In Words"
+    "AMOUNT_IN_WORDS": "Amount In Words",
+    "ACTION" :"Pdf Generator"
+
   },
   "EXPENSES_DATA": {
     "EXPENSES": "Expenses",
@@ -111,7 +133,9 @@
     "EXPENSE_DATE": "Expenses Date",
     "NOTES": "Description",
     "EXPENSE_CATEGORY": "Category",
-    "EXPENSE_AMOUNT": "Amount"
+    "EXPENSE_AMOUNT": "Amount",
+    "ACTION" :"Pdf Generator"
+    
   },
   "EXPENSES_REQUESTS_DATA": {
     "EXPENSE_REQUESTS": "Expense Requests",
@@ -120,6 +144,7 @@
     "CATEGORY": "Category",
     "AMOUNT": "Amount",
     "DATE": "Date",
+    
     "STATUS": "Status",
     "ACTIONS": "Actions",
     "PENDING": "Pending",
@@ -171,21 +196,7 @@
     "TEMPLE_NAME": "Saint Muktabai Temple Kothali",
     "TEMPLE_NAME_1": "Saint Muktabai Temple",
     "TEMPLE_NAME_2": "Saint Muktabai Temple Mehun",
-    "EXPLORE_TEMPLES": "Explore Temples",
-   "CREATE_PROFILE": "Create Profile",
-  "FULL_NAME": "Full Name",
-  "ENTER_FULL_NAME": "Enter your full name",
-  "FULL_NAME_REQUIRED": "Full name is required",
-  "EMAIL_REQUIRED": "Email is required",
-  "USERNAME": "Username",
-  "ENTER_USERNAME": "Enter your username",
-  "USERNAME_REQUIRED": "Username is required",
-  "PASSWORD": "Password",
-  "ENTER_PASSWORD": "Enter your password",
-  "PASSWORD_REQUIRED": "Password is required",
-  "ROLE": "Role",
-  "SELECT_ROLE": "Select a role",
-  "ROLE_REQUIRED": "Role is required",
-  "SUBMIT": "Submit"
+    "EXPLORE_TEMPLES": "Explore Temples"
+ 
   }
 }

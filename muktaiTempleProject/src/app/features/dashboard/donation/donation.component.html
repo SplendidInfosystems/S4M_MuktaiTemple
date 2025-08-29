@@ -15,26 +15,36 @@
   <!-- Table -->
   <div class="overflow-x-auto">
     <table class="min-w-full border border-gray-300 text-sm text-left">
-      <thead class="bg-gray-100 text-gray-700 uppercase">
+      <thead class="bg-gray-100 text-gray-700 ">
         <tr>
-          <th class="table-heading">{{ 'DONATION_REPORT.DATE' | translate }}</th>
-          <th class="table-heading">{{ 'DONATION_REPORT.DONOR_NAME' | translate }}</th>
-          <th class="table-heading">{{ 'DONATION_REPORT.ADDRESS' | translate }}</th>
-          <th class="table-heading">{{ 'DONATION_REPORT.MOBILE_NO' | translate }}</th>
-          <th class="table-heading">{{ 'DONATION_REPORT.AMOUNT' | translate }}</th>
-          <th class="table-heading">{{ 'DONATION_REPORT.PAYMENT_METHOD' | translate }}</th>
-          <th class="table-heading">{{ 'DONATION_REPORT.AMOUNT_IN_WORDS' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.DATE' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.DONOR_NAME' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.ADDRESS' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.MOBILE_NO' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.AMOUNT' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.PAYMENT_METHOD' | translate }}</th>
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.AMOUNT_IN_WORDS' | translate }}</th>
+           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.ACTION' | translate }}</th>
+
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let donation of donationData" class="hover:bg-gray-50">
-          <td class="table-heading">{{ donation.date }}</td>
-          <td class="table-heading">{{ donation.donorName }}</td>
-          <td class="table-heading">{{ donation.address }}</td>
-          <td class="table-heading">{{ donation.mobileNo }}</td>
-          <td class="table-heading">{{ donation.amount }}</td>
-          <td class="table-heading">{{ donation.paymentMethod }}</td>
-          <td class="table-heading">{{ donation.amountInWords }}</td>
+          <td class="px-4 py-2 border">{{ donation.date }}</td>
+          <td class="px-4 py-2 border">{{ donation.donorName }}</td>
+          <td class="px-4 py-2 border">{{ donation.address }}</td>
+          <td class="px-4 py-2 border">{{ donation.mobileNo }}</td>
+          <td class="px-4 py-2 border">{{ donation.amount }}</td>
+          <td class="px-4 py-2 border">{{ donation.paymentMethod }}</td>
+          <td class="px-4 py-2 border">{{ donation.amountInWords }}</td>
+           <td class="px-4 py-2 border text-center">
+                <button
+                  class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                  (click)="generatePDF(donation)"
+                >
+                  📄 PDF
+                </button>
+              </td>
         </tr>
       </tbody>
     </table>

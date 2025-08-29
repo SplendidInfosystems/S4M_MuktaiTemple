@@ -13,6 +13,8 @@ import { TranslateModule } from '@ngx-translate/core';
 export class AddExpencesRequestComponent {
     expenseRequestForm: FormGroup;
   convertedAmountInWords: string = '';
+    expenses: any[] = []; // this will hold the table data
+
 
   constructor(private fb: FormBuilder) {
     this.expenseRequestForm = this.fb.group({
@@ -31,8 +33,11 @@ export class AddExpencesRequestComponent {
 
   onSubmit() {
     if (this.expenseRequestForm.valid) {
+
       console.log('Expense Request Submitted:', this.expenseRequestForm.value);
       alert('Expense request submitted successfully!');
+      this.expenses.push(this.expenseRequestForm.value); // add to table
+
       this.expenseRequestForm.reset();
     }
   }

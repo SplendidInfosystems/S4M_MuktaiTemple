@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  errorMessage = '';
+    submitted = false;
+
+  errorMessage: string | null = null;
   showPassword = false;
 
   selectedTemple: string = '';   // temple selection
@@ -37,6 +39,8 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
   }
 
   onSubmit() {
+ this.submitted = true;
+
   const temple = this.loginForm.value.temple?.trim();
   const email = this.loginForm.value.email?.trim();
   const password = this.loginForm.value.password?.trim();

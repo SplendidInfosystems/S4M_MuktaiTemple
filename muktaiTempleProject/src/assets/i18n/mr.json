@@ -94,6 +94,26 @@
   "CONTACT_US_MAIL_ADDRESS": "मेल पत्ता",
   "CONTACT_US_TELEPHONE_NO": "दूरध्वनी क्रमांक",
   "CONTACT_US_TRACK_NEARBY": "जवळपास ट्रॅक करा",
+  "CREATE_PROFILE": "प्रोफाइल तयार करा",
+  "FULL_NAME": "पूर्ण नाव",
+  "ENTER_FULL_NAME": "तुमचे पूर्ण नाव टाका",
+  "FULL_NAME_REQUIRED": "पूर्ण नाव आवश्यक आहे",
+  "EMAIL": "ईमेल",
+  "ENTER_EMAIL": "तुमचा ईमेल टाका",
+  "EMAIL_REQUIRED": "ईमेल आवश्यक आहे",
+  "USERNAME": "वापरकर्ता नाव",
+  "ENTER_USERNAME": "तुमचे वापरकर्ता नाव टाका",
+  "USERNAME_REQUIRED": "वापरकर्ता नाव आवश्यक आहे",
+  "PASSWORD": "पासवर्ड",
+  "ENTER_PASSWORD": "तुमचा पासवर्ड टाका",
+  "PASSWORD_REQUIRED": "पासवर्ड आवश्यक आहे",
+  "ROLE": "भूमिका",
+  "SELECT_ROLE": "भूमिका निवडा",
+  "ROLE_REQUIRED": "भूमिका आवश्यक आहे",
+  
+
+
+
   "DONATION_REPORT": {
     "WEEKLY": "साप्ताहिक अहवाल",
     "MONTHLY": "मासिक अहवाल",
@@ -105,7 +125,9 @@
     "MOBILE_NO": "मोबाईल क्रमांक",
     "AMOUNT": "रक्कम",
     "PAYMENT_METHOD": "पेमेंट पद्धत",
-    "AMOUNT_IN_WORDS": "रकमेचे शब्दात रूपांतर"
+    "AMOUNT_IN_WORDS": "रकमेचे शब्दात रूपांतर",
+    "ACTION":"पीडीएफ जनरेटर"
+
   },
   "EXPENSES_DATA": {
     "EXPENSES": "खर्च",
@@ -114,7 +136,8 @@
     "EXPENSE_DATE": "खर्चाची तारीख",
     "NOTES": "वर्णन",
     "EXPENSE_CATEGORY": "श्रेणी",
-    "EXPENSE_AMOUNT": "रक्कम"
+    "EXPENSE_AMOUNT": "रक्कम",
+    "ACTION":"पीडीएफ जनरेटर"
   },
   "EXPENSES_REQUESTS_DATA": {
     "EXPENSE_REQUESTS": "खर्च विनंत्या",
@@ -178,23 +201,7 @@
     "EMAIL_INVALID": "कृपया वैध ईमेल प्रविष्ट करा",
     "USERNAME_MIN": "वापरकर्ता नाव किमान ३ अक्षरे असावे",
     "PASSWORD_MIN": "संकेतशब्द किमान ६ अक्षरे असावा",
-    "PASSWORD_RULES": "संकेतशब्दात मोठे अक्षर, लहान अक्षर, अंक आणि विशेष चिन्ह असणे आवश्यक आहे",
-  "CREATE_PROFILE": "प्रोफाइल तयार करा",
-  "FULL_NAME": "पूर्ण नाव",
-  "ENTER_FULL_NAME": "तुमचे पूर्ण नाव टाका",
-  "FULL_NAME_REQUIRED": "पूर्ण नाव आवश्यक आहे",
-  "EMAIL": "ईमेल",
-  "ENTER_EMAIL": "तुमचा ईमेल टाका",
-  "EMAIL_REQUIRED": "ईमेल आवश्यक आहे",
-  "USERNAME": "वापरकर्ता नाव",
-  "ENTER_USERNAME": "तुमचे वापरकर्ता नाव टाका",
-  "USERNAME_REQUIRED": "वापरकर्ता नाव आवश्यक आहे",
-  "PASSWORD": "पासवर्ड",
-  "ENTER_PASSWORD": "तुमचा पासवर्ड टाका",
-  "PASSWORD_REQUIRED": "पासवर्ड आवश्यक आहे",
-  "ROLE": "भूमिका",
-  "SELECT_ROLE": "भूमिका निवडा",
-  "ROLE_REQUIRED": "भूमिका आवश्यक आहे",
-  "SUBMIT": "सादर करा"
+    "PASSWORD_RULES": "संकेतशब्दात मोठे अक्षर, लहान अक्षर, अंक आणि विशेष चिन्ह असणे आवश्यक आहे"
+
   }
 }

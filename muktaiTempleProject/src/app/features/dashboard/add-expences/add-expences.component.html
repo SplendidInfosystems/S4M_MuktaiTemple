@@ -64,7 +64,7 @@
       'border-gray-300': !expenseForm.get('category')?.touched
     }"
   >
-    <option value="" disabled selected>{{ 'SELECT_CATEGORY' | translate }}</option>
+    <option value="">{{ 'SELECT_CATEGORY' | translate }}</option>
     <option value="PoojaMaterials">{{ 'POOJA_MATERIALS' | translate }}</option>
     <option value="PriestHonorarium">{{ 'PRIEST_HONORARIUM' | translate }}</option>
     <option value="DailySeva">{{ 'DAILY_SEVA' | translate }}</option>
@@ -114,7 +114,7 @@
       'border-gray-300': !expenseForm.get('status')?.touched
     }"
   >
-    <option value="" disabled selected>{{ 'SELECT_STATUS' | translate }}</option>
+    <option value="" >{{ 'SELECT_STATUS' | translate }}</option>
     <option value="Pending">{{ 'PENDING' | translate }}</option>
     <option value="Paid">{{ 'PAID' | translate }}</option>
     <option value="Unpaid">{{ 'UNPAID' | translate }}</option>

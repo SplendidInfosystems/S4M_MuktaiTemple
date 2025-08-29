@@ -1,46 +1,61 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { AddExpencesService } from '../../services/add-expences.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-add-expences',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule,TranslateModule],
+  imports: [ReactiveFormsModule, CommonModule, TranslateModule],
   templateUrl: './add-expences.component.html',
   styleUrls: ['./add-expences.component.css']
 })
-export class AddExpencesComponent  implements OnInit {
-  expenseForm: FormGroup;
-    convertedAmountInWords: string = '';
+export class AddExpencesComponent implements OnInit {
+  expenseForm!: FormGroup;
+  convertedAmountInWords: string = '';
+  @Output() expenseAdded = new EventEmitter<any>();
 
+  constructor(private expenseService: AddExpencesService , private router :Router) { }
 
-  constructor(private fb: FormBuilder) {
-    this.expenseForm = this.fb.group({
-      expenseName: ['', Validators.required],
-      date: ['', Validators.required],
-      category: ['', Validators.required],
-      amount: [null, [Validators.required, Validators.min(1)]],
-      description: ['', Validators.required],
-      status: ['', Validators.required],
-      otherCategory: [''] // optional input for 'Others'
-
+  ngOnInit(): void {
+    // Initialize form controls
+    this.expenseForm = new FormGroup({
+      expenseName: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      otherCategory: new FormControl(''),
+      status: new FormControl('', Validators.required),
+      amount: new FormControl(null, [Validators.required, Validators.min(1)]),
+      description: new FormControl('', Validators.required),
     });
+
+    // Subscribe to conditional validation for 'otherCategory'
+    this.subscribeToCategoryChanges();
+
+    // Subscribe to amount changes to convert to words
+    this.subscribeToAmountChanges();
   }
-    onSubmit() {
-    if (this.expenseForm.valid) {
-       this.expenseForm.get('category')?.valueChanges.subscribe(value => {
-    if (value !== 'Others') {
-      this.expenseForm.get('otherCategory')?.reset();
-    }
-  });
-      console.log(this.expenseForm.value);
-      // handle form submit
-    } else {
-      this.expenseForm.markAllAsTouched();
+
+  subscribeToCategoryChanges(): void {
+    const categoryControl = this.expenseForm.get('category');
+    const otherCategoryControl = this.expenseForm.get('otherCategory');
+
+    if (categoryControl && otherCategoryControl) {
+      categoryControl.valueChanges.subscribe(category => {
+        if (category === 'Others') {
+          otherCategoryControl.setValidators(Validators.required);
+        } else {
+          otherCategoryControl.clearValidators();
+          otherCategoryControl.reset();
+        }
+        otherCategoryControl.updateValueAndValidity();
+      });
     }
   }
-  ngOnInit() {
+
+  subscribeToAmountChanges(): void {
     this.expenseForm.get('amount')?.valueChanges.subscribe(value => {
       const amount = Number(value);
       if (!isNaN(amount) && amount > 0) {
@@ -50,38 +65,51 @@ export class AddExpencesComponent  implements OnInit {
       }
     });
   }
+
+  onSubmit(): void {
+    if (this.expenseForm.valid) {
+      console.log('Form Submitted!', this.expenseForm.value);
+      this.expenseService.addExpense(this.expenseForm.value);
+      alert('Expense request submitted successfully!');
+      this.expenseForm.reset();
+      // this.router.navigate(['/dashboard/expenses'])
     
-convertNumberToWords(amount: number): string {
-  const ones = [
-    '', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine',
-    'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen',
-    'Seventeen', 'Eighteen', 'Nineteen'
-  ];
+    } else {
+      this.expenseForm.markAllAsTouched();
+    }
+  }
 
-  const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+  convertNumberToWords(amount: number): string {
+    const ones = [
+      '', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine',
+      'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen',
+      'Seventeen', 'Eighteen', 'Nineteen'
+    ];
 
-  if (amount === 0) return 'Zero';
+    const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
 
-  const numToWords = (n: number): string => {
-    if (n < 20) return ones[n];
-    if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
-    if (n < 1000) return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' and ' + numToWords(n % 100) : '');
-    return '';
-  };
+    if (amount === 0) return 'Zero';
 
-  let words = '';
-  const crore = Math.floor(amount / 10000000);
-  const lakh = Math.floor((amount % 10000000) / 100000);
-  const thousand = Math.floor((amount % 100000) / 1000);
-  const hundred = Math.floor((amount % 1000) / 100);
-  const rest = amount % 100;
+    const numToWords = (n: number): string => {
+      if (n < 20) return ones[n];
+      if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
+      if (n < 1000) return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' and ' + numToWords(n % 100) : '');
+      return '';
+    };
 
-  if (crore) words += numToWords(crore) + ' Crore ';
-  if (lakh) words += numToWords(lakh) + ' Lakh ';
-  if (thousand) words += numToWords(thousand) + ' Thousand ';
-  if (hundred) words += numToWords(hundred) + ' Hundred ';
-  if (rest) words += (words !== '' ? 'and ' : '') + numToWords(rest);
+    let words = '';
+    const crore = Math.floor(amount / 10000000);
+    const lakh = Math.floor((amount % 10000000) / 100000);
+    const thousand = Math.floor((amount % 100000) / 1000);
+    const hundred = Math.floor((amount % 1000) / 100);
+    const rest = amount % 100;
 
-  return words.trim();
-}
+    if (crore) words += numToWords(crore) + ' Crore ';
+    if (lakh) words += numToWords(lakh) + ' Lakh ';
+    if (thousand) words += numToWords(thousand) + ' Thousand ';
+    if (hundred) words += numToWords(hundred) + ' Hundred ';
+    if (rest) words += (words !== '' ? 'and ' : '') + numToWords(rest);
+
+    return words.trim();
+  }
 }

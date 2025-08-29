@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router,  } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-donation',
@@ -65,5 +67,27 @@ export class DonationComponent {
     },
 
   ]
+
+   generatePDF(donation: any) {
+      const doc = new jsPDF();
+  
+      doc.setFontSize(16);
+      doc.text('Temple Donation Report', 14, 20);
+  
+      autoTable(doc, {
+        startY: 30,
+        head: [['Field', 'Value']],
+        body: [
+          ['donation Title', donation.donorName],
+          ['Date', donation.date],
+          ['Amount', donation.amount + ' Rs'],
+          ['address', donation.address],
+          ['mobileNo', donation.mobileNo],
+          ['paymentMethod', donation.paymentMethod]
+        ]
+      });
+  
+      doc.save(`${donation.donorName}_${donation.date}.pdf`);
+    }
 
 }

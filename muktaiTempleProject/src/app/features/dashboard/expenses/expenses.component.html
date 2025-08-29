@@ -24,15 +24,25 @@
               <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.NOTES' | translate }}</th>
               <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.EXPENSE_CATEGORY' | translate }}</th>
               <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.EXPENSE_AMOUNT' | translate }}</th>
+               <th class="px-4 py-2 border">{{ 'EXPENSES_DATA.ACTION' | translate }}</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let expense of expenseData" class="hover:bg-gray-50">
+            <tr *ngFor="let expense of defaultExpenses" class="hover:bg-gray-50">
               <td class="px-4 py-2 border">{{ expense.expenseName }}</td>
               <td class="px-4 py-2 border">{{ expense.date }}</td>
               <td class="px-4 py-2 border">{{ expense.description }}</td>
               <td class="px-4 py-2 border">{{ expense.category }}</td>
               <td class="px-4 py-2 border">{{ expense.amount }}</td>
+              <td class="px-4 py-2 border text-center">
+                <button
+                  class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                  (click)="generatePDF(expense)"
+                >
+                  📄 PDF
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
