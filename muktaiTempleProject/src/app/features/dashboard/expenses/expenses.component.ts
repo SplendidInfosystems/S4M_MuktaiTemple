@@ -72,25 +72,38 @@ export class ExpensesComponent implements OnInit {
   }
 
   // PDF Generator
-  generatePDF(expense: any) {
-    const doc = new jsPDF();
+generatePDF(expense: any) {
+  const doc = new jsPDF();
 
-    doc.setFontSize(16);
-    doc.text('Temple Expense Report', 14, 20);
+  doc.setFontSize(16);
+  doc.text('Temple Expense Report', 14, 20);
 
-    autoTable(doc, {
-      startY: 30,
-      head: [['Field', 'Value']],
-      body: [
-        ['Expense Title', expense.expenseName],
-        ['Date', expense.date],
-        ['Category', expense.category === 'Others' ? expense.otherCategory : expense.category],
-        ['Amount', expense.amount + ' Rs'],
-        ['Status', expense.status],
-        ['Notes', expense.description]
-      ]
-    });
+  autoTable(doc, {
+    startY: 30,
+    head: [['Field', 'Value']],
+    body: [
+      ['Expense Title', expense.expenseName],
+      ['Date', expense.date],
+      ['Category', expense.category === 'Others' ? expense.otherCategory : expense.category],
+      ['Amount', expense.amount + ' Rs'],
+      ['Status', expense.status],
+      ['Notes', expense.description]
+    ]
+  });
 
-    doc.save(`${expense.expenseName}_${expense.date}.pdf`);
-  }
+  // ✅ Create blob
+  const pdfBlob = doc.output('blob');
+
+  // ✅ Wrap blob in a File object → filename preserved in browser download
+  const file = new File([pdfBlob], `${expense.expenseName}_${expense.date}.pdf`, { type: "application/pdf" });
+
+  // ✅ Create URL for the File
+  const pdfUrl = URL.createObjectURL(file);
+
+  // ✅ Open in new tab → only preview
+  window.open(pdfUrl, '_blank');
+}
+
+
+
 }

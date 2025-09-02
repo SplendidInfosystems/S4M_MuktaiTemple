@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router,  } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import jsPDF from 'jspdf';
@@ -12,12 +12,19 @@ import autoTable from 'jspdf-autotable';
   templateUrl: './donation.component.html',
   styleUrl: './donation.component.css'
 })
-export class DonationComponent {
+export class DonationComponent implements OnInit {
+  userRole: string = ''; // admin | owner
+
   constructor(private router:Router){}
   openAddDonorModal(){
     this.router.navigate(['/dashboard/add-donor']);
   }
 
+    ngOnInit(): void {
+    // ✅ Read role from localStorage at component load
+    const role = localStorage.getItem('role');
+    this.userRole = role ? role.toLowerCase() : '';
+  }
 
   donationData= [
     {
@@ -87,7 +94,16 @@ export class DonationComponent {
         ]
       });
   
-      doc.save(`${donation.donorName}_${donation.date}.pdf`);
-    }
+  // ✅ Create blob
+  const pdfBlob = doc.output('blob');
+
+  // ✅ Wrap blob in a File object → filename preserved in browser download
+  const file = new File([pdfBlob], `${donation.donorName}_${donation.date}.pdf`, { type: "application/pdf" });
+
+  // ✅ Create URL for the File
+  const pdfUrl = URL.createObjectURL(file);
+
+  // ✅ Open in new tab → only preview
+  window.open(pdfUrl, '_blank');    }
 
 }

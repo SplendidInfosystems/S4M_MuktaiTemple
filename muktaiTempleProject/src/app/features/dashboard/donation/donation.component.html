@@ -3,10 +3,20 @@
   <div class="flex flex-wrap items-center justify-between mb-4 space-y-2 sm:space-y-0 sm:space-x-4">
     <!-- Button Group -->
     <div class="flex flex-wrap gap-2">
-      <button class="report-btn">{{ 'DONATION_REPORT.WEEKLY' | translate }}</button>
-      <button class="report-btn">{{ 'DONATION_REPORT.MONTHLY' | translate }}</button>
-      <button class="report-btn">{{ 'DONATION_REPORT.YEARLY' | translate }}</button>
+      <!-- ✅ Admin → Only Daily -->
+      <button *ngIf="userRole === 'admin'" class="report-btn">
+        {{ 'DONATION_REPORT.DAILY' | translate }}
+      </button>
+
+      <!-- ✅ Owner → Weekly, Monthly, Yearly -->
+      <ng-container *ngIf="userRole === 'owner'">
+        <button class="report-btn">{{ 'DONATION_REPORT.WEEKLY' | translate }}</button>
+        <button class="report-btn">{{ 'DONATION_REPORT.MONTHLY' | translate }}</button>
+        <button class="report-btn">{{ 'DONATION_REPORT.YEARLY' | translate }}</button>
+      </ng-container>
     </div>
+
+    <!-- Add Donor Button -->
     <button class="report-btn" (click)="openAddDonorModal()">
       + {{ 'DONATION_REPORT.ADD_DONORS' | translate }}
     </button>
@@ -15,7 +25,7 @@
   <!-- Table -->
   <div class="overflow-x-auto">
     <table class="min-w-full border border-gray-300 text-sm text-left">
-      <thead class="bg-gray-100 text-gray-700 ">
+      <thead class="bg-gray-100 text-gray-700">
         <tr>
           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.DATE' | translate }}</th>
           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.DONOR_NAME' | translate }}</th>
@@ -24,8 +34,7 @@
           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.AMOUNT' | translate }}</th>
           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.PAYMENT_METHOD' | translate }}</th>
           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.AMOUNT_IN_WORDS' | translate }}</th>
-           <th class="px-4 py-2 border">{{ 'DONATION_REPORT.ACTION' | translate }}</th>
-
+          <th class="px-4 py-2 border">{{ 'DONATION_REPORT.ACTION' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -37,14 +46,14 @@
           <td class="px-4 py-2 border">{{ donation.amount }}</td>
           <td class="px-4 py-2 border">{{ donation.paymentMethod }}</td>
           <td class="px-4 py-2 border">{{ donation.amountInWords }}</td>
-           <td class="px-4 py-2 border text-center">
-                <button
-                  class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                  (click)="generatePDF(donation)"
-                >
-                  📄 PDF
-                </button>
-              </td>
+          <td class="px-4 py-2 border text-center">
+            <button
+              class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+              (click)="generatePDF(donation)"
+            >
+              📄 PDF
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

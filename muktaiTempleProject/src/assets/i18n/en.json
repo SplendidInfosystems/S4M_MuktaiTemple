@@ -112,6 +112,7 @@
 
 
   "DONATION_REPORT": {
+    "DAILY":"Daily Report",
     "WEEKLY": "Weekly Report",
     "MONTHLY": "Monthly Report",
     "YEARLY": "Yearly Report",
