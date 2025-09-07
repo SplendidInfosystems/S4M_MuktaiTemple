@@ -57,6 +57,10 @@ const routes: Routes = [
         loadComponent() {
           return import('./create-profile/create-profile.component').then(m => m.CreateProfileComponent);
         },
+      },
+      {
+        path:'notification',
+        loadComponent: () => import('./notification/notification.component').then(m => m.NotificationComponent)
       }
      
 

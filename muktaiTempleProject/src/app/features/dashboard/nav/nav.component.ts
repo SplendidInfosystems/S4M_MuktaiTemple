@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -22,7 +23,7 @@ export class NavComponent {
   }
 
 
- constructor(private translate: TranslateService , private router:Router) {
+ constructor( private auth: AuthService,private translate: TranslateService , private router:Router) {
     this.translate.setDefaultLang(this.currentLang);
     this.translate.use(this.currentLang);
   }
@@ -39,5 +40,13 @@ export class NavComponent {
   openProfile(){
     this.router.navigate(['/dashboard/create-profile']);
 
+  }
+  logout(){
+   this.auth.logout();
+   this.router.navigate(['/login']);
+
+  }
+  openNotifications(){
+    this.router.navigate(['/dashboard/notification']);
   }
 }

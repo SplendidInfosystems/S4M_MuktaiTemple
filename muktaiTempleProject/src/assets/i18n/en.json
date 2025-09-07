@@ -199,5 +199,31 @@
     "TEMPLE_NAME_2": "Saint Muktabai Temple Mehun",
     "EXPLORE_TEMPLES": "Explore Temples"
  
+  },
+  "NOTIFICATIONS": {
+
+    "TITLE" :"NOTIFICATION",
+    
+    "FESTIVAL_TITLE": "Upcoming Festival",
+    "FESTIVAL_MESSAGE": "Sant Muktabai Jayanti will be celebrated this week with special events.",
+
+    "TEMPLE_TITLE": "Temple Update",
+    "TEMPLE_MESSAGE": "The temple will remain open till 11 PM today for evening prayers.",
+
+    "GENERAL_TITLE": "General Notice",
+    "GENERAL_MESSAGE": "Devotees are requested to maintain silence inside the temple.",
+
+    "DONATION_TODAY_TITLE": "Today's Donation",
+    "DONATION_TODAY_MESSAGE": "A donation of ₹10,000 has been received today. Thank you for your support.",
+
+    "DONATION_REMINDER_TITLE": "Support the Temple",
+    "DONATION_REMINDER_MESSAGE": "Your contributions help maintain temple activities. Please consider donating.",
+
+    "EXPENSE_REQUEST_TITLE": "Expense Request",
+    "EXPENSE_REQUEST_MESSAGE": "Approval needed for temple roof repair expenses of ₹50,000.",
+
+    "FESTIVAL_EXPENSE_TITLE": "Festival Expenses",
+    "FESTIVAL_EXPENSE_MESSAGE": "Budget request of ₹1,20,000 for Sant Muktabai Jayanti arrangements."
   }
+
 }

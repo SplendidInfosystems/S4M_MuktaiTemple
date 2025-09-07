@@ -1,0 +1,39 @@
+<div class="max-w-3xl mx-auto mt-4 px-4">
+  <h1 class="text-3xl font-bold text-red-600 mb-6">
+    {{ 'NOTIFICATIONS.TITLE' | translate }}
+  </h1>
+
+  <div class="space-y-4">
+    <div *ngFor="let note of notifications"
+         class="bg-white border rounded-xl shadow-md p-4 flex items-start space-x-4 hover:shadow-lg transition">
+
+      <!-- Icon -->
+      <div [ngClass]="{
+            'text-yellow-500': note.type === 'event',
+            'text-blue-500': note.type === 'info',
+            'text-red-500': note.type === 'alert'
+          }"
+          class="text-2xl">
+        <i class="fas"
+           [ngClass]="{
+             'fa-calendar-alt': note.type === 'event',
+             'fa-info-circle': note.type === 'info',
+             'fa-exclamation-triangle': note.type === 'alert'
+           }"></i>
+      </div>
+
+      <!-- Content -->
+      <div class="flex-1">
+        <h2 class="text-lg font-semibold text-gray-800">
+          {{ note.title | translate }}
+        </h2>
+        <p class="text-gray-600 mt-1">
+          {{ note.message | translate }}
+        </p>
+        <p class="text-xs text-gray-400 mt-2">
+          {{ note.date | date }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
