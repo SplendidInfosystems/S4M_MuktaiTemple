@@ -2,40 +2,50 @@
 
 <main class="relative pt-[64px] min-h-fit pb-20 md:pb-[env(safe-area-inset-bottom)]">
 
-<!-- Top Half Section -->
-<div class="bg-gradient-to-r from-[#f8b26a] via-[#f7c56f] to-[#f9e5a1] min-h-[70vh] flex items-center justify-center px-4 py-8">
-  <div class="flex flex-col md:flex-row items-center md:items-center md:gap-8 gap-6 max-w-6xl w-full">
+
+  <!-- half section -->
+<!-- Half Section -->
+<div class="relative bg-gradient-to-r from-[#f1f7ff] via-[#e8f0ff] to-[#f1f7ff] min-h-[80vh] flex items-center justify-center px-6 py-12 overflow-hidden">
+
+  <!-- Background Decoration -->
+  <div class="absolute top-0 left-0 w-40 h-40 bg-yellow-300 rounded-full opacity-30 blur-2xl animate-pulse"></div>
+  <div class="absolute bottom-10 right-10 w-60 h-60 bg-orange-400 rounded-full opacity-20 blur-3xl animate-bounce-slow"></div>
+
+  <!-- Content Wrapper -->
+  <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full relative z-10">
 
     <!-- Left Image -->
-    <div class="flex justify-center md:justify-center w-full md:w-1/2">
+    <div class="flex justify-center w-full md:w-1/2 animate-zoom-in">
       <img src="assets/images/muktai.png"
            alt="Sant Muktabai"
-           class="w-75 h-76 object-contain rounded-lg border-4 border-yellow-400 shadow-lg transition-transform hover:scale-105" />
+           class="w-80 h-96 object-contain rounded-2xl border-4 border-yellow-400 shadow-2xl 
+           transition-transform duration-700 ease-in-out hover:scale-110 hover:rotate-2"/>
     </div>
 
     <!-- Right Text -->
-    <div class="flex flex-col justify-center w-full md:w-1/2 space-y-3 text-left">
+    <div class="flex flex-col justify-center w-full md:w-1/2 text-left space-y-6">
 
-      <!-- Title with decorative underline -->
+      <!-- Title with underline -->
       <div>
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-wide leading-tight">
+        <h2 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-wide leading-tight 
+                   animate-typewriter overflow-hidden whitespace-nowrap border-r-4 border-yellow-500 pr-2">
           {{'HOME.SAINT_NAME' | translate}}
         </h2>
-        <div class="flex justify-start mt-2">
-          <div class="h-[2px] bg-[#d4af37] w-16 mr-2"></div>
-          <div class="text-[#d4af37] text-2xl">&bull;</div>
-          <div class="h-[2px] bg-[#d4af37] w-16 ml-2"></div>
+        <div class="flex justify-start mt-3">
+          <div class="h-[3px] bg-yellow-500 w-20 animate-pulse"></div>
         </div>
       </div>
 
       <!-- Description -->
-      <p class="text-base md:text-xl text-gray-800  leading-relaxed mt-2">
+      <p class="text-lg md:text-xl text-gray-800 leading-relaxed animate-fade-in-up delay-700">
         {{ 'HOME.SAINT_DESC' | translate }}
       </p>
 
       <!-- Button -->
-      <div class="mt-3">
-        <a href="/temples" class="px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg shadow-md transition">
+      <div>
+        <a href="/temples"
+           class="inline-block px-7 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-lg font-semibold rounded-xl shadow-lg 
+           transition transform hover:scale-110 hover:shadow-2xl animate-fade-in-up delay-1000">
           {{'HOME.EXPLORE_TEMPLES' | translate}}
         </a>
       </div>
@@ -47,14 +57,107 @@
 
 
 
+<div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+  <!-- Card -->
+  <div class="card">
+    <!-- Title -->
+    <div class="p-4 text-center">
+      <h3 class="card-title text-2xl font-semibold">
+        {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
+      </h3>
+    </div>
+
+    <!-- Image -->
+    <div class="flex-1 flex items-center justify-center overflow-hidden">
+      <img src="assets/images/templeimage1.jpeg" alt="Ashadhi Event"
+           class="card-img w-full h-52  object-cover " />
+    </div>
+
+    <!-- Text -->
+    <div class="p-4 text-center flex-1">
+      <p class="card-desc text-sm leading-relaxed">
+        {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
+      </p>
+    </div>
+
+    <!-- Button -->
+    <div class="p-4 text-center">
+      <a href="/events" class="card-btn">
+        {{ 'HOME.READ_MORE' | translate }}
+      </a>
+    </div>
+  </div>
+
+  <!-- duplicate other cards -->
+    <div class="card">
+    <!-- Title -->
+    <div class="p-4 text-center">
+      <h3 class="card-title text-2xl font-semibold">
+        {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
+      </h3>
+    </div>
+
+    <!-- Image -->
+    <div class="flex-1 flex items-center justify-center overflow-hidden">
+      <img src="assets/images/imagecard1.png" alt="Ashadhi Event"
+           class="card-img h-60 w-50" />
+    </div>
+
+    <!-- Text -->
+    <div class="p-4 text-center flex-1">
+      <p class="card-desc text-sm leading-relaxed">
+        {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
+      </p>
+    </div>
+
+    <!-- Button -->
+    <div class="p-4 text-center">
+      <a href="/events" class="card-btn">
+        {{ 'HOME.READ_MORE' | translate }}
+      </a>
+    </div>
+  </div>
+  <!-- 3rd card design -->
+    <div class="card">
+    <!-- Title -->
+    <div class="p-4 text-center">
+      <h3 class="card-title text-2xl font-semibold">
+        {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
+      </h3>
+    </div>
+
+    <!-- Image -->
+    <div class="flex-1 flex items-center justify-center overflow-hidden">
+      <img src="assets/images/imagecard1.png" alt="Ashadhi Event"
+           class="card-img h-60 w-50" />
+    </div>
+
+    <!-- Text -->
+    <div class="p-4 text-center flex-1">
+      <p class="card-desc text-sm leading-relaxed">
+        {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
+      </p>
+    </div>
+
+    <!-- Button -->
+    <div class="p-4 text-center">
+      <a href="/events" class="card-btn">
+        {{ 'HOME.READ_MORE' | translate }}
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
   <!-- Temples Section -->
-  <div id="templates" class="scroll-mt-25 bg-white mt-10 relative z-10 max-w-5xl mx-auto p-2">
+  <div id="templates" class="scroll-mt-25 bg-white mt-10 relative z-10 max-w-5xl mx-auto p-2 ">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white shadow-lg rounded-xl p-6">
-        <h3 class="text-2xl font-bold mb-4">{{ 'HOME.TEMPLES' | translate }}</h3>
+        <h3 class="text-2xl font-bold mb-4 ">{{ 'HOME.TEMPLES' | translate }}</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="bg-white rounded-xl overflow-hidden shadow border" *ngFor="let temple of temples">
             <img [src]="temple.image" alt=""
@@ -67,6 +170,11 @@
       </div>
     </div>
   </div>
+
+
+
+
+
 
   <!-- Events Section -->
   <div id="Events" class="scroll-mt-20 max-w-5xl mx-auto p-4">
@@ -94,6 +202,10 @@
       </div>
     </div>
   </div>
+
+
+
+  
 
   <!-- Schedule Section -->
   <div id="schedule" class="scroll-mt-20 max-w-5xl mx-auto p-4">

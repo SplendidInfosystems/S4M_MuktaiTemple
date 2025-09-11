@@ -1,0 +1,51 @@
+/* ---------- Add this AFTER Tailwind's CSS (styles.css bottom) ---------- */
+.card {
+  background: #ffffff;
+  transition: all .35s ease;
+  border-radius: .75rem; /* match rounded-xl */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Hover state for whole card */
+.card:hover {
+  background-color: #fa7f1b;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* Title / description color swap on card hover */
+.card .card-title { color: #1f2937; /* gray-800 */ transition: color .25s; }
+.card .card-desc  { color: #4b5563; /* gray-600 */ transition: color .25s; }
+
+.card:hover .card-title,
+.card:hover .card-desc {
+  color: #ffffff !important;
+}
+
+/* Image zoom */
+.card .card-img { transition: transform .45s ease; object-fit: cover; width:100%; }
+.card:hover .card-img { transform: scale(1.05); }
+
+/* Button default */
+.card .card-btn {
+  display:inline-block;
+  padding: .5rem 1.25rem;
+  border-radius: .5rem;
+  background: #f59e0b; /* tailwind yellow-500 */
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: background .25s, color .25s;
+}
+
+/* Button inversion when card hovered */
+.card:hover .card-btn {
+  background: #ffffff !important;
+  color: #fa7f1b !important;
+  box-shadow: none;
+}
