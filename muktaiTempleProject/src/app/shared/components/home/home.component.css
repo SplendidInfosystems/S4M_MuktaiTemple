@@ -28,7 +28,6 @@
 }
 
 /* Image zoom */
-.card .card-img { transition: transform .45s ease; object-fit: cover; width:100%; }
 .card:hover .card-img { transform: scale(1.05); }
 
 /* Button default */
@@ -48,4 +47,9 @@
   background: #ffffff !important;
   color: #fa7f1b !important;
   box-shadow: none;
+}
+.image-card {
+  height: 220px;
+    object-fit: cover;
+    object-position: center;
 }
