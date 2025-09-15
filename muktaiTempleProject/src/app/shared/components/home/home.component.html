@@ -27,19 +27,22 @@
 
       <!-- Title with underline -->
       <div>
-        <h2 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-wide leading-tight 
-                   animate-typewriter overflow-hidden whitespace-nowrap border-r-4 border-yellow-500 pr-2">
-          {{'HOME.SAINT_NAME' | translate}}
-        </h2>
+       <h2 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-wide leading-tight 
+           animate-typewriter border-r-4 border-yellow-500 pr-2">
+  {{ 'HOME.SAINT_NAME' | translate }}
+</h2>
         <div class="flex justify-start mt-3">
           <div class="h-[3px] bg-yellow-500 w-20 animate-pulse"></div>
         </div>
       </div>
 
       <!-- Description -->
-      <p class="text-lg md:text-xl text-gray-800 leading-relaxed animate-fade-in-up delay-700">
-        {{ 'HOME.SAINT_DESC' | translate }}
-      </p>
+     <div class="text-lg md:text-xl text-gray-800 leading-relaxed space-y-2 animate-fade-in-up delay-900">
+  <p>{{ 'ABHANG.LINE1' | translate }}</p>
+  <p>{{ 'ABHANG.LINE2' | translate }}</p>
+  <p>{{ 'ABHANG.LINE3' | translate }}</p>
+  <p>{{ 'ABHANG.LINE4' | translate }}</p>
+</div>
 
       <!-- Button -->
       <div>
@@ -48,7 +51,7 @@
            transition transform hover:scale-110 hover:shadow-2xl animate-fade-in-up delay-1000">
           {{'HOME.EXPLORE_TEMPLES' | translate}}
         </a>
-      </div>
+       </div>
 
     </div>
   </div>
@@ -57,10 +60,38 @@
 
 
 
-<div class="mx-auto  px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+<div class="mx-auto px-4 grid grid-cols-1  mt-10 sm:grid-cols-2 md:grid-cols-3 gap-4  " >
+
+  <!-- card --1-- -->
+
+  <div class="card flex flex-col min-h-[500px] max-w-sm mx-auto " >
+    <div class="p-4 text-center">
+      <h3 class="card-title text-2xl font-semibold">
+        {{ 'HOME.SAINT_NAME_INFO' | translate }}
+      </h3>
+    </div>
+
+    <!-- Taller image -->
+    <div class="w-full h-80 overflow-hidden flex items-center justify-center">
+      <img src="assets/images/templeimage2.png" alt="Ashadhi Event"
+           class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+    </div>
+
+    <div class="p-4 text-center flex-1">
+      <p class="card-desc text-sm leading-relaxed">
+        {{ 'HOME.SAINT_DESC' | translate }}
+      </p>
+    </div>
+
+    <div class="p-4 text-center">
+      <a href="/events" class="card-btn">
+        {{ 'HOME.READ_MORE' | translate }}
+      </a>
+    </div>
+  </div>
   
-  <!-- Card 1 -->
-  <div class="card flex flex-col min-h-[500px] max-w-sm mx-auto">
+  <!-- Card  2 -->
+  <div class="card flex flex-col min-h-[500px] max-w-sm mx-auto" >
     <div class="p-4 text-center">
       <h3 class="card-title text-2xl font-semibold">
         {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
@@ -86,47 +117,23 @@
     </div>
   </div>
 
-  <div class="card flex flex-col min-h-[500px] max-w-sm mx-auto">
-    <div class="p-4 text-center">
-      <h3 class="card-title text-2xl font-semibold">
-        {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
-      </h3>
-    </div>
-
-    <!-- Taller image -->
-    <div class="w-full h-80 overflow-hidden flex items-center justify-center">
-      <img src="assets/images/templeimage1.png" alt="Ashadhi Event"
-           class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-    </div>
-
-    <div class="p-4 text-center flex-1">
-      <p class="card-desc text-sm leading-relaxed">
-        {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
-      </p>
-    </div>
-
-    <div class="p-4 text-center">
-      <a href="/events" class="card-btn">
-        {{ 'HOME.READ_MORE' | translate }}
-      </a>
-    </div>
-  </div>
+  
    <div class="card flex flex-col min-h-[500px] max-w-sm mx-auto">
     <div class="p-4 text-center">
       <h3 class="card-title text-2xl font-semibold">
-        {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
+        {{ 'HOME.ABHANG_TITLE' | translate }}
       </h3>
     </div>
 
     <!-- Taller image -->
     <div class="w-full h-80 overflow-hidden flex items-center justify-center">
-      <img src="assets/images/templeimage1.png" alt="Ashadhi Event"
+      <img src="assets/images/templeimage3.png" alt="Ashadhi Event"
            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
     </div>
 
     <div class="p-4 text-center flex-1">
       <p class="card-desc text-sm leading-relaxed">
-        {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
+        {{ 'HOME.ABHANG' | translate }}
       </p>
     </div>
 
@@ -142,13 +149,13 @@
 
 
 
+                  
 
 
 
 
-
-  <!-- Temples Section -->
-  <div id="templates" class="scroll-mt-25 bg-white mt-10 relative z-10 max-w-5xl mx-auto p-2 ">
+  <!-- Temples  Section -->
+  <div id="templates" class= "scroll-mt-25 bg-white  mt-10 relative z-10 max-w-5xl mx-auto p-4   ">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white shadow-lg rounded-xl p-6">
         <h3 class="text-2xl font-bold mb-4 ">{{ 'HOME.TEMPLES' | translate }}</h3>

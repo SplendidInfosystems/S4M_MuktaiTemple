@@ -1,25 +1,47 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { TranslateModule } from '@ngx-translate/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [HeaderComponent,CommonModule,GoogleMapsModule,TranslateModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit  {
+  ngOnInit(): void {}
+constructor(private auth: AuthService, private router: Router,private el: ElementRef) {
+    
+   }
+
+  ngAfterViewInit() {
+    const cards = this.el.nativeElement.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target); // animate only once
+        }
+      });
+    }, { threshold: 0.4});
+
+    cards.forEach((card: Element) => observer.observe(card));
+  }
+
+  ngAfterViewChecked(): void {
+    AOS.refresh(); // ensures animations trigger after Angular renders DOM
+  }
   
     zoom = 14;
   center: google.maps.LatLngLiteral = { lat: 21.0465, lng: 76.2221 };
-   constructor(private auth: AuthService, private router: Router) {
-    
-   }
+   
 
   logout() {
     this.auth.logout();

@@ -156,7 +156,10 @@
     "VIEW": "View"
   },
   "HOME": {
+    "ABHANG_TITLE":"ABHANG OF SAINT MUKTABAI",
     "SAINT_NAME": "SAINT MUKTABAI",
+    "ABHANG": "The yogi purifies the mind, bearing the faults of mankind.\nWhen worldly passions burn like fire, saints turn them into cooling water.\nWords like weapons cause distress, but saints give guiding counsel.\nThe cosmic veil is bound by Brahman’s thread — open the gate, O Jnaneshwar.\n\nKnow the true saint in the world: compassion and forgiveness dwell in him.\nGreed and pride find no place in his heart; he alone is detached in life.\nIn both worlds he remains blissful, with pure knowledge upon his lips.\nFalse imaginations vanish away — open the gate, O Jnaneshwar.",
+    "SAINT_NAME_INFO": " Saint Muktabai Information",
     "SAINT_DESC": "Saint Muktabai, also known as Muktai, was a revered 13th-century saint in the Varkari tradition and the younger sister of Saint Dnyaneshwar. She is celebrated for her deep spiritual insight and poetic contributions, which continue to inspire followers of the Bhakti movement. One of the prominent temples dedicated to her is located in Mehun, near Muktainagar in the Jalgaon district of Maharashtra.",
     "TEMPLES": "Temples",
     "EVENTS": "Events",
@@ -203,6 +206,12 @@
     "TEMPLE_NAME_2": "Saint Muktabai Temple Mehun",
     "EXPLORE_TEMPLES": "Explore Temples"
  
+  },
+   "ABHANG": {
+    "LINE1": "Detached from worldly life, through chanting Hari’s name, one attains Vaikuntha, liberation assured. (1)",
+    "LINE2": "Without Hari, liberation is never possible; he destroys the bondage of worldly suffering. (2)",
+    "LINE3": "In despair and hopelessness, unconsciousness prevails; Hari awakens us in his own divine form. (3)",
+    "LINE4": "Muktai is ever a living liberated soul, breaking all subtle distinctions anew. (4)"
   },
   "NOTIFICATIONS": {
 

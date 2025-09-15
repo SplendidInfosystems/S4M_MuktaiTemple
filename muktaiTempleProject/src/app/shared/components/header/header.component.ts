@@ -13,6 +13,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
   isLoggedIn = false; // Change this to real auth check
+          currentLang = 'mr';
+
 
      constructor(private auth: AuthService, private router: Router,private translate: TranslateService) {
        this.translate.setDefaultLang(this.currentLang);
@@ -22,7 +24,6 @@ export class HeaderComponent {
       isMobileMenuOpen: boolean = false;
 
         showDropdown = false;
-        currentLang = 'en';
       
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;

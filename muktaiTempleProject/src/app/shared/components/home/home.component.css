@@ -53,3 +53,18 @@
     object-fit: cover;
     object-position: center;
 }
+[data-aos] {
+  opacity: 1 !important; /* Prevent invisible elements if AOS fails */
+  visibility: visible !important;
+}
+ .card {
+  @apply opacity-0;
+  transform: translateY(60px);
+  transition-property: opacity, transform;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0.22,1,0.36,1);
+}
+.card.in-view {
+  @apply opacity-100;
+  transform: translateY(0);
+}
