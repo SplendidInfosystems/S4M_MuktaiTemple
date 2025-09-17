@@ -21,18 +21,23 @@ constructor(private auth: AuthService, private router: Router,private el: Elemen
    }
 
   ngAfterViewInit() {
-    const cards = this.el.nativeElement.querySelectorAll('.card');
-
     const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          obs.unobserve(entry.target); // animate only once
-        }
-      });
-    }, { threshold: 0.4});
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        (entry.target as HTMLElement).classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
 
-    cards.forEach((card: Element) => observer.observe(card));
+  // observe both card and card-next
+  const targets = this.el.nativeElement.querySelectorAll('.card, .card-next');
+  targets.forEach((t: Element) => observer.observe(t));
+
+
+
+  
+    
   }
 
   ngAfterViewChecked(): void {

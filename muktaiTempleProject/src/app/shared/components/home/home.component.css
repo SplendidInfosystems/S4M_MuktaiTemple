@@ -1,12 +1,12 @@
 /* ---------- Add this AFTER Tailwind's CSS (styles.css bottom) ---------- */
-.card {
+.card, .card-next {
   background: #ffffff;
   transition: all .35s ease;
   border-radius: .75rem; /* match rounded-xl */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  /* height: 500px; */
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.06);
 }
@@ -57,14 +57,20 @@
   opacity: 1 !important; /* Prevent invisible elements if AOS fails */
   visibility: visible !important;
 }
- .card {
+ .card,.card-next {
   @apply opacity-0;
   transform: translateY(60px);
   transition-property: opacity, transform;
   transition-duration: 800ms;
   transition-timing-function: cubic-bezier(0.22,1,0.36,1);
 }
-.card.in-view {
+.card.in-view,.card-next.in-view {
   @apply opacity-100;
   transform: translateY(0);
 }
+.card-image{
+  max-height: 400px;
+  max-width: 500px;
+  object-fit: cover;
+}
+
