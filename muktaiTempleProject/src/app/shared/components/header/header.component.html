@@ -1,4 +1,4 @@
-<nav class="bg-red-500 fixed top-0 left-0 w-full z-20 border-b border-gray-200">
+<nav class="bg-[#fa7f1b] fixed top-0 left-0 w-full z-20 border-b border-gray-200">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 h-16">
     <!-- Left: Logo -->
     <div class="flex items-center h-full">
@@ -7,7 +7,7 @@
 
     <!-- Center: Navigation Menu -->
     <div class="hidden md:flex items-center justify-center bg-white border rounded-2xl px-6 py-2.5 shadow gap-8 text-black font-medium">
-      <a (click)="scrollTo('about')" class="hover:text-yellow-300">About Us</a>
+      <!-- <a (click)="scrollTo('about')" class="hover:text-yellow-300">About Us</a> -->
       <a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a>
       <a (click)="scrollTo('Events')" class="hover:text-yellow-300">Events</a>
       <a (click)="scrollTo('schedule')" class="hover:text-yellow-300">Scheduled</a>
@@ -42,13 +42,13 @@
           <!-- Login (only if not logged in) -->
  <a *ngIf="!isLoggedIn"
    (click)="login()"
-   class="border border-white cursor-pointer text-white hover:bg-red-600 transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium">
+   class="border border-white cursor-pointer text-white hover:bg-orange-500 transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium">
   Login
 </a>
 
       <!-- Mobile Menu Toggle -->
       <button (click)="toggleMobileMenu()"
-        class="md:hidden p-2 w-9 h-9 justify-center text-sm text-white rounded hover:bg-red-600 focus:outline-none">
+        class="md:hidden p-2 w-9 h-9 justify-center text-sm text-white rounded hover:bg-orange-500 focus:outline-none">
         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M1 1h15M1 7h15M1 13h15" />
@@ -58,7 +58,7 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div *ngIf="isMobileMenuOpen" class="md:hidden px-4 pb-4 bg-red-500">
+  <div *ngIf="isMobileMenuOpen" class="md:hidden px-4 pb-4 bg-orange-500">
     <ul class="space-y-2 text-white">
       <li><a (click)="scrollTo('about')" class="hover:text-yellow-300 block py-1">About Us</a></li>
       <li><a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a></li>

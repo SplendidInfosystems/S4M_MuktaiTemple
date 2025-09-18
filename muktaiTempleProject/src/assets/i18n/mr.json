@@ -201,6 +201,7 @@
     "SURNAME": "आडनाव",
     "ENTER_NAME": "तुमचे नाव टाका",
     "ENTER_SURNAME": "तुमचे आडनाव टाका",
+    "ENTER_EMAIL":"तुमचा ईमेल टाका",
     "MESSAGE": "संदेश",
     "ENTER_MESSAGE": "तुमचा संदेश टाका",
     "SEND_MESSAGE": "संदेश पाठवा",

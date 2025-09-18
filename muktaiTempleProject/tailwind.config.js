@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+            screens: {
+        // 'xxl': '1600px',
+      },
+
       keyframes: {
     'typewriter': {
       '0%': { width: '0' },
