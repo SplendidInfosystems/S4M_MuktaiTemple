@@ -6,13 +6,14 @@
     </div>
 
     <!-- Center: Navigation Menu -->
-    <div class="hidden md:flex items-center justify-center bg-white border rounded-2xl px-6 py-2.5 shadow gap-8 text-black font-medium">
+    <div class="hidden md:flex items-center justify-center  px-6 py-2.5  gap-8 text-white text-xl">
       <!-- <a (click)="scrollTo('about')" class="hover:text-yellow-300">About Us</a> -->
-      <a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a>
-      <a (click)="scrollTo('Events')" class="hover:text-yellow-300">Events</a>
-      <a (click)="scrollTo('schedule')" class="hover:text-yellow-300">Scheduled</a>
-      <a (click)="scrollTo('how-to-rich')" class="hover:text-yellow-300">How To Reach</a>
-      <a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">Contact Us</a>
+     <a (click)="scrollTo('templates')" class="hover:text-yellow-300">{{ 'nav.temples' | translate }}</a>
+<a (click)="scrollTo('events')" class="hover:text-yellow-300">{{ 'nav.events' | translate }}</a>
+<a (click)="scrollTo('schedule')" class="hover:text-yellow-300">{{ 'nav.schedule' | translate }}</a>
+<a (click)="scrollTo('howToReach')" class="hover:text-yellow-300">{{ 'nav.howToReach' | translate }}</a>
+<a (click)="scrollTo('contact')" class="hover:text-yellow-300">{{ 'nav.contact' | translate }}</a>
+
     </div>
 
     <!-- Right: Icons -->
@@ -27,8 +28,8 @@
       <!-- Language Dropdown -->
       <div class="relative">
         <div *ngIf="showDropdown" class="absolute right-0 mt-2 w-32 bg-white text-black rounded shadow-md">
-          <button class="w-full text-left px-4 py-2 hover:bg-gray-200" (click)="setLanguage('en')">English</button>
-          <button class="w-full text-left px-4 py-2 hover:bg-gray-200" (click)="setLanguage('mr')">Marathi</button>
+          <button class="w-full text-left px-4 py-2 hover:bg-gray-200" (click)="setLanguage('en')">{{'nav.English' | translate}}</button>
+          <button class="w-full text-left px-4 py-2 hover:bg-gray-200" (click)="setLanguage('mr')">{{'nav.Marathi' | translate}}</button>
         </div>
       </div>
 
@@ -43,8 +44,7 @@
  <a *ngIf="!isLoggedIn"
    (click)="login()"
    class="border border-white cursor-pointer text-white hover:bg-orange-500 transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium">
-  Login
-</a>
+{{ 'nav.login' | translate }}</a>
 
       <!-- Mobile Menu Toggle -->
       <button (click)="toggleMobileMenu()"

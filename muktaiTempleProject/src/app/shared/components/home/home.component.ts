@@ -15,6 +15,7 @@ import AOS from 'aos';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit  {
+
   ngOnInit(): void {}
 constructor(private auth: AuthService, private router: Router,private el: ElementRef) {
     
