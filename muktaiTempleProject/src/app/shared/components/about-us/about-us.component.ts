@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule,CommonModule],
   templateUrl: './about-us.component.html',
-  styleUrl: './about-us.component.css'
+  styleUrls: ['./about-us.component.css']
 })
 export class AboutUSComponent {
 

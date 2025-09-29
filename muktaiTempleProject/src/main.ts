@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes'; // Your defined routes
 
+
 // ✅ Correct loader path: looks in /assets/i18n/*.json
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');

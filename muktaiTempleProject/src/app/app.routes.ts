@@ -5,6 +5,7 @@ import {SharedModule} from './shared/shared.module'
 import { HomeComponent } from './shared/components/home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import {DashboardRoutingModule} from './features/dashboard/dashboard-routing.module';
+import { AboutUSComponent } from './shared/components/about-us/about-us.component';
 
 // export const routes: Routes = [
 //   { path: 'home', component: HomeComponent },
@@ -32,6 +33,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },   // login first
   { path: 'home', component: HomeComponent },
   { path: 'header', component: HeaderComponent },
+  { path: 'about-us', component: AboutUSComponent },
   {
     path: 'dashboard',
     loadChildren: () =>

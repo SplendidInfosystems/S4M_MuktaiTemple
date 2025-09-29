@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
@@ -6,14 +6,17 @@ import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { TranslateModule } from '@ngx-translate/core';
 import AOS from 'aos';
+import SwiperCore from 'swiper';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [HeaderComponent,CommonModule,GoogleMapsModule,TranslateModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+
 })
+
 export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit  {
 
   ngOnInit(): void {}

@@ -169,6 +169,41 @@
     "English": "English",
     "Marathi": "Marathi"
   },
+  "hero": {
+    "title": "Muktai Wari – a holy journey of devotion and blessings.",
+    "subtitle": "Experience the sacred Wari pilgrimage of Saint Muktai. Join us on a spiritual path filled with devotion, culture, and divine blessings.",
+    "contactBtn": "Join the Wari",
+    "packageBtn": "View packages"
+  },
+   "muktaiwari": {
+    "title": "Muktainagar Wari",
+    "description": "Muktainagar is named after Saint Muktai, a revered saint of the Warkari tradition. Devotees honor her by offering devotional visits or 'Wari' at her temple in Jalgaon district.",
+    "importanceTitle": "Importance of Muktainagar",
+    "importance1": "Respect for Saint Muktai: The city was renamed in her honor.",
+    "importance2": "Spiritual Center: The temple of Saint Muktai is a major pilgrimage site.",
+    "wariTitle": "Wari to Muktainagar",
+    "wari1": "Devotional visits: Pilgrims travel to the temple as part of the Wari.",
+    "wari2": "Pilgrimage: They participate in devotional practices.",
+    "wari3": "Palkhi Procession: Annual procession with rituals and celebrations.",
+    "wari4": "Abhangas: Pilgrims sing devotional songs written by Saint Muktai.",
+    "wari5": "Inclusivity: Both men and women participate equally."
+  },
+    "team": {
+    "title": "Our Team",
+    "member1": {
+      "name": "S D. Patil",
+      "role": "Blessings"
+    },
+    "member2": {
+      "name": "Shri P D. Patil",
+      "role": "Founder"
+    },
+    "member3": {
+      "name": "Shri V D. Patil",
+      "role": "Co-Founder"
+    }
+  },
+
   
   "contact": {
     "title": "Muktai Temple Contact",

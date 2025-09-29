@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,TranslateModule],
+  imports: [CommonModule,TranslateModule ,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
