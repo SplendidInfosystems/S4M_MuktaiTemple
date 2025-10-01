@@ -246,9 +246,7 @@
     </div> -->
 
 
-    <!-- Hero Section: Muktai Temple Wari -->
-    <!-- add this class to your body / app root to avoid horizontal scroll -->
-    <!-- <body class="overflow-x-hidden"> -->
+    <!-- Hero Section -->
 
     <section class="relative w-screen left-1/2 -translate-x-1/2 bg-orange-500 mt-5 text-white overflow-hidden">
       <!-- Decorative Background (dots + rings) -->
@@ -265,42 +263,40 @@
 
       <!-- Content: constrained centered content while bg is full-bleed -->
       <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 md:px-12 lg:px-20 py-20 relative z-10">
-        <!-- Left: Text -->
+  <!-- Left: Text -->
+  <div class="flex flex-col justify-center">
+    <div
+      class="absolute top-10 right-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
+      <ng-container *ngFor="let dot of [].constructor(16)">
+        <div class="w-2 h-2 bg-white rounded-full"></div>
+      </ng-container>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+      {{ 'hero.title' | translate }}
+    </h1>
+    <p class="text-lg text-gray-200 mb-8">
+      {{ 'hero.subtitle' | translate }}
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#contact"
+        class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
+        {{ 'hero.contactBtn' | translate }}
+      </a>
+      <a href="#packages"
+        class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition">
+        {{ 'hero.packageBtn' | translate }}
+      </a>
+    </div>
+  </div>
 
+  <!-- Right: Hero Image -->
+  <div class="flex flex-col items-center justify-between">
+    <img src="assets/images/wari3.png" alt="Muktai Wari Yatra"
+      class="w-full max-w-[250px]  object-contain">
+    <h2 class="mt-4 text-3xl font-bold text-white">मुक्ताई वारकरी यात्रा</h2>
+  </div>
+</div>
 
-        <div>
-          <div
-            class="absolute top-10 right-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
-            <ng-container *ngFor="let dot of [].constructor(16)">
-              <div class="w-2 h-2 bg-white rounded-full"></div>
-            </ng-container>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-            {{ 'hero.title' | translate }}
-          </h1>
-          <p class="text-lg text-gray-200 mb-8">
-            {{ 'hero.subtitle' | translate }}
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#contact"
-              class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
-              {{ 'hero.contactBtn' | translate }}
-            </a>
-            <a href="#packages"
-              class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition">
-              {{ 'hero.packageBtn' | translate }}
-            </a>
-          </div>
-        </div>
-
-
-
-        <!-- Right: Hero Image -->
-        <div class="flex flex-col items-center">
-          <img src="assets/images/warkari.png" alt="Muktai Wari Yatra" class="w-full max-w-[460px]  drop-shadow-xl">
-          <h2 class="mt-4 text-3xl font-bold">मुक्ताई वारकरी यात्रा</h2>
-        </div>
-      </div>
 
 
       <!-- Decorative bottom wave (full width) -->
