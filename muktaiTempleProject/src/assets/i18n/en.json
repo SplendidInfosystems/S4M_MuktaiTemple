@@ -204,6 +204,18 @@
     }
   },
 
+   "footer": {
+      "projectName": "Muktai Temple Project",
+    "description": "A sacred place of devotion and culture in Muktainagar, Jalgaon.",
+    "contact": "Contact",
+    "location": "Muktainagar, Jalgaon, Maharashtra - 425001",
+    "map": "Location Map",
+    "followUs": "Follow Us",
+    "rights": "All Rights Reserved.",
+    "cookies": "Cookies",
+    "help": "Help",
+    "faqs": "FAQs"
+  },
   
   "contact": {
     "title": "Muktai Temple Contact",

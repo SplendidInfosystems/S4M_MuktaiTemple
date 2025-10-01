@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, NgZone, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
@@ -19,10 +19,35 @@ import SwiperCore from 'swiper';
 
 export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit  {
 
-  ngOnInit(): void {}
-constructor(private auth: AuthService, private router: Router,private el: ElementRef) {
+    ngOnInit(): void {}
+constructor(private auth: AuthService, private router: Router,private el: ElementRef,private ngZone: NgZone) {
     
    }
+
+showScrollTop = false;
+
+ 
+
+  // optional: show only after X px
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.showScrollTop = y > 200;
+  }
+
+scrollToTop(): void {
+  const main = document.getElementById('pageMain');
+  if (main) {
+    main.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+@HostListener('scroll', ['$event'])
+onScroll(event: Event) {
+  const target = event.target as HTMLElement;
+  this.showScrollTop = target.scrollTop > 200;
+}
 
   ngAfterViewInit() {
     const observer = new IntersectionObserver((entries, obs) => {
@@ -79,6 +104,7 @@ temples: {id: number; text: string; image: string }[] = [
   },
 
 ]
+
 
 
 
