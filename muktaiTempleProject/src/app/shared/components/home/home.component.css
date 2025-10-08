@@ -1,4 +1,32 @@
 /* ---------- Add this AFTER Tailwind's CSS (styles.css bottom) ---------- */
+
+
+#pageMain {
+  height: 100vh; 
+  overflow-y: auto;
+}
+
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #f97316; /* Tailwind orange-500 */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  z-index: 999999;
+  transition: transform 0.2s ease-in-out;
+}
+.scroll-to-top-btn:hover {
+  transform: scale(1.1);
+  background-color: #ea580c; /* orange-600 */
+}
+
+
 .card, .card-next {
   background: #ffffff;
   transition: all .35s ease;
