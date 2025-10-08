@@ -12,14 +12,14 @@
 
     <!-- Center: Navigation Menu -->
     <div   [ngClass]="{'text-white': !isScrolled, 'text-gray-900': isScrolled}" class="hidden md:flex items-center justify-center  px-6 py-2.5  gap-8 text-white text-xl">
-      <a routerLink="/about-us" routerLinkActive="text-yellow-300">
+      <a (click)="scrollTo('saint-muktabai-info')" class="hover:text-yellow-300">
     {{ 'nav.about' | translate }}
   </a>
  <a (click)="scrollTo('templates')" class="hover:text-yellow-300">{{ 'nav.temples' | translate }}</a>
 <a (click)="scrollTo('events')" class="hover:text-yellow-300">{{ 'nav.events' | translate }}</a>
 <a (click)="scrollTo('schedule')" class="hover:text-yellow-300">{{ 'nav.schedule' | translate }}</a>
-<a (click)="scrollTo('howToReach')" class="hover:text-yellow-300">{{ 'nav.howToReach' | translate }}</a>
-<a (click)="scrollTo('contact')" class="hover:text-yellow-300">{{ 'nav.contact' | translate }}</a>
+<!-- <a (click)="scrollTo('howToReach')" class="hover:text-yellow-300">{{ 'nav.howToReach' | translate }}</a> -->
+<a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">{{ 'nav.contact' | translate }}</a>
 
     </div>
 
@@ -67,13 +67,13 @@
   <!-- Mobile Menu -->
   <div *ngIf="isMobileMenuOpen" class="md:hidden px-4 pb-4 bg-orange-500">
     <ul class="space-y-2 text-white">
-      <li> <a routerLink="/about-us" routerLinkActive="text-yellow-300">
+      <li> <a (click)="scrollTo('saint-muktabai-info')" class="text-yellow-300">
     {{ 'nav.about' | translate }}
   </a></li>
       <li><a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a></li>
-      <li><a (click)="scrollTo('Events')" class="hover:text-yellow-300">Events</a></li>
+      <li><a (click)="scrollTo('events')" class="hover:text-yellow-300">Events</a></li>
       <li><a (click)="scrollTo('schedule')" class="hover:text-yellow-300">Scheduled</a></li>
-      <li><a (click)="scrollTo('how-to-rich')" class="hover:text-yellow-300">How To Reach</a></li>
+      <!-- <li><a (click)="scrollTo('how-to-rich')" class="hover:text-yellow-300">How To Reach</a></li> -->
       <li><a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">Contact Us</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/login" class="hover:text-yellow-300">Login</a></li>
     </ul>
