@@ -11,21 +11,20 @@ import { RouterModule } from '@angular/router';
   styleUrl: './temple-images.component.css'
 })
 export class TempleImagesComponent {
-   images = [
-    { src: 'assets/images/changdevimage.jpg', title: 'Temple Entrance', desc: 'Beautiful main temple gate' },
-    // { src: 'assets/images/imagecard2.png', title: 'Festival Lights', desc: 'Evening lighting during celebration' },
-    // { src: 'assets/images/imagetem1.png', title: 'Devotees Gathering', desc: 'Warkaris performing abhang' },
-    { src: 'assets/images/imagetem2.png', title: 'Morning Darshan', desc: 'Temple in golden sunrise' },
-    { src: 'assets/images/imagetem3.png', title: 'Main Idol', desc: 'Sacred idol of Sant Muktabai' },
-    { src: 'assets/images/Changdev3.jpeg', title: 'Temple Festival', desc: 'Celebration with devotional songs' },
-    { src: 'assets/images/changdevimage2.jpg', title: 'Evening Aarti', desc: 'Devotees during Sandhya Aarti' },
+  images = [
+    { src: 'assets/images/changdevimage.jpg', title: 'Changdev Temple Entrance', desc: 'Historic temple of Saint Changdev Maharaj' },
+    { src: 'assets/images/muktaiimage2.jpg', title: 'Muktabai Temple', desc: 'Beautiful temple in golden sunrise' },
+    { src: 'assets/images/image11.jpg', title: 'Main Idol', desc: 'Sacred idol of Sant Muktabai' },
+    { src: 'assets/images/Changdev3.jpeg', title: 'Changdev Festival', desc: 'Devotional celebration & rituals' },
+    { src: 'assets/images/changdevimage2.jpg', title: 'Changdev Temple View', desc: 'Magnificent temple structure' },
     { src: 'assets/images/muktaitemple.jpg', title: 'Traditional Dance', desc: 'Lezim and bhajan performances' },
-    { src: 'assets/images/muktaitemplemehun.jpg', title: 'Food Distribution', desc: 'Community prasad seva' },
-    { src: 'assets/images/temple6.webp', title: 'Temple Decorations', desc: 'Flowers and rangoli art' },
-    { src: 'assets/images/temple9.webp', title: 'Muktai Mandir Inside', desc: 'Sacred sanctum' },
-    { src: 'assets/images/temple8.webp', title: 'Pilgrimage Group', desc: 'Warkaris traveling together' },
-    { src: 'assets/images/temple11.webp', title: 'Village View', desc: 'Muktainagar from a distance' },
-    { src: 'assets/images/temple7.jpg', title: 'Riverbank', desc: 'Peaceful river beside the temple' },
+    { src: 'assets/images/muktaitemplemehun.jpg', title: 'Food Distribution', desc: 'Community prasad seva for devotees' },
+    { src: 'assets/images/temple6.webp', title: 'Muktabai Riverside Temple', desc: 'Flowers and rangoli decorations' },
+    { src: 'assets/images/temple9.webp', title: 'Muktai Mandir Inside', desc: 'Peaceful and sacred sanctum' },
+    { src: 'assets/images/temple8.webp', title: 'Pilgrimage Group', desc: 'Warkaris traveling together joyfully' },
+    { src: 'assets/images/temple11.webp', title: 'Village View', desc: 'Panoramic view of Muktainagar' },
+    { src: 'assets/images/temple7.jpg', title: 'Riverbank', desc: 'Tranquil river beside the temple' },
+
   ];
 
 }
