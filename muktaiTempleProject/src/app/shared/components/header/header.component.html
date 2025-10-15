@@ -1,9 +1,11 @@
-<nav    [ngClass]="{
+<nav
+  [ngClass]="{
     'bg-gray-500 text-gray-900 shadow-md': isScrolled,
     'bg-orange-500 text-white': !isScrolled
   }"
   class="fixed top-0 left-0 w-full z-20 border-b border-gray-200 transition-colors duration-300"
 >
+
   <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 h-16">
     <!-- Left: Logo -->
     <div class="flex items-center h-full">
@@ -70,12 +72,12 @@
       <li> <a (click)="scrollTo('saint-muktabai-info')" class="text-yellow-300">
     {{ 'nav.about' | translate }}
   </a></li>
-      <li><a (click)="scrollTo('templates')" class="hover:text-yellow-300">Temples</a></li>
-      <li><a (click)="scrollTo('events')" class="hover:text-yellow-300">Events</a></li>
-      <li><a (click)="scrollTo('schedule')" class="hover:text-yellow-300">Scheduled</a></li>
+      <li><a (click)="scrollTo('templates')" class="hover:text-yellow-300">{{ 'nav.temples' | translate }}</a></li>
+      <li><a (click)="scrollTo('events')" class="hover:text-yellow-300">{{ 'nav.events' | translate }}</a></li>
+      <li><a (click)="scrollTo('schedule')" class="hover:text-yellow-300">{{ 'nav.schedule' | translate }}</a></li>
       <!-- <li><a (click)="scrollTo('how-to-rich')" class="hover:text-yellow-300">How To Reach</a></li> -->
-      <li><a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">Contact Us</a></li>
-      <li *ngIf="!isLoggedIn"><a routerLink="/login" class="hover:text-yellow-300">Login</a></li>
+      <li><a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">{{ 'nav.contact' | translate }}</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/login" class="hover:text-yellow-300">{{'nav.login' | translate}}</a></li>
     </ul>
   </div>
 </nav>

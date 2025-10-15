@@ -7,7 +7,7 @@
 
 
   <!-- Half Section -->
-  <div
+  <div 
     class="relative bg-gradient-to-r from-[#f1f7ff] via-[#e8f0ff] to-[#f1f7ff] min-h-fit flex items-center justify-center px-6 py-12">
 
     <!-- Background Decoration -->
@@ -68,76 +68,99 @@
     <!-- Cards Section -->
     <div id="saint-muktabai-info" class="mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-      <!-- Card 1 -->
-      <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
-        <div class="p-3 text-center">
-          <h3 class="card-title text-xl font-semibold">
-            {{ 'HOME.SAINT_NAME_INFO' | translate }}
-          </h3>
-        </div>
-        <div class="w-full h-56 overflow-hidden flex items-center justify-center">
-          <img src="assets/images/image2.png" alt="Saint"
-            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-        </div>
-        <div class="p-3 text-center flex-1">
-          <p class="card-desc text-lg text-justify leading-snug">
-            {{ 'HOME.SAINT_DESC' | translate }}
-          </p>
-        </div>
-        <div class="p-3 text-center">
-          <a href="/events" class="card-btn">
-            {{ 'HOME.READ_MORE' | translate }}
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
-        <div class="p-3 text-center">
-          <h3 class="card-title text-xl font-semibold">
-            {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
-          </h3>
-        </div>
-        <div class="w-full h-56 overflow-hidden flex items-center justify-center">
-          <img src="assets/images/image1.png" alt="Ashadhi Event"
-            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-        </div>
-        <div class="p-3 text-center flex-1">
-          <p class="card-desc text-lg text-justify leading-snug">
-            {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
-          </p>
-        </div>
-        <div class="p-3 text-center">
-          <a href="/events" class="card-btn">
-            {{ 'HOME.READ_MORE' | translate }}
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
-        <div class="p-3 text-center">
-          <h3 class="card-title text-xl font-semibold">
-            {{ 'HOME.ABHANG_TITLE' | translate }}
-          </h3>
-        </div>
-        <div class="w-full h-56 overflow-hidden flex items-center justify-center">
-          <img src="assets/images/image4.png" alt="Abhang"
-            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-        </div>
-        <div class="p-3 text-center flex-1">
-          <p class="card-desc text-lg text-justify leading-snug">
-            {{ 'HOME.ABHANG' | translate }}
-          </p>
-        </div>
-        <div class="p-3 text-center">
-          <a href="/events" class="card-btn">
-            {{ 'HOME.READ_MORE' | translate }}
-          </a>
-        </div>
-      </div>
-
+  <!-- Card 1 -->
+  <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
+    <div class="p-3 text-center">
+      <h3 class="card-title text-xl font-semibold">
+        {{ 'HOME.SAINT_NAME_INFO' | translate }}
+      </h3>
     </div>
+    <div class="w-full h-56 overflow-hidden flex items-center justify-center">
+      <img src="assets/images/image2.png" alt="Saint"
+        class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+    </div>
+    <div class="p-3 text-center flex-1">
+      <p class="card-desc text-lg text-justify leading-snug">
+        {{ 'HOME.SAINT_DESC' | translate }}
+      </p>
+    </div>
+    <div class="p-3 text-center">
+      <button
+        (click)="openDialog('saint')"
+        class="card-btn">
+        {{ 'HOME.READ_MORE' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
+    <div class="p-3 text-center">
+      <h3 class="card-title text-xl font-semibold">
+        {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
+      </h3>
+    </div>
+    <div class="w-full h-56 overflow-hidden flex items-center justify-center">
+      <img src="assets/images/image1.png" alt="Ashadhi Event"
+        class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+    </div>
+    <div class="p-3 text-center flex-1">
+      <p class="card-desc text-lg text-justify leading-snug">
+        {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
+      </p>
+    </div>
+    <div class="p-3 text-center">
+      <button
+        (click)="openDialog('ashadhi')"
+        class="card-btn">
+        {{ 'HOME.READ_MORE' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
+    <div class="p-3 text-center">
+      <h3 class="card-title text-xl font-semibold">
+        {{ 'HOME.ABHANG_TITLE' | translate }}
+      </h3>
+    </div>
+    <div class="w-full h-56 overflow-hidden flex items-center justify-center">
+      <img src="assets/images/image4.png" alt="Abhang"
+        class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+    </div>
+    <div class="p-3 text-center flex-1">
+      <p class="card-desc text-lg text-justify leading-snug">
+        {{ 'HOME.ABHANG' | translate }}
+      </p>
+    </div>
+    <div class="p-3 text-center">
+      <button
+        (click)="openDialog('abhang')"
+        class=" card-btn ">
+        {{ 'HOME.READ_MORE' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Modal Dialog -->
+<div *ngIf="isDialogOpen" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+  <div
+    class="bg-white rounded-2xl w-full max-w-lg shadow-2xl transform transition-all duration-300 scale-100 p-6 relative">
+    <button (click)="closeDialog()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl">✕</button>
+
+    <h2 class="text-2xl font-semibold text-orange-600 mb-4 text-center">{{ dialogTitle }}</h2>
+    <p class="text-gray-700 leading-relaxed text-justify">{{ dialogContent }}</p>
+
+    <div class="text-center mt-6">
+      <button (click)="closeDialog()" class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
 
     <div>
       <h2
@@ -284,10 +307,10 @@
         class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
         {{ 'hero.contactBtn' | translate }}
       </a>
-      <a href="#packages"
+      <!-- <a href="#packages"
         class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition">
         {{ 'hero.packageBtn' | translate }}
-      </a>
+      </a> -->
     </div>
   </div>
 
