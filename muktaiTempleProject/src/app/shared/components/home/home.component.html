@@ -1,7 +1,9 @@
 <app-header></app-header>
 
-<div #scrollContainer  (scroll)="onDivScroll($event)" id="pageMain" class="relative pt-[64px] min-h-fit pb-20 md:pb-[env(safe-area-inset-bottom)] 
-         overflow-x-hidden overflow-y-auto">
+<!-- <div #scrollContainer  (scroll)="onDivScroll($event)" id="pageMain" class="relative pt-[64px] min-h-fit pb-20 md:pb-[env(safe-area-inset-bottom)] 
+         overflow-x-hidden overflow-y-auto"> -->
+ <div id="pageMain" #scrollContainer (scroll)="onDivScroll($event)">
+
 
  
 
@@ -327,7 +329,7 @@
       <!-- Decorative bottom wave (full width) -->
       <svg class="absolute bottom-0 left-0 w-full h-20 text-white" preserveAspectRatio="none" viewBox="0 0 1440 320">
         <path fill="currentColor"
-          d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
+          d="M0,224L                                                                      48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
         </path>
       </svg>
     </section>
