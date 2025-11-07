@@ -6,7 +6,7 @@
   class="fixed top-0 left-0 w-full z-20 border-b border-gray-200 transition-colors duration-300"
 >
 
-  <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 h-16">
+  <div class="max-w-screen-xl mx-auto flex items-center justify-between  px-4 h-16">
     <!-- Left: Logo -->
     <div class="flex items-center h-full">
       <img src="assets/images/muktailogo1.png" class="w-14 h-16 object-contain" alt="Logo">
@@ -30,7 +30,14 @@
       
   
       <!-- Settings -->
-      <i class="fas fa-cog cursor-pointer text-white" (click)="toggleDropdown()"></i>
+<i 
+  class="fas fa-cog cursor-pointer transition-colors duration-300"
+  [ngClass]="{
+    'text-gray-900 hover:text-orange-500': isScrolled,
+    'text-white hover:text-yellow-300': !isScrolled
+  }"
+  (click)="toggleDropdown()"
+></i>
 
    
 
@@ -50,10 +57,19 @@
       </svg>
 
           <!-- Login (only if not logged in) -->
- <a *ngIf="!isLoggedIn"
-   (click)="login()"
-   class="border border-white cursor-pointer text-white hover:bg-orange-500 transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium">
-{{ 'nav.login' | translate }}</a>
+<a 
+  *ngIf="!isLoggedIn"
+  (click)="login()"
+  [ngClass]="{
+    'border border-gray-800 text-gray-900 hover:bg-gray-100 hover:border-gray-900': isScrolled,
+    'border border-white text-white hover:bg-orange-600 hover:border-yellow-300': !isScrolled
+  }"
+  class="cursor-pointer transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium"
+>
+  {{ 'nav.login' | translate }}
+</a>
+
+
 
       <!-- Mobile Menu Toggle -->
       <button (click)="toggleMobileMenu()"
