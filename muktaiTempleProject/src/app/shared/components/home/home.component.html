@@ -57,6 +57,50 @@
       </div>
     </div>
   </div>
+  <!-- ABOUT US SECTION -->
+
+  <div class=" container px-lg-5 mx-auto  py-12 flex flex-col md:flex-row items-center gap-10">
+
+  <!-- LEFT SECTION -->
+  <div class="md:w-1/2">
+
+    <h2 class="text-orange-600 text-sm font-bold tracking-wide flex items-center gap-2">
+      <span>🔸</span> {{ 'HOME.ABOUT_US_TITLE' | translate }}
+    </h2>
+
+    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug mt-3">
+      {{ 'HOME.ABOUT_US_HEADING' | translate }}
+    </h1>
+
+    <div class="w-20 h-1 bg-orange-500 mt-3 mb-5"></div>
+
+    <p class="text-gray-700 leading-relaxed text-[17px] mb-4">
+      {{ 'HOME.ABOUT_US_P1' | translate }}
+    </p>
+
+    <p class="text-gray-700 leading-relaxed text-[17px] mb-4">
+      {{ 'HOME.ABOUT_US_P2' | translate }}
+    </p>
+
+    <p class="text-gray-700 leading-relaxed text-[17px]">
+      {{ 'HOME.ABOUT_US_P3' | translate }}
+    </p>
+  </div>
+
+  <!-- RIGHT IMAGE -->
+  <div class="md:w-1/2 flex justify-center relative">
+    <div class="absolute w-64 h-64 bg-orange-400 rounded-full opacity-30 blur-2xl"></div>
+
+    <img 
+      src="assets/images/muktai.png" 
+      alt="Muktai Illustration"
+      class="relative w-80 drop-shadow-2xl"
+    />
+  </div>
+
+</div>
+
+
 
   <div>
     <h2
@@ -64,6 +108,7 @@
       {{ 'HOME.SANT_MUKTABAI_INFO' | translate }}
     </h2>
   </div>
+
 
   <div class="container px-lg-5 mx-auto">
 
@@ -170,6 +215,9 @@
         {{ 'HOME.SANT_MUKTABAI_TEMPLES' | translate }}
       </h2>
     </div>
+
+
+    
 
     <!-- Temples Section -->
     <div id="templates"
@@ -617,11 +665,13 @@
 
 </footer>
 <button
-  *ngIf="showScrollTop"
-  (click)="scrollToTop()"   class="fixed bottom-6 justify-center right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg z-[9999]"
+  *ngIf="showScrollTop"
+  (click)="scrollToTop()"
+  class="fixed bottom-6 right-6 bg-orange-500 text-white p-4 rounded-full shadow-lg z-[9999] flex items-center justify-center cursor-pointer hover:bg-orange-600 transition-transform duration-300 hover:scale-110"
 >
-  <i class="fas fa-arrow-up"></i>
+  <i class="fas fa-arrow-up text-sm"></i>
 </button>
+
 
 
 
