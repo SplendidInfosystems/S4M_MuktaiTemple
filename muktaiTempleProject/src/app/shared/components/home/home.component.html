@@ -92,14 +92,43 @@
     <div class="absolute w-64 h-64 bg-orange-400 rounded-full opacity-30 blur-2xl"></div>
 
     <img 
-      src="assets/images/muktai.png" 
+      src="assets/images/about_us_image.png" 
       alt="Muktai Illustration"
-      class="relative w-80 drop-shadow-2xl"
+      class="relative w-100 drop-shadow-2xl"
     />
   </div>
 
 </div>
 
+
+
+    <div>
+      <h2
+        class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
+        {{ 'HOME.SANT_MUKTABAI_TEMPLES' | translate }}
+      </h2>
+    </div>
+
+
+    
+
+    <!-- Temples Section -->
+    <div id="templates"
+      class="card-next scroll-mt-25 bg-white mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-2">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-white p-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white overflow-hidden shadow" *ngFor="let temple of temples">
+              <img [src]="temple.image" alt=""
+                class="w-full h-65 object-cover transform transition duration-300 hover:scale-110" />
+              <div class="p-3 text-center">
+                <h4 class="text-green-700 font-bold">{{ temple.text | translate}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
   <div>
@@ -208,34 +237,6 @@
   </div>
 </div>
 
-
-    <div>
-      <h2
-        class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
-        {{ 'HOME.SANT_MUKTABAI_TEMPLES' | translate }}
-      </h2>
-    </div>
-
-
-    
-
-    <!-- Temples Section -->
-    <div id="templates"
-      class="card-next scroll-mt-25 bg-white mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-2">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="bg-white p-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-white overflow-hidden shadow" *ngFor="let temple of temples">
-              <img [src]="temple.image" alt=""
-                class="w-full h-65 object-cover transform transition duration-300 hover:scale-110" />
-              <div class="p-3 text-center">
-                <h4 class="text-green-700 font-bold">{{ temple.text | translate}}</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Events Section -->
     <div id="events"
