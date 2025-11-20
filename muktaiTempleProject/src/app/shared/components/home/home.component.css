@@ -29,7 +29,7 @@
 
 
 .card, .card-next {
-  background: #ffffff;
+  /* background: #ffffff; */
   transition: all .35s ease;
   border-radius: .75rem; /* match rounded-xl */
   overflow: hidden;

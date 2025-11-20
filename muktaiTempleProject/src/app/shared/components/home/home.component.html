@@ -113,22 +113,29 @@
     
 
     <!-- Temples Section -->
-    <div id="templates"
-      class="card-next scroll-mt-25 bg-white mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-2">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="bg-white p-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-white overflow-hidden shadow" *ngFor="let temple of temples">
-              <img [src]="temple.image" alt=""
-                class="w-full h-65 object-cover transform transition duration-300 hover:scale-110" />
-              <div class="p-3 text-center">
-                <h4 class="text-green-700 font-bold">{{ temple.text | translate}}</h4>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div id="templates" class="animate-fade-in-up delay-900 max-w-6xl mx-auto px-4 mt-10">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    <div *ngFor="let temple of temples"
+      class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+
+      <div class="overflow-hidden">
+        <img
+          [src]="temple.image"
+          alt=""
+          class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110" />
+      </div>
+
+      <div class="p-3 text-center">
+        <h4 class="text-green-700 font-bold text-lg mt-2">
+          {{ temple.text | translate }}
+        </h4>
       </div>
     </div>
+
+  </div>
+</div>
+
 
 
   <div>
