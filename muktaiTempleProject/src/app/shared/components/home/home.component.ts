@@ -71,6 +71,33 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked, O
   ngAfterViewChecked(): void {
     AOS.refresh();
   }
+    services = [
+    {
+    key: 'TRAIN',
+    iconClass: 'fa fa-train'
+  },
+  {
+    key: 'AIR',
+    iconClass: 'fa fa-plane'
+  },
+  {
+    key: 'BUS',
+    iconClass: 'fa fa-bus'
+  },
+    {
+    key: 'BUS',
+    iconClass: 'fa fa-bus'
+  },
+    {
+    key: 'BUS',
+    iconClass: 'fa fa-bus'
+  },
+    {
+    key: 'BUS',
+    iconClass: 'fa fa-bus'
+  }
+  ];
+
 
 
 

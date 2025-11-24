@@ -108,3 +108,25 @@
     margin-bottom: 800px !important; 
   }
 } */
+
+
+
+
+.service-card {
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff; /* default */
+  color: #000000;
+  
+}
+
+.service-card:hover {
+  background-color: #f46b00 !important;  /* orange */
+  color: #ffffff !important;              /* text becomes white */
+  transform: translateY(-5px);            /* optional effect */
+}
+
+.service-card:hover h3,
+.service-card:hover p,
+.service-card:hover a {
+  color: #ffffff !important;
+}

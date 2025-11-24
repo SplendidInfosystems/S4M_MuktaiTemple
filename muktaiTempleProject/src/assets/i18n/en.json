@@ -313,7 +313,32 @@
   "ABOUT_US_HEADING": "Muktai Temple – A Sacred Place of Devotion, Tradition & Spiritual Heritage",
   "ABOUT_US_P1": "Muktai Pratishthan guides people towards spiritual devotion, cultural tradition and social service. The sacred Muktai Temple in Jalgaon is a spiritual center for devotees.",
   "ABOUT_US_P2": "The temple premises provide peace, devotion and a rich cultural environment. Every year various festivals, bhajans, kirtans and social activities are organized.",
-  "ABOUT_US_P3": "The purpose of Muktai Temple is to offer devotees a blend of spirituality, culture and service. Every visitor experiences devotion, peace and spiritual fulfillment here."
+  "ABOUT_US_P3": "The purpose of Muktai Temple is to offer devotees a blend of spirituality, culture and service. Every visitor experiences devotion, peace and spiritual fulfillment here.",
+
+
+
+    "SERVICES": {
+    "TITLE": "Our Services",
+
+    "TRAIN": {
+      "TITLE": "Train Travel",
+      "DESC": "Comfortable and affordable train travel service for devotees.",
+      "BUTTON": "Read More"
+    },
+
+    "AIR": {
+      "TITLE": "Air Travel",
+      "DESC": "Fast and safe air travel arrangements for devotees.",
+      "BUTTON": "Read More"
+    },
+
+    "BUS": {
+      "TITLE": "Bus Travel",
+      "DESC": "Convenient and reliable bus travel service for devotees.",
+      "BUTTON": "Read More"
+    }
+  }
+
 
  
   },
