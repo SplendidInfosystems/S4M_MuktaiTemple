@@ -84,18 +84,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked, O
     key: 'BUS',
     iconClass: 'fa fa-bus'
   },
-    {
-    key: 'BUS',
-    iconClass: 'fa fa-bus'
-  },
-    {
-    key: 'BUS',
-    iconClass: 'fa fa-bus'
-  },
-    {
-    key: 'BUS',
-    iconClass: 'fa fa-bus'
-  }
+    
   ];
 
 

@@ -10,7 +10,7 @@
 
   <!-- Half Section -->
   <div
-    class="relative bg-gradient-to-r from-[#f1f7ff] via-[#e8f0ff] to-[#f1f7ff] min-h-fit flex items-center mt-5 justify-center px-6 py-12">
+    class="relative bg-gradient-to-r from-[#f1f7ff] via-[#e8f0ff] to-[#f1f7ff] min-h-fit  mt-5 px-6 py-12">
 
     <!-- Background Decoration -->
     <div class="absolute top-0 left-0 w-40 h-40 bg-yellow-300 rounded-full opacity-30 blur-2xl animate-pulse"></div>
@@ -57,225 +57,215 @@
       </div>
     </div>
   </div>
+
+  <div class="bg-orange-500 py-2 overflow-hidden">
+  <div class="whitespace-nowrap animate-marquee text-white font-semibold text-lg">
+    ⛳ भक्तांसाठी विशेष सूचना — मुक्ताई मंदिर, मुक्ताईनगर, जळगाव — मंदिर वेळ: सकाळी ५ ते रात्री ९ — दर्शन ५:००, मंगला आरती ५:३०, नैवेद्य १२:००, संध्या आरती ६:०० — रस्त्याने जळगाव/भुसावळ/मुक्ताईनगर मार्गे पोहोचता येते — रेल्वे स्टेशन: भुसावळ, जळगाव — विमानतळ: औरंगाबाद, नागपूर  🙏 भक्तांसाठी स्वागत .🙏  
+  </div>
+</div>
   <!-- ABOUT US SECTION -->
 
-  <div class=" container px-lg-5 mx-auto  py-12 flex flex-col md:flex-row items-center gap-10">
+<!-- ABOUT US SECTION -->
+<div class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-10">
 
-    <!-- LEFT SECTION -->
-    <div class="md:w-1/2">
-
-      <h2 class="text-orange-600 text-sm font-bold tracking-wide flex items-center gap-2">
-        <span>🔸</span> {{ 'HOME.ABOUT_US_TITLE' | translate }}
-      </h2>
-
-      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug mt-3">
-        {{ 'HOME.ABOUT_US_HEADING' | translate }}
-      </h1>
-
-      <div class="w-20 h-1 bg-orange-500 mt-3 mb-5"></div>
-
-      <p class="text-gray-700 leading-relaxed text-[17px] mb-4">
-        {{ 'HOME.ABOUT_US_P1' | translate }}
-      </p>
-
-      <p class="text-gray-700 leading-relaxed text-[17px] mb-4">
-        {{ 'HOME.ABOUT_US_P2' | translate }}
-      </p>
-
-      <p class="text-gray-700 leading-relaxed text-[17px]">
-        {{ 'HOME.ABOUT_US_P3' | translate }}
-      </p>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="md:w-1/2 flex justify-center relative">
-      <div class="absolute w-64 h-64 bg-orange-400 rounded-full opacity-30 blur-2xl"></div>
-
-      <img src="assets/images/about_us_image.png" alt="Muktai Illustration" class="relative w-100 drop-shadow-2xl" />
-    </div>
-
-  </div>
-
-
-
-  <div>
-    <h2
-      class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
-      {{ 'HOME.SANT_MUKTABAI_TEMPLES' | translate }}
+  <!-- LEFT SECTION -->
+  <div class="md:w-1/2">
+    <h2 class="text-orange-600 text-sm font-bold tracking-wide flex items-center gap-2">
+      <span>🔸</span> {{ 'HOME.ABOUT_US_TITLE' | translate }}
     </h2>
+
+    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug mt-3">
+      {{ 'HOME.ABOUT_US_HEADING' | translate }}
+    </h1>
+
+    <div class="w-20 h-1 bg-orange-500 mt-3 mb-5"></div>
+
+    <p class="text-gray-700 leading-relaxed text-[17px] mb-4">
+      {{ 'HOME.ABOUT_US_P1' | translate }}
+    </p>
+
+    <p class="text-gray-700 leading-relaxed text-[17px] mb-4">
+      {{ 'HOME.ABOUT_US_P2' | translate }}
+    </p>
+
+    <p class="text-gray-700 leading-relaxed text-[17px]">
+      {{ 'HOME.ABOUT_US_P3' | translate }}
+    </p>
   </div>
 
+  <!-- RIGHT IMAGE -->
+  <div class="md:w-1/2 flex justify-center relative">
+    <div class="absolute w-64 h-64 bg-orange-400 rounded-full opacity-30 blur-2xl"></div>
+    <img src="assets/images/about_us_image.png" alt="Muktai Illustration" class="relative w-100 drop-shadow-2xl" />
+  </div>
 
+</div>
 
+<!-- Sant Muktai Title -->
+<div class="max-w-7xl mx-auto px-6">
+  <h2 class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
+    {{ 'HOME.SANT_MUKTABAI_TEMPLES' | translate }}
+  </h2>
+</div>
 
-  <!-- Temples Section -->
-  <div id="templates" class="animate-fade-in-up delay-900 max-w-6xl mx-auto px-4 mt-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<!-- Temples Section -->
+<div id="templates" class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 mt-10">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-      <div *ngFor="let temple of temples"
-        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div *ngFor="let temple of temples"
+      class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
 
-        <div class="overflow-hidden">
-          <img [src]="temple.image" alt=""
-            class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110" />
-        </div>
+      <div class="overflow-hidden">
+        <img [src]="temple.image" alt=""
+          class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110" />
+      </div>
 
-        <div class="p-3 text-center">
-          <h4 class="text-green-700 font-bold text-lg mt-2">
-            {{ temple.text | translate }}
-          </h4>
-        </div>
+      <div class="p-3 text-center">
+        <h4 class="text-green-700 font-bold text-lg mt-2">
+          {{ temple.text | translate }}
+        </h4>
       </div>
 
     </div>
+
   </div>
+</div>
 
+<!-- Info Section Title -->
+<div class="max-w-7xl mx-auto px-6">
+  <h2 class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
+    {{ 'HOME.SANT_MUKTABAI_INFO' | translate }}
+  </h2>
+</div>
 
+<!-- Adhyatmik Mahiti Section -->
+<div class="max-w-7xl mx-auto px-6">
 
-  <div>
-    <h2
-      class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
-      {{ 'HOME.SANT_MUKTABAI_INFO' | translate }}
-    </h2>
-  </div>
+  <div id="saint-muktabai-info" class="mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-
-  <div class="container px-lg-5 mx-auto">
-
-    <!-- Cards Section -->
-    <div id="saint-muktabai-info" class="mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-      <!-- Card 1 -->
-      <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
-        <div class="p-3 text-center">
-          <h3 class="card-title text-xl font-semibold">
-            {{ 'HOME.SAINT_NAME_INFO' | translate }}
-          </h3>
-        </div>
-        <div class="w-full h-56 overflow-hidden flex items-center justify-center">
-          <img src="assets/images/image2.png" alt="Saint"
-            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-        </div>
-        <div class="p-3 text-center flex-1">
-          <p class="card-desc text-lg text-justify leading-snug">
-            {{ 'HOME.SAINT_DESC' | translate }}
-          </p>
-        </div>
-        <div class="p-3 text-center">
-          <button (click)="openDialog('saint')" class="card-btn">
-            {{ 'HOME.READ_MORE' | translate }}
-          </button>
-        </div>
+    <!-- Card 1 -->
+    <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
+      <div class="p-3 text-center">
+        <h3 class="card-title text-xl font-semibold">
+          {{ 'HOME.SAINT_NAME_INFO' | translate }}
+        </h3>
       </div>
 
-      <!-- Card 2 -->
-      <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
-        <div class="p-3 text-center">
-          <h3 class="card-title text-xl font-semibold">
-            {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
-          </h3>
-        </div>
-        <div class="w-full h-56 overflow-hidden flex items-center justify-center">
-          <img src="assets/images/image1.png" alt="Ashadhi Event"
-            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-        </div>
-        <div class="p-3 text-center flex-1">
-          <p class="card-desc text-lg text-justify leading-snug">
-            {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
-          </p>
-        </div>
-        <div class="p-3 text-center">
-          <button (click)="openDialog('ashadhi')" class="card-btn">
-            {{ 'HOME.READ_MORE' | translate }}
-          </button>
-        </div>
+      <div class="w-full h-56 overflow-hidden flex items-center justify-center">
+        <img src="assets/images/image2.png" alt="Saint"
+          class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
       </div>
 
-      <!-- Card 3 -->
-      <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
-        <div class="p-3 text-center">
-          <h3 class="card-title text-xl font-semibold">
-            {{ 'HOME.ABHANG_TITLE' | translate }}
-          </h3>
-        </div>
-        <div class="w-full h-56 overflow-hidden flex items-center justify-center">
-          <img src="assets/images/image4.png" alt="Abhang"
-            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
-        </div>
-        <div class="p-3 text-center flex-1">
-          <p class="card-desc text-lg text-justify leading-snug">
-            {{ 'HOME.ABHANG' | translate }}
-          </p>
-        </div>
-        <div class="p-3 text-center">
-          <button (click)="openDialog('abhang')" class=" card-btn ">
-            {{ 'HOME.READ_MORE' | translate }}
-          </button>
-        </div>
+      <div class="p-3 text-center flex-1">
+        <p class="card-desc text-lg text-justify leading-snug">
+          {{ 'HOME.SAINT_DESC' | translate }}
+        </p>
+      </div>
+
+      <div class="p-3 text-center">
+        <button (click)="openDialog('saint')" class="card-btn">
+          {{ 'HOME.READ_MORE' | translate }}
+        </button>
       </div>
     </div>
 
-    <!-- ✅ Modal Dialog -->
-    <div *ngIf="isDialogOpen" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
-      <div
-        class="bg-white rounded-2xl w-full max-w-lg shadow-2xl transform transition-all duration-300 scale-100 p-6 relative">
-        <button (click)="closeDialog()"
-          class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl">✕</button>
+    <!-- Card 2 -->
+    <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
+      <div class="p-3 text-center">
+        <h3 class="card-title text-xl font-semibold">
+          {{ 'HOME.ASHADI_EVENT_TITLE' | translate }}
+        </h3>
+      </div>
 
-        <h2 class="text-2xl font-semibold text-orange-600 mb-4 text-center">{{ dialogTitle }}</h2>
-        <p class="text-gray-700 leading-relaxed text-justify">{{ dialogContent }}</p>
+      <div class="w-full h-56 overflow-hidden flex items-center justify-center">
+        <img src="assets/images/image1.png" alt="Ashadhi Event"
+          class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+      </div>
 
-        <div class="text-center mt-6">
-          <button (click)="closeDialog()" class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600">
-            Close
-          </button>
-        </div>
+      <div class="p-3 text-center flex-1">
+        <p class="card-desc text-lg text-justify leading-snug">
+          {{ 'HOME.ASHADI_EVENT_DESC' | translate }}
+        </p>
+      </div>
+
+      <div class="p-3 text-center">
+        <button (click)="openDialog('ashadhi')" class="card-btn">
+          {{ 'HOME.READ_MORE' | translate }}
+        </button>
       </div>
     </div>
 
+    <!-- Card 3 -->
+    <div class="card flex flex-col min-h-fit max-w-sm mx-auto shadow-lg rounded-xl">
+      <div class="p-3 text-center">
+        <h3 class="card-title text-xl font-semibold">
+          {{ 'HOME.ABHANG_TITLE' | translate }}
+        </h3>
+      </div>
 
+      <div class="w-full h-56 overflow-hidden flex items-center justify-center">
+        <img src="assets/images/image4.png" alt="Abhang"
+          class="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+      </div>
 
+      <div class="p-3 text-center flex-1">
+        <p class="card-desc text-lg text-justify leading-snug">
+          {{ 'HOME.ABHANG' | translate }}
+        </p>
+      </div>
 
-   <section class="max-w-6xl mx-auto px-4 py-12">
+      <div class="p-3 text-center">
+        <button (click)="openDialog('abhang')" class="card-btn">
+          {{ 'HOME.READ_MORE' | translate }}
+        </button>
+      </div>
+    </div>
 
-  <!-- Section title -->
+  </div>
+
+  <!-- Modal Dialog -->
+  <div *ngIf="isDialogOpen" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+    <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl transform transition-all duration-300 scale-100 p-6 relative">
+      <button (click)="closeDialog()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl">✕</button>
+
+      <h2 class="text-2xl font-semibold text-orange-600 mb-4 text-center">{{ dialogTitle }}</h2>
+      <p class="text-gray-700 leading-relaxed text-justify">{{ dialogContent }}</p>
+
+      <div class="text-center mt-6">
+        <button (click)="closeDialog()" class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Services Section -->
+<section class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 py-12">
+
   <h2 class="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-10">
     {{ 'HOME.SERVICES.TITLE' | translate }}
   </h2>
 
-  <!-- Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
     <div *ngFor="let s of services"
-         class=" service-card flex-shrink-0 group bg-white rounded-xl shadow-lg rounded-xl p-10 text-center 
-                transition-all duration-300 hover:bg-orange-500">
+      class="service-card flex-shrink-0 group bg-white rounded-xl shadow-lg p-10 text-center transition-all duration-300 hover:bg-orange-500">
 
-      <!-- Icon -->
-      <div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center
-                  bg-white shadow-md mb-5 transition-all duration-300
-                  group-hover:bg-orange-500">
-        <i [class]="s.iconClass"
-           class="fa-2x text-red-600 transition-all duration-300
-                  group-hover:text-orange-600 group-hover:scale-110"></i>
+      <div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center bg-white shadow-md mb-5 transition-all duration-300 group-hover:bg-orange-500">
+        <i [class]="s.iconClass" class="fa-2x text-red-600 transition-all duration-300 group-hover:text-orange-600 group-hover:scale-110"></i>
       </div>
 
-      <!-- Title -->
-      <h3 class="text-lg font-semibold mb-2 transition-colors duration-300
-                 text-gray-800 group-hover:text-white">
+      <h3 class="text-lg font-semibold mb-2 text-gray-800 group-hover:text-white">
         {{ ('HOME.SERVICES.' + s.key + '.TITLE') | translate }}
       </h3>
 
-      <!-- Description -->
-      <p class="text-sm text-gray-600 group-hover:text-white/90 mb-4
-                transition-colors duration-300">
+      <p class="text-sm text-gray-600 group-hover:text-white/90 mb-4">
         {{ ('HOME.SERVICES.' + s.key + '.DESC') | translate }}
       </p>
 
-      <!-- Button -->
-      <button class="inline-flex items-center px-4 py-2 rounded-full border 
-                     bg-white/0 transition-all duration-300
-                     text-orange-500 border-orange-300
-                     group-hover:bg-white group-hover:text-orange-600">
+      <button class="inline-flex items-center px-4 py-2 rounded-full border bg-white/0 text-orange-500 border-orange-300 group-hover:bg-white group-hover:text-orange-600">
         {{ ('HOME.SERVICES.' + s.key + '.BUTTON') | translate }}
       </button>
 
@@ -284,352 +274,231 @@
   </div>
 </section>
 
+<!-- HERO SECTION -->
+<section class="relative w-screen left-1/2 -translate-x-1/2 bg-orange-500 mt-5 text-white overflow-hidden">
 
+  <div class="absolute top-10 left-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
+    <ng-container *ngFor="let dot of [].constructor(16)">
+      <div class="w-2 h-2 bg-white rounded-full"></div>
+    </ng-container>
+  </div>
 
-    <!-- Events Section -->
-    <!-- <div id="events"
-      class="card-next scroll-mt-20 h-auto mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-2">
-      <div class="rounded-xl overflow-hidden flex flex-col md:flex-row h-auto">
-        <div class="md:w-2/5 w-full">
-          <img src="assets/images/imagecard1.png" alt="Temple Events"
-            class="w-full h-full object-cover transform transition duration-300 hover:scale-110" />
-        </div>
-        <div class="md:w-2/5 w-full p-4 flex flex-col justify-center">
-          <h2 class="text-4xl font-semibold text-gray-800 mb-6">{{ 'HOME.EVENTS' | translate }}</h2>
-          <ul class="space-y-4 text-base text-gray-700 leading-relaxed">
-            <li>
-              <strong class="text-lg">{{ 'HOME.EVENT_JAYANTI' | translate }}</strong><br />
-              <span class="text-sm text-gray-600">{{ 'HOME.EVENT_JAYANTI_DATE' | translate }}</span>
-            </li>
-            <li>
-              <strong class="text-lg">{{ 'HOME.EVENT_PUNYATITHI' | translate }}</strong><br />
-              <span class="text-sm text-gray-600">{{ 'HOME.EVENT_PUNYATITHI_DATE' | translate }}</span>
-            </li>
-            <li>
-              <strong class="text-lg">{{ 'HOME.EVENT_YATRA' | translate }}</strong><br />
-              <span class="text-sm text-gray-600">{{ 'HOME.EVENT_YATRA_DATE' | translate }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
+  <div class="absolute top-20 right-20 w-72 h-72 border-4 border-orange-600 rounded-full opacity-40"></div>
 
-    <!-- Schedule Section -->
-    <!-- <div id="schedule"
-      class="card-next scroll-mt-20 h-auto mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-2">
-      <div class="overflow-hidden flex flex-col md:flex-row h-auto">
-        <div class="md:w-1/3 w-full">
-          <img src="assets/images/imagecard2.png" alt="Temple Events"
-            class="w-full h-full object-cover transform transition duration-300 hover:scale-110" />
-        </div>
-        <div class="md:w-1/2 w-full p-4 flex flex-col justify-center">
-          <h2 class="text-2xl font-semibold mb-4 text-gray-800">{{ 'HOME.SCHEDULED' | translate }}</h2>
-          <ul class="space-y-2 text-gray-800">
-            <li><strong class="text-lg">{{ 'HOME.MORNING_DARSHAN' | translate }}</strong></li>
-            <li><strong class="text-lg">{{ 'HOME.MANGALA_AARTI' | translate }}</strong></li>
-            <li><strong class="text-lg">{{ 'HOME.NAIVEDYA' | translate }}</strong></li>
-            <li><strong class="text-lg">{{ 'HOME.SANDHYA_AARTI' | translate }}</strong></li>
-            <li><strong class="text-lg">{{ 'HOME.CLOSING' | translate }}</strong></li>
-          </ul>
-          <div class="mt-4 text-gray-800">
-            <strong class="text-lg">{{ 'HOME.OPENING_CLOSING' | translate }}</strong>
-            <p>{{ 'HOME.OPEN_TIMING' | translate }}</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 py-20 relative z-10">
 
-    <!-- How to Reach Section -->
-    <!-- <div id="how-to-rich"
+    <div class="flex flex-col justify-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        {{ 'hero.title' | translate }}
+      </h1>
+      <p class="text-lg text-gray-200 mb-8">
+        {{ 'hero.subtitle' | translate }}
+      </p>
 
-      class="card-next scroll-mt-20 h-auto mx-auto grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-2">
-      <div class="bg-white rounded-xl overflow-hidden flex flex-col md:flex-row h-auto">
-        <div class="md:w-1/3 w-full">
-          <iframe class="w-full h-full" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.7194243183024!2d76.21850837521195!3d21.045413880604708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd828d104c514ff%3A0x3f9353828d56ed28!2sMuktainagar%2C%20Maharashtra%20425106!5e0!3m2!1sen!2sin!4v1720569947335!5m2!1sen!2sin">
-          </iframe>
-        </div>
-        <div class="md:w-1/2 p-6">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ 'HOME.HOW_TO_REACH' | translate }}</h2>
-          <div class="text-gray-800 space-y-4 text-sm md:text-base">
-            <div>
-              <p class="font-bold">{{ 'HOME.BY_ROAD' | translate }}</p>
-              <p>{{ 'HOME.BY_ROAD_DESC' | translate }}</p>
-            </div>
-            <div>
-              <p class="font-bold">{{ 'HOME.BY_TRAIN' | translate }}</p>
-              <p>{{ 'HOME.BY_TRAIN_DESC' | translate }}</p>
-            </div>
-            <div>
-              <p class="font-bold">{{ 'HOME.BY_AIR' | translate }}</p>
-              <p>{{ 'HOME.BY_AIR_DESC' | translate }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-    <!-- Hero Section -->
-
-    <section class="relative w-screen left-1/2 -translate-x-1/2 bg-orange-500 mt-5 text-white overflow-hidden">
-      <!-- Decorative Background (dots + rings) -->
-      <div
-        class="absolute top-10 left-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
-        <ng-container *ngFor="let dot of [].constructor(16)">
-          <div class="w-2 h-2 bg-white rounded-full"></div>
-        </ng-container>
-      </div>
-
-      <div
-        class="absolute top-20 right-20 w-72 h-72 border-4 border-orange-600 rounded-full opacity-40 pointer-events-none">
-      </div>
-
-      <!-- Content: constrained centered content while bg is full-bleed -->
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 md:px-12 lg:px-20 py-20 relative z-10">
-        <!-- Left: Text -->
-        <div class="flex flex-col justify-center">
-          <div
-            class="absolute top-10 right-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
-            <ng-container *ngFor="let dot of [].constructor(16)">
-              <div class="w-2 h-2 bg-white rounded-full"></div>
-            </ng-container>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-            {{ 'hero.title' | translate }}
-          </h1>
-          <p class="text-lg text-gray-200 mb-8">
-            {{ 'hero.subtitle' | translate }}
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#contact"
-              class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
-              {{ 'hero.contactBtn' | translate }}
-            </a>
-            <!-- <a href="#packages"
-        class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition">
-        {{ 'hero.packageBtn' | translate }}
-      </a> -->
-          </div>
-        </div>
-
-        <!-- Right: Hero Image -->
-        <div class="flex flex-col items-center justify-between">
-          <img src="assets/images/warkari.png" alt="Muktai Wari Yatra" class="w-full max-w-[450px]  object-contain">
-          <h2 class="mt-4 text-3xl font-bold text-white">मुक्ताई वारकरी यात्रा</h2>
-        </div>
-      </div>
-
-
-
-      <!-- Decorative bottom wave (full width) -->
-      <svg class="absolute bottom-0 left-0 w-full h-20 text-white" preserveAspectRatio="none" viewBox="0 0 1440 320">
-        <path fill="currentColor"
-          d="M0,224L                                                                      48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
-        </path>
-      </svg>
-    </section>
-
-
-
-    <section class=" py-12">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-red-500 mb-10">
-          {{ 'team.title' | translate }}
-        </h2>
-
-        <!-- Simple responsive slider for team cards -->
-        <div class="relative overflow-hidden">
-          <div class="flex transition-transform duration-500 ease-in-out"
-            [style.transform]="'translateX(-' + currentSlide * (100 / slidesPerView) + '%)'"
-            [style.width]="(team.length / slidesPerView) * 100 + '%'">
-            <div *ngFor="let member of team" class="p-4" [style.width]="(100 / team.length) + '%'">
-              <div
-                class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 p-6 text-center">
-                <div class="flex justify-center mt-2">
-                  <img [src]="member.image" alt=""
-                    class="w-32 h-32 object-cover rounded-full border-4 border-red-400 shadow-md" />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-semibold text-gray-800">
-                    {{ member.nameKey | translate }}
-                  </h3>
-                  <p class="text-gray-500">{{ member.roleKey | translate }}</p>
-                  <div class="flex justify-center gap-4 mt-4 text-lg">
-                    <a href="#" class="text-blue-600"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-sky-500"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-pink-500"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-blue-700"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Controls -->
-          <!-- Improved Slider Controls -->
-          <button (click)="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center 
-           bg-white/70 backdrop-blur-md rounded-full shadow-md text-gray-700 
-           hover:bg-red-500 hover:text-white hover:shadow-lg transition duration-300" aria-label="Previous slide">
-            <i class="fas fa-chevron-left text-xl"></i>
-          </button>
-
-          <button (click)="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center 
-           bg-white/70 backdrop-blur-md rounded-full shadow-md text-gray-700 
-           hover:bg-red-500 hover:text-white hover:shadow-lg transition duration-300" aria-label="Next slide">
-            <i class="fas fa-chevron-right text-xl"></i>
-          </button>
-
-        </div>
-
-
-      </div>
-    </section>
-
-
-
-
-    <!-- home contact us page heading -->
-
-
-    <div>
-      <h2
-        class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
-        {{ 'HOME.SANT_MUKTABAI_CONTACT_NOW' | translate }}
-      </h2>
-    </div>
-
-
-
-    <!-- Contact Us Section -->
-    <div id="contact-us" class="contact-us-section card-next scroll-mt-20 mx-auto mt-10 mb-10 max-w-6xl px-4 py-10">
-
-      <!-- Equal Grid Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <!-- Left: Contact Form -->
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold text-red-500 mb-2">{{ 'contact.title' | translate }}</h2>
-          <p class="text-gray-600 mb-6">{{ 'contact.description' | translate }}</p>
-
-          <form class="space-y-6">
-            <!-- Name + Email -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <input type="text" placeholder="{{ 'contact.form.name' | translate }}"
-                class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
-              <input type="email" placeholder="{{ 'contact.form.email' | translate }}"
-                class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
-            </div>
-
-            <!-- Mobile + Subject Type -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <input type="text" placeholder="{{ 'contact.form.mobile' | translate }}"
-                class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
-
-              <select class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400">
-                <option>{{ 'contact.form.subjectSelect' | translate }}</option>
-                <option>{{ 'contact.form.options.donation' | translate }}</option>
-                <option>{{ 'contact.form.options.expenses' | translate }}</option>
-                <option>{{ 'contact.form.options.festival' | translate }}</option>
-                <option>{{ 'contact.form.options.services' | translate }}</option>
-                <option>{{ 'contact.form.options.other' | translate }}</option>
-              </select>
-            </div>
-
-            <!-- Subject -->
-            <input type="text" placeholder="{{ 'contact.form.subject' | translate }}"
-              class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
-
-            <!-- Message -->
-            <textarea rows="4" placeholder="{{ 'contact.form.message' | translate }}"
-              class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400"></textarea>
-
-            <!-- Submit Button -->
-            <button type="submit"
-              class="w-full md:w-auto flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-xl shadow-lg">
-
-              <i class="fas fa-paper-plane"></i>
-              {{ 'contact.form.send' | translate }}
-
-            </button>
-          </form>
-
-        </div>
-
-        <!-- Right: Contact Info -->
-        <div class="p-6 bg-white mt-4 space-y-4">
-          <!-- Address -->
-          <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
-            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold">{{ 'contact.info.addressTitle' | translate }}</h3>
-              <p class="text-gray-600 text-sm">{{ 'contact.info.address' | translate }}</p>
-            </div>
-          </div>
-
-          <!-- Mobile & Email -->
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
-              <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold">{{ 'contact.info.phoneTitle' | translate }}</h3>
-                <p class="text-gray-600 text-sm">{{ 'contact.info.phone' | translate }}</p>
-              </div>
-            </div>
-            <div class="bg-gray-100 p-2 rounded-lg flex items-start gap-3">
-              <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold">{{ 'contact.info.emailTitle' | translate }}</h3>
-                <p class="text-gray-600 text-sm">{{ 'contact.info.email' | translate }}</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Office Time -->
-          <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
-            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
-              <i class="fas fa-clock"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold">{{ 'contact.info.timeTitle' | translate }}</h3>
-              <p class="text-gray-600 text-sm">{{ 'contact.info.time' | translate }}</p>
-            </div>
-          </div>
-
-          <!-- Social Media (updated) -->
-          <div class="bg-gray-100 p-4 rounded-lg">
-            <h3 class="font-semibold mb-3">{{ 'contact.info.social' | translate }}</h3>
-            <div class="flex gap-3 text-white text-xl">
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-pink-500">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-red-600">
-                <i class="fab fa-youtube"></i>
-              </a>
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-
+      <div class="flex flex-wrap gap-4">
+        <a href="#contact" class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
+          {{ 'hero.contactBtn' | translate }}
+        </a>
       </div>
     </div>
 
-
-
+    <div class="flex flex-col items-center justify-between">
+      <img src="assets/images/warkari.png" alt="Muktai Wari Yatra" class="w-full max-w-[450px] object-contain">
+      <h2 class="mt-4 text-3xl font-bold text-white">मुक्ताई वारकरी यात्रा</h2>
+    </div>
 
   </div>
+
+  <svg class="absolute bottom-0 left-0 w-full h-20 text-white" preserveAspectRatio="none" viewBox="0 0 1440 320">
+    <path fill="currentColor"
+      d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
+    </path>
+  </svg>
+</section>
+
+<!-- Team Section -->
+<section class="py-12 max-w-7xl mx-auto px-6">
+  <div>
+    <h2 class="text-3xl font-bold text-center text-red-500 mb-10">
+      {{ 'team.title' | translate }}
+    </h2>
+
+    <div class="relative overflow-hidden">
+      <div class="flex transition-transform duration-500 ease-in-out"
+        [style.transform]="'translateX(-' + currentSlide * (100 / slidesPerView) + '%)'"
+        [style.width]="(team.length / slidesPerView) * 100 + '%'">
+
+        <div *ngFor="let member of team" class="p-4" [style.width]="(100 / team.length) + '%'">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 p-6 text-center">
+            <div class="flex justify-center mt-2">
+              <img [src]="member.image" alt="" class="w-32 h-32 object-cover rounded-full border-4 border-red-400 shadow-md" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                {{ member.nameKey | translate }}
+              </h3>
+              <p class="text-gray-500">{{ member.roleKey | translate }}</p>
+              <div class="flex justify-center gap-4 mt-4 text-lg">
+                <a href="#" class="text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-sky-500"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-pink-500"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-blue-700"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slider Controls -->
+      <button (click)="prevSlide()"
+        class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white/70 backdrop-blur-md rounded-full shadow-md text-gray-700 hover:bg-red-500 hover:text-white hover:shadow-lg transition duration-300">
+        <i class="fas fa-chevron-left text-xl"></i>
+      </button>
+
+      <button (click)="nextSlide()"
+        class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white/70 backdrop-blur-md rounded-full shadow-md text-gray-700 hover:bg-red-500 hover:text-white hover:shadow-lg transition duration-300">
+        <i class="fas fa-chevron-right text-xl"></i>
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Us Section Title -->
+<div class="max-w-7xl mx-auto px-6">
+  <h2 class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
+    {{ 'HOME.SANT_MUKTABAI_CONTACT_NOW' | translate }}
+  </h2>
+</div>
+
+<!-- Contact Us Section -->
+<div id="contact-us" class= " contact-us-section card-next scroll-mt-20 max-w-7xl mx-auto px-6 mt-10 mb-10 py-10">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <!-- Left: Form -->
+    <div class="p-6">
+      <h2 class="text-2xl font-semibold text-red-500 mb-2">{{ 'contact.title' | translate }}</h2>
+      <p class="text-gray-600 mb-6">{{ 'contact.description' | translate }}</p>
+
+      <form class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <input type="text" placeholder="{{ 'contact.form.name' | translate }}"
+            class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
+
+          <input type="email" placeholder="{{ 'contact.form.email' | translate }}"
+            class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <input type="text" placeholder="{{ 'contact.form.mobile' | translate }}"
+            class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
+
+          <select class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400">
+            <option>{{ 'contact.form.subjectSelect' | translate }}</option>
+            <option>{{ 'contact.form.options.donation' | translate }}</option>
+            <option>{{ 'contact.form.options.expenses' | translate }}</option>
+            <option>{{ 'contact.form.options.festival' | translate }}</option>
+            <option>{{ 'contact.form.options.services' | translate }}</option>
+            <option>{{ 'contact.form.options.other' | translate }}</option>
+          </select>
+        </div>
+
+        <input type="text" placeholder="{{ 'contact.form.subject' | translate }}"
+          class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400" />
+
+        <textarea rows="4" placeholder="{{ 'contact.form.message' | translate }}"
+          class="w-full px-4 py-3 text-lg border rounded-lg focus:ring focus:ring-orange-400"></textarea>
+
+        <!-- Submit -->
+        <button type="submit"
+          class="w-full md:w-auto flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-xl shadow-lg">
+          <i class="fas fa-paper-plane"></i>
+          {{ 'contact.form.send' | translate }}
+        </button>
+      </form>
+
+    </div>
+
+    <!-- Right: Contact Info -->
+    <div class="p-6 bg-white mt-4 space-y-4">
+
+      <!-- Address -->
+      <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold">{{ 'contact.info.addressTitle' | translate }}</h3>
+          <p class="text-gray-600 text-sm">{{ 'contact.info.address' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Phone & Email -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold">{{ 'contact.info.phoneTitle' | translate }}</h3>
+            <p class="text-gray-600 text-sm">{{ 'contact.info.phone' | translate }}</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold">{{ 'contact.info.emailTitle' | translate }}</h3>
+            <p class="text-gray-600 text-sm">{{ 'contact.info.email' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Office Time -->
+      <div class="bg-gray-100 p-4 rounded-lg flex items-start gap-3">
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div>
+          <h3 class="font-semibold">{{ 'contact.info.timeTitle' | translate }}</h3>
+          <p class="text-gray-600 text-sm">{{ 'contact.info.time' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="bg-gray-100 p-4 rounded-lg">
+        <h3 class="font-semibold mb-3">{{ 'contact.info.social' | translate }}</h3>
+        <div class="flex gap-3 text-white text-xl">
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-pink-500">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-red-600">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  
+  
   <footer class="bg-red-500 text-white py-12 relative">
     <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
 

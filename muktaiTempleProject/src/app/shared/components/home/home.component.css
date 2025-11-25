@@ -120,7 +120,7 @@
 }
 
 .service-card:hover {
-  background-color: #f46b00 !important;  /* orange */
+  background-color: #f97316 !important;  /* orange */
   color: #ffffff !important;              /* text becomes white */
   transform: translateY(-5px);            /* optional effect */
 }
@@ -129,4 +129,20 @@
 .service-card:hover p,
 .service-card:hover a {
   color: #ffffff !important;
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 30s linear infinite; /* slower */
 }
