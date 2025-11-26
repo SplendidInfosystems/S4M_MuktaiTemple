@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div class="bg-orange-500 py-2 overflow-hidden">
+  <div class="bg-red-500 py-2 overflow-hidden">
   <div class="whitespace-nowrap animate-marquee text-white font-semibold text-lg">
     ⛳ भक्तांसाठी विशेष सूचना — मुक्ताई मंदिर, मुक्ताईनगर, जळगाव — मंदिर वेळ: सकाळी ५ ते रात्री ९ — दर्शन ५:००, मंगला आरती ५:३०, नैवेद्य १२:००, संध्या आरती ६:०० — रस्त्याने जळगाव/भुसावळ/मुक्ताईनगर मार्गे पोहोचता येते — रेल्वे स्टेशन: भुसावळ, जळगाव — विमानतळ: औरंगाबाद, नागपूर  🙏 भक्तांसाठी स्वागत .🙏  
   </div>
@@ -101,13 +101,58 @@
 
 </div>
 
+
+
+<!-- HERO SECTION -->
+<section class="relative w-screen left-1/2 -translate-x-1/2 bg-orange-500 mt-5 text-white overflow-hidden">
+
+  <div class="absolute top-10 left-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
+    <ng-container *ngFor="let dot of [].constructor(16)">
+      <div class="w-2 h-2 bg-white rounded-full"></div>
+    </ng-container>
+  </div>
+
+  <div class="absolute top-20 right-20 w-72 h-72 border-4 border-orange-600 rounded-full opacity-40"></div>
+
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 py-20 relative z-10">
+
+    <div class="flex flex-col justify-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        {{ 'hero.title' | translate }}
+      </h1>
+      <p class="text-lg text-gray-200 mb-8">
+        {{ 'hero.subtitle' | translate }}
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#contact" class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
+          {{ 'hero.contactBtn' | translate }}
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-between">
+      <img src="assets/images/warkari.png" alt="Muktai Wari Yatra" class="w-full max-w-[450px] object-contain">
+      <h2 class="mt-4 text-3xl font-bold text-white">मुक्ताई वारकरी यात्रा</h2>
+    </div>
+
+  </div>
+
+  <svg class="absolute bottom-0 left-0 w-full h-20 text-white" preserveAspectRatio="none" viewBox="0 0 1440 320">
+    <path fill="currentColor"
+      d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
+    </path>
+  </svg>
+</section>
+
+
+
 <!-- Sant Muktai Title -->
 <div class="max-w-7xl mx-auto px-6">
   <h2 class="flex justify-center mt-5 text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up delay-900 border-r-4">
     {{ 'HOME.SANT_MUKTABAI_TEMPLES' | translate }}
   </h2>
 </div>
-
 <!-- Temples Section -->
 <div id="templates" class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 mt-10">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -130,6 +175,10 @@
 
   </div>
 </div>
+
+
+
+
 
 <!-- Info Section Title -->
 <div class="max-w-7xl mx-auto px-6">
@@ -241,81 +290,6 @@
 
 </div>
 
-<!-- Services Section -->
-<section class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 py-12">
-
-  <h2 class="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-10">
-    {{ 'HOME.SERVICES.TITLE' | translate }}
-  </h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-    <div *ngFor="let s of services"
-      class="service-card flex-shrink-0 group bg-white rounded-xl shadow-lg p-10 text-center transition-all duration-300 hover:bg-orange-500">
-
-      <div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center bg-white shadow-md mb-5 transition-all duration-300 group-hover:bg-orange-500">
-        <i [class]="s.iconClass" class="fa-2x text-red-600 transition-all duration-300 group-hover:text-orange-600 group-hover:scale-110"></i>
-      </div>
-
-      <h3 class="text-lg font-semibold mb-2 text-gray-800 group-hover:text-white">
-        {{ ('HOME.SERVICES.' + s.key + '.TITLE') | translate }}
-      </h3>
-
-      <p class="text-sm text-gray-600 group-hover:text-white/90 mb-4">
-        {{ ('HOME.SERVICES.' + s.key + '.DESC') | translate }}
-      </p>
-
-      <button class="inline-flex items-center px-4 py-2 rounded-full border bg-white/0 text-orange-500 border-orange-300 group-hover:bg-white group-hover:text-orange-600">
-        {{ ('HOME.SERVICES.' + s.key + '.BUTTON') | translate }}
-      </button>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- HERO SECTION -->
-<section class="relative w-screen left-1/2 -translate-x-1/2 bg-orange-500 mt-5 text-white overflow-hidden">
-
-  <div class="absolute top-10 left-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
-    <ng-container *ngFor="let dot of [].constructor(16)">
-      <div class="w-2 h-2 bg-white rounded-full"></div>
-    </ng-container>
-  </div>
-
-  <div class="absolute top-20 right-20 w-72 h-72 border-4 border-orange-600 rounded-full opacity-40"></div>
-
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 py-20 relative z-10">
-
-    <div class="flex flex-col justify-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-        {{ 'hero.title' | translate }}
-      </h1>
-      <p class="text-lg text-gray-200 mb-8">
-        {{ 'hero.subtitle' | translate }}
-      </p>
-
-      <div class="flex flex-wrap gap-4">
-        <a href="#contact" class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
-          {{ 'hero.contactBtn' | translate }}
-        </a>
-      </div>
-    </div>
-
-    <div class="flex flex-col items-center justify-between">
-      <img src="assets/images/warkari.png" alt="Muktai Wari Yatra" class="w-full max-w-[450px] object-contain">
-      <h2 class="mt-4 text-3xl font-bold text-white">मुक्ताई वारकरी यात्रा</h2>
-    </div>
-
-  </div>
-
-  <svg class="absolute bottom-0 left-0 w-full h-20 text-white" preserveAspectRatio="none" viewBox="0 0 1440 320">
-    <path fill="currentColor"
-      d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
-    </path>
-  </svg>
-</section>
-
 <!-- Team Section -->
 <section class="py-12 max-w-7xl mx-auto px-6">
   <div>
@@ -365,6 +339,43 @@
 
   </div>
 </section>
+
+<!-- Services Section -->
+<section class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 py-12">
+
+  <h2 class="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-10">
+    {{ 'HOME.SERVICES.TITLE' | translate }}
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    <div *ngFor="let s of services"
+      class="service-card flex-shrink-0 group bg-white rounded-xl shadow-lg p-10 text-center transition-all duration-300 hover:bg-orange-500">
+
+      <div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center bg-white shadow-md mb-5 transition-all duration-300 group-hover:bg-orange-500">
+        <i [class]="s.iconClass" class="fa-2x text-red-600 transition-all duration-300 group-hover:text-orange-600 group-hover:scale-110"></i>
+      </div>
+
+      <h3 class="text-lg font-semibold mb-2 text-gray-800 group-hover:text-white">
+        {{ ('HOME.SERVICES.' + s.key + '.TITLE') | translate }}
+      </h3>
+
+      <p class="text-sm text-gray-600 group-hover:text-white/90 mb-4">
+        {{ ('HOME.SERVICES.' + s.key + '.DESC') | translate }}
+      </p>
+
+      <button class="inline-flex items-center px-4 py-2 rounded-full border bg-white/0 text-orange-500 border-orange-300 group-hover:bg-white group-hover:text-orange-600">
+        {{ ('HOME.SERVICES.' + s.key + '.BUTTON') | translate }}
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
 
 <!-- Contact Us Section Title -->
 <div class="max-w-7xl mx-auto px-6">
@@ -499,7 +510,7 @@
 
   
   
-  <footer class="bg-red-500 text-white py-12 relative">
+  <footer class="bg-red-500 text-white py-6 relative">
     <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
 
       <!-- Left: Temple Info -->

@@ -1,6 +1,6 @@
 <nav
   [ngClass]="{
-    'bg-white text-gray-900 shadow-md': isScrolled,
+    'bg-red-500  text-white shadow-md': isScrolled,
     'bg-orange-500 text-white': !isScrolled
   }"
   class="fixed top-0 left-0 w-full z-20 border-b border-gray-200 transition-colors duration-300"
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Center: Navigation Menu -->
-    <div   [ngClass]="{'text-white': !isScrolled, 'text-gray-900': isScrolled}" class="hidden md:flex items-center justify-center  px-6 py-2.5  gap-8 text-white text-xl">
+    <div  class="hidden md:flex items-center justify-center  px-6 py-2.5  gap-8 text-white text-xl">
       <a (click)="scrollTo('saint-muktabai-info')" class="hover:text-yellow-300">
     {{ 'nav.about' | translate }}
   </a>
@@ -31,11 +31,8 @@
   
       <!-- Settings -->
 <i 
-  class="fas fa-cog cursor-pointer transition-colors duration-300"
-  [ngClass]="{
-    'text-gray-900 hover:text-orange-500': isScrolled,
-    'text-white hover:text-yellow-300': !isScrolled
-  }"
+  class="fas fa-cog cursor-pointer transition-colors duration-300 text-white"
+ 
   (click)="toggleDropdown()"
 ></i>
 
@@ -60,11 +57,8 @@
 <a 
   *ngIf="!isLoggedIn"
   (click)="login()"
-  [ngClass]="{
-    'border border-gray-800 text-gray-900 hover:bg-gray-100 hover:border-gray-900': isScrolled,
-    'border border-white text-white hover:bg-orange-600 hover:border-yellow-300': !isScrolled
-  }"
-  class="cursor-pointer transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium"
+ 
+  class="cursor-pointer text-white transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium"
 >
   {{ 'nav.login' | translate }}
 </a>
