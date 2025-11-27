@@ -63,7 +63,6 @@
     ⛳ भक्तांसाठी विशेष सूचना — मुक्ताई मंदिर, मुक्ताईनगर, जळगाव — मंदिर वेळ: सकाळी ५ ते रात्री ९ — दर्शन ५:००, मंगला आरती ५:३०, नैवेद्य १२:००, संध्या आरती ६:०० — रस्त्याने जळगाव/भुसावळ/मुक्ताईनगर मार्गे पोहोचता येते — रेल्वे स्टेशन: भुसावळ, जळगाव — विमानतळ: औरंगाबाद, नागपूर  🙏 भक्तांसाठी स्वागत .🙏  
   </div>
 </div>
-  <!-- ABOUT US SECTION -->
 
 <!-- ABOUT US SECTION -->
 <div class="animate-fade-in-up delay-900 max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-10">
@@ -104,46 +103,57 @@
 
 
 <!-- HERO SECTION -->
-<section class="relative w-screen left-1/2 -translate-x-1/2 bg-orange-500 mt-5 text-white overflow-hidden">
+<!-- Responsive Hero - mobile-first, replace your old <section> with this -->
+<section class="relative w-full bg-orange-500 mt-5 text-white overflow-hidden">
 
-  <div class="absolute top-10 left-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
+  <!-- Decorations: hidden on small screens to avoid overlap/jump -->
+  <div class="hidden md:block absolute top-10 left-10 w-32 h-32 opacity-40 rounded-lg grid grid-cols-4 gap-2 p-2 pointer-events-none">
     <ng-container *ngFor="let dot of [].constructor(16)">
       <div class="w-2 h-2 bg-white rounded-full"></div>
     </ng-container>
   </div>
 
-  <div class="absolute top-20 right-20 w-72 h-72 border-4 border-orange-600 rounded-full opacity-40"></div>
+  <div class="hidden md:block absolute top-20 right-20 w-72 h-72 border-4 border-orange-600 rounded-full opacity-40 pointer-events-none"></div>
 
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 py-20 relative z-10">
+  <!-- content container aligned with page width -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4 md:px-6 py-12 md:py-20 relative z-10">
 
-    <div class="flex flex-col justify-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+    <!-- Text content (mobile: centered, desktop: left) -->
+    <div class="order-2 md:order-1 flex flex-col justify-center text-center md:text-left">
+      <h1 class="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 md:mb-6">
         {{ 'hero.title' | translate }}
       </h1>
-      <p class="text-lg text-gray-200 mb-8">
+
+      <p class="text-base md:text-lg text-gray-200 mb-4 md:mb-8 max-w-xl mx-auto md:mx-0">
         {{ 'hero.subtitle' | translate }}
       </p>
 
-      <div class="flex flex-wrap gap-4">
-        <a href="#contact" class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-200">
+      <div class="flex justify-center md:justify-start">
+        <a href="#contact"
+           class="inline-block bg-white text-orange-600 px-5 py-2.5 rounded-full font-semibold shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5">
           {{ 'hero.contactBtn' | translate }}
         </a>
       </div>
     </div>
 
-    <div class="flex flex-col items-center justify-between">
-      <img src="assets/images/warkari.png" alt="Muktai Wari Yatra" class="w-full max-w-[450px] object-contain">
-      <h2 class="mt-4 text-3xl font-bold text-white">मुक्ताई वारकरी यात्रा</h2>
+    <!-- Image (mobile: on top or below text depending on order) -->
+    <div class="order-1 md:order-2 flex items-center justify-center">
+      <img src="assets/images/warkari.png"
+           alt="Muktai Wari Yatra"
+           class="w-64 sm:w-72 md:w-80 lg:w-[450px] h-auto object-contain rounded-md drop-shadow-lg" />
     </div>
 
   </div>
 
+  <!-- soft wave -->
   <svg class="absolute bottom-0 left-0 w-full h-20 text-white" preserveAspectRatio="none" viewBox="0 0 1440 320">
     <path fill="currentColor"
       d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,245.3C672,267,768,277,864,256C960,235,1056,181,1152,154.7C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z">
     </path>
   </svg>
 </section>
+
+
 
 
 
@@ -510,75 +520,81 @@
 
   
   
-  <footer class="bg-red-500 text-white py-6 relative">
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+ <footer class="bg-red-500 text-white py-4">
+  <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
 
-      <!-- Left: Temple Info -->
-      <div>
-        <h2 class="text-xl font-bold mb-3">{{ 'footer.projectName' | translate }}</h2>
-        <p>{{ 'footer.description' | translate }}</p>
-      </div>
-
-      <!-- Middle Left: Location & Contact -->
-      <div>
-        <h2 class="text-xl font-bold mb-3">{{ 'footer.contact' | translate }}</h2>
-        <p class="mt-2"><i class="fas fa-map-marker-alt"></i> {{ 'footer.location' | translate }}</p>
-        <p class="mt-2"><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-        <p class="mt-2"><i class="fas fa-envelope"></i> infomuktaitemple.com</p>
-      </div>
-
-      <!-- Middle Right: Google Map -->
-      <div>
-        <h2 class="text-xl font-bold mb-3">{{ 'footer.map' | translate }}</h2>
-        <div class="rounded-lg overflow-hidden shadow-md">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.0191572114556!2d75.566!3d20.998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd90f2b!2sMukta%20Temple!5e0!3m2!1sen!2sin!4v1696150000000"
-            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
-        </div>
-      </div>
-
-      <!-- Right: Social Links -->
-      <div>
-        <h2 class="text-xl font-bold mb-3">{{ 'footer.followUs' | translate }}</h2>
-        <div class="flex gap-4 text-2xl">
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center border rounded-full text-gray-50 hover:text-blue-600 transition duration-300">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center border rounded-full text-gray-50 hover:text-pink-500 transition duration-300">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center border rounded-full text-gray-50 hover:text-red-600 transition duration-300">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center border rounded-full text-gray-50 hover:text-green-600 transition duration-300">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-
+    <!-- Temple Info -->
+    <div>
+      <h2 class="text-xl font-bold mb-3">{{ 'footer.projectName' | translate }}</h2>
+      <p class="text-sm leading-relaxed">{{ 'footer.description' | translate }}</p>
     </div>
 
-    <!-- Bottom Bar -->
-    <div
-      class="flex flex-col md:flex-row justify-between items-center mt-8 border-t border-white/40 pt-4 text-sm px-20">
-      <p>© 2024 {{ 'footer.projectName' | translate }}. {{ 'footer.rights' | translate }}</p>
+    <!-- Contact -->
+    <div>
+      <h2 class="text-xl font-bold mb-3">{{ 'footer.contact' | translate }}</h2>
 
-      <!-- Links: Cookies / Help / FAQs -->
-      <div class="flex gap-6 mt-4 md:mt-0">
-        <a href="#" class="hover:underline">{{ 'footer.cookies' | translate }}</a>
-        <a href="#" class="hover:underline">{{ 'footer.help' | translate }}</a>
-        <a href="#" class="hover:underline">{{ 'footer.faqs' | translate }}</a>
+      <p class="mt-3 flex items-center gap-2">
+        <i class="fa-solid fa-location-dot"></i>
+        {{ 'footer.location' | translate }}
+      </p>
+
+      <p class="mt-3 flex items-center gap-2">
+        <i class="fa-solid fa-phone"></i>
+        +91 98765 43210
+      </p>
+
+      <p class="mt-3 flex items-center gap-2 break-all">
+        <i class="fa-solid fa-envelope"></i>
+        infomuktaitemple.com
+      </p>
+    </div>
+
+    <!-- Google Map -->
+    <div>
+      <h2 class="text-xl font-bold mb-3">{{ 'footer.map' | translate }}</h2>
+      <div class="rounded-lg overflow-hidden shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.0191572114556!2d75.566!3d20.998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd90f2b!2sMukta%20Temple!5e0!3m2!1sen!2sin!4v1696150000000"
+          width="100%" height="200" style="border:0;" loading="lazy">
+        </iframe>
       </div>
     </div>
 
+    <!-- Social Links -->
+    <div>
+      <h2 class="text-xl font-bold mb-3">{{ 'footer.followUs' | translate }}</h2>
+      <div class="flex gap-4 text-2xl">
+        <a class="w-10 h-10 flex items-center justify-center border rounded-full hover:text-blue-600">
+          <i class="fab fa-facebook-f"></i>
+        </a>
 
+        <a class="w-10 h-10 flex items-center justify-center border rounded-full hover:text-pink-500">
+          <i class="fab fa-instagram"></i>
+        </a>
 
-  </footer>
+        <a class="w-10 h-10 flex items-center justify-center border rounded-full hover:text-red-600">
+          <i class="fab fa-youtube"></i>
+        </a>
+
+        <a class="w-10 h-10 flex items-center justify-center border rounded-full hover:text-green-500">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="flex flex-col md:flex-row justify-between items-center mt-4 border-t border-white/40 pt-4 px-4 text-sm">
+    <p class="text-center md:text-left">© 2024 {{ 'footer.projectName' | translate }}. {{ 'footer.rights' | translate }}</p>
+
+    <div class="flex gap-6 mt-3 md:mt-0">
+      <a class="hover:underline">{{ 'footer.cookies' | translate }}</a>
+      <a class="hover:underline">{{ 'footer.help' | translate }}</a>
+      <a class="hover:underline">{{ 'footer.faqs' | translate }}</a>
+    </div>
+  </div>
+</footer>
+
   <button *ngIf="showScrollTop" (click)="scrollToTop()"
     class="fixed bottom-6 right-6 bg-orange-500 text-white p-4 rounded-full shadow-lg z-[9999] flex items-center justify-center cursor-pointer hover:bg-orange-600 transition-transform duration-300 hover:scale-110">
     <i class="fas fa-arrow-up text-sm"></i>

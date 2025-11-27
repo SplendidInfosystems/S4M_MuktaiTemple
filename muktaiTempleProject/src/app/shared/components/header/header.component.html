@@ -54,14 +54,23 @@
       </svg>
 
           <!-- Login (only if not logged in) -->
-<a 
+<a
   *ngIf="!isLoggedIn"
   (click)="login()"
- 
-  class="cursor-pointer text-white transition-colors duration-200 px-3 py-1.5 rounded-md text-sm font-medium"
+  [ngClass]="{
+    'bg-transparent border border-white hover:bg-white/20': isScrolled,
+
+    'bg-transparent border border-white hover:bg-white/10': !isScrolled
+  }"
+  class="cursor-pointer text-white transition-all duration-300 px-4 py-2 rounded-md text-sm font-semibold flex items-center gap-2"
 >
+  <i class="fas fa-sign-in-alt text-white"></i>
   {{ 'nav.login' | translate }}
 </a>
+
+
+
+
 
 
 
