@@ -18,7 +18,9 @@
  <a (click)="scrollTo('about-us')" class="hover:text-yellow-300">{{ 'nav.about' | translate }}</a>
 <a (click)="scrollTo('templates')" class="hover:text-yellow-300">{{ 'nav.temples' | translate }}</a>
 <a (click)="scrollTo('SANT_MUKTABAI_INFO')" class="hover:text-yellow-300">{{ 'nav.SANT_MUKTABAI_INFO' | translate }}</a>
-<a (click)="scrollTo('title')" class="hover:text-yellow-300">{{ 'nav.title' | translate }}</a>
+<a (click)="scrollTo('team')" class="hover:text-yellow-300">{{ 'nav.team' | translate }}</a>
+<a (click)="scrollTo('service')" class="hover:text-yellow-300">{{ 'nav.service' | translate }}</a>
+
 <a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">{{ 'nav.contact' | translate }}</a>
 
     </div>
@@ -90,7 +92,9 @@
       <li><a (click)="scrollTo('about-us')" class="hover:text-yellow-300">{{ 'nav.about' | translate }}</a></li>
       <li><a (click)="scrollTo('temples')" class="hover:text-yellow-300">{{ 'nav.temples' | translate }}</a></li>
       <li><a (click)="scrollTo('SANT_MUKTABAI_INFO')" class="hover:text-yellow-300">{{ 'nav.SANT_MUKTABAI_INFO' | translate }}</a></li>
-      <li><a (click)="scrollTo('title')" class="hover:text-yellow-300">{{ 'nav.title' | translate }}</a></li>
+      <li><a (click)="scrollTo('team')" class="hover:text-yellow-300">{{ 'nav.team' | translate }}</a></li>
+     <li><a (click)="scrollTo('service')" class="hover:text-yellow-300">{{ 'nav.service' | translate }}</a></li>
+
       <li><a (click)="scrollTo('contact-us')" class="hover:text-yellow-300">{{ 'nav.contact' | translate }}</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/login" class="hover:text-yellow-300">{{'nav.login' | translate}}</a></li>
     </ul>
