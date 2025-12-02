@@ -1,6 +1,7 @@
 {
   "name": "muktai-temple-project",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,8 +11,9 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-eslint/schematics": "^18.4.3",
     "@angular/animations": "^18.2.0",
-    "@angular/cdk": "^20.1.2",
+    "@angular/cdk": "^18.2.14",
     "@angular/common": "^18.2.0",
     "@angular/compiler": "^18.2.0",
     "@angular/core": "^18.2.0",
@@ -37,10 +39,17 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.19",
+    "@angular-eslint/builder": "^18.4.3",
+    "@angular-eslint/eslint-plugin": "^18.4.3",
+    "@angular-eslint/eslint-plugin-template": "^18.4.3",
+    "@angular-eslint/template-parser": "^21.0.1",
     "@angular/cli": "^18.2.19",
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~5.1.0",
     "@types/swiper": "^5.4.3",
+    "@typescript-eslint/parser": "^8.48.0",
+    "@typescript-eslint/utils": "^8.48.0",
+    "eslint": "^9.39.1",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
