@@ -35,12 +35,12 @@ export class LayoutComponent implements OnInit {
 
 @HostListener('document:click', ['$event'])
 handleOutsideClick(event: MouseEvent): void {
-  if (!this.screenIsSmall || !this.sidebarOpen) return;
+  if (!this.screenIsSmall || !this.sidebarOpen) {return;}
 
   const sidebarEl = this.sidebarRef?.nativeElement;
   const toggleBtnEl = this.toggleBtnRef?.nativeElement;
 
-  if (!sidebarEl || !toggleBtnEl) return; // if not initialized yet
+  if (!sidebarEl || !toggleBtnEl) {return;} // if not initialized yet
 
   const target = event.target as HTMLElement;
 

@@ -38,8 +38,8 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
     this.showPassword = !this.showPassword;
   }
 
-  onSubmit() {
- this.submitted = true;
+ onSubmit() {
+  this.submitted = true;
 
   const temple = this.loginForm.value.temple?.trim();
   const email = this.loginForm.value.email?.trim();
@@ -56,25 +56,37 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
   }
 
   if (this.loginForm.valid) {
+
+    // OWNER LOGIN
     if (this.selectedRole === 'owner') {
       if (email === 'owner@gmail.com' && password === 'Owner@123') {
         localStorage.setItem('role', 'owner');
         localStorage.setItem('temple', temple);
+
+        // 🔥 FIX: add token here
+        localStorage.setItem('token', 'loggedin');
+
         this.router.navigate(['/dashboard']);
-      } else {
-        this.errorMessage = 'Invalid Owner credentials';
+        return;
       }
+      this.errorMessage = 'Invalid Owner credentials';
     }
 
+    // ADMIN LOGIN
     if (this.selectedRole === 'admin') {
       if (email === 'admin@gmail.com' && password === 'Admin@123') {
         localStorage.setItem('role', 'admin');
         localStorage.setItem('temple', temple);
+
+        // 🔥 FIX: add token here
+        localStorage.setItem('token', 'loggedin');
+
         this.router.navigate(['/dashboard/donation']);
-      } else {
-        this.errorMessage = 'Invalid Admin credentials';
+        return;
       }
+      this.errorMessage = 'Invalid Admin credentials';
     }
+
   } else {
     this.loginForm.markAllAsTouched();
     this.errorMessage = 'Please enter valid details';
@@ -101,18 +113,21 @@ selectedRole: 'owner' | 'admin' | null = 'owner';
   }
 
 
-onInput(event: any, index: number) {
+onInput(event: Event, index: number) {
   const input = event.target as HTMLInputElement;
   const value = input.value;
+
   if (!/^[0-9]$/.test(value)) {
     input.value = '';
     return;
   }
+
   const nextInput = document.getElementById(`input-${index + 1}`);
   if (nextInput && value) {
     (nextInput as HTMLInputElement).focus();
   }
 }
+
 
   // Password checks
   get password(): string {

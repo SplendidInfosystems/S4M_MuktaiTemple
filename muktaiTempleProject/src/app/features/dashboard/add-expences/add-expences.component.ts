@@ -3,19 +3,19 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { AddExpencesService } from '../../services/add-expences.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-expences',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, TranslateModule],
+  imports: [ ReactiveFormsModule, CommonModule, TranslateModule],
   templateUrl: './add-expences.component.html',
   styleUrls: ['./add-expences.component.css']
 })
 export class AddExpencesComponent implements OnInit {
   expenseForm!: FormGroup;
   convertedAmountInWords: string = '';
-  @Output() expenseAdded = new EventEmitter<any>();
+  @Output() expenseAdded = new EventEmitter<unknown>();
 
   constructor(private expenseService: AddExpencesService , private router :Router) { }
 
@@ -66,18 +66,16 @@ export class AddExpencesComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    if (this.expenseForm.valid) {
-      console.log('Form Submitted!', this.expenseForm.value);
-      this.expenseService.addExpense(this.expenseForm.value);
-      alert('Expense request submitted successfully!');
-      this.expenseForm.reset();
-      // this.router.navigate(['/dashboard/expenses'])
-    
-    } else {
-      this.expenseForm.markAllAsTouched();
-    }
+ onSubmit(): void {
+  if (this.expenseForm.valid) {
+    this.expenseService.addExpense(this.expenseForm.value);
+    alert('Expense request submitted successfully!');
+    this.expenseForm.reset();
+  } else {
+    this.expenseForm.markAllAsTouched();
   }
+}
+
 
   convertNumberToWords(amount: number): string {
     const ones = [
@@ -88,12 +86,12 @@ export class AddExpencesComponent implements OnInit {
 
     const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
 
-    if (amount === 0) return 'Zero';
+    if (amount === 0) {return 'Zero';}
 
     const numToWords = (n: number): string => {
-      if (n < 20) return ones[n];
-      if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
-      if (n < 1000) return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' and ' + numToWords(n % 100) : '');
+      if (n < 20) {return ones[n];}
+      if (n < 100) {return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');}
+      if (n < 1000) {return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' and ' + numToWords(n % 100) : '');}
       return '';
     };
 
@@ -104,11 +102,11 @@ export class AddExpencesComponent implements OnInit {
     const hundred = Math.floor((amount % 1000) / 100);
     const rest = amount % 100;
 
-    if (crore) words += numToWords(crore) + ' Crore ';
-    if (lakh) words += numToWords(lakh) + ' Lakh ';
-    if (thousand) words += numToWords(thousand) + ' Thousand ';
-    if (hundred) words += numToWords(hundred) + ' Hundred ';
-    if (rest) words += (words !== '' ? 'and ' : '') + numToWords(rest);
+    if (crore) {words += numToWords(crore) + ' Crore ';}
+    if (lakh) {words += numToWords(lakh) + ' Lakh ';}
+    if (thousand) {words += numToWords(thousand) + ' Thousand ';}
+    if (hundred) {words += numToWords(hundred) + ' Hundred ';}
+    if (rest) {words += (words !== '' ? 'and ' : '') + numToWords(rest);}
 
     return words.trim();
   }

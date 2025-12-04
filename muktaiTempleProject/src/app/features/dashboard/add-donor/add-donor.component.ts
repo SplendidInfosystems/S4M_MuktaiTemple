@@ -28,8 +28,9 @@ export class AddDonorComponent implements OnInit {
 
   onSubmit() {
     if (this.donorForm.valid) {
-      console.log(this.donorForm.value);
-      // handle form submit
+      
+     const donorData = this.donorForm.value;
+      // console.log('Donor Data:', donorData);
     } else {
       this.donorForm.markAllAsTouched();
     }
@@ -55,12 +56,12 @@ convertNumberToWords(amount: number): string {
 
   const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
 
-  if (amount === 0) return 'Zero';
+  if (amount === 0) {return 'Zero';}
 
   const numToWords = (n: number): string => {
-    if (n < 20) return ones[n];
-    if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
-    if (n < 1000) return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' and ' + numToWords(n % 100) : '');
+    if (n < 20) {return ones[n];}
+    if (n < 100) {return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');}
+    if (n < 1000) {return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' and ' + numToWords(n % 100) : '');}
     return '';
   };
 
@@ -71,11 +72,11 @@ convertNumberToWords(amount: number): string {
   const hundred = Math.floor((amount % 1000) / 100);
   const rest = amount % 100;
 
-  if (crore) words += numToWords(crore) + ' Crore ';
-  if (lakh) words += numToWords(lakh) + ' Lakh ';
-  if (thousand) words += numToWords(thousand) + ' Thousand ';
-  if (hundred) words += numToWords(hundred) + ' Hundred ';
-  if (rest) words += (words !== '' ? 'and ' : '') + numToWords(rest);
+  if (crore) {words += numToWords(crore) + ' Crore ';}
+  if (lakh) {words += numToWords(lakh) + ' Lakh ';}
+  if (thousand) {words += numToWords(thousand) + ' Thousand ';}
+  if (hundred) {words += numToWords(hundred) + ' Hundred ';}
+  if (rest) {words += (words !== '' ? 'and ' : '') + numToWords(rest);}
 
   return words.trim();
 }

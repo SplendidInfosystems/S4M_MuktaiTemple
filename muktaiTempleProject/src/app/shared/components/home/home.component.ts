@@ -133,9 +133,9 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked, O
   // responsive breakpoints similar to Swiper
   private updateSlidesPerView() {
     const w = window.innerWidth;
-    if (w >= 1024) this.slidesPerView = 3;
-    else if (w >= 768) this.slidesPerView = 2;
-    else this.slidesPerView = 1;
+    if (w >= 1024) {this.slidesPerView = 3;}
+    else if (w >= 768) {this.slidesPerView = 2;}
+    else {this.slidesPerView = 1;}
   }
 
   @HostListener('window:resize')

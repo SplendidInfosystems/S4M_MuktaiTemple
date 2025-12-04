@@ -37,7 +37,7 @@ export class CreateProfileComponent {
 
   onSubmit() {
     if (this.profileForm.valid) {
-      console.log(this.profileForm.value);
+      // console.log(this.profileForm.value);
     }
   }
 }

@@ -138,7 +138,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
    const attach = () => {
      const el = document.getElementById('pageMain') as HTMLElement | null;
      if (el) {
-       if (this.debugAttach) console.debug('HeaderComponent: attached to #pageMain');
+       if (this.debugAttach) {console.debug('HeaderComponent: attached to #pageMain');}
        this.mainScrollEl = el;
        this.mainScrollEl.addEventListener('scroll', this.boundMainScroll, { passive: true });
        if (this._mainPollTimer) { clearInterval(this._mainPollTimer); this._mainPollTimer = null; }
@@ -159,4 +159,6 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
       }, 200);
     }
   }
+
+  
 }

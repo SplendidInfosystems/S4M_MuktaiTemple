@@ -35,8 +35,8 @@ export class ExpencesRequestComponent {
         ? 'Are you sure you want to approve this request?'
         : 'Are you sure you want to reject this request?';
     this.confirmCallback = () => {
-      if (action === 'approve') this.approveRequest(request);
-      if (action === 'reject') this.rejectRequest(request);
+      if (action === 'approve') {this.approveRequest(request);}
+      if (action === 'reject') {this.rejectRequest(request);}
     };
     this.isConfirmModalOpen = true;
   }
@@ -48,7 +48,7 @@ export class ExpencesRequestComponent {
   }
 
   confirmAction() {
-    if (this.confirmCallback) this.confirmCallback();
+    if (this.confirmCallback) {this.confirmCallback();}
     this.closeConfirmModal();
   }
 
