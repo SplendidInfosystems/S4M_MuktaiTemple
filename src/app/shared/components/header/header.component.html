@@ -1,55 +1,79 @@
 <header class="w-full bg-white border-b border-gray-200">
-  <div class="max-w-[1400px] mx-auto px-2">
-    <div class="flex items-center h-[80px]">
+  <div class="max-w-[1400px] mx-auto px-4">
+    <div class="flex items-center h-[72px]">
 
       <!-- Logo -->
       <div class="flex items-center gap-3">
-        <div
-          class="w-11 h-11 bg-gradient-to-br from-[#FF6B35]/70 to-[#D4AF37]/50 rounded-full bg-gold flex items-center justify-center
-                 text-white text-2xl font-semibold">
-          ॐ
-        </div>
+       <div class="w-11 h-11 bg-gradient-to-br
+        from-[#FF6B35]/70 to-[#D4AF37]/50 rounded-full 
+        bg-gold flex items-center justify-center 
+        text-white text-2xl font-semibold"> ॐ </div>
 
         <div>
-          <h1 class="text-[23px] font-bold text-[#FF6B35] leading-tight">
+          <h1 class="text-[20px] font-bold text-[#FF6B35] leading-tight">
             Muktai Temple
           </h1>
-          <p class="text-[12px] text-gray-500">
+          <p class="text-[11px] text-gray-500">
             Muktainagar | Kothali | Pandharpur
           </p>
         </div>
       </div>
 
-      <!-- Menu -->
+      <!-- Desktop Menu -->
       <nav
-        class="hidden lg:flex items-center gap-6 text-[19px]
-               font-medium text-gray-700 ml-8">
-        <a
-          class="px-5 py-[6px] border-10 bg-orange-500 text-white">
-          Home
-        </a>
-        <a class="hover:text-templeOrange">About Us</a>
-        <a class="hover:text-templeOrange">Daily Program</a>
-        <a class="hover:text-templeOrange">Monthly Events</a>
-        <a class="hover:text-templeOrange">Nearby Places</a>
-        <a class="hover:text-templeOrange">Team</a>
-        <a class="hover:text-templeOrange">Contact</a>
+        class="hidden lg:flex items-center gap-6
+               text-[19px] font-medium text-gray-700 ml-10">
+        <a class="px-4 py-1 rounded bg-orange-500 text-white">Home</a>
+        <a class="hover:text-[#FF6B35]">About Us</a>
+        <a class="hover:text-[#FF6B35]">Daily Program</a>
+        <a class="hover:text-[#FF6B35]">Monthly Events</a>
+        <a class="hover:text-[#FF6B35]">Nearby Places</a>
+        <a class="hover:text-[#FF6B35]">Team</a>
+        <a class="hover:text-[#FF6B35]">Contact</a>
       </nav>
 
-      <!-- Right -->
-      <div class="flex items-center gap-2 ml-auto">
+      <!-- Right Section -->
+      <div class="hidden lg:flex items-center gap-3 ml-auto">
         <button
-          class="px-4 py-[6px] text-[14px] font-medium
-                 border border-templeOrange text-templeOrange
-                 rounded-full hover:bg-templeOrange hover:text-white transition">
+          class="px-4 py-1.5 text-[14px] font-medium
+                 border border-[#FF6B35] text-[#FF6B35]
+                 rounded-full hover:bg-[#FF6B35] hover:text-white transition">
           Login
         </button>
 
-        <span class="text-[14px] font-medium flex items-center gap-1">
-          🌐 मराठी
-        </span>
+        <span class="text-[14px] font-medium">🌐 मराठी</span>
       </div>
 
+      <!-- Mobile Menu Button -->
+      <button
+        (click)="menuOpen = !menuOpen"
+        class="lg:hidden ml-auto text-2xl">
+        ☰
+      </button>
+
     </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="menuOpen" class="lg:hidden bg-white border-t">
+    <nav class="flex flex-col px-6 py-4 gap-3 text-[15px] font-medium">
+      <a class="text-[#FF6B35] font-semibold">Home</a>
+      <a>About Us</a>
+      <a>Daily Program</a>
+      <a>Monthly Events</a>
+      <a>Nearby Places</a>
+      <a>Team</a>
+      <a>Contact</a>
+
+      <div class="pt-3 flex items-center gap-3">
+        <button
+          class="px-4 py-1.5 text-[14px]
+                 border border-[#FF6B35] text-[#FF6B35]
+                 rounded-full">
+          Login
+        </button>
+        <span class="text-[14px]">🌐 मराठी</span>
+      </div>
+    </nav>
   </div>
 </header>
