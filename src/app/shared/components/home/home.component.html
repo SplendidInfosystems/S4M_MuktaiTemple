@@ -32,15 +32,15 @@
     </div>
 
     <p class="text-[18px] tracking-widest mb-3 font-light">
-      Welcome to
+      {{ 'HOME.WELCOME' | translate }}
     </p>
 
     <h1 class="text-[48px] md:text-[64px] font-bold mb-6 leading-tight">
-      Shri Muktai Devi Temple
+      {{ 'HOME.TITLE' | translate }}
     </h1>
 
     <p class="text-[20px] md:text-[22px] opacity-95 mb-10 font-light">
-      Divine Blessings & Spiritual Peace
+      {{ 'HOME.SUBTITLE' | translate }}
     </p>
 
     <button
@@ -48,12 +48,12 @@
              text-[16px] font-semibold rounded-full
              hover:bg-gray-50 transition-all duration-300
              shadow-lg hover:shadow-xl">
-      Learn More
+      {{ 'HOME.LEARN_MORE' | translate }}
     </button>
   </div>
 </section>
 
-<!-- Cards Section -->
+<!-- Cards Section about us  -->
 <section class="bg-[#FFF7ED] py-20">
   <div class="max-w-[1200px] mx-auto px-4">
 
@@ -84,11 +84,11 @@
         </div>
 
         <h3 class="text-[18px] font-semibold text-[#FF7A1A] mb-2">
-          Daily Aarti
+          {{ 'HOME.CARDS.DAILY_AARTI.TITLE' | translate }}
         </h3>
 
         <p class="text-[14px] text-[#6B7280] leading-relaxed">
-          Morning 5:30 AM & Evening 7:00 PM
+          {{ 'HOME.CARDS.DAILY_AARTI.DESC' | translate }}
         </p>
       </div>
 
@@ -117,11 +117,11 @@
         </div>
 
         <h3 class="text-[18px] font-semibold text-[#FF7A1A] mb-2">
-          Monthly Programs
+          {{ 'HOME.CARDS.MONTHLY.TITLE' | translate }}
         </h3>
 
         <p class="text-[14px] text-[#6B7280] leading-relaxed">
-          Bhajan, Kirtan & Special Puja
+          {{ 'HOME.CARDS.MONTHLY.DESC' | translate }}
         </p>
       </div>
 
@@ -151,17 +151,50 @@
         </div>
 
         <h3 class="text-[18px] font-semibold text-[#FF7A1A] mb-2">
-          Special Festivals
+          {{ 'HOME.CARDS.FESTIVALS.TITLE' | translate }}
         </h3>
 
         <p class="text-[14px] text-[#6B7280] leading-relaxed">
-          Navratri, Diwali & More
+          {{ 'HOME.CARDS.FESTIVALS.DESC' | translate }}
         </p>
       </div>
 
     </div>
   </div>
 </section>
+<section class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  
+  <!-- Left Content -->
+  <div>
+    <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-6">
+      {{ 'ABOUT.TITLE' | translate }}
+    </h2>
+
+    <p class="text-gray-700 leading-relaxed mb-4">
+      {{ 'ABOUT.PARA1' | translate }}
+    </p>
+
+    <p class="text-gray-700 leading-relaxed mb-6">
+      {{ 'ABOUT.PARA2' | translate }}
+    </p>
+
+    <button
+      class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition">
+      {{ 'ABOUT.READ_MORE' | translate }}
+    </button>
+  </div>
+
+  <!-- Right Image -->
+  <div class="relative">
+    <img
+      src="assets/images/muktaimage.jpg"
+      alt="Muktai Temple"
+      class="rounded-xl border-4 border-orange-300 shadow-lg w-full"
+    />
+  </div>
+
+</section>
+
 
 
 

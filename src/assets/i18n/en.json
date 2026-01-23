@@ -1,0 +1,42 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "DAILY": "Daily Program",
+    "MONTHLY": "Monthly Events",
+    "NEARBY": "Nearby Places",
+    "TEAM": "Team",
+    "CONTACT": "Contact",
+    "LOGIN": "Login",
+    "TEMPLE_NAME": "Muktai Temple",
+    "LOCATION": "Muktainagar | Kothali | Pandharpur",
+    "LANG": "English"
+  },
+  "HOME": {
+    "WELCOME": "Welcome to",
+    "TITLE": "Shri Muktai Devi Temple",
+    "SUBTITLE": "Divine Blessings & Spiritual Peace",
+    "LEARN_MORE": "Learn More",
+    "CARDS": {
+      "DAILY_AARTI": {
+        "TITLE": "Daily Aarti",
+        "DESC": "Morning 5:30 AM & Evening 7:00 PM"
+      },
+      "MONTHLY": {
+        "TITLE": "Monthly Programs",
+        "DESC": "Bhajan, Kirtan & Special Puja"
+      },
+      "FESTIVALS": {
+        "TITLE": "Special Festivals",
+        "DESC": "Navratri, Diwali & More"
+      }
+    }
+  },
+  "ABOUT": {
+    "TITLE": "About Our Temple",
+    "PARA1": "Muktai Devi Temple is a sacred pilgrimage site that offers spiritual peace and divine blessings to devotees. Located at three holy places – Muktainagar, Kothali, and Pandharpur, our temples attract thousands of devotees.",
+    "PARA2": "By the grace of the Goddess, our temples conduct daily pujas, aartis, and various religious programs.",
+    "READ_MORE": "Read More"
+  }
+}
+

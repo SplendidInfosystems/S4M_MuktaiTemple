@@ -4,75 +4,113 @@
 
       <!-- Logo -->
       <div class="flex items-center gap-3">
-       <div class="w-11 h-11 bg-gradient-to-br
-        from-[#FF6B35]/70 to-[#D4AF37]/50 rounded-full 
-        bg-gold flex items-center justify-center 
-        text-white text-2xl font-semibold"> ॐ </div>
+      
+        <div class="w-11 h-11
+         bg-gradient-to-br from-[#FF6B35]/70 to-[#D4AF37]/50 rounded-full bg-gold flex items-center justify-center
+         text-white text-2xl font-semibold"> ॐ </div>
 
         <div>
           <h1 class="text-[20px] font-bold text-[#FF6B35] leading-tight">
-            Muktai Temple
+            {{ 'HEADER.TEMPLE_NAME' | translate }}
           </h1>
           <p class="text-[11px] text-gray-500">
-            Muktainagar | Kothali | Pandharpur
+            {{ 'HEADER.LOCATION' | translate }}
           </p>
         </div>
       </div>
 
       <!-- Desktop Menu -->
-      <nav
-        class="hidden lg:flex items-center gap-6
-               text-[19px] font-medium text-gray-700 ml-10">
-        <a class="px-4 py-1 rounded bg-orange-500 text-white hover:bg-orange-600 transition">Home</a>
-        <a class="px-3 py-1 rounded  transition-color hover:bg-orange-500 hover:text-white transition cursor-pointer">About Us</a>
-        <a class="px-3 py-1 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">Daily Program</a>
-        <a class="px-3 py-1 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">Monthly Events</a>
-        <a class="px-3 py-1 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">Nearby Places</a>
-        <a class="px-3 py-1 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">Team</a>
-        <a class="px-3 py-1 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">Contact</a>
+      <nav class="hidden lg:flex items-center gap-2 text-[16px] font-medium text-gray-700 ml-8 flex-1">
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.HOME' | translate }}
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.ABOUT' | translate }}
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.DAILY' | translate }}
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.MONTHLY' | translate }}
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.NEARBY' | translate }}
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.TEAM' | translate }}
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+          {{ 'HEADER.CONTACT' | translate }}
+        </a>
       </nav>
 
       <!-- Right Section -->
-      <div class="hidden lg:flex items-center gap-2 ml-auto">
+      <div class="hidden lg:flex items-center gap-2">
         <button
           class="px-4 py-1.5 text-[14px] font-medium
                  border border-[#FF6B35] text-[#FF6B35]
                  rounded-full hover:bg-[#FF6B35] hover:text-white transition">
-          Login
+          {{ 'HEADER.LOGIN' | translate }}
         </button>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-languages w-4 h-4" data-fg-d5jy23="20.10:20.4629:/src/app/components/Header.tsx:81:15:3072:33:e:Languages::::::EAj6"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>      </div>
+        <!-- Language Toggle -->
+        <div class="flex items-center gap-2 cursor-pointer" (click)="toggleLanguage()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 8 6 6"></path>
+            <path d="m4 14 6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2h1"></path>
+            <path d="m22 22-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+          </svg>
+          <span class="text-sm font-medium">
+            {{ 'HEADER.LANG' | translate }}
+          </span>
+        </div>
+      </div>
 
       <!-- Mobile Menu Button -->
-      <button
-        (click)="menuOpen = !menuOpen"
-        class="lg:hidden ml-auto text-2xl">
+      <button (click)="menuOpen = !menuOpen" class="lg:hidden ml-auto text-2xl">
         ☰
       </button>
-
     </div>
   </div>
 
   <!-- Mobile Menu -->
   <div *ngIf="menuOpen" class="lg:hidden bg-white border-t">
     <nav class="flex flex-col px-6 py-4 gap-3 text-[15px] font-medium">
-      <a class="text-[#FF6B35] font-semibold">Home</a>
-      <a>About Us</a>
-      <a>Daily Program</a>
-      <a>Monthly Events</a>
-      <a>Nearby Places</a>
-      <a>Team</a>
-      <a>Contact</a>
+      <a>{{ 'HEADER.HOME' | translate }}</a>
+      <a>{{ 'HEADER.ABOUT' | translate }}</a>
+      <a>{{ 'HEADER.DAILY' | translate }}</a>
+      <a>{{ 'HEADER.MONTHLY' | translate }}</a>
+      <a>{{ 'HEADER.NEARBY' | translate }}</a>
+      <a>{{ 'HEADER.TEAM' | translate }}</a>
+      <a>{{ 'HEADER.CONTACT' | translate }}</a>
 
-      <div class="pt-3 flex items-center gap-3">
-        <button
-          class="px-4 py-1.5 text-[14px]
-                 border border-[#FF6B35] text-[#FF6B35]
-                 rounded-full">
-          Login
-        </button>
-        <div>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-languages w-4 h-4" data-fg-d5jy23="20.10:20.4629:/src/app/components/Header.tsx:81:15:3072:33:e:Languages::::::EAj6"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>      </div>
+      <button
+        class="mt-3 px-4 py-1.5 text-[14px]
+               border border-[#FF6B35] text-[#FF6B35]
+               rounded-full">
+        {{ 'HEADER.LOGIN' | translate }}
+      </button>
+
+      <!-- Language Toggle Mobile -->
+      <div class="mt-4 pt-4 border-t flex items-center gap-2 cursor-pointer" (click)="toggleLanguage()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="m5 8 6 6"></path>
+          <path d="m4 14 6-6 2-3"></path>
+          <path d="M2 5h12"></path>
+          <path d="M7 2h1"></path>
+          <path d="m22 22-5-10-5 10"></path>
+          <path d="M14 18h6"></path>
+        </svg>
+        <span class="text-sm font-medium">
+          {{ 'HEADER.LANG' | translate }}
+        </span>
       </div>
     </nav>
   </div>
