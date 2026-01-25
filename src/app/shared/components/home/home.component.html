@@ -1,4 +1,6 @@
 <app-header></app-header>
+
+ <!-- starting home page section -->
 <section
   class="relative w-full h-[600px] flex items-center justify-center overflow-hidden"
   style="
@@ -53,8 +55,8 @@
   </div>
 </section>
 
-<!-- Cards Section about us  -->
-<section class="bg-[#FFF7ED] py-20">
+<!--  three cards Cards Section  -->
+<section class=" py-20">
   <div class="max-w-[1200px] mx-auto px-4">
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -162,6 +164,10 @@
     </div>
   </div>
 </section>
+
+
+
+<!-- about us section -->
 <section class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
   
   <!-- Left Content -->
@@ -194,6 +200,94 @@
   </div>
 
 </section>
+
+
+
+
+<!-- Donation / CTA Section  footer-->
+<section
+  class=" bg-gradient-to-r from-[#FF6B35] to-[#D4AF37]
+         text-white py-14"
+>
+  <div class="max-w-4xl mx-auto px-4 text-center">
+
+    <!-- Heart Icon -->
+    <div
+      class="w-16 h-16 mx-auto mb-5 rounded-full
+             bg-white/20 flex items-center justify-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8 text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.682l-7.682-7.682a4.5 4.5 0 010-6.364z"
+        />
+      </svg>
+    </div>
+
+    <h2 class="text-3xl md:text-4xl font-semibold mb-3">
+      {{ 'donation.title' | translate }}
+    </h2>
+
+    <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">
+      {{ 'donation.subtitle' | translate }}
+    </p>
+
+    <button
+      class="bg-white text-orange-600 font-semibold
+             px-8 py-3 rounded-lg
+             transition-all duration-300
+             hover:bg-orange-50 hover:scale-105"
+    >
+      {{ 'donation.button' | translate }}
+    </button>
+
+  </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer
+  class=" bg-gradient-to-r from-[#FF6B35] to-[#D4AF37]
+         text-white py-8"
+>
+  <div class="max-w-6xl mx-auto px-4 text-center">
+
+    <div
+      class="w-12 h-12 mx-auto mb-3 rounded-full
+             bg-white/20 flex items-center justify-center text-xl"
+    >
+      ॐ
+    </div>
+
+    <h3 class="text-lg font-semibold mb-1">
+      {{ 'footer.title' | translate }}
+    </h3>
+
+    <p class="text-sm opacity-90 mb-4">
+      {{ 'footer.location' | translate }}
+    </p>
+
+    <div class="w-20 h-[1px] bg-white/40 mx-auto mb-4"></div>
+
+    <p class="text-xs opacity-80">
+      © {{ currentYear }} {{ 'footer.copyright' | translate }}
+    </p>
+
+  </div>
+</footer>
+
+
+
 
 
 

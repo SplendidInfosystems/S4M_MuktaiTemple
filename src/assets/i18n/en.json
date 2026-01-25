@@ -37,6 +37,16 @@
     "PARA1": "Muktai Devi Temple is a sacred pilgrimage site that offers spiritual peace and divine blessings to devotees. Located at three holy places – Muktainagar, Kothali, and Pandharpur, our temples attract thousands of devotees.",
     "PARA2": "By the grace of the Goddess, our temples conduct daily pujas, aartis, and various religious programs.",
     "READ_MORE": "Read More"
+  }, 
+   "footer": {
+    "title": "Shri Muktai Devi Temple",
+    "location": "Muktainagar | Kothali | Pandharpur",
+    "copyright": "Muktai Temple. All rights reserved."
+  },
+  "donation": {
+    "title": "Opportunity to Serve",
+    "subtitle": "Support temple maintenance and religious programs with your contribution",
+    "button": "Donate Now"
   }
 }
 

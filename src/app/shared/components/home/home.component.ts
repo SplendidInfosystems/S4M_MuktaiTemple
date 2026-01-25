@@ -12,6 +12,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 export class HomeComponent {
 
 currentLang: 'mr' | 'en' = 'mr';
+  currentYear = new Date().getFullYear();
+
 
   constructor(private translate: TranslateService) {
   

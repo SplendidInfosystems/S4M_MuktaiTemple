@@ -11,5 +11,5 @@ html, body {
 body {
     font-family: 'Noto Sans Devanagari', 'Inter', system-ui, -apple-system, sans-serif;
     margin: 0;
-  background: linear-gradient(to bottom, #fff7ed, #ffffff);
+  /* background: linear-gradient(to bottom, #fff7ed, #ffffff); */
 }
