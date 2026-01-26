@@ -27,7 +27,7 @@
         <a routerLink="/about-us" class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
           {{ 'HEADER.ABOUT' | translate }}
         </a>
-        <a routerLink="/daily" class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
+        <a routerLink="/daily-programs" class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
           {{ 'HEADER.DAILY' | translate }}
         </a>
         <a class="px-3 py-1.5 rounded hover:bg-orange-500 hover:text-white transition cursor-pointer">
@@ -81,9 +81,9 @@
   <!-- Mobile Menu -->
   <div *ngIf="menuOpen" class="lg:hidden bg-white border-t">
     <nav class="flex flex-col px-6 py-4 gap-3 text-[15px] font-medium">
-      <a  routerLink="/about-us" >{{ 'HEADER.HOME' | translate }}</a>
+      <a  routerLink="/home" >{{ 'HEADER.HOME' | translate }}</a>
       <a routerLink="/about-us">{{ 'HEADER.ABOUT' | translate }}</a>
-      <a routerLink="/daily">{{ 'HEADER.DAILY' | translate }}</a>
+      <a routerLink="/daily-programs">{{ 'HEADER.DAILY' | translate }}</a>
       <a routerLink="/monthly">{{ 'HEADER.MONTHLY' | translate }}</a>
       <a routerLink="/nearby">{{ 'HEADER.NEARBY' | translate }}</a>
       <a routerLink="/team">{{ 'HEADER.TEAM' | translate }}</a>

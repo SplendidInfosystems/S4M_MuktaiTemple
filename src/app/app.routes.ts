@@ -3,6 +3,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { AboutUsComponent } from './shared/components/about-us/about-us.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { DailyProgramsComponent } from './shared/components/daily-programs/daily-programs.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,11 @@ export const routes: Routes = [
     {
         path: 'about-us',
         component: AboutUsComponent
+    },
+    {
+        path:'daily-programs',
+        component:DailyProgramsComponent
+
     },
     {
         path:'footer',
