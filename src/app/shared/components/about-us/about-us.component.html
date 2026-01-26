@@ -1,0 +1,216 @@
+<!-- About Us Hero Section -->
+<section
+  class="w-full bg-gradient-to-r from-orange-500 to-amber-500 py-24 text-center text-white"
+>
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">
+    {{ 'ABOUT_US.TITLE' | translate }}
+  </h1>
+  <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+    {{ 'ABOUT_US.SUBTITLE' | translate }}
+  </p>
+</section>
+
+
+<!-- History Section -->
+<section class="bg-[#FFF7ED] py-24">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <!-- Title -->
+    <div class="flex items-center gap-4 mb-8">
+      <div
+        class="w-14 h-14 flex items-center justify-center rounded-full bg-orange-500 text-white"
+      >
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history w-6 h-6 text-white"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5">
+
+       </path><path d="M12 7v5l4 2"></path></svg>
+      </div>
+
+      <h2 class="text-3xl font-bold text-orange-600">
+        {{ 'ABOUT_US.HISTORY_TITLE' | translate }}
+      </h2>
+    </div>
+
+    <!-- Content -->
+    <div class="text-gray-700 text-[17px] leading-8 space-y-6">
+      <p>{{ 'ABOUT_US.HISTORY_PARA_1' | translate }}</p>
+      <p>{{ 'ABOUT_US.HISTORY_PARA_2' | translate }}</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Spiritual Significance Section -->
+
+<section class="bg-white py-24">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <!-- Title -->
+    <div class="flex items-center gap-4 mb-8">
+      <div
+        class="w-14 h-14 flex items-center justify-center rounded-full bg-[#D4AF37] text-white"
+      >
+     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-6 h-6 text-white" data-fg-b9ov28="20.6:20.6933:/src/app/components/AboutPage.tsx:80:17:4164:43:e:Sparkles::::::ELPW"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z">
+
+        </path><path d="M20 3v4"></path><path d="M22 5h-4"></path>
+        <path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+      </div>
+
+      <h2 class="text-3xl font-bold text-orange-600">
+        {{ 'ABOUT_US.SPIRITUAL_TITLE' | translate }}
+      </h2>
+    </div>
+
+    <!-- Content -->
+    <div class="text-gray-700 text-[17px] leading-8 space-y-6">
+      <p>{{ 'ABOUT_US.SPIRITUAL_PARA_1' | translate }}</p>
+      <p>{{ 'ABOUT_US.SPIRITUAL_PARA_2' | translate }}</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Temple Locations Section -->
+<section class="bg-[#FFF7ED] py-28">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-[32px] font-semibold text-orange-500 mb-2">
+        {{ 'TEMPLE_LOCATIONS.TITLE' | translate }}
+      </h2>
+      <p class="text-gray-600 text-sm">
+        {{ 'TEMPLE_LOCATIONS.SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-2xl border border-orange-100
+               p-8 hover:shadow-lg transition-all duration-300"
+      >
+        <!-- Icon (SVG UNCHANGED) -->
+        <div
+          class="w-12 h-12 rounded-full
+                  bg-gradient-to-br from-[#FF6B35] to-[#D4AF37]
+                 flex items-center justify-center mb-6"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-white">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+
+        <h3 class="text-lg font-semibold text-orange-500 mb-3">
+          {{ 'TEMPLE_LOCATIONS.MUKTAINAGAR.TITLE' | translate }}
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+          {{ 'TEMPLE_LOCATIONS.MUKTAINAGAR.DESCRIPTION' | translate }}
+        </p>
+
+        <!-- Address (SVG UNCHANGED) -->
+        <p class="flex items-center gap-2 text-sm text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ 'TEMPLE_LOCATIONS.MUKTAINAGAR.ADDRESS' | translate }}
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white rounded-2xl border border-orange-100
+               p-8 hover:shadow-lg transition-all duration-300"
+      >
+        <div
+          class="w-12 h-12 rounded-full
+                 bg-gradient-to-br from-[#FF6B35] to-[#D4AF37]
+                 flex items-center justify-center mb-6"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-white">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+
+        <h3 class="text-lg font-semibold text-orange-500 mb-3">
+          {{ 'TEMPLE_LOCATIONS.KOTHALI.TITLE' | translate }}
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+          {{ 'TEMPLE_LOCATIONS.KOTHALI.DESCRIPTION' | translate }}
+        </p>
+
+        <p class="flex items-center gap-2 text-sm text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ 'TEMPLE_LOCATIONS.KOTHALI.ADDRESS' | translate }}
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white rounded-2xl border border-orange-100
+               p-8 hover:shadow-lg transition-all duration-300"
+      >
+        <div
+          class="w-12 h-12 rounded-full
+                 bg-gradient-to-br from-[#FF6B35] to-[#D4AF37]
+                 flex items-center justify-center mb-6"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="text-white">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+
+        <h3 class="text-lg font-semibold text-orange-500 mb-3">
+          {{ 'TEMPLE_LOCATIONS.PANDHARPUR.TITLE' | translate }}
+        </h3>
+
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+          {{ 'TEMPLE_LOCATIONS.PANDHARPUR.DESCRIPTION' | translate }}
+        </p>
+
+        <p class="flex items-center gap-2 text-sm text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ 'TEMPLE_LOCATIONS.PANDHARPUR.ADDRESS' | translate }}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+

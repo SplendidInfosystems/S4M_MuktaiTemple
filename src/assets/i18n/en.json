@@ -48,5 +48,42 @@
     "subtitle": "Support temple maintenance and religious programs with your contribution",
     "button": "Donate Now"
   }
+  ,
+   "ABOUT_US": {
+    "TITLE": "About Us",
+    "SUBTITLE": "History and Spiritual Significance of Shri Muktai Devi Temple",
+
+    "HISTORY_TITLE": "History",
+
+    "HISTORY_PARA_1": "The history of Muktai Devi Temple spans hundreds of years. Muktai Devi was the revered mother of Sant Eknath Maharaj. Due to her devotion and purity, she became worshipped as a form of the Goddess.",
+
+    "HISTORY_PARA_2": "Born in Paithan, Muktai inspired Sant Eknath Maharaj on the path of spirituality. Through her blessings, Sant Eknath Maharaj performed many miracles and brought about social reforms in society.",
+    "SPIRITUAL_TITLE": "Spiritual Significance",
+    "SPIRITUAL_PARA_1": "Devotees who worship Goddess Muktai attain mental peace, family happiness, and spiritual growth. Her divine blessings remove obstacles and bring positivity into life.",
+    "SPIRITUAL_PARA_2": "Especially for women, Goddess Muktai stands as an ideal. Her life of sacrifice, dedication, and devotion is an inspiration for everyone."
+  
+  },
+   "TEMPLE_LOCATIONS": {
+    "TITLE": "Temple Locations",
+    "SUBTITLE": "Our Three Sacred Temples",
+
+    "MUKTAINAGAR": {
+      "TITLE": "Muktainagar",
+      "DESCRIPTION": "The main temple of Muktai Devi, providing spiritual refuge to devotees for hundreds of years.",
+      "ADDRESS": "Main Road, Muktainagar, Dist. Jalgaon"
+    },
+
+    "KOTHALI": {
+      "TITLE": "Kothali",
+      "DESCRIPTION": "The sacred temple at Kothali, known for its peaceful ambiance and divine presence.",
+      "ADDRESS": "Kothali Village, Tal. Bhusawal"
+    },
+
+    "PANDHARPUR": {
+      "TITLE": "Pandharpur",
+      "DESCRIPTION": "The holy temple of Muktai Devi in the sacred pilgrimage city of Pandharpur.",
+      "ADDRESS": "Pandharpur, Dist. Solapur"
+    }
+  }
 }
 
