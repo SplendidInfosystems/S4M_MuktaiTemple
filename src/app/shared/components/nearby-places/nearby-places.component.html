@@ -1,1 +1,141 @@
-<p>nearby-places works!</p>
+<!-- Monthly Events   Hero Section -->
+<section class="w-full bg-gradient-to-r from-orange-500 to-amber-500 py-24 text-center text-white">
+    <div class="flex justify-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-map w-16 h-16 text-white mx-auto mb-4"
+            data-fg-dean4="20.14:20.7022:/src/app/components/NearbyPlacesPage.tsx:40:11:2208:53:e:Map::::::hHf">
+            <path
+                d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z">
+            </path>
+            <path d="M15 5.764v15"></path>
+            <path d="M9 3.236v15"></path>
+        </svg>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        {{ 'NEARBY_PLACES.TITLE' | translate }}
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+        {{ 'NEARBY_PLACES.SUBTITLE' | translate }}
+    </p>
+</section>
+
+<!-- Nearby Places Cards Section -->
+
+
+<section class="bg-[#FFF7ED] py-16">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Section Title -->
+        <h2 class="text-center text-3xl md:text-4xl font-bold text-orange-600 mb-12">
+            {{ 'NEARBY_PLACES.SUBTITLE' | translate }}
+        </h2>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Card 1 : Ajanta -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-orange-100
+               shadow-sm hover:shadow-xl transition-all duration-300">
+                <div class="overflow-hidden">
+                    <img src="assets/images/ajanta.jpg" alt="Ajanta Caves" class="w-full h-56 object-cover
+                   transition-transform duration-500 ease-in-out
+                   hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-orange-600 mb-2">
+                        {{ 'NEARBY_PLACES.AJANTA.TITLE' | translate }}
+                    </h3>
+
+                    <p class="flex items-center text-sm text-gray-600 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-4 h-4 mr-2 text-[#D4AF37] flex-shrink-0">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+
+                        <span>{{ 'NEARBY_PLACES.AJANTA.DISTANCE' | translate }}</span>
+                    </p>
+
+                    <p class="text-gray-700 text-sm">
+                        {{ 'NEARBY_PLACES.AJANTA.DESCRIPTION' | translate }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2 : Ellora -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-orange-100
+            shadow-sm hover:shadow-xl transition-all duration-300">
+
+                <div class="overflow-hidden">
+                    <img src="assets/images/ellora.jpg" alt="Ellora Caves" class="w-full h-56 object-cover
+                transition-transform duration-500 ease-in-out
+                hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-orange-600 mb-2">
+                        {{ 'NEARBY_PLACES.ELLORA.TITLE' | translate }}
+                    </h3>
+
+                    <!-- Distance row -->
+                    <p class="flex items-center text-sm text-gray-600 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-4 h-4 mr-2 text-[#D4AF37] flex-shrink-0">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+
+                        <span>{{ 'NEARBY_PLACES.ELLORA.DISTANCE' | translate }}</span>
+                    </p>
+
+                    <!-- Description -->
+                    <p class="text-gray-700 text-sm">
+                        {{ 'NEARBY_PLACES.ELLORA.DESCRIPTION' | translate }}
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Card 3 : Pandharpur -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-orange-100
+            shadow-sm hover:shadow-xl transition-all duration-300">
+
+                <div class="overflow-hidden">
+                    <img src="assets/images/pandharpur.jpg" alt="Pandharpur" class="w-full h-56 object-cover
+                transition-transform duration-500 ease-in-out
+                hover:scale-110" />
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-orange-600 mb-2">
+                        {{ 'NEARBY_PLACES.PANDHARPUR.TITLE' | translate }}
+                    </h3>
+
+                    <!-- Distance row -->
+                    <p class="flex items-center text-sm text-gray-600 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-4 h-4 mr-2 text-[#D4AF37] flex-shrink-0">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+
+                        <span>{{ 'NEARBY_PLACES.PANDHARPUR.DISTANCE' | translate }}</span>
+                    </p>
+
+                    <!-- Description -->
+                    <p class="text-gray-700 text-sm">
+                        {{ 'NEARBY_PLACES.PANDHARPUR.DESCRIPTION' | translate }}
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

@@ -5,6 +5,7 @@ import { AboutUsComponent } from './shared/components/about-us/about-us.componen
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { DailyProgramsComponent } from './shared/components/daily-programs/daily-programs.component';
 import { MonthlyEventComponent } from './shared/components/monthly-event/monthly-event.component';
+import { NearbyPlacesComponent } from './shared/components/nearby-places/nearby-places.component';
 
 export const routes: Routes = [
     {
@@ -35,6 +36,11 @@ export const routes: Routes = [
         path:'monthly-events',
         component:MonthlyEventComponent
 
+    },
+    {
+
+        path:'nearby-places',
+        component:NearbyPlacesComponent
     },
     {
         path:'footer',

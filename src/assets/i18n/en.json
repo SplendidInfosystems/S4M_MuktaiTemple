@@ -37,8 +37,8 @@
     "PARA1": "Muktai Devi Temple is a sacred pilgrimage site that offers spiritual peace and divine blessings to devotees. Located at three holy places – Muktainagar, Kothali, and Pandharpur, our temples attract thousands of devotees.",
     "PARA2": "By the grace of the Goddess, our temples conduct daily pujas, aartis, and various religious programs.",
     "READ_MORE": "Read More"
-  }, 
-   "footer": {
+  },
+  "footer": {
     "title": "Shri Muktai Devi Temple",
     "location": "Muktainagar | Kothali | Pandharpur",
     "copyright": "Muktai Temple. All rights reserved."
@@ -47,49 +47,39 @@
     "title": "Opportunity to Serve",
     "subtitle": "Support temple maintenance and religious programs with your contribution",
     "button": "Donate Now"
-  }
-  ,
-   "ABOUT_US": {
+  },
+  "ABOUT_US": {
     "TITLE": "About Us",
     "SUBTITLE": "History and Spiritual Significance of Shri Muktai Devi Temple",
-
     "HISTORY_TITLE": "History",
-
     "HISTORY_PARA_1": "The history of Muktai Devi Temple spans hundreds of years. Muktai Devi was the revered mother of Sant Eknath Maharaj. Due to her devotion and purity, she became worshipped as a form of the Goddess.",
-
     "HISTORY_PARA_2": "Born in Paithan, Muktai inspired Sant Eknath Maharaj on the path of spirituality. Through her blessings, Sant Eknath Maharaj performed many miracles and brought about social reforms in society.",
     "SPIRITUAL_TITLE": "Spiritual Significance",
     "SPIRITUAL_PARA_1": "Devotees who worship Goddess Muktai attain mental peace, family happiness, and spiritual growth. Her divine blessings remove obstacles and bring positivity into life.",
     "SPIRITUAL_PARA_2": "Especially for women, Goddess Muktai stands as an ideal. Her life of sacrifice, dedication, and devotion is an inspiration for everyone."
-  
   },
-   "TEMPLE_LOCATIONS": {
+  "TEMPLE_LOCATIONS": {
     "TITLE": "Temple Locations",
     "SUBTITLE": "Our Three Sacred Temples",
-
     "MUKTAINAGAR": {
       "TITLE": "Muktainagar",
       "DESCRIPTION": "The main temple of Muktai Devi, providing spiritual refuge to devotees for hundreds of years.",
       "ADDRESS": "Main Road, Muktainagar, Dist. Jalgaon"
     },
-
     "KOTHALI": {
       "TITLE": "Kothali",
       "DESCRIPTION": "The sacred temple at Kothali, known for its peaceful ambiance and divine presence.",
       "ADDRESS": "Kothali Village, Tal. Bhusawal"
     },
-
     "PANDHARPUR": {
       "TITLE": "Pandharpur",
       "DESCRIPTION": "The holy temple of Muktai Devi in the sacred pilgrimage city of Pandharpur.",
       "ADDRESS": "Pandharpur, Dist. Solapur"
     }
   },
-  
   "DAILY_PROGRAM": {
     "TITLE": "Daily Program",
     "SUBTITLE": "Daily Temple Schedule",
-
     "OPENING": {
       "TITLE": "Temple Opening",
       "DESC": "Temple doors open and prasad preparation",
@@ -110,7 +100,7 @@
       "DESC": "Distribution of sacred prasad to devotees",
       "TIME": "8:00 AM"
     },
-      "AFTERNOON_AARTI": {
+    "AFTERNOON_AARTI": {
       "TITLE": "Afternoon Aarti",
       "DESC": "Special afternoon worship",
       "TIME": "12:00 PM"
@@ -125,23 +115,21 @@
       "DESC": "Night worship and temple doors closing",
       "TIME": "9:00 PM"
     },
-     "IMPORTANT_NOTES": {
-    "TITLE": "Important Notes",
-    "NOTE1": "Please remove footwear before entering the temple",
-    "NOTE2": "Keep mobile phones on silent during aarti",
-    "NOTE3": "Keep the temple premises clean",
-    "NOTE4": "Schedule may change during special festivals"
-  }
+    "IMPORTANT_NOTES": {
+      "TITLE": "Important Notes",
+      "NOTE1": "Please remove footwear before entering the temple",
+      "NOTE2": "Keep mobile phones on silent during aarti",
+      "NOTE3": "Keep the temple premises clean",
+      "NOTE4": "Schedule may change during special festivals"
+    }
   },
-"MONTHLY_EVENTS": {
-   "TITLE": "Monthly Events",
+  "MONTHLY_EVENTS": {
+    "TITLE": "Monthly Events",
     "SUBTITLE": "Festivals and Religious Programs",
-
-     "NOTICE": {
+    "NOTICE": {
       "TITLE": "Notice",
       "MESSAGE": "The dates and times of the programs may change. Please contact the temple office or check our announcements for updates."
     },
-    
     "MAKAR_SANKRANTI": {
       "DAY": "15",
       "MONTH": "January",
@@ -184,11 +172,24 @@
       "DESCRIPTION": "Shri Ram Janmotsav, Ramayana recitation, and bhandara",
       "TAG": "Festival"
     }
-   
+  },
+  "NEARBY_PLACES": {
+    "TITLE": "Nearby Places",
+    "SUBTITLE": "Tourist Places Worth Visiting",
+    "AJANTA": {
+      "TITLE": "Ajanta Caves",
+      "DISTANCE": "120 km from Muktainagar",
+      "DESCRIPTION": "UNESCO World Heritage Site, famous Buddhist caves and ancient murals"
+    },
+    "ELLORA": {
+      "TITLE": "Ellora Caves",
+      "DISTANCE": "150 km from Muktainagar",
+      "DESCRIPTION": "Famous Kailash Temple and remarkable rock-cut cave architecture"
+    },
+    "PANDHARPUR": {
+      "TITLE": "Pandharpur",
+      "DISTANCE": "Temple Location",
+      "DESCRIPTION": "Vitthoba Temple, one of the most important pilgrimage sites in Maharashtra"
+    }
   }
 }
-
-
-
-
-

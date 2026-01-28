@@ -25,6 +25,7 @@
 
 
 <div class="max-w-7xl mx-auto p-6">
+    <!-- Cards Grid -->
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
         <!-- Card 1 makarsankranti card -->
@@ -269,15 +270,17 @@
                 </p>
             </div>
         </div>
+    </div>
 
-        <!-- NOTICE SECTION -->
-        <div
-            class="max-w-6xl space-y-3 mx-auto my-12 px-6 py-8 bg-orange-50 border border-orange-200 rounded-xl text-center shadow-sm">
-
-            <h2 class="text-xl md:text-2xl font-semibold text-orange-600 mb-3">{{'MONTHLY_EVENTS.NOTICE.TITLE' | translate }}
+    <!-- NOTICE SECTION - Centered -->
+    <div class="flex justify-center my-12">
+        <div class="max-w-2xl w-full space-y-3 px-6 py-8 bg-orange-50 border-2 border-orange-300 rounded-xl text-center shadow-md">
+            <h2 class="text-2xl font-bold text-orange-600 mb-3">
+                {{ 'MONTHLY_EVENTS.NOTICE.TITLE' | translate }}
             </h2>
-
-            <p class="text-gray-700 text-sm md:text-base leading-relaxed" >{{ 'MONTHLY_EVENTS.NOTICE.MESSAGE' | translate }}
+            <p class="text-gray-700 text-base leading-relaxed">
+                {{ 'MONTHLY_EVENTS.NOTICE.MESSAGE' | translate }}
             </p>
-
         </div>
+    </div>
+</div>
