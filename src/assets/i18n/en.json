@@ -87,6 +87,9 @@
   },
   
   "DAILY_PROGRAM": {
+    "TITLE": "Daily Program",
+    "SUBTITLE": "Daily Temple Schedule",
+
     "OPENING": {
       "TITLE": "Temple Opening",
       "DESC": "Temple doors open and prasad preparation",
@@ -129,6 +132,59 @@
     "NOTE3": "Keep the temple premises clean",
     "NOTE4": "Schedule may change during special festivals"
   }
+  },
+"MONTHLY_EVENTS": {
+   "TITLE": "Monthly Events",
+    "SUBTITLE": "Festivals and Religious Programs",
+
+     "NOTICE": {
+      "TITLE": "Notice",
+      "MESSAGE": "The dates and times of the programs may change. Please contact the temple office or check our announcements for updates."
+    },
+    
+    "MAKAR_SANKRANTI": {
+      "DAY": "15",
+      "MONTH": "January",
+      "TITLE": "Makar Sankranti",
+      "DESCRIPTION": "Special puja, til-gul distribution, and bhajan-kirtan",
+      "TAG": "Festival"
+    },
+    "BHAJAN_EVENING": {
+      "DAY": "21",
+      "MONTH": "January",
+      "TITLE": "Monthly Bhajan Evening",
+      "DESCRIPTION": "Devotional songs, kirtan, and spiritual discourse",
+      "TAG": "Program"
+    },
+    "REPUBLIC_DAY": {
+      "DAY": "26",
+      "MONTH": "January",
+      "TITLE": "Republic Day",
+      "DESCRIPTION": "Flag hoisting and national anthem",
+      "TAG": "National"
+    },
+    "MAHASHIVRATRI": {
+      "DAY": "14",
+      "MONTH": "February",
+      "TITLE": "Mahashivratri",
+      "DESCRIPTION": "All-night vigil, Rudrabhishek, and bhajans",
+      "TAG": "Festival"
+    },
+    "HOLI_FESTIVAL": {
+      "DAY": "25",
+      "MONTH": "March",
+      "TITLE": "Holi Festival",
+      "DESCRIPTION": "Rang Panchami celebration and color play",
+      "TAG": "Festival"
+    },
+    "RAM_NAVAMI": {
+      "DAY": "10",
+      "MONTH": "April",
+      "TITLE": "Ram Navami",
+      "DESCRIPTION": "Shri Ram Janmotsav, Ramayana recitation, and bhandara",
+      "TAG": "Festival"
+    }
+   
   }
 }
 
