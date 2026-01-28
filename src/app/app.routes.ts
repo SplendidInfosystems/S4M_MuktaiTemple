@@ -4,6 +4,7 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { AboutUsComponent } from './shared/components/about-us/about-us.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { DailyProgramsComponent } from './shared/components/daily-programs/daily-programs.component';
+import { MonthlyEventComponent } from './shared/components/monthly-event/monthly-event.component';
 
 export const routes: Routes = [
     {
@@ -28,6 +29,11 @@ export const routes: Routes = [
     {
         path:'daily-programs',
         component:DailyProgramsComponent
+
+    },
+    {
+        path:'monthly-events',
+        component:MonthlyEventComponent
 
     },
     {

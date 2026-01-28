@@ -84,6 +84,55 @@
       "DESCRIPTION": "The holy temple of Muktai Devi in the sacred pilgrimage city of Pandharpur.",
       "ADDRESS": "Pandharpur, Dist. Solapur"
     }
+  },
+  
+  "DAILY_PROGRAM": {
+    "OPENING": {
+      "TITLE": "Temple Opening",
+      "DESC": "Temple doors open and prasad preparation",
+      "TIME": "5:00 AM"
+    },
+    "AARTI": {
+      "TITLE": "Morning Aarti",
+      "DESC": "Morning worship and aarti of the Goddess",
+      "TIME": "5:30 AM"
+    },
+    "ABHISHEK": {
+      "TITLE": "Abhishek",
+      "DESC": "Sacred water ablution of the Goddess",
+      "TIME": "6:00 AM"
+    },
+    "PRASAD": {
+      "TITLE": "Prasad Distribution",
+      "DESC": "Distribution of sacred prasad to devotees",
+      "TIME": "8:00 AM"
+    },
+      "AFTERNOON_AARTI": {
+      "TITLE": "Afternoon Aarti",
+      "DESC": "Special afternoon worship",
+      "TIME": "12:00 PM"
+    },
+    "EVENING_AARTI": {
+      "TITLE": "Evening Aarti",
+      "DESC": "Main evening aarti and bhajan",
+      "TIME": "7:00 PM"
+    },
+    "CLOSING": {
+      "TITLE": "Temple Closing",
+      "DESC": "Night worship and temple doors closing",
+      "TIME": "9:00 PM"
+    },
+     "IMPORTANT_NOTES": {
+    "TITLE": "Important Notes",
+    "NOTE1": "Please remove footwear before entering the temple",
+    "NOTE2": "Keep mobile phones on silent during aarti",
+    "NOTE3": "Keep the temple premises clean",
+    "NOTE4": "Schedule may change during special festivals"
+  }
   }
 }
+
+
+
+
 
