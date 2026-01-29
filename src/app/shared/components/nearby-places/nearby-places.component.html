@@ -31,9 +31,9 @@
     <div class="max-w-7xl mx-auto px-4">
 
         <!-- Section Title -->
-        <h2 class="text-center text-3xl md:text-4xl font-bold text-orange-600 mb-12">
+        <!-- <h2 class="text-center text-3xl md:text-4xl font-bold text-orange-600 mb-12">
             {{ 'NEARBY_PLACES.SUBTITLE' | translate }}
-        </h2>
+        </h2> -->
 
         <!-- Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -135,6 +135,96 @@
                 </div>
             </div>
 
+
+        </div>
+    </div>
+</section>
+
+<section class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-4">
+
+        <!-- Section Title -->
+        <h2 class="text-center text-3xl md:text-4xl font-bold text-orange-600 mb-14">
+            {{ 'NEARBY_PLACES.REACH_TEMPLE.TITLE' | translate }}
+        </h2>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <!-- By Road -->
+            <div class="rounded-2xl border border-orange-100 p-8 text-center
+               transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-14 h-14 mx-auto mb-6 rounded-full bg-orange-500
+                 flex items-center justify-center text-white text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-map-pin w-6 h-6 text-white"
+                        data-fg-dean36="20.14:20.7022:/src/app/components/NearbyPlacesPage.tsx:93:21:4556:41:e:MapPin::::::EHMc">
+                        <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                        </path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-semibold text-orange-600 mb-3">
+                    {{ 'NEARBY_PLACES.REACH_TEMPLE.ROAD.TITLE' | translate }}
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    {{ 'NEARBY_PLACES.REACH_TEMPLE.ROAD.DESC' | translate }}
+                </p>
+            </div>
+
+            <!-- By Train -->
+            <div class=" rounded-2xl border border-orange-100 p-8 text-center
+               transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-14 h-14 mx-auto mb-6 rounded-full bg-yellow-500
+                 flex items-center justify-center text-white text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-map-pin w-6 h-6 text-white"
+                        data-fg-dean36="20.14:20.7022:/src/app/components/NearbyPlacesPage.tsx:93:21:4556:41:e:MapPin::::::EHMc">
+                        <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                        </path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-semibold text-orange-600 mb-3">
+                    {{ 'NEARBY_PLACES.REACH_TEMPLE.TRAIN.TITLE' | translate }}
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    {{ 'NEARBY_PLACES.REACH_TEMPLE.TRAIN.DESC' | translate }}
+                </p>
+            </div>
+
+            <!-- By Air -->
+            <div class=" rounded-2xl border border-orange-100 p-8 text-center
+               transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-14 h-14 mx-auto mb-6 rounded-full bg-orange-500
+                 flex items-center justify-center text-white text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-map-pin w-6 h-6 text-white"
+                        data-fg-dean36="20.14:20.7022:/src/app/components/NearbyPlacesPage.tsx:93:21:4556:41:e:MapPin::::::EHMc">
+                        <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                        </path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-semibold text-orange-600 mb-3">
+                    {{ 'NEARBY_PLACES.REACH_TEMPLE.AIR.TITLE' | translate }}
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    {{ 'NEARBY_PLACES.REACH_TEMPLE.AIR.DESC' | translate }}
+                </p>
+            </div>
 
         </div>
     </div>

@@ -192,5 +192,59 @@
       "DISTANCE": "मंदिर स्थळ",
       "DESCRIPTION": "श्री विठ्ठल मंदिर, महाराष्ट्रातील एक प्रमुख तीर्थक्षेत्र"
     }
+    
+  
+    
+  },
+  "TEAM": {
+    "HERO_TITLE": "मंदिर समिती",
+    "HERO_SUBTITLE": "आमचे समर्पित विश्वस्त",
+
+    "MEMBERS": {
+      "PRESIDENT": {
+        "NAME": "श्री रामदास पाटील",
+        "ROLE": "अध्यक्ष",
+        "DESC": "मंदिर समिती अध्यक्ष, १५ वर्षांचा अनुभव",
+        "PHONE": "+९१ ९८७६५ ४३२१०",
+        "EMAIL": "president@muktaitemple.org"
+      },
+
+      "VICE_PRESIDENT": {
+        "NAME": "श्री सुरेश देशमुख",
+        "ROLE": "उपाध्यक्ष",
+        "DESC": "मंदिर प्रशासन आणि कार्यक्रम समन्वयक",
+        "PHONE": "+९१ ९८७६५ ४३२११",
+        "EMAIL": "vicepresident@muktaitemple.org"
+      },
+
+      "TREASURER": {
+        "NAME": "श्री विजय जाधव",
+        "ROLE": "कोषाध्यक्ष",
+        "DESC": "आर्थिक व्यवस्थापन आणि देणगी समन्वयक",
+        "PHONE": "+९१ ९८७६५ ४३२१२",
+        "EMAIL": "treasurer@muktaitemple.org"
+      },
+      "MEMBER_4": {
+      "NAME": "श्री अनिल शिंदे",
+      "ROLE": "सचिव",
+      "DESC": "मंदिर कार्यालय व्यवस्थापक",
+      "PHONE": "+91 98765 43213",
+      "EMAIL": "secretary@muktaitemple.org"
+    },
+    "MEMBER_5": {
+      "NAME": "सौ. संगीता कुलकर्णी",
+      "ROLE": "सदस्या",
+      "DESC": "महिला समिती प्रमुख",
+      "PHONE": "+91 98765 43214",
+      "EMAIL": "member1@muktaitemple.org"
+    },
+    "MEMBER_6": {
+      "NAME": "श्री प्रकाश मोरे",
+      "ROLE": "सदस्य",
+      "DESC": "देखभाल व सुरक्षा व्यवस्थापक",
+      "PHONE": "+91 98765 43215",
+      "EMAIL": "member2@muktaitemple.org"
+    }
+    }
   }
 }

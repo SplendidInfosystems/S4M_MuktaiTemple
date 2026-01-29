@@ -6,6 +6,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { DailyProgramsComponent } from './shared/components/daily-programs/daily-programs.component';
 import { MonthlyEventComponent } from './shared/components/monthly-event/monthly-event.component';
 import { NearbyPlacesComponent } from './shared/components/nearby-places/nearby-places.component';
+import { TeamComponent } from './shared/components/team/team.component';
+import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
 
 export const routes: Routes = [
     {
@@ -41,6 +43,16 @@ export const routes: Routes = [
 
         path:'nearby-places',
         component:NearbyPlacesComponent
+    },
+    {
+        path:'team',
+        component:TeamComponent
+
+    },
+    {
+        path:'contact-us',
+        component:ContactUsComponent
+
     },
     {
         path:'footer',
