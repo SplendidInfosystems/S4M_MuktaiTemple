@@ -258,6 +258,45 @@
       "EMAIL": "member2@muktaitemple.org"
     }
     }
+  },
+  "CONTACT": {
+  "TITLE": "Contact Us",
+  "SUBTITLE": "Get in Touch with Us"
+},
+"CONTACT_FORM": {
+  "TITLE": "Send a Message",
+  "NAME": "Name",
+  "NAME_PLACEHOLDER": "Your name",
+  "MOBILE": "Mobile Number",
+  "MOBILE_PLACEHOLDER": "Your mobile number",
+  "MESSAGE": "Message",
+  "MESSAGE_PLACEHOLDER": "Your message",
+  "SUBMIT": "Submit"
+},
+"CONTACT_INFO": {
+  "ADDRESS_TITLE": "Address",
+  "ADDRESS_DESC": "Muktainagar: Main Road, Muktainagar, Dist. Jalgaon, Maharashtra - 425306",
+  "PHONE_TITLE": "Phone",
+  "PHONE_1": "+91 2589 234567",
+  "PHONE_2": "+91 98765 43210",
+  "EMAIL_TITLE": "Email",
+  "EMAIL_1": "info@muktaitemple.org",
+  "EMAIL_2": "contact@muktaitemple.org",
+  "MAP_TITLE": "Map Location",
+  "MAP_DESC": "Muktainagar, Jalgaon"
+},
+
+
+ "LOGIN": {
+    "TITLE": "Login",
+    "SUBTITLE": "Select Your Role",
+
+    "ADMIN_TITLE": "Admin Login",
+    "ADMIN_DESC": "Daily records, receipts, and expense management",
+
+    "PRESIDENT_TITLE": "President Login",
+    "PRESIDENT_DESC": "All temples overview and approvals"
   }
+
  
 }

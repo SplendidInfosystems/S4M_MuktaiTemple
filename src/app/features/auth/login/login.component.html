@@ -1,1 +1,74 @@
-<p>login works!</p>
+<section class="bg-[#FFF8F1] min-h-screen py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+
+        <!-- Top Icon -->
+        <div class="mx-auto w-20 h-20 rounded-full
+            bg-gradient-to-br from-[#FF6B35] to-[#D4AF37]
+             flex items-center justify-center text-white text-3xl mb-4">
+            ॐ
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-orange-600">
+            {{ 'LOGIN.TITLE' | translate }}
+        </h1>
+        <p class="text-gray-600 mt-2 mb-12">
+            {{ 'LOGIN.SUBTITLE' | translate }}
+        </p>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+            <!-- Admin Login -->
+            <div class="bg-white rounded-2xl p-8 border-2 border-orange-100
+               hover:border-orange-500 hover:shadow-xl
+               transition-all duration-300 cursor-pointer">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full
+                bg-gradient-to-br from-[#FF6B35] to-[#E85A24] text-white
+                 flex items-center justify-center text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-user w-8 h-8 text-white"
+                        data-fg-djkv14="20.12:20.6251:/src/app/components/LoginPage.tsx:48:19:2097:39:e:User::::::0ls">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-semibold text-orange-600 mb-2">
+                    {{ 'LOGIN.ADMIN_TITLE' | translate }}
+                </h3>
+
+                <p class="text-gray-600 text-sm">
+                    {{ 'LOGIN.ADMIN_DESC' | translate }}
+                </p>
+            </div>
+
+            <!-- President Login -->
+            <div class="bg-white rounded-2xl p-8 border-2 border-orange-100
+               hover:border-amber-500 hover:shadow-xl
+               transition-all duration-300 cursor-pointer">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full
+                 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] text-white
+                 flex items-center justify-center text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-user w-8 h-8 text-white"
+                        data-fg-djkv14="20.12:20.6251:/src/app/components/LoginPage.tsx:48:19:2097:39:e:User::::::0ls">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-semibold text-orange-600 mb-2">
+                    {{ 'LOGIN.PRESIDENT_TITLE' | translate }}
+                </h3>
+
+                <p class="text-gray-600 text-sm">
+                    {{ 'LOGIN.PRESIDENT_DESC' | translate }}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>

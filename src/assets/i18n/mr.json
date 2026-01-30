@@ -191,15 +191,26 @@
       "TITLE": "पंढरपूर",
       "DISTANCE": "मंदिर स्थळ",
       "DESCRIPTION": "श्री विठ्ठल मंदिर, महाराष्ट्रातील एक प्रमुख तीर्थक्षेत्र"
+    },
+    "REACH_TEMPLE": {
+      "TITLE": "मंदिरापर्यंत कसे पोहोचावे",
+      "ROAD": {
+        "TITLE": "रस्त्याने",
+        "DESC": "मुक्ताईनगर हे मुंबई–आग्रा महामार्गावर स्थित आहे. येथे नियमित बस सेवा उपलब्ध आहेत."
+      },
+      "TRAIN": {
+        "TITLE": "रेल्वेने",
+        "DESC": "जवळची रेल्वे स्थानके: भुसावळ (२५ किमी) आणि जळगाव (५५ किमी)."
+      },
+      "AIR": {
+        "TITLE": "विमानाने",
+        "DESC": "जवळची विमानतळे: औरंगाबाद (१३० किमी) आणि नाशिक (१८० किमी)."
+      }
     }
-    
-  
-    
   },
   "TEAM": {
     "HERO_TITLE": "मंदिर समिती",
     "HERO_SUBTITLE": "आमचे समर्पित विश्वस्त",
-
     "MEMBERS": {
       "PRESIDENT": {
         "NAME": "श्री रामदास पाटील",
@@ -208,7 +219,6 @@
         "PHONE": "+९१ ९८७६५ ४३२१०",
         "EMAIL": "president@muktaitemple.org"
       },
-
       "VICE_PRESIDENT": {
         "NAME": "श्री सुरेश देशमुख",
         "ROLE": "उपाध्यक्ष",
@@ -216,7 +226,6 @@
         "PHONE": "+९१ ९८७६५ ४३२११",
         "EMAIL": "vicepresident@muktaitemple.org"
       },
-
       "TREASURER": {
         "NAME": "श्री विजय जाधव",
         "ROLE": "कोषाध्यक्ष",
@@ -225,26 +234,67 @@
         "EMAIL": "treasurer@muktaitemple.org"
       },
       "MEMBER_4": {
-      "NAME": "श्री अनिल शिंदे",
-      "ROLE": "सचिव",
-      "DESC": "मंदिर कार्यालय व्यवस्थापक",
-      "PHONE": "+91 98765 43213",
-      "EMAIL": "secretary@muktaitemple.org"
-    },
-    "MEMBER_5": {
-      "NAME": "सौ. संगीता कुलकर्णी",
-      "ROLE": "सदस्या",
-      "DESC": "महिला समिती प्रमुख",
-      "PHONE": "+91 98765 43214",
-      "EMAIL": "member1@muktaitemple.org"
-    },
-    "MEMBER_6": {
-      "NAME": "श्री प्रकाश मोरे",
-      "ROLE": "सदस्य",
-      "DESC": "देखभाल व सुरक्षा व्यवस्थापक",
-      "PHONE": "+91 98765 43215",
-      "EMAIL": "member2@muktaitemple.org"
+        "NAME": "श्री अनिल शिंदे",
+        "ROLE": "सचिव",
+        "DESC": "मंदिर कार्यालय व्यवस्थापक",
+        "PHONE": "+91 98765 43213",
+        "EMAIL": "secretary@muktaitemple.org"
+      },
+      "MEMBER_5": {
+        "NAME": "सौ. संगीता कुलकर्णी",
+        "ROLE": "सदस्या",
+        "DESC": "महिला समिती प्रमुख",
+        "PHONE": "+91 98765 43214",
+        "EMAIL": "member1@muktaitemple.org"
+      },
+      "MEMBER_6": {
+        "NAME": "श्री प्रकाश मोरे",
+        "ROLE": "सदस्य",
+        "DESC": "देखभाल व सुरक्षा व्यवस्थापक",
+        "PHONE": "+91 98765 43215",
+        "EMAIL": "member2@muktaitemple.org"
+      }
     }
-    }
+  },
+  "CONTACT": {
+  "TITLE": "संपर्क साधा",
+  "SUBTITLE": "आमच्याशी संपर्कात रहा"
+},
+"CONTACT_FORM": {
+  "TITLE": "संदेश पाठवा",
+  "NAME": "नाव",
+  "NAME_PLACEHOLDER": "आपले नाव",
+  "MOBILE": "मोबाईल नंबर",
+  "MOBILE_PLACEHOLDER": "आपला मोबाईल नंबर",
+  "MESSAGE": "संदेश",
+  "MESSAGE_PLACEHOLDER": "आपला संदेश",
+  "SUBMIT": "पाठवा"
+},
+"CONTACT_INFO": {
+  "ADDRESS_TITLE": "पत्ता",
+  "ADDRESS_DESC": "मुक्ताईनगर: मुख्य रस्ता, मुक्ताईनगर, जि. जळगाव, महाराष्ट्र - ४२५३०६",
+  "PHONE_TITLE": "फोन",
+  "PHONE_1": "+९१ २५८९ २३४५६७",
+  "PHONE_2": "+९१ ९८७६५ ४३२१०",
+  "EMAIL_TITLE": "ईमेल",
+  "EMAIL_1": "info@muktaitemple.org",
+  "EMAIL_2": "contact@muktaitemple.org",
+  "MAP_TITLE": "नकाशा स्थान",
+  "MAP_DESC": "मुक्ताईनगर, जळगाव"
+},
+
+
+
+ "LOGIN": {
+    "TITLE": "लॉगिन",
+    "SUBTITLE": "आपली भूमिका निवडा",
+
+    "ADMIN_TITLE": "प्रशासक लॉगिन",
+    "ADMIN_DESC": "दैनिक नोंदी, पावत्या व खर्च व्यवस्थापन",
+
+    "PRESIDENT_TITLE": "अध्यक्ष लॉगिन",
+    "PRESIDENT_DESC": "सर्व मंदिरांचे नियंत्रण व मंजुरी"
   }
+
+
 }

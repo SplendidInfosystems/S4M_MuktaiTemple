@@ -3,13 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html, body {
-  height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+
+
 
 body {
     font-family: 'Noto Sans Devanagari', 'Inter', system-ui, -apple-system, sans-serif;
     margin: 0;
   /* background: linear-gradient(to bottom, #fff7ed, #ffffff); */
+
 }

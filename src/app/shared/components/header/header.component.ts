@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -15,7 +15,7 @@ export class HeaderComponent {
 
   currentLang: 'mr' | 'en' = 'mr';
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, public route:Router) {
     this.translate.setDefaultLang('mr');
     this.translate.use('mr');
   }
@@ -23,5 +23,9 @@ export class HeaderComponent {
   toggleLanguage() {
     this.currentLang = this.currentLang === 'mr' ? 'en' : 'mr';
     this.translate.use(this.currentLang);
+  }
+  login(){
+    this.route.navigate(['/login']);
+
   }
 }

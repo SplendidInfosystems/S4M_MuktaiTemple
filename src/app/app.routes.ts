@@ -8,12 +8,18 @@ import { MonthlyEventComponent } from './shared/components/monthly-event/monthly
 import { NearbyPlacesComponent } from './shared/components/nearby-places/nearby-places.component';
 import { TeamComponent } from './shared/components/team/team.component';
 import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
+import { LoginComponent } from './features/auth/login/login.component';
 
 export const routes: Routes = [
     {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
+    },
+    {
+
+        path:'login',
+        component:LoginComponent
     },
     {
         path: 'home',
