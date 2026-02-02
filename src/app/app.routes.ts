@@ -11,6 +11,7 @@ import { ContactUsComponent } from './shared/components/contact-us/contact-us.co
 import { LoginComponent } from './features/auth/login/login.component';
 import { AdminLoginComponent } from './features/auth/admin-login/admin-login.component';
 import { PresidentLoginComponent } from './features/auth/president-login/president-login.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -78,7 +79,7 @@ export const routes: Routes = [
     },
      {
     path: 'dashboard',
-//    canActivate: [AuthGuard],       
+   canActivate: [AuthGuard],       
     loadChildren: () =>
       import('./features/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
   },
