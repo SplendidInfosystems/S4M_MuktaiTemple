@@ -19,10 +19,10 @@
         <!-- Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
-            <!-- Admin Login -->
-            <div class="bg-white rounded-2xl p-8 border-2 border-orange-100
-               hover:border-orange-500 hover:shadow-xl
-               transition-all duration-300 cursor-pointer">
+                <!-- Admin Login -->
+                <a routerLink="/admin-login" class="block bg-white rounded-2xl p-8 border-2 border-orange-100
+                    hover:border-orange-500 hover:shadow-xl
+                    transition-all duration-300 cursor-pointer">
                 <div class="w-16 h-16 mx-auto mb-4 rounded-full
                 bg-gradient-to-br from-[#FF6B35] to-[#E85A24] text-white
                  flex items-center justify-center text-2xl">
@@ -42,12 +42,12 @@
                 <p class="text-gray-600 text-sm">
                     {{ 'LOGIN.ADMIN_DESC' | translate }}
                 </p>
-            </div>
+            </a>
 
-            <!-- President Login -->
-            <div class="bg-white rounded-2xl p-8 border-2 border-orange-100
-               hover:border-amber-500 hover:shadow-xl
-               transition-all duration-300 cursor-pointer">
+                <!-- President Login -->
+                <a routerLink="/president-login" class="block bg-white rounded-2xl p-8 border-2 border-orange-100
+                    hover:border-amber-500 hover:shadow-xl
+                    transition-all duration-300 cursor-pointer">
                 <div class="w-16 h-16 mx-auto mb-4 rounded-full
                  bg-gradient-to-br from-[#D4AF37] to-[#B8941F] text-white
                  flex items-center justify-center text-2xl">
@@ -67,7 +67,7 @@
                 <p class="text-gray-600 text-sm">
                     {{ 'LOGIN.PRESIDENT_DESC' | translate }}
                 </p>
-            </div>
+            </a>
 
         </div>
     </div>

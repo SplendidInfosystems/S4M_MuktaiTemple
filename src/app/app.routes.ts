@@ -9,6 +9,8 @@ import { NearbyPlacesComponent } from './shared/components/nearby-places/nearby-
 import { TeamComponent } from './shared/components/team/team.component';
 import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { AdminLoginComponent } from './features/auth/admin-login/admin-login.component';
+import { PresidentLoginComponent } from './features/auth/president-login/president-login.component';
 
 export const routes: Routes = [
     {
@@ -18,8 +20,18 @@ export const routes: Routes = [
     },
     {
 
-        path:'login',
-        component:LoginComponent
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'admin-login',
+        component: AdminLoginComponent
+
+    },
+    {
+
+        path: 'president-login',
+        component: PresidentLoginComponent
     },
     {
         path: 'home',
@@ -36,34 +48,40 @@ export const routes: Routes = [
         component: AboutUsComponent
     },
     {
-        path:'daily-programs',
-        component:DailyProgramsComponent
+        path: 'daily-programs',
+        component: DailyProgramsComponent
 
     },
     {
-        path:'monthly-events',
-        component:MonthlyEventComponent
+        path: 'monthly-events',
+        component: MonthlyEventComponent
 
     },
     {
 
-        path:'nearby-places',
-        component:NearbyPlacesComponent
+        path: 'nearby-places',
+        component: NearbyPlacesComponent
     },
     {
-        path:'team',
-        component:TeamComponent
+        path: 'team',
+        component: TeamComponent
 
     },
     {
-        path:'contact-us',
-        component:ContactUsComponent
+        path: 'contact-us',
+        component: ContactUsComponent
 
     },
     {
-        path:'footer',
-        component:FooterComponent
-    }
+        path: 'footer',
+        component: FooterComponent
+    },
+     {
+    path: 'dashboard',
+//    canActivate: [AuthGuard],       
+    loadChildren: () =>
+      import('./features/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
+  },
 
 
 
