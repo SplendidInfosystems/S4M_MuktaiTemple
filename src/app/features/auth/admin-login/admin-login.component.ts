@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']
 })
@@ -27,46 +27,47 @@ export class AdminLoginComponent {
     });
   }
 
-  onSubmit() {
-    this.submitted = true;
+ onSubmit() {
+  this.submitted = true;
 
-    if (this.loginForm.invalid) {
-     
-
-
-      if (this.selectedRole === 'admin') {
-      if (this.loginForm.get('username')?.value === 'admin@gmail.com' && this.loginForm.get('password')?.value === 'Admin@123') {
-        localStorage.setItem('role', 'admin');
-        localStorage.setItem('temple', this.loginForm.get('temple')?.value || '');
-
-        // 🔥 FIX: add token here
-        localStorage.setItem('token', 'loggedin');
-
-        this.router.navigate(['/dashboard']);
-        return;
-      }
-      this.errorMessage = 'Invalid Admin credentials';
-    }
-
-     if (this.selectedRole === 'president') {
-      if (this.loginForm.get('username')?.value === 'president@gmail.com' && this.loginForm.get('password')?.value === 'President@123') {
-        localStorage.setItem('role', 'president');
-        localStorage.setItem('temple', this.loginForm.get('temple')?.value || '');
-
-        // 🔥 FIX: add token here
-        localStorage.setItem('token', 'loggedin');
-
-        this.router.navigate(['/dashboard/donation']);
-        return;
-      }
-      this.errorMessage = 'Invalid President credentials';
-    }
-
-  } else {
+  // ❗ FIRST: stop if form is invalid
+  if (this.loginForm.invalid) {
     this.loginForm.markAllAsTouched();
     this.errorMessage = 'Please enter valid details';
+    return;
   }
+
+  const { username, password } = this.loginForm.value;
+
+  console.log('Username:', username);
+  console.log('Password:', password);
+
+  // ✅ ADMIN LOGIN
+  if (this.selectedRole === 'admin') {
+    if (username === 'admin' && password === 'Admin@123') {
+      console.log('Admin login successful');
+
+      localStorage.setItem('role', 'admin');
+      localStorage.setItem('token', 'loggedin');
+
+      this.router.navigate(['/dashboard/admin-Dashboard']);
+      return;
+    }
+    this.errorMessage = 'Invalid Admin credentials';
   }
+
+  // ✅ PRESIDENT LOGIN
+  if (this.selectedRole === 'president') {
+    if (username === 'president' && password === 'President@123') {
+      localStorage.setItem('role', 'president');
+      localStorage.setItem('token', 'loggedin');
+
+      this.router.navigate(['/dashboard/donation']);
+      return;
+    }
+    this.errorMessage = 'Invalid President credentials';
+  }
+}
 
 
 

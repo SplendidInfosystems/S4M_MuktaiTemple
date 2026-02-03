@@ -1,0 +1,122 @@
+<!-- Sidebar -->
+<aside class="h-screen w-64  bg-gradient-to-b from-[#FF6B35] to-[#E85A24]
+              text-white flex flex-col justify-between p-6">
+
+    <!-- Top Section -->
+    <div>
+        <!-- Logo -->
+        <div class="flex flex-col items-center py-8">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-3xl">
+                ॐ
+            </div>
+            <h2 class="mt-3 text-lg font-semibold">Admin</h2>
+            <p class="text-sm opacity-80">Dashboard</p>
+        </div>
+
+        <!-- Menu -->
+        <nav class="px-4 space-y-2">
+            <!-- Active -->
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl
+                cursor-pointer
+         text-white
+         hover:bg-white/20
+         hover:text-white
+         active:bg-white
+         active:text-orange-600
+         transition-all duration-200">
+                <span class="text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-layout-dashboard w-5 h-5"
+                        data-fg-easa14="20.7:20.15459:/src/app/components/AdminDashboard.tsx:152:15:5320:33:e:item.icon">
+                        <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                        <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                        <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                        <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                    </svg></span>
+                Overview
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl
+                cursor-pointer
+         text-white
+         hover:bg-white/20
+         hover:text-white
+         active:bg-white
+         active:text-orange-600
+         transition-all duration-200">
+                <span class="text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-dollar-sign w-5 h-5"
+                        data-fg-easa14="20.7:20.15459:/src/app/components/AdminDashboard.tsx:152:15:5320:33:e:item.icon">
+                        <line x1="12" x2="12" y1="2" y2="22"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg></span>
+                Donations
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl
+               cursor-pointer
+         text-white
+         hover:bg-white/20
+         hover:text-white
+         active:bg-white
+         active:text-orange-600
+         transition-all duration-200 ">
+                <span class="text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-receipt w-5 h-5"
+                        data-fg-easa14="20.7:20.15459:/src/app/components/AdminDashboard.tsx:152:15:5320:33:e:item.icon">
+                        <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path>
+                        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                        <path d="M12 17.5v-11"></path>
+                    </svg></span>
+                Receipts
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl
+         cursor-pointer
+         text-white
+         hover:bg-white/20
+         hover:text-white
+         active:bg-white
+         active:text-orange-600
+         transition-all duration-200">
+                <span class="text-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="w-5 h-5">
+                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                        <path d="M10 9H8"></path>
+                        <path d="M16 13H8"></path>
+                        <path d="M16 17H8"></path>
+                    </svg>
+                </span>
+                Expenses
+            </a>
+
+        </nav>
+    </div>
+
+    <!-- Logout -->
+    <div class="px-4 pb-6">
+        <button class="w-full flex items-center justify-center gap-2 
+             px-4 py-3 rounded-xl
+               cursor-pointer
+         text-white
+         hover:bg-white/20
+         hover:text-white
+         active:bg-white
+         active:text-orange-600
+         transition-all duration-200">
+            <span class="text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-log-out w-5 h-5 mr-2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" x2="9" y1="12" y2="12"></line>
+                </svg></span>
+            Logout
+        </button>
+    </div>
+</aside>

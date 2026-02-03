@@ -12,76 +12,103 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { AdminLoginComponent } from './features/auth/admin-login/admin-login.component';
 import { PresidentLoginComponent } from './features/auth/president-login/president-login.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-    },
-    {
+    // {
+    //     path: '',
+    //     redirectTo: 'home',
+    //     pathMatch: 'full'
+    // },
+    // {
 
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'admin-login',
-        component: AdminLoginComponent
+    //     path: 'login',
+    //     component: LoginComponent
+    // },
+    // {
+    //     path: 'admin-login',
+    //     component: AdminLoginComponent
 
-    },
-    {
+    // },
+    // {
 
-        path: 'president-login',
-        component: PresidentLoginComponent
-    },
-    {
-        path: 'home',
-        component: HomeComponent
+    //     path: 'president-login',
+    //     component: PresidentLoginComponent
+    // },
+    // {
+    //     path: 'home',
+    //     component: HomeComponent
 
-    },
+    // },
 
-    {
-        path: 'header',
-        component: HeaderComponent
-    },
-    {
-        path: 'about-us',
-        component: AboutUsComponent
-    },
-    {
-        path: 'daily-programs',
-        component: DailyProgramsComponent
+    // {
+    //     path: 'header',
+    //     component: HeaderComponent
+    // },
+    // {
+    //     path: 'about-us',
+    //     component: AboutUsComponent
+    // },
+    // {
+    //     path: 'daily-programs',
+    //     component: DailyProgramsComponent
 
-    },
-    {
-        path: 'monthly-events',
-        component: MonthlyEventComponent
+    // },
+    // {
+    //     path: 'monthly-events',
+    //     component: MonthlyEventComponent
 
-    },
-    {
+    // },
+    // {
 
-        path: 'nearby-places',
-        component: NearbyPlacesComponent
-    },
-    {
-        path: 'team',
-        component: TeamComponent
+    //     path: 'nearby-places',
+    //     component: NearbyPlacesComponent
+    // },
+    // {
+    //     path: 'team',
+    //     component: TeamComponent
 
-    },
-    {
-        path: 'contact-us',
-        component: ContactUsComponent
+    // },
+    // {
+    //     path: 'contact-us',
+    //     component: ContactUsComponent
 
-    },
-    {
-        path: 'footer',
-        component: FooterComponent
-    },
+    // },
+    // {
+    //     path: 'footer',
+    //     component: FooterComponent
+    // },
+
+
+
+
      {
+    path: '',
+    component: PublicLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+      { path: 'home', component: HomeComponent },
+      { path: 'about-us', component: AboutUsComponent },
+      { path: 'daily-programs', component: DailyProgramsComponent },
+      { path: 'monthly-events', component: MonthlyEventComponent },
+      { path: 'nearby-places', component: NearbyPlacesComponent },
+      { path: 'team', component: TeamComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+
+      { path: 'login', component: LoginComponent },
+      { path: 'admin-login', component: AdminLoginComponent },
+      { path: 'president-login', component: PresidentLoginComponent },
+    ]
+  },  // 🔐 DASHBOARD (NO HEADER / FOOTER)
+  {
     path: 'dashboard',
-   canActivate: [AuthGuard],       
+    component: DashboardLayoutComponent,
+    canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./features/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
+      import('./features/dashboard/dashboard-routing.module')
+        .then(m => m.DashboardRoutingModule),
   },
 
 
