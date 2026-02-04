@@ -1,15 +1,74 @@
-<div class="flex h-screen bg-gray-100 overflow-hidden">
-  <!-- Sidebar -->
+
+
+
+<div class="flex h-screen overflow-hidden">
+
+ <!-- Sidebar -->
   <app-sidebar
     #sidebarRef
     [screenIsSmall]="screenIsSmall"
     [sidebarOpen]="sidebarOpen"
   ></app-sidebar>
+  <!-- Main content -->
+  <div class="flex-1 flex flex-col overflow-hidden">
 
-  <!-- Main Content -->
-<div class="flex-1 flex flex-col overflow-hidden">
-    <main class="flex-1 overflow-y-auto min-h-0 p-4">
+    <!-- 🔥 COMMON HEADER -->
+    <div class="flex justify-between items-center px-6 py-4 border-b bg-white">
+      <h1 class="text-3xl font-bold text-orange-600">
+        Admin Dashboard
+      </h1>
+
+      <!-- Dropdown -->
+      <div class="relative inline-flex items-center gap-2">
+
+        <!-- Building Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="w-5 h-5 text-gray-600">
+          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+          <path d="M10 6h4"></path>
+          <path d="M10 10h4"></path>
+          <path d="M10 14h4"></path>
+          <path d="M10 18h4"></path>
+        </svg>
+
+        <!-- Dropdown -->
+        <div class="relative">
+          <button (click)="open = !open"
+            class="bg-white border px-4 py-2 rounded-lg shadow
+                   flex items-center gap-2 w-40 justify-between">
+            {{ selectedTemple }}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+
+          <div *ngIf="open"
+            class="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-lg z-50">
+            <div *ngFor="let t of temples"
+              (click)="selectTemple(t)"
+              class="px-4 py-2 hover:bg-orange-50 cursor-pointer flex justify-between">
+              {{ t }}
+              <span *ngIf="t === selectedTemple">✓</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 🔥 PAGE CONTENT -->
+    <main class="flex-1 overflow-y-auto min-h-0 p-6 bg-gray-50">
       <router-outlet></router-outlet>
     </main>
+
   </div>
 </div>

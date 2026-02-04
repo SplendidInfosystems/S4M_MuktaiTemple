@@ -13,6 +13,25 @@ const routes: Routes = [
         loadComponent: () => import('./admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent)
 
       },
+      {
+        path:'donation',
+        loadComponent() {
+          return import('./donation/donation.component').then(m => m.DonationComponent);
+        },
+      },
+      {
+        path:'receipts',
+        loadComponent() {
+          return import('./receipts/receipts.component').then(m => m.ReceiptsComponent);
+        }
+      },
+      {
+        path:'expenses',
+        loadComponent() {
+          return import('./expenses/expenses.component').then(m => m.ExpensesComponent);
+        },
+      }
+     
     ]
     }
 ];
