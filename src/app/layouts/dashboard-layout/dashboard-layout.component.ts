@@ -24,39 +24,26 @@ selectTemple(t: string) {
 }
   @ViewChild('sidebarRef', { read: ElementRef }) sidebarRef!: ElementRef;
   @ViewChild('toggleBtnRef', { read: ElementRef }) toggleBtnRef!: ElementRef;
-  
-    screenIsSmall = false;
-    sidebarOpen = true;
-  
-    constructor(private breakpointObserver: BreakpointObserver, private elementRef: ElementRef) {}
-  
-    ngOnInit(): void {
-      this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe((result: { matches: boolean; }) => {
-        this.screenIsSmall = result.matches;
-        this.sidebarOpen = !this.screenIsSmall;
-      });
+  sidebarOpen = false;
+  screenIsSmall = false;
+
+  ngOnInit() {
+    this.checkScreen();
+  }
+
+  @HostListener('window:resize')
+  checkScreen() {
+    this.screenIsSmall = window.innerWidth < 768;
+    if (!this.screenIsSmall) {
+      this.sidebarOpen = true; // desktop always open
     }
-  
-    toggleSidebar(): void {
-      this.sidebarOpen = !this.sidebarOpen;
-    }
-  
-  @HostListener('document:click', ['$event'])
-  handleOutsideClick(event: MouseEvent): void {
-    if (!this.screenIsSmall || !this.sidebarOpen) {return;}
-  
-    const sidebarEl = this.sidebarRef?.nativeElement;
-    const toggleBtnEl = this.toggleBtnRef?.nativeElement;
-  
-    if (!sidebarEl || !toggleBtnEl) {return;} // if not initialized yet
-  
-    const target = event.target as HTMLElement;
-  
-    const clickedInsideSidebar = sidebarEl.contains(target);
-    const clickedToggleButton = toggleBtnEl.contains(target);
-  
-    if (!clickedInsideSidebar && !clickedToggleButton) {
-      this.sidebarOpen = false;
-    }
+  }
+
+  openSidebar() {
+    this.sidebarOpen = true;
+  }
+
+  closeSidebar() {
+    this.sidebarOpen = false;
   }
 }

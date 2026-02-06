@@ -4,48 +4,47 @@
     Expense Management
   </h2>
 
-  <button
-    class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600
+  <button class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600
            text-white px-4 py-2 rounded-lg shadow transition">
     <span class="text-lg leading-none">+</span>
     Add Expense
   </button>
 </div>
 
-<div class="grid grid-cols-[2fr_1fr_1fr_1fr]
+<div class="bg-white rounded-2xl shadow-sm border border-orange-100 p-4">
+  <div class="grid grid-cols-[2fr_1fr_1fr_1fr]
             text-sm font-semibold text-gray-500 pb-3 border-b">
-  <div>Type</div>
-  <div>Amount</div>
-  <div>Status</div>
-  <div>Date</div>
-</div>
-<div *ngFor="let e of expenses"
-     class="grid grid-cols-[2fr_1fr_1fr_1fr]
-            items-center py-3 border-b text-sm">
-
-  <!-- Type -->
-  <div class="font-medium text-gray-800">
-    {{ e.type }}
+    <div>Type</div>
+    <div>Amount</div>
+    <div>Status</div>
+    <div>Date</div>
   </div>
+  <div *ngFor="let e of expenses" class="grid grid-cols-[2fr_1fr_1fr_1fr]
+            items-center py-3 border-b last:border-b-0 text-sm hover:bg-gray-50">
 
-  <!-- Amount -->
-  <div class="font-semibold">
-    ₹{{ e.amount }}
-  </div>
+    <!-- Type -->
+    <div class="font-medium text-gray-800">
+      {{ e.type }}
+    </div>
 
-  <!-- Status -->
-  <div>
-    <span
-      class="px-3 py-1 rounded-full text-xs font-medium"
-      [ngClass]="{
+    <!-- Amount -->
+    <div class="font-semibold">
+      ₹{{ e.amount }}
+    </div>
+
+    <!-- Status -->
+    <div>
+      <span class="px-3 py-1 rounded-full text-xs font-medium" [ngClass]="{
         'bg-green-500 text-white': e.status === 'Approved',
         'bg-yellow-400 text-black': e.status === 'Pending'
       }">
-      {{ e.status }}
-    </span>
-  </div>
+        {{ e.status }}
+      </span>
+    </div>
 
-  <!-- Date -->
-  <div>{{ e.date }}</div>
+    <!-- Date -->
+    <div>{{ e.date }}</div>
+
+  </div>
 
 </div>
