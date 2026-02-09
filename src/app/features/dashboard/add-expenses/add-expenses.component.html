@@ -1,0 +1,108 @@
+<div class="bg-white rounded-2xl border border-orange-200 shadow-sm p-6 mb-8">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-lg font-semibold text-orange-600">
+      {{ 'ADD_EXPENSE' | translate }}
+    </h2>
+    <button class="text-gray-400 hover:text-red-500 text-xl">&times;</button>
+  </div>
+
+  <form [formGroup]="expenseForm"
+        (ngSubmit)="onSubmit()"
+        class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Type (Expense Name) -->
+    <div>
+      <label class="block text-sm font-medium text-gray-600 mb-1">
+        {{ 'EXPENSE_TITLE' | translate }} *
+      </label>
+      <input
+        type="text"
+        formControlName="expenseName"
+        class="w-full rounded-xl px-4 py-2 border outline-none transition"
+        [ngClass]="{
+          'border-red-500 ring-1 ring-red-400': expenseForm.get('expenseName')?.touched && expenseForm.get('expenseName')?.invalid,
+          'border-orange-400 ring-1 ring-orange-300': expenseForm.get('expenseName')?.touched && expenseForm.get('expenseName')?.valid,
+          'border-gray-300': !expenseForm.get('expenseName')?.touched
+        }"
+      />
+    </div>
+
+    <!-- Date -->
+    <div>
+      <label class="block text-sm font-medium text-gray-600 mb-1">
+        {{ 'EXPENSE_DATE' | translate }} *
+      </label>
+      <input
+        type="date"
+        formControlName="date"
+        class="w-full rounded-xl px-4 py-2 border outline-none transition"
+        [ngClass]="{
+          'border-red-500 ring-1 ring-red-400': expenseForm.get('date')?.touched && expenseForm.get('date')?.invalid,
+          'border-orange-400 ring-1 ring-orange-300': expenseForm.get('date')?.touched && expenseForm.get('date')?.valid,
+          'border-gray-300': !expenseForm.get('date')?.touched
+        }"
+      />
+    </div>
+
+    <!-- Status -->
+    <div>
+      <label class="block text-sm font-medium text-gray-600 mb-1">
+        {{ 'EXPENSE_STATUS' | translate }} *
+      </label>
+      <select
+        formControlName="status"
+        class="w-full rounded-xl px-4 py-2 border outline-none transition">
+        <option value="">{{ 'SELECT_STATUS' | translate }}</option>
+        <option value="Pending">{{ 'PENDING' | translate }}</option>
+        <option value="Paid">{{ 'PAID' | translate }}</option>
+        <option value="Unpaid">{{ 'UNPAID' | translate }}</option>
+      </select>
+    </div>
+
+    <!-- Amount -->
+    <div>
+      <label class="block text-sm font-medium text-gray-600 mb-1">
+        {{ 'EXPENSE_AMOUNT' | translate }} *
+      </label>
+      <input
+        type="number"
+        formControlName="amount"
+        class="w-full rounded-xl px-4 py-2 border outline-none transition"
+        [ngClass]="{
+          'border-red-500 ring-1 ring-red-400': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid,
+          'border-orange-400 ring-1 ring-orange-300': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.valid,
+          'border-gray-300': !expenseForm.get('amount')?.touched
+        }"
+      />
+
+      <!-- Amount in Words -->
+      <p *ngIf="convertedAmountInWords"
+         class="text-xs text-gray-600 italic mt-1">
+        {{ convertedAmountInWords }}
+      </p>
+    </div>
+
+    <!-- Hidden fields (keep for form validity, no UI) -->
+    <input type="hidden" formControlName="category">
+    <input type="hidden" formControlName="otherCategory">
+    <input type="hidden" formControlName="description">
+
+    <!-- Buttons -->
+    <div class="md:col-span-2 flex justify-end gap-4 mt-4">
+      <button
+        type="reset"
+        class="px-6 py-2 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100">
+        {{ 'CANCEL' | translate }}
+      </button>
+
+      <button
+        type="submit"
+        class="px-6 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 shadow">
+        {{ 'SUBMIT_EXPENSE' | translate }}
+      </button>
+    </div>
+
+  </form>
+</div>

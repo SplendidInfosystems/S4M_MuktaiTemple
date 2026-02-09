@@ -30,7 +30,19 @@ const routes: Routes = [
         loadComponent() {
           return import('./expenses/expenses.component').then(m => m.ExpensesComponent);
         },
+      },
+      {
+        path:'add-expense',
+        loadComponent() {
+          return import('./add-expenses/add-expenses.component').then(m => m.AddExpensesComponent);}
+      },
+      {
+        path:'add-donation',
+        loadComponent() {
+          return import('./add-donation/add-donation.component').then(m => m.AddDonationComponent);
+        }
       }
+
      
     ]
     }

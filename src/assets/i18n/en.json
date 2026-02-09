@@ -296,7 +296,67 @@
 
     "PRESIDENT_TITLE": "President Login",
     "PRESIDENT_DESC": "All temples overview and approvals"
+  },
+   
+    "ADD_EXPENSE": "Add Expense",
+
+  "EXPENSE_TITLE": "Expense Type",
+  "EXPENSE_TITLE_REQUIRED": "Expense type is required",
+
+  "EXPENSE_DATE": "Date",
+  "EXPENSE_DATE_REQUIRED": "Date is required",
+
+  "EXPENSE_STATUS": "Status",
+  "SELECT_STATUS": "Select status",
+
+  "PENDING": "Pending",
+  "PAID": "Paid",
+  "UNPAID": "Unpaid",
+
+  "EXPENSE_AMOUNT": "Amount",
+  "EXPENSE_AMOUNT_REQUIRED": "Valid amount is required",
+
+"SUBMIT_EXPENSE": "Add Expense",
+
+"DONATION_REPORT": {
+   "ADD_DONATION": "Add Donation",
+
+  "DONOR_NAME": "Donor Name",
+  "DONOR_NAME_REQUIRED": "Donor name is required",
+
+  "DONATION_AMOUNT": "Amount",
+  "DONATION_AMOUNT_REQUIRED": "Valid amount is required",
+
+  "DONATION_MODE": "Mode",
+  "SELECT_MODE": "Select mode",
+  "CASH": "Cash",
+  "ONLINE": "Online",
+  "DONATION_MODE_REQUIRED": "Donation mode is required",
+
+  "DONATION_DATE": "Date",
+  "DONATION_DATE_REQUIRED": "Date is required",
+
+  "SUBMIT_DONATION": "Add Donation",
+  "CANCEL": "Cancel"
+
+
+
+},
+"DONATION": {
+  "RECEIPT": "Receipt",
+  "NAME": "Donor Name",
+  "AMOUNT": "Amount",
+  "MODE": "Payment Mode",
+  "DATE": "Date"
+},
+"EXPENSE_TABLE": {
+    "TYPE": "Type",
+    "AMOUNT": "Amount",
+    "STATUS": "Status",
+    "DATE": "Date",
+    "APPROVED": "Approved",
+    "PENDING": "Pending"
   }
+}
 
  
-}
