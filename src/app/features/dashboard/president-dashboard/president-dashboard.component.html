@@ -1,0 +1,222 @@
+<div class="p-6  min-h-screen">
+
+    <!-- TITLE -->
+    <div class="mb-6">
+        <h1 class="text-3xl font-semibold text-[#D4A017]">
+            {{ 'PRESIDENT_DASHBOARD.TITLE' | translate }}
+        </h1>
+        <p class="text-sm text-gray-500">
+            {{ 'PRESIDENT_DASHBOARD.SUBTITLE' | translate }}
+        </p>
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+
+        <!-- CARD -->
+        <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
+            <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
+                +12%
+            </span>
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-dollar-sign w-6 h-6 text-white"
+                        data-fg-ctjp38="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:209:25:6768:44:e:stat.icon">
+                        <line x1="12" x2="12" y1="2" y2="22"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">
+                        {{ 'CARDS.TODAY' | translate }}
+                    </p>
+                    <p class="text-xl font-bold">₹1,25,450</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
+            <span class="absolute top-4 right-4 bg-green-100  text-green-600 text-xs px-2 py-1 rounded-full">
+                +8%
+            </span>
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-trending-up w-6 h-6 text-white"
+                        data-fg-ctjp38="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:209:25:6768:44:e:stat.icon">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                        <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">{{ 'CARDS.WEEK' | translate }}</p>
+                    <p class="text-xl font-bold">₹8,75,320</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
+            <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
+                +15%
+            </span>
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-dollar-sign w-6 h-6 text-white"
+                        data-fg-ctjp38="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:209:25:6768:44:e:stat.icon">
+                        <line x1="12" x2="12" y1="2" y2="22"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">{{ 'CARDS.MONTH' | translate }}</p>
+                    <p class="text-xl font-bold">₹34,52,100</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
+            <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
+                +18%
+            </span>
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-trending-up w-6 h-6 text-white"
+                        data-fg-ctjp38="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:209:25:6768:44:e:stat.icon">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                        <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">{{ 'CARDS.YEAR' | translate }}</p>
+                    <p class="text-xl font-bold">₹4,12,50,000</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="bg-white border border-orange-100 rounded-2xl p-6 gap-6 mb-8">
+
+        <h2 class="text-lg font-semibold text-[#D4A017] mb-4">
+            {{ 'TABLE.TITLE' | translate }}
+        </h2>
+
+        <table class="w-full text-sm border-collapse">
+            <thead>
+                <tr class="text-gray-500 border-b">
+                    <th class="text-left py-3 px-4">
+                        {{ 'TABLE.TEMPLE' | translate }}
+                    </th>
+                    <th class="text-center py-3 px-4">
+                        ₹ {{ 'TABLE.DAILY' | translate }}
+                    </th>
+                    <th class="text-center py-3 px-4">
+                        ₹ {{ 'TABLE.WEEKLY' | translate }}
+                    </th>
+                    <th class="text-center py-3 px-4">
+                        ₹ {{ 'TABLE.MONTHLY' | translate }}
+                    </th>
+                    <th class="text-center py-3 px-4">
+                        {{ 'TABLE.DEVOTEES' | translate }}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- ROW -->
+                <tr class="border-b hover:bg-orange-50">
+                    <td class="py-3 px-4">
+                        <div class="flex items-center gap-2">
+                            <!-- BUILDING SVG -->
+                            <svg class="w-4 h-4 text-orange-500 shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M3 21h18M6 21V3h12v18M9 21v-4h6v4" />
+                            </svg>
+                            <span class="font-medium text-gray-800">Muktainagar</span>
+                        </div>
+                    </td>
+                    <td class="text-center py-3 px-4">₹45,250</td>
+                    <td class="text-center py-3 px-4">₹3,16,750</td>
+                    <td class="text-center py-3 px-4">₹12,53,000</td>
+                    <td class="text-center py-3 px-4">542</td>
+                </tr>
+
+                <tr class="border-b hover:bg-orange-50">
+                    <td class="py-3 px-4">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-orange-500 shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M3 21h18M6 21V3h12v18M9 21v-4h6v4" />
+                            </svg>
+                            <span class="font-medium text-gray-800">Kothali</span>
+                        </div>
+                    </td>
+                    <td class="text-center py-3 px-4">₹38,200</td>
+                    <td class="text-center py-3 px-4">₹2,67,400</td>
+                    <td class="text-center py-3 px-4">₹10,58,000</td>
+                    <td class="text-center py-3 px-4">423</td>
+                </tr>
+
+                <tr class="hover:bg-orange-50">
+                    <td class="py-3 px-4">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-orange-500 shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M3 21h18M6 21V3h12v18M9 21v-4h6v4" />
+                            </svg>
+                            <span class="font-medium text-gray-800">Pandharpur</span>
+                        </div>
+                    </td>
+                    <td class="text-center py-3 px-4">₹42,000</td>
+                    <td class="text-center py-3 px-4">₹2,94,000</td>
+                    <td class="text-center py-3 px-4">₹11,64,000</td>
+                    <td class="text-center py-3 px-4">489</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+  <div class="bg-white rounded-2xl border border-orange-200 p-6">
+  <h3 class="text-orange-600 font-semibold mb-4">
+    Monthly Trend
+  </h3>
+
+<div class="chart-wrapper">
+  <canvas #monthlyChart></canvas>
+</div>
+
+
+</div>
+
+<div class="bg-white rounded-2xl border border-orange-100 p-6 shadow-sm mt-6">
+  <h3 class="text-orange-600 font-semibold mb-4">
+    Temple-wise Donations
+  </h3>
+
+  <div class="chart-wrapper">
+    <canvas #templeChart></canvas>
+  </div>
+</div>
+
+
+</div>
+
+
+  

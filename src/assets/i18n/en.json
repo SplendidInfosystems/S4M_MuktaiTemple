@@ -356,6 +356,42 @@
     "DATE": "Date",
     "APPROVED": "Approved",
     "PENDING": "Pending"
+  },
+
+  "PRESIDENT_DASHBOARD": {
+    "TITLE": "President Dashboard",
+    "SUBTITLE": "Combined Overview of All Temples"
+  },
+  "CARDS": {
+    "TODAY": "Today's Total",
+    "WEEK": "This Week",
+    "MONTH": "This Month",
+    "YEAR": "This Year"
+  },
+  "TABLE": {
+    "TITLE": "Temple-wise Comparison",
+    "TEMPLE": "Temple",
+    "DAILY": "Daily",
+    "WEEKLY": "Weekly",
+    "MONTHLY": "Monthly",
+    "DEVOTEES": "Devotees"
+  },
+    "APPROVAL": {
+    "TITLE": "Approval Requests",
+    "SUBTITLE": "3 Pending Requests",
+    "PENDING": "Pending Requests",
+    "KIRTAN": "Kirtan Expense",
+    "REQUESTED_BY": "Requested by",
+    "DATE": "Date",
+    "APPROVE": "Approve",
+    "REJECT": "Reject",
+    "CONFIRM_TITLE": "Are you sure?",
+    "CONFIRM_APPROVE": "Do you want to approve this request?",
+    "CONFIRM_REJECT": "Do you want to reject this request?"
+  },
+  "COMMON": {
+    "YES": "Yes",
+    "NO": "No"
   }
 }
 

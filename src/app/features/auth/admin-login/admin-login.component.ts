@@ -25,6 +25,8 @@ export class AdminLoginComponent {
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
+  localStorage.setItem('role', 'admin'); // or 'admin'
+
   }
 
  onSubmit() {
