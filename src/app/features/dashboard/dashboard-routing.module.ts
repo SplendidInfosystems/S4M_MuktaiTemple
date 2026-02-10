@@ -54,7 +54,14 @@ const routes: Routes = [
         loadComponent() {
           return import('./president-approvals/president-approvals.component').then(m => m.PresidentApprovalsComponent);
         }
+      },
+      {
+        path:'president-report',
+        loadComponent(){
+          return import('./president-report/president-report.component').then(m => m.PresidentReportComponent);
+        }
       }
+
 
      
     ]
