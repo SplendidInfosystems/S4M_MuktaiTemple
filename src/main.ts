@@ -1,24 +1,22 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { importProvidersFrom } from '@angular/core';
-import {  HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { provideRouter } from '@angular/router';
 
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes'; // Your defined routes
+import { appConfig } from './app/app.config';
 
-
-// ✅ Correct loader path: looks in /assets/i18n/*.json
+// Translation loader
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 bootstrapApplication(AppComponent, {
+  ...appConfig, // ✅ This enables interceptor
   providers: [
-    provideRouter(routes),
+    ...appConfig.providers!, // keep existing providers
     importProvidersFrom(
-      HttpClientModule,
       TranslateModule.forRoot({
         defaultLanguage: 'mr',
         loader: {

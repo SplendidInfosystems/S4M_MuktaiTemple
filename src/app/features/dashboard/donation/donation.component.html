@@ -39,7 +39,7 @@
 
       <!-- Body -->
       <tbody>
-        <tr *ngFor="let d of donations" class="hover:bg-gray-50 transition">
+        <tr *ngFor="let d of donors" class="hover:bg-gray-50 transition">
           <!-- Name -->
           <td class="px-4 py-3 border-b font-medium text-gray-800">
             {{ d.name }}
@@ -53,17 +53,19 @@
           <!-- Mode -->
           <td class="px-4 py-3 border-b">
             <span class="px-3 py-1 rounded-full text-xs font-medium" [ngClass]="
-              d.mode === 'Online'
+              d.payment_method === 'Online'
                 ? 'bg-orange-500 text-white'
                 : 'bg-gray-100 text-gray-700'
             ">
-              {{ d.mode }}
+             {{ d.payment_method }}
+
             </span>
           </td>
 
           <!-- Date -->
           <td class="px-4 py-3 border-b text-gray-600">
-            {{ d.date }}
+           {{ d.donation_date | date:'mediumDate' }}
+
           </td>
 
           <!-- Action -->

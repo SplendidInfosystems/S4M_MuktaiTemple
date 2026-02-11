@@ -1,8 +1,19 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+// app.config.ts
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { apiInterceptor } from './core/interceptors/api.interceptor';
 import { routes } from './app.routes';
+import { environment } from '../environments/environment';
+
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(withInterceptors([apiInterceptor]))
+  ]
+};
+  export const APP_CONFIG = {
+  BASE_URL: environment.baseUrl,
+  API_KEY: environment.apiKey
 };
