@@ -1,0 +1,31 @@
+.report-card {
+  @apply bg-white p-6 rounded-xl shadow border border-orange-100;
+}
+
+.report-title {
+  @apply text-orange-600 font-semibold text-lg mb-2;
+}
+
+.report-sub {
+  @apply text-gray-500 mb-4;
+}
+
+.toggle-group {
+  @apply flex bg-gray-100 rounded-full p-1 w-fit mb-4;
+}
+
+.toggle-group button {
+  @apply px-5 py-1 text-sm rounded-full text-gray-600;
+}
+
+.toggle-group button.active {
+  @apply bg-white shadow text-orange-600 font-medium;
+}
+
+.btn-primary {
+  @apply w-full bg-orange-500 text-white py-2 rounded-lg mb-2 hover:bg-orange-600 transition;
+}
+
+.btn-secondary {
+  @apply w-full border border-gray-300 py-2 rounded-lg text-gray-700 hover:bg-gray-50 transition;
+}

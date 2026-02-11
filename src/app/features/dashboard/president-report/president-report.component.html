@@ -1,1 +1,96 @@
-<p>president-report works!</p>
+<div class="p-10 min-h-screen">
+  <h1 class="text-3xl font-bold text-orange-700 mb-2">
+    {{ 'PRESIDENT_DASHBOARD.TITLE' | translate }}
+  </h1>
+  <p class="text-gray-600 mb-8">
+    {{ 'PRESIDENT_DASHBOARD.SUBTITLE' | translate }}
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <!-- Donation Report -->
+    <div class="report-card">
+      <h2 class="report-title">
+        {{ 'PRESIDENT_DASHBOARD.DONATION_REPORT.TITLE' | translate }}
+      </h2>
+      <p class="report-sub">
+        {{ 'PRESIDENT_DASHBOARD.DONATION_REPORT.SUBTITLE' | translate }}
+      </p>
+
+      <div class="toggle-group">
+        <button *ngFor="let r of ranges"
+                (click)="setRange('donation', r)"
+                [class.active]="selectedRange.donation === r">
+          {{ r }}
+        </button>
+      </div>
+
+      <button class="btn-primary"
+              (click)="downloadPDF('Donation Report', selectedRange.donation)">
+        {{ 'COMMON.DOWNLOAD_PDF' | translate }}
+      </button>
+
+      <button class="btn-secondary"
+              (click)="downloadWord('Donation Report', selectedRange.donation)">
+        {{ 'COMMON.DOWNLOAD_WORD' | translate }}
+      </button>
+    </div>
+
+    <!-- Expense Report -->
+    <div class="report-card">
+      <h2 class="report-title">
+        {{ 'PRESIDENT_DASHBOARD.EXPENSE_REPORT.TITLE' | translate }}
+      </h2>
+      <p class="report-sub">
+        {{ 'PRESIDENT_DASHBOARD.EXPENSE_REPORT.SUBTITLE' | translate }}
+      </p>
+
+      <div class="toggle-group">
+        <button *ngFor="let r of ranges"
+                (click)="setRange('expense', r)"
+                [class.active]="selectedRange.expense === r">
+          {{ r }}
+        </button>
+      </div>
+
+      <button class="btn-primary"
+              (click)="downloadPDF('Expense Report', selectedRange.expense)">
+        {{ 'COMMON.DOWNLOAD_PDF' | translate }}
+      </button>
+
+      <button class="btn-secondary"
+              (click)="downloadWord('Expense Report', selectedRange.expense)">
+        {{ 'COMMON.DOWNLOAD_WORD' | translate }}
+      </button>
+    </div>
+
+    <!-- Combined Report -->
+    <div class="report-card md:col-span-2">
+      <h2 class="report-title">
+        {{ 'PRESIDENT_DASHBOARD.COMBINED_REPORT.TITLE' | translate }}
+      </h2>
+      <p class="report-sub">
+        {{ 'PRESIDENT_DASHBOARD.COMBINED_REPORT.SUBTITLE' | translate }}
+      </p>
+
+      <div class="toggle-group">
+        <button *ngFor="let r of ranges"
+                (click)="setRange('combined', r)"
+                [class.active]="selectedRange.combined === r">
+          {{ r }}
+        </button>
+      </div>
+
+      <button class="btn-primary"
+              (click)="downloadPDF('Combined Report', selectedRange.combined)">
+        {{ 'COMMON_PDF.DOWNLOAD_PDF' | translate }}
+      </button>
+
+      <button class="btn-secondary"
+              (click)="downloadWord('Combined Report', selectedRange.combined)">
+        {{ 'COMMON_PDF.DOWNLOAD_WORD' | translate }}
+      </button>
+    </div>
+
+  </div>
+</div>

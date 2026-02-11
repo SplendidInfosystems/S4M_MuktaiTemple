@@ -360,8 +360,30 @@
 
   "PRESIDENT_DASHBOARD": {
     "TITLE": "President Dashboard",
-    "SUBTITLE": "Combined Overview of All Temples"
+    "SUBTITLE": "Combined Overview of All Temples",
+    
+    "DONATION_REPORT": {
+      "TITLE": "Donation Report",
+      "SUBTITLE": "Combined donation report for all temples"
+    },
+
+    "EXPENSE_REPORT": {
+      "TITLE": "Expense Report",
+      "SUBTITLE": "Expense report for all temples"
+    },
+
+    "COMBINED_REPORT": {
+      "TITLE": "Combined Report",
+      "SUBTITLE": "Combined donation and expense report"
+    }
   },
+
+  "COMMON_PDF": {
+    "DOWNLOAD_PDF": "Download PDF",
+    "DOWNLOAD_WORD": "Download Word"
+  },
+
+
   "CARDS": {
     "TODAY": "Today's Total",
     "WEEK": "This Week",

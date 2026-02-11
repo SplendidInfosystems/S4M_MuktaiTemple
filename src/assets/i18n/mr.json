@@ -366,8 +366,29 @@
 },
   "PRESIDENT_DASHBOARD": {
     "TITLE": "अध्यक्ष डॅशबोर्ड",
-    "SUBTITLE": "सर्व मंदिरांचा एकत्रित आढावा"
+    "SUBTITLE": "सर्व मंदिरांचा एकत्रित आढावा",
+      "DONATION_REPORT": {
+      "TITLE": "देणगी अहवाल",
+      "SUBTITLE": "सर्व मंदिरांसाठी एकत्रित देणगी अहवाल"
+    },
+
+    "EXPENSE_REPORT": {
+      "TITLE": "खर्च अहवाल",
+      "SUBTITLE": "सर्व मंदिरांसाठी खर्च अहवाल"
+    },
+
+    "COMBINED_REPORT": {
+      "TITLE": "एकत्रित अहवाल",
+      "SUBTITLE": "देणगी आणि खर्च यांचा एकत्रित अहवाल"
+    }
   },
+
+  "COMMON_PDF": {
+    "DOWNLOAD_PDF": "PDF डाउनलोड करा",
+    "DOWNLOAD_WORD": "Word डाउनलोड करा"
+  },
+
+
   "CARDS": {
     "TODAY": "आजची एकूण देणगी",
     "WEEK": "या आठवड्यात",
@@ -382,7 +403,7 @@
     "MONTHLY": "मासिक",
     "DEVOTEES": "भाविक"
   },
-      "APPROVAL": {
+   "APPROVAL": {
     "TITLE": "मंजुरी विनंत्या",
     "SUBTITLE": "३ प्रलंबित विनंत्या",
     "PENDING": "प्रलंबित विनंत्या",
@@ -393,11 +414,27 @@
     "REJECT": "नकार द्या",
     "CONFIRM_TITLE": "आपण खात्री आहात का?",
     "CONFIRM_APPROVE": "आपण ही विनंती मंजूर करू इच्छिता का?",
-    "CONFIRM_REJECT": "आपण ही विनंती नाकारू इच्छिता का?"
+    "CONFIRM_REJECT": "आपण ही विनंती नाकारू इच्छिता का?",
+      "DONATION_REPORT": {
+      "TITLE": "देणगी अहवाल",
+      "SUBTITLE": "सर्व मंदिरांसाठी एकत्रित देणगी अहवाल"
+    },
+
+    "EXPENSE_REPORT": {
+      "TITLE": "खर्च अहवाल",
+      "SUBTITLE": "सर्व मंदिरांसाठी खर्च अहवाल"
+    },
+
+    "COMBINED_REPORT": {
+      "TITLE": "एकत्रित अहवाल",
+      "SUBTITLE": "देणगी आणि खर्च यांचा एकत्रित अहवाल"
+    }
   },
   "COMMON": {
     "YES": "होय",
-    "NO": "नाही"
+    "NO": "नाही",
+      "DOWNLOAD_PDF": "PDF डाउनलोड करा",
+    "DOWNLOAD_WORD": "Word डाउनलोड करा"
   }
 
 
