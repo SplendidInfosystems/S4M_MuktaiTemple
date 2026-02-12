@@ -4,7 +4,7 @@
     Expense Management
   </h2>
 
-  <button  routerLink="/dashboard/add-expense" class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600
+  <button routerLink="/dashboard/add-expense" class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600
            text-white px-4 py-2 rounded-lg shadow transition">
     <span class="text-lg leading-none">+</span>
     Add Expense
@@ -12,66 +12,60 @@
 </div>
 
 <div class="bg-white rounded-2xl shadow-sm border border-orange-100 p-4">
-<div class="overflow-x-auto">
-  <table class="min-w-full border border-gray-200 text-sm rounded-lg overflow-hidden">
-    <!-- Table Header -->
-    <thead class="bg-gray-100 text-gray-600 font-semibold">
-      <tr>
-        <th class="px-4 py-3 border-b text-left">
-          {{ 'EXPENSE_TABLE.TYPE' | translate }}
-        </th>
-        <th class="px-4 py-3 border-b text-left">
-          {{ 'EXPENSE_TABLE.AMOUNT' | translate }}
-        </th>
-        <th class="px-4 py-3 border-b text-left">
-          {{ 'EXPENSE_TABLE.STATUS' | translate }}
-        </th>
-        <th class="px-4 py-3 border-b text-left">
-          {{ 'EXPENSE_TABLE.DATE' | translate }}
-        </th>
-      </tr>
-    </thead>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-200 text-sm rounded-lg overflow-hidden">
+      <!-- Table Header -->
+      <thead class="bg-gray-100 text-gray-600 font-semibold">
+        <tr>
+          <th class="px-4 py-3 border-b text-left">
+            {{ 'EXPENSE_TABLE.TYPE' | translate }}
+          </th>
+          <th class="px-4 py-3 border-b text-left">
+            {{ 'EXPENSE_TABLE.AMOUNT' | translate }}
+          </th>
+          <th class="px-4 py-3 border-b text-left">
+            {{ 'EXPENSE_TABLE.STATUS' | translate }}
+          </th>
+          <th class="px-4 py-3 border-b text-left">
+            {{ 'EXPENSE_TABLE.DATE' | translate }}
+          </th>
+        </tr>
+      </thead>
 
-    <!-- Table Body -->
-    <tbody>
-      <tr
-        *ngFor="let e of expenses"
-        class="hover:bg-gray-50 transition"
-      >
-        <!-- Type -->
-        <td class="px-4 py-3 border-b font-medium text-gray-800">
-          {{ e.type }}
-        </td>
+      <!-- Table Body -->
+      <tbody>
+        <tr *ngFor="let e of expenses" class="hover:bg-gray-50 transition">
+          <!-- Type -->
+          <td class="px-4 py-3 border-b font-medium text-gray-800">
+            {{ e.category}}
+          </td>
 
-        <!-- Amount -->
-        <td class="px-4 py-3 border-b font-semibold text-gray-900">
-          ₹{{ e.amount }}
-        </td>
+          <!-- Amount -->
+          <td class="px-4 py-3 border-b font-semibold text-gray-900">
+            ₹{{ e.amount }}
+          </td>
 
-        <!-- Status -->
-        <td class="px-4 py-3 border-b">
-          <span
-            class="px-3 py-1 rounded-full text-xs font-medium"
-            [ngClass]="{
-              'bg-green-500 text-white': e.status === 'Approved',
-              'bg-yellow-400 text-black': e.status === 'Pending'
-            }"
-          >
-            {{ e.status === 'Approved'
-              ? ('EXPENSE_TABLE.APPROVED' | translate)
-              : ('EXPENSE_TABLE.PENDING' | translate)
-            }}
-          </span>
-        </td>
+          <!-- Status -->
+          <td class="px-4 py-3 border-b">
+             <span class="px-3 py-1 rounded-full text-xs font-medium" [ngClass]="
+              e.status === 'pending'
+                ? 'bg-orange-500 text-white'
+                : 'bg-green-100 text-green-700'
+            ">
+             {{ e.status }}
 
-        <!-- Date -->
-        <td class="px-4 py-3 border-b text-gray-600">
-          {{ e.date }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+            </span>
+           
+          </td>
+
+          <!-- Date -->
+          <td class="px-4 py-3 border-b text-gray-600">
+            {{ e.expense_date | date:'mediumDate' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 
 </div>

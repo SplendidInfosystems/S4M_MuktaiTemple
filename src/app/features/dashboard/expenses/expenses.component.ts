@@ -1,36 +1,56 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ExpenseInfo } from '../../../core/models/interface-model';
+import { LoaderService } from '../../../core/services/loader/loader.service';
+import { ToastService } from '../../../core/services/toast/toast.service';
+import { DonationService } from '../../../core/services/donation/donation.service';
+import { finalize } from 'rxjs/internal/operators/finalize';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-expenses',
   standalone: true,
-  imports: [CommonModule,RouterLink,TranslateModule],
+  imports: [CommonModule, RouterLink, TranslateModule,DatePipe],
   templateUrl: './expenses.component.html',
   styleUrl: './expenses.component.css'
 })
-export class ExpensesComponent {
-  expenses = [
-  {
-    type: 'Prasad Materials',
-    amount: 3500,
-    status: 'Approved',
-    date: '14/01/2026'
-  },
-  {
-    type: 'Kirtan Expense',
-    amount: 8000,
-    status: 'Pending',
-    date: '15/01/2026'
-  },
-  {
-    type: 'Decoration',
-    amount: 4200,
-    status: 'Pending',
-    date: '15/01/2026'
-  }
-];
+export class ExpensesComponent implements OnInit {
+  expenses: ExpenseInfo[] = [];
+  constructor(private donationService: DonationService,
+    private toast: ToastService,
+    private loader: LoaderService) { }
 
+  ngOnInit(): void {
+    this.loadExpenses();
+  }
+
+
+
+  
+
+  loadExpenses() {
+
+    this.loader.show();
+
+    this.donationService.getExpensesInfo()
+      .pipe(
+        finalize(() => this.loader.hide())
+      )
+      .subscribe({
+        next: (res) => {
+          this.expenses = res.data;
+          this.toast.show('Expenses list loaded successfully', 'success');
+        },
+        error: (err) => {
+          this.toast.show('Failed to load expenses info', 'error');
+
+          if (!environment.production) {
+            console.error(err);
+          }
+        }
+      });
+  }
 
 }
