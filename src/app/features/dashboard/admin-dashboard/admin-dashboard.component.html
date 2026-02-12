@@ -1,5 +1,5 @@
 <!-- ================= MAIN CONTENT ================= -->
-<main class="flex-1 p-8">
+<main class="flex-1 p-8" *ngIf="adminDashboardData">
 
     <!-- Header -->
    
@@ -7,10 +7,10 @@
     <!-- ================= STAT CARDS ================= -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
 
-        <div class="bg-white border border-orange-100 rounded-2xl p-6 flex justify-between">
+        <div  class="bg-white border border-orange-100 rounded-2xl p-6 flex justify-between">
             <div>
                 <p class="text-sm text-gray-500">Today's Total Donations</p>
-                <p class="text-2xl font-bold">₹45,250</p>
+                <p class="text-2xl font-bold">₹{{ adminDashboardData.today_total_donations }}</p>
             </div>
             <div
                 class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white">
@@ -27,7 +27,7 @@
         <div class="bg-white border border-orange-100 rounded-2xl p-6 flex justify-between">
             <div>
                 <p class="text-sm text-gray-500">Total Devotees</p>
-                <p class="text-2xl font-bold">142</p>
+                <p class="text-2xl font-bold">{{ adminDashboardData.total_devotees }}</p>
             </div>
             <div
                 class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center text-white">
@@ -46,7 +46,7 @@
         <div class="bg-white border border-orange-100 rounded-2xl p-6 flex justify-between">
             <div>
                 <p class="text-sm text-gray-500">Cash Donations</p>
-                <p class="text-2xl font-bold">₹28,500</p>
+                <p class="text-2xl font-bold">₹{{ adminDashboardData.cash_donations }}</p>
             </div>
             <div
                 class="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center text-white">
@@ -63,7 +63,7 @@
         <div class="bg-white border border-orange-100 rounded-2xl p-6 flex justify-between">
             <div>
                 <p class="text-sm text-gray-500">Online Donations</p>
-                <p class="text-2xl font-bold">₹16,750</p>
+                <p class="text-2xl font-bold">₹{{ adminDashboardData.online_donations }}</p>
             </div>
             <div
                 class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white">
@@ -95,12 +95,12 @@
                 Donation Distribution
             </h3>
 
-            <div class="relative mx-auto w-[260px] h-[280px] flex items-center justify-center">
+            <div  class="relative mx-auto w-[260px] h-[280px] flex items-center justify-center">
 
                 <!-- Cash label -->
                 <span class="absolute top-[2px] left-1/2 -translate-x-1/2
                text-sm font-medium text-[#FF6B35]">
-                    Cash: 63%
+                    Cash: {{adminDashboardData.donation_distribution?.cash_percentage}} %
                 </span>
 
                 <!-- 🔥 Donut wrapper -->
@@ -110,7 +110,7 @@
                     <!-- Online label (FIXED to donut) -->
                     <span class="absolute bottom-[-14px] right-[4px]
                  text-sm font-medium text-[#D6B23A]">
-                        Online: 37%
+                        Online: {{adminDashboardData.donation_distribution?.online_percentage}} %
                     </span>
                 </div>
 
