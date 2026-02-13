@@ -10,7 +10,6 @@ import { ToastService } from '../../../core/services/toast/toast.service';
 import { LoaderService } from '../../../core/services/loader/loader.service';
 import { finalize } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { ReceiptService } from '../../../core/services/receipt/receipt.service';
 
 
 @Component({
@@ -28,7 +27,6 @@ export class DonationComponent {
   constructor(private donationService: DonationService,
     private toast: ToastService,
     private loader: LoaderService,
-    private receiptService: ReceiptService,
     private router: Router
 )
      {
@@ -88,9 +86,5 @@ loadDonors() {
     window.open(pdfUrl, '_blank');
   }
 
-
-  viewReceipt(donor: DonorInfo) {
-  this.receiptService.setDonor(donor);
-}
 }
 

@@ -435,6 +435,23 @@
     "NO": "नाही",
       "DOWNLOAD_PDF": "PDF डाउनलोड करा",
     "DOWNLOAD_WORD": "Word डाउनलोड करा"
+  },
+  "receipt": {
+    "title": "मंदिर देणगी पावती",
+    "location": "स्थान",
+    "receipt_no": "पावती क्रमांक",
+    "generated_date": "निर्मित दिनांक",
+    "donor_information": "देणगीदार माहिती",
+    "name": "नाव",
+    "mobile": "मोबाईल क्रमांक",
+    "address": "पत्ता",
+    "donation_date": "देणगी दिनांक",
+    "payment_method": "पेमेंट पद्धत",
+    "generated_by": "निर्मित केले",
+    "donation_amount": "देणगी रक्कम",
+    "thank_you": "आपल्या उदार देणगीबद्दल धन्यवाद 🙏",
+    "computer_generated": "ही संगणकाद्वारे तयार केलेली पावती आहे.",
+    "print": "पावती छापा"
   }
 
 

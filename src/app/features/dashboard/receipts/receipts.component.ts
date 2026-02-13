@@ -1,60 +1,77 @@
 import { Component, OnInit } from '@angular/core';
-import { ReceiptService } from '../../../core/services/receipt.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { DonorInfo } from '../../../core/models/interface-model';
+import { DonationReceipt, DonorInfo } from '../../../core/models/interface-model';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { CommonModule } from '@angular/common';
+import { DonationService } from '../../../core/services/donation/donation.service';
+import { LoaderService } from '../../../core/services/loader/loader.service';
+import { ToastService } from '../../../core/services/toast/toast.service';
+import { finalize } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-receipts',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,TranslateModule],
   templateUrl: './receipts.component.html',
   styleUrl: './receipts.component.css'
 })
-export class ReceiptsComponent implements OnInit {
+export class ReceiptsComponent  implements OnInit {
 
-  
+  receiptData: DonationReceipt | null = null;
+    donation_id: number | null = null;
 
-  pdfUrl: SafeResourceUrl | null = null;
 
   constructor(
-    private receiptService: ReceiptService,
-    private sanitizer: DomSanitizer
-  ) {}
-
-  ngOnInit(): void {
-    const donor = this.receiptService.getDonor();
-
-    if (donor) {
-      this.generatePDF(donor);
+    private donationService: DonationService,
+    private loader: LoaderService,
+    private toast: ToastService
+  ) {
+     this.donation_id = this.resolveAdminId();
+    if (this.donation_id === null) {
+      this.toast.show('Donation ID not found. Please login again.', 'error');
+      return;
     }
+
+    this.loadReceipt(this.donation_id);
+  }
+  ngOnInit(): void {
   }
 
-  generatePDF(donation: DonorInfo) {
-    const doc = new jsPDF();
+   loadReceipt(id: number): void {
+    this.loader.show();
 
-    doc.setFontSize(18);
-    doc.text('Temple Donation Receipt', 14, 15);
+    this.donationService.getDonationReceipt(id)
+      .pipe(finalize(() => this.loader.hide()))
+      .subscribe({
+        next: (res) => {
 
-    autoTable(doc, {
-      startY: 25,
-      head: [['Field', 'Value']],
-      body: [
-        ['Receipt No', donation.donor_id],
-        ['Donor Name', donation.name],
-        ['Mobile', donation.mobile_number],
-        ['Date', new Date(donation.donation_date).toLocaleDateString()],
-        ['Amount', `₹${donation.amount}`],
-        ['Payment Mode', donation.payment_method]
-      ]
-    });
+          if (res.success) {
+            this.receiptData = res.receipt;
+            this.toast.show('Receipt loaded successfully', 'success');
+          } else {
+            this.toast.show('Invalid receipt response', 'error');
+          }
 
-    const blob = doc.output('blob');
-    const url = URL.createObjectURL(blob);
-
-    this.pdfUrl =
-      this.sanitizer.bypassSecurityTrustResourceUrl(url + '#toolbar=0');
+        },
+        error: () => {
+          this.toast.show('Failed to load receipt', 'error');
+        }
+      });
   }
+
+  printReceipt(): void {
+    window.print();
+  }
+
+   private resolveAdminId(): number | null {
+    const id = Number(localStorage.getItem('donation_id'));
+    if (Number.isFinite(id) && id > 0) {
+      return id;
+    }
+
+    return 5;
+  }
+
 }

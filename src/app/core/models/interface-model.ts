@@ -51,3 +51,26 @@ export interface AdminDashboardData {
   cash_percentage?: number;
   online_percentage?: number;
 }
+
+
+// =====================================Donation Receipt =================
+export interface DonationReceipt {
+  receipt_id: number;
+  receipt_no: string;
+  generated_date: string;
+  generated_by: string;
+
+  donor_id: number;
+  donor_name: string;
+  address: string;
+  mobile_number: string;
+
+  amount: number;
+  amount_in_words: string;
+  payment_method: string;
+  donation_date: string;
+
+  location_name: string;
+}
+
+

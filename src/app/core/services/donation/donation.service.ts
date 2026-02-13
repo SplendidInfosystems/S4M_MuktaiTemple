@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { Observable } from 'rxjs';
-import { AdminDashboardData, DonorInfo, ExpenseInfo } from '../../models/interface-model';
+import { AdminDashboardData, DonationReceipt, DonorInfo, ExpenseInfo } from '../../models/interface-model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,15 @@ export class DonationService {
 getAdminDashboardData(adminId: number): Observable<{ body: AdminDashboardData } | AdminDashboardData> {
   return this.http.get<{ body: AdminDashboardData } | AdminDashboardData>(`${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_ADMIN_DASHBOARD_DATA}?admin_id=${adminId}`);
 }
+
+getDonationReceipt(donationId: number) {
+  return this.http.get<{
+    success: boolean;
+    receipt: DonationReceipt;
+  }>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DONATION_RECEIPT}?donation_id=${donationId}`
+  );
+}
+
 
 }
