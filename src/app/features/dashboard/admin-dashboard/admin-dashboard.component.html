@@ -100,7 +100,7 @@
                 <!-- Cash label -->
                 <span class="absolute top-[2px] left-1/2 -translate-x-1/2
                text-sm font-medium text-[#FF6B35]">
-                    Cash: {{adminDashboardData.donation_distribution?.cash_percentage}} %
+                    Cash: {{ distributionData.cash }} %
                 </span>
 
                 <!-- 🔥 Donut wrapper -->
@@ -108,9 +108,9 @@
                     <canvas id="donutChart2" class="w-full h-full"></canvas>
 
                     <!-- Online label (FIXED to donut) -->
-                    <span class="absolute bottom-[-14px] right-[4px]
+                    <span class="absolute bottom-[-25px] right-[4px] 
                  text-sm font-medium text-[#D6B23A]">
-                        Online: {{adminDashboardData.donation_distribution?.online_percentage}} %
+                        Online: {{ distributionData.online }} %
                     </span>
                 </div>
 

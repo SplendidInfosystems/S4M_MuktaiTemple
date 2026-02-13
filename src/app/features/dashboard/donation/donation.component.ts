@@ -1,6 +1,6 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -10,6 +10,7 @@ import { ToastService } from '../../../core/services/toast/toast.service';
 import { LoaderService } from '../../../core/services/loader/loader.service';
 import { finalize } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { ReceiptService } from '../../../core/services/receipt/receipt.service';
 
 
 @Component({
@@ -26,7 +27,10 @@ export class DonationComponent {
 
   constructor(private donationService: DonationService,
     private toast: ToastService,
-    private loader: LoaderService)
+    private loader: LoaderService,
+    private receiptService: ReceiptService,
+    private router: Router
+)
      {
            this.loadDonors();
      }
@@ -78,11 +82,15 @@ loadDonors() {
       ]
     });
 
-    doc.autoPrint();
+    // doc.autoPrint();
     const pdfBlob = doc.output('blob');
     const pdfUrl = URL.createObjectURL(pdfBlob);
     window.open(pdfUrl, '_blank');
   }
 
+
+  viewReceipt(donor: DonorInfo) {
+  this.receiptService.setDonor(donor);
+}
 }
 

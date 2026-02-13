@@ -3,12 +3,15 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { Observable } from 'rxjs';
-import { DonorInfo, ExpenseInfo } from '../../models/interface-model';
+import { AdminDashboardData, DonorInfo, ExpenseInfo } from '../../models/interface-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DonationService {
+  getDonorById(id: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpClient) { }
 /**
@@ -28,8 +31,8 @@ export class DonationService {
 }
 
 //  admin dashboard data
-getAdminDashboardData(adminId: number): Observable<any> {
-  return this.http.get<any>(`${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_ADMIN_DASHBOARD_DATA}?admin_id=${adminId}`);
+getAdminDashboardData(adminId: number): Observable<{ body: AdminDashboardData } | AdminDashboardData> {
+  return this.http.get<{ body: AdminDashboardData } | AdminDashboardData>(`${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_ADMIN_DASHBOARD_DATA}?admin_id=${adminId}`);
 }
 
 }
