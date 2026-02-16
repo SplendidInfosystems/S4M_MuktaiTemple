@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { finalize } from 'rxjs';
+import { DonationService } from '../../../core/services/donation/donation.service';
+import { ToastService } from '../../../core/services/toast/toast.service';
+import { AddDonationRequest, AddDonationResponse } from '../../../core/models/interface-model';
 
 @Component({
   selector: 'app-add-donation',
@@ -13,7 +17,12 @@ import { TranslateModule } from '@ngx-translate/core';
 export class AddDonationComponent implements OnInit {
   donationForm!:FormGroup;
   convertedAmountInWords:string = '';
+  isSubmitting = false;
 
+  constructor(
+    private donationService: DonationService,
+    private toast: ToastService
+  ) {}
 
    ngOnInit(): void {
     // Initialize form controls
@@ -62,13 +71,48 @@ subscribeToCategoryChanges(): void {
 
  
 
- onSubmit(): void {
-  if (this.donationForm.valid) {
-    alert('Donation request submitted successfully!');
-    this.donationForm.reset();
-  } else {
+onSubmit(): void {
+  if (this.donationForm.invalid) {
     this.donationForm.markAllAsTouched();
+    return;
   }
+
+  const payload: AddDonationRequest = {
+    name: this.donationForm.get('name')?.value,
+    amount: Number(this.donationForm.get('amount')?.value),
+    payment_method: this.donationForm.get('mode')?.value,
+    donation_date: this.donationForm.get('date')?.value,
+    amount_in_words: this.convertedAmountInWords,
+    location_id: Number(localStorage.getItem('location_id')) || undefined
+  };
+
+  this.isSubmitting = true;
+
+  this.donationService.PostAddDonation(payload).subscribe({
+    next: (res: AddDonationResponse) => {
+      this.isSubmitting = false;
+
+      if (res?.success) {
+        this.toast.show(res.message || 'Donation added successfully', 'success');
+        this.donationForm.reset();
+        this.convertedAmountInWords = '';
+      } else {
+        this.toast.show(res?.message || 'Failed to add donation', 'error');
+      }
+    },
+    error: (err) => {
+      this.isSubmitting = false;
+      console.error(err);
+      this.toast.show('API Error while adding donation', 'error');
+    }
+  });
+}
+
+
+
+onCancel(): void {
+  this.donationForm.reset();
+  this.convertedAmountInWords = '';
 }
 
 

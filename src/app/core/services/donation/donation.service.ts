@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { Observable } from 'rxjs';
-import { AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo } from '../../models/interface-model';
+import {  AddDonationRequest, AddDonationResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo } from '../../models/interface-model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -19,12 +19,6 @@ export class DonationService {
  * Function Name : donation table data 
  * Completed On  : 12/02/2026 * */
 
-PostAdminLogin(payload: any): Observable<AdminLoginResponse> {
-  return this.http.post<AdminLoginResponse>(
-    APP_CONFIG.BASE_URL + ENDPOINTS.GET_ADMIN_LOGIN,
-    payload
-  );
-}
 
 
    getDonorInfo(): Observable<{ success: boolean; data: DonorInfo[] }> {
@@ -52,6 +46,26 @@ getDonationReceipt(donationId: number) {
     `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DONATION_RECEIPT}?donation_id=${donationId}`
   );
 }
+
+// ============================= POST API'S ALL ============================
+
+// ADMIN LOGIN API
+
+PostAdminLogin(payload: any): Observable<AdminLoginResponse> {
+  return this.http.post<AdminLoginResponse>(
+    APP_CONFIG.BASE_URL + ENDPOINTS.GET_ADMIN_LOGIN,
+    payload
+  );
+}
+
+PostAddDonation(payload: AddDonationRequest): Observable<AddDonationResponse> {
+  return this.http.post<AddDonationResponse>(
+    APP_CONFIG.BASE_URL + ENDPOINTS.POST_ADD_DONATION,
+    payload
+  );
+}
+
+
 
 
 }

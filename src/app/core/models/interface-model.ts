@@ -87,3 +87,25 @@ export interface DonationReceipt {
 }
 
 
+// ================= ADD DONATION REQUEST =================
+export interface AddDonationRequest {
+  name: string;
+  amount: number;
+  payment_method: 'Cash' | 'Online';
+  donation_date: string;
+  amount_in_words?: string;
+  location_id?: number;
+}
+
+// ================= ADD DONATION RESPONSE =================
+export interface AddDonationResponse {
+  success: boolean;
+  message: string;
+  data?: {
+    donation_id: number;
+  };
+}
+
+
+
+
