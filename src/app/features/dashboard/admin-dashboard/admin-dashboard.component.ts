@@ -20,10 +20,6 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
   adminId: number | null = null;
   distributionData = { cash: 0, online: 0 };
 
-  open = false;
-  selectedTemple = 'Muktainagar';
-  temples = ['Muktainagar', 'Kothali', 'Pandharpur'];
-
   private weeklyChart: Chart | null = null;
   private donationChart: Chart | null = null;
   private viewInitialized = false;
@@ -42,11 +38,6 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
     this.loadAdminDashboardData(this.adminId);
   }
 
-  selectTemple(t: string) {
-    this.selectedTemple = t;
-    this.open = false;
-  }
-
   ngAfterViewInit(): void {
     this.viewInitialized = true;
     this.renderChartsIfReady();
@@ -56,6 +47,8 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
     this.weeklyChart?.destroy();
     this.donationChart?.destroy();
   }
+
+  // ================= API =================
 
   loadAdminDashboardData(id: number): void {
     this.loader.show();
@@ -77,38 +70,30 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
 
   private resolveAdminId(): number | null {
     const id = Number(localStorage.getItem('admin_id'));
-    if (Number.isFinite(id) && id > 0) {
-      return id;
-    }
-
-    return 5;
+    return Number.isFinite(id) && id > 0 ? id : 5;
   }
 
-  private renderChartsIfReady(): void {
-    if (!this.viewInitialized || !this.adminDashboardData) {
-      return;
-    }
+  // ================= CHART RENDER =================
 
-    // charts are inside *ngIf, so render after DOM updates
+  private renderChartsIfReady(): void {
+    if (!this.viewInitialized || !this.adminDashboardData) return;
     setTimeout(() => this.renderCharts(), 0);
   }
 
   private renderCharts(): void {
-    if (!this.adminDashboardData) {
-      return;
-    }
+    if (!this.adminDashboardData) return;
 
     const weeklyChartElem = document.getElementById('weeklyChart') as HTMLCanvasElement | null;
     const donutChartElem = document.getElementById('donutChart2') as HTMLCanvasElement | null;
 
-    if (!weeklyChartElem || !donutChartElem) {
-      return;
-    }
+    if (!weeklyChartElem || !donutChartElem) return;
 
     this.weeklyChart?.destroy();
     this.donationChart?.destroy();
 
     const weeklyTrend = this.getWeeklyTrendData();
+
+    // ================= WEEKLY BAR CHART =================
     this.weeklyChart = new Chart(weeklyChartElem, {
       type: 'bar',
       data: {
@@ -125,14 +110,16 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
         },
         scales: {
           y: {
+            beginAtZero: true,
             ticks: {
-              callback: (value) => `?${value}`
+              callback: (value) => `₹${value}` // ✅ FIXED
             }
           }
         }
       }
     });
 
+    // ================= DONUT CHART =================
     this.donationChart = new Chart(donutChartElem, {
       type: 'doughnut',
       data: {
@@ -150,14 +137,14 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
         rotation: -90,
         circumference: 360,
         plugins: {
-          legend: { display: false },
-          tooltip: { enabled: true }
+          legend: { display: false }
         }
       }
     });
   }
 
-private getWeeklyTrendData(): { labels: string[]; values: number[] } {
+  // ================= WEEKLY TREND PARSER =================
+ private getWeeklyTrendData(): { labels: string[]; values: number[] } {
   const defaultLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const trend = this.adminDashboardData?.weekly_donation_trend;
 
@@ -168,37 +155,19 @@ private getWeeklyTrendData(): { labels: string[]; values: number[] } {
     };
   }
 
-  // Case 1: Array of numbers
-  if (Array.isArray(trend)) {
-    return {
-      labels: defaultLabels.slice(0, trend.length),
-      values: trend.map(v => Number(v) || 0)
-    };
-  }
-
-  // Case 2: Object with labels and values
+  // ✅ SAFE TYPE CHECK (Angular strict mode fix)
   if (
-    typeof trend === 'object' &&
-    'labels' in trend &&
-    'values' in trend
+    Array.isArray(trend) &&
+    trend.length > 0 &&
+    typeof trend[0] === 'object' &&
+    trend[0] !== null &&
+    'day' in trend[0]
   ) {
-    const t = trend as { labels: string[]; values: number[] };
-
-    if (Array.isArray(t.labels) && Array.isArray(t.values)) {
-      return {
-        labels: t.labels,
-        values: t.values.map(v => Number(v) || 0)
-      };
-    }
-  }
-
-  // Case 3: Key-value object
-  if (typeof trend === 'object') {
-    const labels = Object.keys(trend);
+    const typedTrend = trend as unknown as { day: string; amount: number }[];
 
     return {
-      labels,
-      values: labels.map(label => Number((trend as Record<string, number>)[label]) || 0)
+      labels: typedTrend.map(d => d.day),
+      values: typedTrend.map(d => Number(d.amount) || 0)
     };
   }
 
@@ -209,44 +178,29 @@ private getWeeklyTrendData(): { labels: string[]; values: number[] } {
 }
 
 
- private getDistributionData(): { cash: number; online: number } {
-  const payload = this.adminDashboardData;
+  // ================= DONUT DISTRIBUTION =================
+  private getDistributionData(): { cash: number; online: number } {
+    const payload = this.adminDashboardData;
+    if (!payload) return { cash: 0, online: 0 };
 
-  if (!payload) {
-    return { cash: 0, online: 0 };
-  }
+    const nested = payload.donation_distribution;
 
-  const nested = payload.donation_distribution;
+    if (nested && typeof nested === 'object') {
+      return {
+        cash: Number(nested.cash_percentage) || 0,
+        online: Number(nested.online_percentage) || 0
+      };
+    }
 
-  // Case 1: nested object
-  if (nested && typeof nested === 'object') {
+    const cash = Number(payload.cash_donations ?? 0);
+    const online = Number(payload.online_donations ?? 0);
+    const total = cash + online;
+
+    if (!total) return { cash: 0, online: 0 };
+
     return {
-      cash: Number(nested.cash_percentage) || 0,
-      online: Number(nested.online_percentage) || 0
+      cash: Number(((cash / total) * 100).toFixed(2)),
+      online: Number(((online / total) * 100).toFixed(2))
     };
   }
-
-  // Case 2: direct percentage fields
-  const cash = Number(payload.cash_percentage ?? 0);
-  const online = Number(payload.online_percentage ?? 0);
-
-  if (cash > 0 || online > 0) {
-    return { cash, online };
-  }
-
-  // Case 3: calculate from donation amounts
-  const cashDonations = Number(payload.cash_donations ?? 0);
-  const onlineDonations = Number(payload.online_donations ?? 0);
-  const total = cashDonations + onlineDonations;
-
-  if (total === 0) {
-    return { cash: 0, online: 0 };
-  }
-
-  return {
-    cash: Number(((cashDonations / total) * 100).toFixed(2)),
-    online: Number(((onlineDonations / total) * 100).toFixed(2))
-  };
-}
-
 }

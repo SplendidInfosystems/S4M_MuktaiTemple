@@ -1,5 +1,5 @@
 export const ENDPOINTS = {
-  LOGIN: '/login',
+  GET_ADMIN_LOGIN: '/postLoginAdmin',
   PAYMENT: '/payment',
   GET_EXPENSES_INFO: '/getExpensesData',
   GET_DONOR_INFO: '/getDonorInfo',

@@ -10,6 +10,19 @@ export interface DonorInfo {
   donation_date: string;
 }
 
+// =================================ADMIN LOGIN =================
+
+export interface AdminLoginResponse {
+  success: boolean;
+  message: string;
+  data: {
+    admin_id: number;
+    name: string;
+    location_id: number;
+    president_id: number;
+  };
+}
+
 // ================= EXPENSE TABLE =================
 export interface ExpenseInfo {
   expense_id: string;

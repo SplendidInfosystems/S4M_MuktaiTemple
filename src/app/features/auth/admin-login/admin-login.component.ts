@@ -2,83 +2,92 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { DonationService } from '../../../core/services/donation/donation.service';
 
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent {
-   loginForm: FormGroup;
+  loginForm: FormGroup;
   submitted = false;
-  selectedRole: 'admin' | 'president' | null = 'admin';
-    errorMessage: string | null = null;
+  errorMessage: string | null = null;
+  showPassword = false;
 
-
-
-
-  
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private donationService: DonationService
+  ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
-  localStorage.setItem('role', 'admin'); // or 'admin'
-
   }
 
- onSubmit() {
-  this.submitted = true;
+  // ================= LOGIN =================
+  onSubmit() {
+    this.submitted = true;
+    this.errorMessage = null;
 
-  // ❗ FIRST: stop if form is invalid
-  if (this.loginForm.invalid) {
-    this.loginForm.markAllAsTouched();
-    this.errorMessage = 'Please enter valid details';
-    return;
-  }
-
-  const { username, password } = this.loginForm.value;
-
-  console.log('Username:', username);
-  console.log('Password:', password);
-
-  // ✅ ADMIN LOGIN
-  if (this.selectedRole === 'admin') {
-    if (username === 'admin' && password === 'Admin@123') {
-      console.log('Admin login successful');
-
-      localStorage.setItem('role', 'admin');
-      localStorage.setItem('token', 'loggedin');
-
-      this.router.navigate(['/dashboard/admin-Dashboard']);
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      this.errorMessage = 'Please enter valid details';
       return;
     }
-    this.errorMessage = 'Invalid Admin credentials';
+
+    const payload = this.loginForm.value;
+
+    this.donationService.PostAdminLogin(payload).subscribe({
+      next: (res: any) => {
+        console.log('Login response:', res);
+
+        if (res.success) {
+          const admin = res.data;
+
+          // Save data
+          localStorage.setItem('token', 'loggedin');
+          localStorage.setItem('role', 'admin');
+          localStorage.setItem('admin_id', admin.admin_id.toString());
+          localStorage.setItem('location_id', admin.location_id.toString());
+
+          // Redirect
+          this.router.navigate(['/dashboard/admin-Dashboard']);
+        } else {
+          this.errorMessage = res.message || 'Invalid credentials';
+        }
+      },
+      error: (err) => {
+        console.error(err);
+        this.errorMessage = 'Login failed. Please try again.';
+      }
+    });
   }
-
-  // ✅ PRESIDENT LOGIN
-  if (this.selectedRole === 'president') {
-    if (username === 'president' && password === 'President@123') {
-      localStorage.setItem('role', 'president');
-      localStorage.setItem('token', 'loggedin');
-
-      this.router.navigate(['/dashboard/donation']);
-      return;
-    }
-    this.errorMessage = 'Invalid President credentials';
-  }
-}
-
-
 
   goBack() {
     this.router.navigate(['/login']);
   }
-  get f() {
-  return this.loginForm.controls;
-}
-  
 
+  get f() {
+    return this.loginForm.controls;
+  }
+    togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+    // Password checks
+  get password(): string {
+    return this.loginForm.get('password')?.value || '';
+  }
+  hasUpperCase(): boolean { return /[A-Z]/.test(this.password); }
+  hasLowerCase(): boolean { return /[a-z]/.test(this.password); }
+  hasNumber(): boolean { return /[0-9]/.test(this.password); }
+  hasSpecialChar(): boolean { return /[\W_]/.test(this.password); }
+  hasMinLength(): boolean { return this.password.length >= 6; }
 }
+
+
+
