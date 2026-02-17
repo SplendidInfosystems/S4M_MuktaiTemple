@@ -23,6 +23,18 @@ export interface AdminLoginResponse {
   };
 }
 
+export interface PresidentLoginResponse {
+  success: boolean;
+  message: string;
+  data: {
+    admin_id: number;
+    name: string;
+    location_id: number;
+    president_id: number;
+  };
+}
+
+
 // ================= EXPENSE TABLE =================
 export interface ExpenseInfo {
   expense_id: string;
@@ -110,6 +122,23 @@ export interface AddDonationResponse {
   data?: {
     donation_id: number;
   };
+}
+
+
+// ================= ADD EXPENSE REQUEST =================
+export interface AddExpenseRequest {
+  category: string;
+  description: string;
+  amount: number;
+  expense_date: string;
+  admin_id: number;
+}
+
+// ================= ADD EXPENSE RESPONSE =================
+export interface AddExpenseResponse {
+  success: boolean;
+  message: string;
+  data?: any;
 }
 
 

@@ -1,6 +1,5 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../../features/dashboard/sidebar/sidebar.component';
 import { PresidentSidebarComponent } from '../../features/dashboard/president-sidebar/president-sidebar.component';
@@ -8,7 +7,12 @@ import { PresidentSidebarComponent } from '../../features/dashboard/president-si
 @Component({
   selector: 'app-dashboard-layout',
   standalone: true,
-  imports: [SidebarComponent,RouterOutlet,CommonModule ,PresidentSidebarComponent ],
+  imports: [
+    SidebarComponent,
+    PresidentSidebarComponent,
+    RouterOutlet,
+    CommonModule
+  ],
   templateUrl: './dashboard-layout.component.html',
   styleUrl: './dashboard-layout.component.css'
 })
@@ -19,7 +23,6 @@ export class DashboardLayoutComponent {
   sidebarOpen = false;
   screenIsSmall = false;
 
-  // header dropdown
   open = false;
   selectedTemple = 'Muktainagar';
   temples = ['Muktainagar', 'Kothali', 'Pandharpur'];
@@ -32,11 +35,16 @@ export class DashboardLayoutComponent {
   @HostListener('window:resize')
   checkScreen() {
     this.screenIsSmall = window.innerWidth < 768;
-    this.sidebarOpen = !this.screenIsSmall;
+
+    if (this.screenIsSmall) {
+      this.sidebarOpen = false; // closed by default in mobile
+    } else {
+      this.sidebarOpen = true; // always open in desktop
+    }
   }
 
-  openSidebar() {
-    this.sidebarOpen = true;
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
   }
 
   closeSidebar() {
@@ -47,5 +55,4 @@ export class DashboardLayoutComponent {
     this.selectedTemple = t;
     this.open = false;
   }
-
 }

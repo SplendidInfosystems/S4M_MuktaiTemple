@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { AddExpenseRequest } from '../../../core/models/interface-model';
+import { ToastService } from '../../../core/services/toast/toast.service';
+import { Router } from '@angular/router';
+import { DonationService } from '../../../core/services/donation/donation.service';
 
 @Component({
   selector: 'app-add-expenses',
@@ -14,19 +18,24 @@ export class AddExpensesComponent implements OnInit {
     expenseForm!: FormGroup;
 
     convertedAmountInWords: string = '';
+      isSubmitting = false;
+
+
+  constructor(
+    private expenseService: DonationService,
+   private toast: ToastService,
+    private router: Router
+  ) {}
 
 
      ngOnInit(): void {
     // Initialize form controls
-    this.expenseForm = new FormGroup({
-      expenseName: new FormControl('', Validators.required),
-      date: new FormControl('', Validators.required),
-      category: new FormControl('', Validators.required),
-      otherCategory: new FormControl(''),
-      status: new FormControl('', Validators.required),
-      amount: new FormControl(null, [Validators.required, Validators.min(1)]),
-      description: new FormControl('', Validators.required),
-    });
+     this.expenseForm = new FormGroup({
+    category: new FormControl('', Validators.required),
+    expense_date: new FormControl('', Validators.required),
+    amount: new FormControl(null, [Validators.required, Validators.min(1)]),
+    description: new FormControl('', Validators.required),
+  });
      // Subscribe to conditional validation for 'otherCategory'
     this.subscribeToCategoryChanges();
 
@@ -60,17 +69,62 @@ subscribeToCategoryChanges(): void {
     }
   }
 
- 
+onSubmit(): void {
 
- onSubmit(): void {
-  if (this.expenseForm.valid) {
-    alert('Expense request submitted successfully!');
-    this.expenseForm.reset();
-  } else {
+  if (this.expenseForm.invalid) {
     this.expenseForm.markAllAsTouched();
+    return;
   }
+
+  this.isSubmitting = true;
+
+const selectedDate = this.expenseForm.get('expense_date')?.value;
+
+  const payload: AddExpenseRequest = {
+  category: this.expenseForm.get('category')?.value,
+  description: this.expenseForm.get('description')?.value,
+  amount: Number(this.expenseForm.get('amount')?.value),
+  expense_date: selectedDate
+    ? `${selectedDate} 00:00:00`
+    : '',
+  admin_id: Number(localStorage.getItem('admin_id'))
+};
+
+
+ this.expenseService.PostAddExpense(payload).subscribe({
+  next: (res: any) => {
+    console.log('Expense API Response:', res);
+    this.isSubmitting = false;
+
+    if (res?.success === true) {
+      this.toast.show(
+        res?.message || 'Expense added successfully',
+        'success'
+      );
+
+      this.router.navigate(['/dashboard/expenses']);
+      this.onCancel();
+    } else {
+      this.toast.show(
+        res?.message || 'Failed to add expense',
+        'error'
+      );
+    }
+  },
+  error: (err) => {
+    this.isSubmitting = false;
+    console.error(err);
+    this.toast.show('API Error', 'error');
+  }
+});
+
 }
 
+
+ onCancel(): void {
+    this.expenseForm.reset();
+    this.convertedAmountInWords = '';
+  }
 
   convertNumberToWords(amount: number): string {
     const ones = [

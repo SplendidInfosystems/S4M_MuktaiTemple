@@ -298,25 +298,28 @@
     "PRESIDENT_DESC": "All temples overview and approvals"
   },
    
-    "ADD_EXPENSE": "Add Expense",
+  "ADD_EXPENSE": "Add Expense",
+  "EXPENSE_TITLE": "Expense Title",
+  "EXPENSE_DATE": "Expense Date",
+  "EXPENSE_STATUS": "Expense Status",
+  "EXPENSE_AMOUNT": "Amount",
+  "EXPENSE_DESCRIPTION": "Description",
 
-  "EXPENSE_TITLE": "Expense Type",
-  "EXPENSE_TITLE_REQUIRED": "Expense type is required",
-
-  "EXPENSE_DATE": "Date",
-  "EXPENSE_DATE_REQUIRED": "Date is required",
-
-  "EXPENSE_STATUS": "Status",
-  "SELECT_STATUS": "Select status",
-
+  "SELECT_STATUS": "Select Status",
   "PENDING": "Pending",
   "PAID": "Paid",
   "UNPAID": "Unpaid",
 
-  "EXPENSE_AMOUNT": "Amount",
-  "EXPENSE_AMOUNT_REQUIRED": "Valid amount is required",
+  "EXPENSE_TITLE_REQUIRED": "Expense title is required",
+  "EXPENSE_DATE_REQUIRED": "Expense date is required",
+  "EXPENSE_STATUS_REQUIRED": "Please select expense status",
+  "EXPENSE_AMOUNT_REQUIRED": "Amount is required",
+  "EXPENSE_AMOUNT_INVALID": "Amount must be greater than 0",
+  "EXPENSE_DESCRIPTION_REQUIRED": "Description is required",
 
-"SUBMIT_EXPENSE": "Add Expense",
+  "SUBMIT_EXPENSE": "Submit Expense",
+  "SUBMITTING": "Submitting...",
+  "CANCEL": "Cancel",
 
 "DONATION_REPORT": {
    "ADD_DONATION": "Add Donation",

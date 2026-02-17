@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { Observable } from 'rxjs';
-import {  AddDonationRequest, AddDonationResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo } from '../../models/interface-model';
+import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, PresidentLoginResponse } from '../../models/interface-model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -57,6 +57,14 @@ PostAdminLogin(payload: any): Observable<AdminLoginResponse> {
     payload
   );
 }
+PostPresidentLogin(payload: any): Observable<PresidentLoginResponse> {
+  return this.http.post<PresidentLoginResponse>(
+    APP_CONFIG.BASE_URL + ENDPOINTS.GET_ADMIN_LOGIN,
+    payload
+  );
+}
+
+// ADD DONATION API
 
 PostAddDonation(payload: AddDonationRequest): Observable<AddDonationResponse> {
   return this.http.post<AddDonationResponse>(
@@ -64,7 +72,14 @@ PostAddDonation(payload: AddDonationRequest): Observable<AddDonationResponse> {
     payload
   );
 }
+// ADD EXPENSE API
 
+PostAddExpense(payload: AddExpenseRequest): Observable<any> {
+  return this.http.post(
+    APP_CONFIG.BASE_URL + ENDPOINTS.POST_ADD_EXPENSE,
+    payload
+  );
+}
 
 
 

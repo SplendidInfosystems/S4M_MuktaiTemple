@@ -296,24 +296,26 @@
     "PRESIDENT_DESC": "सर्व मंदिरांचे नियंत्रण व मंजुरी"
   },
     "ADD_EXPENSE": "खर्च जोडा",
+  "EXPENSE_TITLE": "खर्च शीर्षक",
+  "EXPENSE_DATE": "खर्च दिनांक",
+  "EXPENSE_STATUS": "खर्च स्थिती",
+  "EXPENSE_AMOUNT": "रक्कम",
+  "EXPENSE_DESCRIPTION": "वर्णन",
 
-  "EXPENSE_TITLE": "खर्चाचा प्रकार",
-  "EXPENSE_TITLE_REQUIRED": "खर्चाचा प्रकार आवश्यक आहे",
-
-  "EXPENSE_DATE": "दिनांक",
-  "EXPENSE_DATE_REQUIRED": "दिनांक आवश्यक आहे",
-
-  "EXPENSE_STATUS": "स्थिती",
   "SELECT_STATUS": "स्थिती निवडा",
-
   "PENDING": "प्रलंबित",
   "PAID": "भरलेले",
   "UNPAID": "न भरलेले",
 
-  "EXPENSE_AMOUNT": "रक्कम",
-  "EXPENSE_AMOUNT_REQUIRED": "योग्य रक्कम आवश्यक आहे",
+  "EXPENSE_TITLE_REQUIRED": "खर्च शीर्षक आवश्यक आहे",
+  "EXPENSE_DATE_REQUIRED": "खर्च दिनांक आवश्यक आहे",
+  "EXPENSE_STATUS_REQUIRED": "कृपया खर्च स्थिती निवडा",
+  "EXPENSE_AMOUNT_REQUIRED": "रक्कम आवश्यक आहे",
+  "EXPENSE_AMOUNT_INVALID": "रक्कम 0 पेक्षा जास्त असावी",
+  "EXPENSE_DESCRIPTION_REQUIRED": "वर्णन आवश्यक आहे",
 
-  "SUBMIT_EXPENSE": "खर्च जोडा",
+  "SUBMIT_EXPENSE": "खर्च सबमिट करा",
+  "SUBMITTING": "सबमिट होत आहे...",
   "CANCEL": "रद्द करा",
 
 

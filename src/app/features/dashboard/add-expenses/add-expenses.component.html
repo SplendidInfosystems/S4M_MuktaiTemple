@@ -12,38 +12,36 @@
         (ngSubmit)="onSubmit()"
         class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <!-- Type (Expense Name) -->
+    <!-- Expense Title -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">
         {{ 'EXPENSE_TITLE' | translate }} *
       </label>
       <input
         type="text"
-        formControlName="expenseName"
+        formControlName="category"
         class="w-full rounded-xl px-4 py-2 border outline-none transition"
-        [ngClass]="{
-          'border-red-500 ring-1 ring-red-400': expenseForm.get('expenseName')?.touched && expenseForm.get('expenseName')?.invalid,
-          'border-orange-400 ring-1 ring-orange-300': expenseForm.get('expenseName')?.touched && expenseForm.get('expenseName')?.valid,
-          'border-gray-300': !expenseForm.get('expenseName')?.touched
-        }"
       />
+      <p *ngIf="expenseForm.get('category')?.touched && expenseForm.get('category')?.hasError('required')"
+         class="text-red-500 text-sm mt-1">
+        {{ 'EXPENSE_TITLE_REQUIRED' | translate }}
+      </p>
     </div>
 
-    <!-- Date -->
+    <!-- Expense Date -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">
         {{ 'EXPENSE_DATE' | translate }} *
       </label>
       <input
         type="date"
-        formControlName="date"
+        formControlName="expense_date"
         class="w-full rounded-xl px-4 py-2 border outline-none transition"
-        [ngClass]="{
-          'border-red-500 ring-1 ring-red-400': expenseForm.get('date')?.touched && expenseForm.get('date')?.invalid,
-          'border-orange-400 ring-1 ring-orange-300': expenseForm.get('date')?.touched && expenseForm.get('date')?.valid,
-          'border-gray-300': !expenseForm.get('date')?.touched
-        }"
       />
+      <p *ngIf="expenseForm.get('expense_date')?.touched && expenseForm.get('expense_date')?.hasError('required')"
+         class="text-red-500 text-sm mt-1">
+        {{ 'EXPENSE_DATE_REQUIRED' | translate }}
+      </p>
     </div>
 
     <!-- Status -->
@@ -59,6 +57,10 @@
         <option value="Paid">{{ 'PAID' | translate }}</option>
         <option value="Unpaid">{{ 'UNPAID' | translate }}</option>
       </select>
+      <p *ngIf="expenseForm.get('status')?.touched && expenseForm.get('status')?.hasError('required')"
+         class="text-red-500 text-sm mt-1">
+        {{ 'EXPENSE_STATUS_REQUIRED' | translate }}
+      </p>
     </div>
 
     <!-- Amount -->
@@ -70,37 +72,54 @@
         type="number"
         formControlName="amount"
         class="w-full rounded-xl px-4 py-2 border outline-none transition"
-        [ngClass]="{
-          'border-red-500 ring-1 ring-red-400': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.invalid,
-          'border-orange-400 ring-1 ring-orange-300': expenseForm.get('amount')?.touched && expenseForm.get('amount')?.valid,
-          'border-gray-300': !expenseForm.get('amount')?.touched
-        }"
       />
 
-      <!-- Amount in Words -->
+      <p *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.hasError('required')"
+         class="text-red-500 text-sm mt-1">
+        {{ 'EXPENSE_AMOUNT_REQUIRED' | translate }}
+      </p>
+
+      <p *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.hasError('min')"
+         class="text-red-500 text-sm mt-1">
+        {{ 'EXPENSE_AMOUNT_INVALID' | translate }}
+      </p>
+
       <p *ngIf="convertedAmountInWords"
          class="text-xs text-gray-600 italic mt-1">
         {{ convertedAmountInWords }}
       </p>
     </div>
 
-    <!-- Hidden fields (keep for form validity, no UI) -->
-    <input type="hidden" formControlName="category">
-    <input type="hidden" formControlName="otherCategory">
-    <input type="hidden" formControlName="description">
+    <!-- Description -->
+    <div>
+      <label class="block text-sm font-medium text-gray-600 mb-1">
+        {{ 'EXPENSE_DESCRIPTION' | translate }} *
+      </label>
+      <input
+        type="text"
+        formControlName="description"
+        class="w-full rounded-xl px-4 py-2 border outline-none transition"
+      />
+      <p *ngIf="expenseForm.get('description')?.touched && expenseForm.get('description')?.hasError('required')"
+         class="text-red-500 text-sm mt-1">
+        {{ 'EXPENSE_DESCRIPTION_REQUIRED' | translate }}
+      </p>
+    </div>
 
     <!-- Buttons -->
-    <div class="md:col-span-2 flex justify-end gap-4 mt-4">
+    <div class="flex justify-end gap-3 md:col-span-2">
       <button
-        type="reset"
-        class="px-6 py-2 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100">
+        type="button"
+        (click)="onCancel()"
+        class="px-5 py-2 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100">
         {{ 'CANCEL' | translate }}
       </button>
 
       <button
         type="submit"
-        class="px-6 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 shadow">
-        {{ 'SUBMIT_EXPENSE' | translate }}
+        [disabled]="expenseForm.invalid || isSubmitting"
+        class="px-6 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50">
+        {{ isSubmitting ? ('SUBMITTING' | translate) : ('SUBMIT_EXPENSE' | translate) }}
       </button>
     </div>
 

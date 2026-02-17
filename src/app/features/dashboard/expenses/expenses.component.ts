@@ -18,6 +18,14 @@ import { environment } from '../../../../environments/environment';
 })
 export class ExpensesComponent implements OnInit {
   expenses: ExpenseInfo[] = [];
+
+    // =========================
+  // PAGINATION VARIABLES
+  // =========================
+  currentPage: number = 1;
+  pageSize: number = 5; // records per page
+
+
   constructor(private donationService: DonationService,
     private toast: ToastService,
     private loader: LoaderService) { }
@@ -52,5 +60,34 @@ export class ExpensesComponent implements OnInit {
         }
       });
   }
+
+
+  
+    // =========================
+    // PAGINATION LOGIC
+    // =========================
+  
+    get totalPages(): number {
+      return Math.ceil(this.expenses.length / this.pageSize) || 1;
+    }
+  
+    get paginatedExpences(): ExpenseInfo[] {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      return this.expenses.slice(start, end);
+    }
+  
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    }
+  
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    }
+  
 
 }
