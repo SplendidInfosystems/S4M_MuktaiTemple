@@ -1,119 +1,147 @@
 <div class="bg-white rounded-2xl border border-orange-200 shadow-sm p-6 mb-8">
-     <!-- Header -->
+  
+  <!-- Header -->
   <div class="flex justify-between items-center mb-6">
     <h2 class="text-lg font-semibold text-orange-600">
       {{ 'ADD_DONATION' | translate }}
     </h2>
     <button class="text-gray-400 hover:text-red-500 text-xl">&times;</button>
   </div>
-    
-<form
-  [formGroup]="donationForm"
-  (ngSubmit)="onSubmit()"
-  class="grid grid-cols-1 md:grid-cols-2 gap-6"
->
- 
-  <!-- Donor Name -->
-  <div class="mb-4">
-    <label class="block text-sm font-medium text-gray-700 mb-1">
-      {{ 'DONOR_NAME' | translate }}
-    </label>
-    <input
-      type="text"
-      formControlName="name"
-      class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-      placeholder="{{ 'DONOR_NAME' | translate }}"
-    />
-    <p
-      *ngIf="donationForm.get('name')?.touched && donationForm.get('name')?.invalid"
-      class="text-red-500 text-sm mt-1"
-    >
-      {{ 'DONOR_NAME_REQUIRED' | translate }}
-    </p>
-  </div>
 
-  <!-- Amount -->
-  <div class="mb-4">
-    <label class="block text-sm font-medium text-gray-700 mb-1">
-      {{ 'DONATION_AMOUNT' | translate }}
-    </label>
-    <input
-      type="number"
-      formControlName="amount"
-      class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-      placeholder="Rs"
-    />
-    <p
-      *ngIf="donationForm.get('amount')?.touched && donationForm.get('amount')?.invalid"
-      class="text-red-500 text-sm mt-1"
-    >
-      {{ 'DONATION_AMOUNT_REQUIRED' | translate }}
-    </p>
-    
+  <form
+    [formGroup]="donationForm"
+    (ngSubmit)="onSubmit()"
+    class="grid grid-cols-1 md:grid-cols-2 gap-6"
+  >
+
+    <!-- Donor Name -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'DONOR_NAME' | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="name"
+        class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        placeholder="{{ 'DONOR_NAME' | translate }}"
+      />
+      <p *ngIf="donationForm.get('name')?.touched && donationForm.get('name')?.invalid"
+         class="text-red-500 text-sm mt-1">
+        {{ 'DONOR_NAME_REQUIRED' | translate }}
+      </p>
+    </div>
+
+    <!-- Amount -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'DONATION_AMOUNT' | translate }}
+      </label>
+      <input
+        type="number"
+        formControlName="amount"
+        class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        placeholder="Rs"
+      />
+      <p *ngIf="donationForm.get('amount')?.touched && donationForm.get('amount')?.invalid"
+         class="text-red-500 text-sm mt-1">
+        {{ 'DONATION_AMOUNT_REQUIRED' | translate }}
+      </p>
+
       <!-- Amount in Words -->
       <p *ngIf="convertedAmountInWords"
          class="text-xs text-gray-600 italic mt-1">
         {{ convertedAmountInWords }}
       </p>
-  </div>
+    </div>
 
-  <!-- Mode -->
-  <div class="mb-4">
-    <label class="block text-sm font-medium text-gray-700 mb-1">
-      {{ 'DONATION_MODE' | translate }}
-    </label>
-    <select
-      formControlName="mode"
-      class="w-full rounded-xl border px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
-    >
-      <option value="">{{ 'SELECT_MODE' | translate }}</option>
-      <option value="Cash">{{ 'CASH' | translate }}</option>
-      <option value="Online">{{ 'ONLINE' | translate }}</option>
-    </select>
-    <p
-      *ngIf="donationForm.get('mode')?.touched && donationForm.get('mode')?.invalid"
-      class="text-red-500 text-sm mt-1"
-    >
-      {{ 'DONATION_MODE_REQUIRED' | translate }}
-    </p>
-  </div>
+    <!-- Mobile Number -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'MOBILE_NUMBER' | translate }}
+      </label>
+      <input
+        type="tel"
+        formControlName="mobile_number"
+        maxlength="10"
+        class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        placeholder="Enter mobile number"
+      />
+      <p *ngIf="donationForm.get('mobile_number')?.touched && donationForm.get('mobile_number')?.invalid"
+         class="text-red-500 text-sm mt-1">
+        {{ 'MOBILE_NUMBER_REQUIRED' | translate }}
+      </p>
+    </div>
 
-  <!-- Date -->
-  <div class="mb-6">
-    <label class="block text-sm font-medium text-gray-700 mb-1">
-      {{ 'DONATION_DATE' | translate }}
-    </label>
-    <input
-      type="date"
-      formControlName="date"
-      class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-    />
-    <p
-      *ngIf="donationForm.get('date')?.touched && donationForm.get('date')?.invalid"
-      class="text-red-500 text-sm mt-1"
-    >
-      {{ 'DONATION_DATE_REQUIRED' | translate }}
-    </p>
-  </div>
+    <!-- Address -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'ADDRESS' | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="address"
+        class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        placeholder="Enter address"
+      />
+      <p *ngIf="donationForm.get('address')?.touched && donationForm.get('address')?.invalid"
+         class="text-red-500 text-sm mt-1">
+        {{ 'ADDRESS_REQUIRED' | translate }}
+      </p>
+    </div>
 
-  <!-- Buttons -->
-  <div class="flex justify-end gap-3">
-    <button
-      type="button"
-      (click)="onCancel()"
-      class="px-5 py-2 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100"
-    >
-      {{ 'CANCEL' | translate }}
-    </button>
+    <!-- Donation Mode -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'DONATION_MODE' | translate }}
+      </label>
+      <select
+        formControlName="mode"
+        class="w-full rounded-xl border px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+      >
+        <option value="">{{ 'SELECT_MODE' | translate }}</option>
+        <option value="Cash">{{ 'CASH' | translate }}</option>
+        <option value="Online">{{ 'ONLINE' | translate }}</option>
+      </select>
+      <p *ngIf="donationForm.get('mode')?.touched && donationForm.get('mode')?.invalid"
+         class="text-red-500 text-sm mt-1">
+        {{ 'DONATION_MODE_REQUIRED' | translate }}
+      </p>
+    </div>
 
-    <button
-      type="submit"
-      [disabled]="donationForm.invalid || isSubmitting"
-      class="px-6 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50"
-    >
-      {{ isSubmitting ? 'Submitting...' : ('SUBMIT_DONATION' | translate) }}
-    </button>
-  </div>
-</form>
+    <!-- Donation Date -->
+    <div class="mb-6">
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        {{ 'DONATION_DATE' | translate }}
+      </label>
+      <input
+        type="date"
+        formControlName="date"
+        class="w-full rounded-xl border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+      />
+      <p *ngIf="donationForm.get('date')?.touched && donationForm.get('date')?.invalid"
+         class="text-red-500 text-sm mt-1">
+        {{ 'DONATION_DATE_REQUIRED' | translate }}
+      </p>
+    </div>
 
+    <!-- Buttons -->
+    <div class="flex justify-end gap-3 md:col-span-2">
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="px-5 py-2 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100"
+      >
+        {{ 'CANCEL' | translate }}
+      </button>
+
+      <button
+        type="submit"
+        [disabled]="donationForm.invalid || isSubmitting"
+        class="px-6 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50"
+      >
+        {{ isSubmitting ? 'Submitting...' : ('SUBMIT_DONATION' | translate) }}
+      </button>
+    </div>
+
+  </form>
 </div>

@@ -324,6 +324,11 @@
   "DONOR_NAME": "Donor Name",
   "DONOR_NAME_REQUIRED": "Donor name is required",
 
+  "MOBILE_NUMBER":" Mobile Number",
+  "MOBILE_MUMBER_REQUIRED":"Mobile Number is required",
+  "ADDRESS":" Address ",
+  "ADDRESS_REQUIRED":"Address Required",
+
   "DONATION_AMOUNT": "Amount",
   "DONATION_AMOUNT_REQUIRED": "Valid amount is required",
 

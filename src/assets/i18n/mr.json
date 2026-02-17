@@ -321,9 +321,13 @@
 
   "DONOR_NAME": "देणगीदाराचे नाव",
   "DONOR_NAME_REQUIRED": "देणगीदाराचे नाव आवश्यक आहे",
+  "MOBILE_NUMBER":"मोबाईल क्रमांक",
+  "MOBILE_NUMBER_REQUIRED":"मोबाईल क्रमांक आवश्यक आहे ",
 
   "DONATION_AMOUNT": "रक्कम",
   "DONATION_AMOUNT_REQUIRED": "योग्य रक्कम आवश्यक आहे",
+   "ADDRESS":" पत्ता ",
+  "ADDRESS_REQUIRED":"पत्ता आवश्यक आहे",
 
   "DONATION_MODE": "प्रकार",
   "SELECT_MODE": "प्रकार निवडा",

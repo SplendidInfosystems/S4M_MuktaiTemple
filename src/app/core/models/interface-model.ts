@@ -88,13 +88,19 @@ export interface DonationReceipt {
 
 
 // ================= ADD DONATION REQUEST =================
+// ================= ADD DONATION REQUEST =================
 export interface AddDonationRequest {
   name: string;
   amount: number;
   payment_method: 'Cash' | 'Online';
+  address: string;
+  mobile_number: string;
   donation_date: string;
   amount_in_words?: string;
   location_id?: number;
+  transaction_id: string;   // ✅ changed to string
+  admin_id: number;
+  president_id: number;
 }
 
 // ================= ADD DONATION RESPONSE =================
