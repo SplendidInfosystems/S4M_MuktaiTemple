@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { DonationService } from '../../../core/services/donation/donation.service';
+import { ToastService } from '../../../core/services/toast/toast.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -20,7 +21,9 @@ export class AdminLoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private donationService: DonationService
+    private donationService: DonationService,
+     private toast: ToastService,
+    
   ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -47,6 +50,8 @@ export class AdminLoginComponent {
 
         if (res.success) {
           const admin = res.data;
+         this.toast.show('President Login successfully', 'success');
+
 
           // Save data
           localStorage.setItem('token', 'loggedin');
@@ -57,8 +62,8 @@ export class AdminLoginComponent {
           // Redirect
           this.router.navigate(['/dashboard/admin-Dashboard']);
         } else {
-          this.errorMessage = res.message || 'Invalid credentials';
-        }
+        this.toast.show(res.message || 'Invalid credentials', 'error');
+      }
       },
       error: (err) => {
         console.error(err);

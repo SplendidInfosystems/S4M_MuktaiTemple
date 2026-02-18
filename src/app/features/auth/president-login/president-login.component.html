@@ -24,7 +24,7 @@
 
         <!-- Username -->
         <div class="mb-4 text-left">
-            <label class="block text-sm font-medium mb-1">Username</label>
+            <label class="block text-sm font-medium mb-1">Email</label>
             <div class="relative">
                 <!-- Icon -->
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
@@ -36,18 +36,18 @@
                 </span>
 
                 <!-- Input -->
-                <input type="text" formControlName="username" placeholder="Username" class="w-full pl-10 pr-4 py-2 rounded-lg border
+                <input type="text" formControlName="email" placeholder="Email" class="w-full pl-10 pr-4 py-2 rounded-lg border
            border-gray-300 focus:ring-2 focus:ring-orange-400 focus:outline-none" />
             </div>
 
            <p
   *ngIf="
-    loginForm.controls['username'].invalid &&
-    (loginForm.controls['username'].touched || submitted)
+    loginForm.controls['email'].invalid &&
+    (loginForm.controls['email'].touched || submitted)
   "
   class="text-red-500 text-xs mt-1"
 >
-  Username is required
+  Email is required
 </p>
         </div>
 

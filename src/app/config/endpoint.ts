@@ -1,11 +1,37 @@
 export const ENDPOINTS = {
+  // ADMIN LOGIN ENDPOINT
   GET_ADMIN_LOGIN: '/postLoginAdmin',
+
+    // PRESIDENT LOGIN ENDPOINT
+
+  GET_PRESIDENT_LOGIN: '/postPresidentLogin',
+
+    // ADD DONATION  ENDPOINT
+
   POST_ADD_DONATION: '/postAddDonation',
+
+    // ADD EXPENCES ENDPOINT
+
   POST_ADD_EXPENSE: '/postExpensesData',
-  PAYMENT: '/payment',
+
+    // EXPENCES TABLE ENDPOINT
+
   GET_EXPENSES_INFO: '/getExpensesData',
+
+    // DONATION TABLE ENDPOINT
+
   GET_DONOR_INFO: '/getDonorInfo',
+
+    // ADMIN DASHBOARD ENDPOINT
+
   GET_ADMIN_DASHBOARD_DATA: '/getAdminDashboard',
+
+    // PRESIDENT DASHBOARD ENDPOINT
+
+  GET_PRESIDENT_DASHBOARD_DATA:'/getPresidentDashboard',
+
+    // DONATION RECEIPT ENDPOINT
+
   GET_DONATION_RECEIPT:'/getDonationReceipt',
 
   

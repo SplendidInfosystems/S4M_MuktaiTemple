@@ -27,10 +27,9 @@ export interface PresidentLoginResponse {
   success: boolean;
   message: string;
   data: {
-    admin_id: number;
-    name: string;
-    location_id: number;
+    email: string;
     president_id: number;
+    mobile_number:number;
   };
 }
 
@@ -142,5 +141,34 @@ export interface AddExpenseResponse {
 }
 
 
+// ================= PRESIDENT DASHBOARD =================
+
+export interface TempleComparison {
+  location: string;
+  daily: number;
+  weekly: number;
+  monthly: number;
+  devotees: number;
+}
+
+export interface MonthlyTrendItem {
+  month: string;
+  location: string;
+  total: number;
+}
+
+export interface PresidentDashboardBody {
+  today_total: number;
+  week_total: number;
+  month_total: number;
+  year_total: number;
+  temple_comparison: TempleComparison[];
+  monthly_trend: MonthlyTrendItem[];
+}
+
+export interface PresidentDashboardResponse {
+  statusCode: number;
+  body: PresidentDashboardBody;
+}
 
 

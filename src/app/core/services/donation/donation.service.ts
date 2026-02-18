@@ -3,23 +3,22 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { Observable } from 'rxjs';
-import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, PresidentLoginResponse } from '../../models/interface-model';
+import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, PresidentDashboardResponse, PresidentLoginResponse } from '../../models/interface-model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DonationService {
-  getDonorById(id: string) {
-    throw new Error('Method not implemented.');
-  }
+ 
 
   constructor(private http: HttpClient) { }
 /**
- * Function Name : donation table data 
+ * Function Name : API'S SERVICES 
  * Completed On  : 12/02/2026 * */
 
 
+//  =============================== GET API'S ===================================
 
    getDonorInfo(): Observable<{ success: boolean; data: DonorInfo[] }> {
   return this.http.get<{ success: boolean; data: DonorInfo[] }>(
@@ -37,6 +36,14 @@ export class DonationService {
 getAdminDashboardData(adminId: number): Observable<{ body: AdminDashboardData } | AdminDashboardData> {
   return this.http.get<{ body: AdminDashboardData } | AdminDashboardData>(`${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_ADMIN_DASHBOARD_DATA}?admin_id=${adminId}`);
 }
+
+//  president dashboard data
+getPresidentDashboard(): Observable<PresidentDashboardResponse> {
+  return this.http.get<PresidentDashboardResponse>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_PRESIDENT_DASHBOARD_DATA}`
+  );
+}
+
 
 getDonationReceipt(donationId: number) {
   return this.http.get<{
@@ -57,9 +64,10 @@ PostAdminLogin(payload: any): Observable<AdminLoginResponse> {
     payload
   );
 }
+// PRESIDENT LOGIN API
 PostPresidentLogin(payload: any): Observable<PresidentLoginResponse> {
   return this.http.post<PresidentLoginResponse>(
-    APP_CONFIG.BASE_URL + ENDPOINTS.GET_ADMIN_LOGIN,
+    APP_CONFIG.BASE_URL + ENDPOINTS.GET_PRESIDENT_LOGIN,
     payload
   );
 }
