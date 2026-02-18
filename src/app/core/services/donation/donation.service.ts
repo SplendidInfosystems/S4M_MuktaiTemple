@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { Observable } from 'rxjs';
-import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, PresidentDashboardResponse, PresidentLoginResponse } from '../../models/interface-model';
+import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, ExpenseRequest, PresidentDashboardResponse, PresidentLoginResponse, ReportResponse } from '../../models/interface-model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -53,6 +53,33 @@ getDonationReceipt(donationId: number) {
     `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DONATION_RECEIPT}?donation_id=${donationId}`
   );
 }
+
+downloadReport(type: string, range: string): Observable<Blob> {
+  return this.http.get(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}/reports/${type}/${range}`,
+    { responseType: 'blob' }
+  );
+}
+
+
+
+
+
+
+// EXPENCES REQUEST APPROVAL OR REJECT STATUS API'S
+
+  getRequests(status: string): Observable<ExpenseRequest[]> {
+    return this.http.get<ExpenseRequest[]>(
+      `${environment.baseUrl}${ENDPOINTS.GET_EXPENSE_REQUESTS}?status=${status}`
+    );
+  }
+
+  updateStatus(id: string, status: 'accepted' | 'rejected'): Observable<any> {
+    return this.http.put(
+      `${environment.baseUrl}${ENDPOINTS.UPDATE_EXPENSE_STATUS}`,
+      { id, status }
+    );
+  }
 
 // ============================= POST API'S ALL ============================
 

@@ -23,32 +23,31 @@
     <!-- PENDING COUNT -->
     <div class="flex items-center justify-between mb-6">
 
-        <!-- LEFT TEXT -->
         <span class="text-lg font-medium text-gray-700">
             {{ 'APPROVAL.PENDING' | translate }}
         </span>
 
-        <!-- RIGHT BADGE -->
+        <!-- ✅ Dynamic Count -->
         <span class="bg-red-500 text-white text-sm font-semibold
            px-3 py-1 border rounded-[5px]">
-            3
+            {{ requests.length }}
         </span>
 
     </div>
 
-
-    <!-- REQUEST CARD -->
-    <div class="bg-white border border-orange-200 rounded-2xl p-6 mb-5
-           flex justify-between items-center">
+    <!-- ✅ DYNAMIC REQUEST CARD -->
+    <div *ngFor="let request of requests" class="bg-white border border-orange-200 rounded-2xl p-6 mb-5
+               flex justify-between items-center">
 
         <!-- LEFT -->
         <div>
             <div class="flex items-center gap-2 mb-1">
-                <!-- BUILDING ICON -->
+
+                <!-- SAME SVG (NOT CHANGED) -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-building2 lucide-building-2 w-5 h-5 text-[#FF6B35] mr-2"
-                    data-fg-ctjp132="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:348:27:12971:53:e:Building2::::::DOEu">
+                    class="lucide lucide-building2 lucide-building-2 w-5 h-5 text-[#FF6B35] mr-2">
+
                     <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
                     <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
                     <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
@@ -58,165 +57,68 @@
                     <path d="M10 18h4"></path>
                 </svg>
 
+                <!-- ✅ Dynamic Temple Name -->
                 <span class="font-semibold text-lg text-gray-800">
-                    Muktainagar
+                    {{ request.location_name }}
+
                 </span>
             </div>
 
+            <!-- ✅ Dynamic Expense Type + Amount -->
             <p class="text-[#D4AF37] font-semibold">
-                {{ 'APPROVAL.KIRTAN' | translate }} – ₹8,000
+                {{ request.category }} – ₹{{ request.amount | number }}
+
             </p>
 
+            <!-- ✅ Dynamic Requested By + Date -->
             <p class="text-sm text-gray-500 mt-1">
-                {{ 'APPROVAL.REQUESTED_BY' | translate }}: Admin
+                {{ 'APPROVAL.REQUESTED_BY' | translate }}: {{ request.admin_name }}
                 &nbsp; | &nbsp;
-                {{ 'APPROVAL.DATE' | translate }}: 15/01/2026
+                {{ 'APPROVAL.DATE' | translate }}:
+                {{ request.expense_date | date:'dd/MM/yyyy' }}
             </p>
         </div>
 
         <!-- RIGHT BUTTONS -->
         <div class="flex gap-3">
-            <button (click)="openConfirm('approve')" class="bg-green-500 hover:bg-green-600
-               text-white px-5 py-2 rounded-lg
-               flex items-center gap-2">
+
+            <!-- APPROVE -->
+            <button (click)="openConfirm('approve', request)" class="bg-green-500 hover:bg-green-600
+                       text-white px-5 py-2 rounded-lg
+                       flex items-center gap-2">
+
+                <!-- SAME SVG -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-circle-check-big w-5 h-5"
-                    data-fg-ctjp14="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:171:15:5310:33:e:item.icon">
+                    class="lucide lucide-circle-check-big w-5 h-5">
+
                     <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                     <path d="m9 11 3 3L22 4"></path>
-                </svg> {{ 'APPROVAL.APPROVE' | translate }}
-            </button>
-
-            <button (click)="openConfirm('reject')" class="bg-red-500 hover:bg-red-600
-               text-white px-5 py-2 rounded-lg
-               flex items-center gap-2">
-                ✕ {{ 'APPROVAL.REJECT' | translate }}
-            </button>
-        </div>
-    </div>
-
-    <div class="bg-white border border-orange-200 rounded-2xl p-6 mb-5
-           flex justify-between items-center">
-
-        <!-- LEFT -->
-        <div>
-            <div class="flex items-center gap-2 mb-1">
-                <!-- BUILDING ICON -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-building2 lucide-building-2 w-5 h-5 text-[#FF6B35] mr-2"
-                    data-fg-ctjp132="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:348:27:12971:53:e:Building2::::::DOEu">
-                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                    <path d="M10 6h4"></path>
-                    <path d="M10 10h4"></path>
-                    <path d="M10 14h4"></path>
-                    <path d="M10 18h4"></path>
                 </svg>
 
-                <span class="font-semibold text-lg text-gray-800">
-                    Muktainagar
-                </span>
-            </div>
-
-            <p class="text-[#D4AF37] font-semibold">
-                {{ 'APPROVAL.KIRTAN' | translate }} – ₹8,000
-            </p>
-
-            <p class="text-sm text-gray-500 mt-1">
-                {{ 'APPROVAL.REQUESTED_BY' | translate }}: Admin
-                &nbsp; | &nbsp;
-                {{ 'APPROVAL.DATE' | translate }}: 15/01/2026
-            </p>
-        </div>
-
-        <!-- RIGHT BUTTONS -->
-        <div class="flex gap-3">
-            <button (click)="openConfirm('approve')" class="bg-green-500 hover:bg-green-600
-               text-white px-5 py-2 rounded-lg
-               flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-circle-check-big w-5 h-5"
-                    data-fg-ctjp14="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:171:15:5310:33:e:item.icon">
-                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                    <path d="m9 11 3 3L22 4"></path>
-                </svg>{{ 'APPROVAL.APPROVE' | translate }}
+                {{ 'APPROVAL.APPROVE' | translate }}
             </button>
 
-            <button (click)="openConfirm('reject')" class="bg-red-500 hover:bg-red-600
-               text-white px-5 py-2 rounded-lg
-               flex items-center gap-2">
+            <!-- REJECT -->
+            <button (click)="openConfirm('reject', request)" class="bg-red-500 hover:bg-red-600
+                       text-white px-5 py-2 rounded-lg
+                       flex items-center gap-2">
+
                 ✕ {{ 'APPROVAL.REJECT' | translate }}
             </button>
         </div>
     </div>
 
-    <div class="bg-white border border-orange-200 rounded-2xl p-6 mb-5
-           flex justify-between items-center">
-
-        <!-- LEFT -->
-        <div>
-            <div class="flex items-center gap-2 mb-1">
-                <!-- BUILDING ICON -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-building2 lucide-building-2 w-5 h-5 text-[#FF6B35] mr-2"
-                    data-fg-ctjp132="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:348:27:12971:53:e:Building2::::::DOEu">
-                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                    <path d="M10 6h4"></path>
-                    <path d="M10 10h4"></path>
-                    <path d="M10 14h4"></path>
-                    <path d="M10 18h4"></path>
-                </svg>
-
-                <span class="font-semibold text-lg text-gray-800">
-                    Muktainagar
-                </span>
-            </div>
-
-            <p class="text-[#D4AF37] font-semibold">
-                {{ 'APPROVAL.KIRTAN' | translate }} – ₹8,000
-            </p>
-
-            <p class="text-sm text-gray-500 mt-1">
-                {{ 'APPROVAL.REQUESTED_BY' | translate }}: Admin
-                &nbsp; | &nbsp;
-                {{ 'APPROVAL.DATE' | translate }}: 15/01/2026
-            </p>
-        </div>
-
-        <!-- RIGHT BUTTONS -->
-        <div class="flex gap-3">
-            <button (click)="openConfirm('approve')" class="bg-green-500 hover:bg-green-600
-               text-white px-5 py-2 rounded-lg
-               flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-circle-check-big w-5 h-5"
-                    data-fg-ctjp14="20.15:20.19898:/src/app/components/PresidentDashboard.tsx:171:15:5310:33:e:item.icon">
-                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                    <path d="m9 11 3 3L22 4"></path>
-                </svg> {{ 'APPROVAL.APPROVE' | translate }}
-            </button>
-
-            <button (click)="openConfirm('reject')" class="bg-red-500 hover:bg-red-600
-               text-white px-5 py-2 rounded-lg
-               flex items-center gap-2">
-                ✕ {{ 'APPROVAL.REJECT' | translate }}
-            </button>
-        </div>
+    <!-- EMPTY STATE (optional but good practice) -->
+    <div *ngIf="requests.length === 0" class="text-center text-gray-500 mt-10">
+        No pending requests
     </div>
 
-
-    <!-- CONFIRMATION MODAL -->
+    <!-- CONFIRMATION MODAL (UNCHANGED DESIGN) -->
     <div *ngIf="showConfirm" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
 
         <div class="bg-white rounded-2xl p-6 w-[380px] text-center">
+
             <h2 class="text-xl font-semibold text-gray-800 mb-3">
                 {{ 'APPROVAL.CONFIRM_TITLE' | translate }}
             </h2>
@@ -229,6 +131,7 @@
             </p>
 
             <div class="flex justify-center gap-4">
+
                 <button (click)="confirmAction()" class="bg-green-500 text-white px-5 py-2 rounded-lg">
                     {{ 'COMMON.YES' | translate }}
                 </button>
@@ -236,6 +139,7 @@
                 <button (click)="showConfirm=false" class="bg-gray-200 text-gray-800 px-5 py-2 rounded-lg">
                     {{ 'COMMON.NO' | translate }}
                 </button>
+
             </div>
         </div>
     </div>

@@ -1,25 +1,20 @@
 import { Component } from '@angular/core';
-import jsPDF from 'jspdf';
-import { saveAs } from 'file-saver';
-import {
-  Document,
-  Packer,
-  Paragraph,
-  TextRun
-} from 'docx';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { DonationService } from '../../../core/services/donation/donation.service';
+import { ReportResponse } from '../../../core/models/interface-model';
 
 @Component({
   selector: 'app-president-report',
   standalone: true,
-  imports: [CommonModule,TranslateModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './president-report.component.html',
   styleUrl: './president-report.component.css'
 })
 export class PresidentReportComponent {
-  
+
+  constructor(private reportService: DonationService) {}
+
   ranges = ['Daily', 'Monthly', 'Yearly'];
 
   selectedRange: any = {
@@ -32,44 +27,34 @@ export class PresidentReportComponent {
     this.selectedRange[type] = range;
   }
 
-  // 📄 PDF DOWNLOAD
-  downloadPDF(title: string, range: string) {
-    const doc = new jsPDF();
+  // ✅ FIXED DOWNLOAD FUNCTION
+downloadReportById(type: string, range: string) {
+  console.log('Type:', type);
+  console.log('Range:', range);
 
-    doc.setFontSize(18);
-    doc.text(title, 20, 20);
+  this.reportService.downloadReport(type, range).subscribe({
+    next: (blob: Blob) => {
+      if (!blob || blob.size === 0) {
+        console.error('Report not available');
+        alert('Report not available');
+        return;
+      }
 
-    doc.setFontSize(12);
-    doc.text(`Report Type: ${range}`, 20, 35);
-    doc.text("Temple Management System", 20, 45);
-    doc.text("Generated on: " + new Date().toLocaleString(), 20, 55);
+      const fileName = `${type}_report_${range}.pdf`;
 
-    doc.save(`${title.replace(/\s/g, '_')}_${range}.pdf`);
-  }
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    },
+    error: (err) => {
+      console.error('Download failed', err);
+      alert('Download failed');
+    }
+  });
+}
 
-  // 📝 WORD DOWNLOAD
-  async downloadWord(title: string, range: string) {
-    const doc = new Document({
-      sections: [{
-        children: [
-          new Paragraph({
-            children: [new TextRun({ text: title, bold: true, size: 32 })]
-          }),
-          new Paragraph({
-            children: [new TextRun(`Report Type: ${range}`)]
-          }),
-          new Paragraph({
-            children: [new TextRun("Temple Management System")]
-          }),
-          new Paragraph({
-            children: [new TextRun("Generated on: " + new Date().toLocaleString())]
-          })
-        ]
-      }]
-    });
-
-    const blob = await Packer.toBlob(doc);
-    saveAs(blob, `${title.replace(/\s/g, '_')}_${range}.docx`);
-  }
 
 }

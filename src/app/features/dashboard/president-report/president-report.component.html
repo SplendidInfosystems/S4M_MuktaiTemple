@@ -8,7 +8,7 @@
 
   <div class="grid md:grid-cols-2 gap-8">
 
-    <!-- Donation Report -->
+    <!-- ================= DONATION REPORT ================= -->
     <div class="report-card">
       <h2 class="report-title">
         {{ 'PRESIDENT_DASHBOARD.DONATION_REPORT.TITLE' | translate }}
@@ -26,17 +26,18 @@
       </div>
 
       <button class="btn-primary"
-              (click)="downloadPDF('Donation Report', selectedRange.donation)">
+              (click)="downloadReportById('donation', selectedRange.donation)">
         {{ 'COMMON.DOWNLOAD_PDF' | translate }}
       </button>
 
       <button class="btn-secondary"
-              (click)="downloadWord('Donation Report', selectedRange.donation)">
+              (click)="downloadReportById('donation', selectedRange.donation)">
         {{ 'COMMON.DOWNLOAD_WORD' | translate }}
       </button>
     </div>
 
-    <!-- Expense Report -->
+
+    <!-- ================= EXPENSE REPORT ================= -->
     <div class="report-card">
       <h2 class="report-title">
         {{ 'PRESIDENT_DASHBOARD.EXPENSE_REPORT.TITLE' | translate }}
@@ -54,17 +55,18 @@
       </div>
 
       <button class="btn-primary"
-              (click)="downloadPDF('Expense Report', selectedRange.expense)">
+              (click)="downloadReportById('expense', selectedRange.expense)">
         {{ 'COMMON.DOWNLOAD_PDF' | translate }}
       </button>
 
       <button class="btn-secondary"
-              (click)="downloadWord('Expense Report', selectedRange.expense)">
+              (click)="downloadReportById('expense', selectedRange.expense)">
         {{ 'COMMON.DOWNLOAD_WORD' | translate }}
       </button>
     </div>
 
-    <!-- Combined Report -->
+
+    <!-- ================= COMBINED REPORT ================= -->
     <div class="report-card md:col-span-2">
       <h2 class="report-title">
         {{ 'PRESIDENT_DASHBOARD.COMBINED_REPORT.TITLE' | translate }}
@@ -82,12 +84,12 @@
       </div>
 
       <button class="btn-primary"
-              (click)="downloadPDF('Combined Report', selectedRange.combined)">
+              (click)="downloadReportById('combined', selectedRange.combined)">
         {{ 'COMMON_PDF.DOWNLOAD_PDF' | translate }}
       </button>
 
       <button class="btn-secondary"
-              (click)="downloadWord('Combined Report', selectedRange.combined)">
+              (click)="downloadReportById('combined', selectedRange.combined)">
         {{ 'COMMON_PDF.DOWNLOAD_WORD' | translate }}
       </button>
     </div>

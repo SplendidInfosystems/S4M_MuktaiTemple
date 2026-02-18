@@ -170,5 +170,27 @@ export interface PresidentDashboardResponse {
   statusCode: number;
   body: PresidentDashboardBody;
 }
+export interface ExpenseRequest {
+  request_id: number;
+  expense_id: number;
+  category: string;
+  description: string;
+  amount: number;
+  expense_date: string;
+  status: string;
+  admin_name: string;
+  location_name: string;
+  request_date: string;
+}
+
+export interface ReportResponse {
+  success: boolean;
+  report_id: string;
+  report_type: string;
+  period: string;
+  file_format: string;
+  download_url: string;
+}
+
 
 

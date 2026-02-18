@@ -34,5 +34,20 @@ export const ENDPOINTS = {
 
   GET_DONATION_RECEIPT:'/getDonationReceipt',
 
+  // PRESIDENT APPROVAL EXPENSES REQUESTS ENDPOINT
+
+    GET_EXPENSE_REQUESTS: '/getExpensesRequests',
+
+      // PRESIDENT UPDATED EXPENSES REQUESTS ENDPOINT
+
+
+   UPDATE_EXPENSE_STATUS: '/updateExpenseRequestStatus',
+
+  //  generate report endpoint
+
+  GET_DOWNLOAD_REPORT: '/getDownloadReport'
+
+
+
   
 };
