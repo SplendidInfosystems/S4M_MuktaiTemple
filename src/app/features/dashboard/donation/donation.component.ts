@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import jsPDF from 'jspdf';
@@ -11,6 +11,7 @@ import { DonorInfo } from '../../../core/models/interface-model';
 import { ToastService } from '../../../core/services/toast/toast.service';
 import { LoaderService } from '../../../core/services/loader/loader.service';
 import { environment } from '../../../../environments/environment';
+import { TempleLocationService } from '../../../core/services/temple-state/temple-location.service';
 
 @Component({
   selector: 'app-donation',
@@ -19,7 +20,7 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './donation.component.html',
   styleUrl: './donation.component.css'
 })
-export class DonationComponent {
+export class DonationComponent implements OnInit {
 
   donors: DonorInfo[] = [];
 
@@ -33,10 +34,18 @@ export class DonationComponent {
     private donationService: DonationService,
     private toast: ToastService,
     private loader: LoaderService,
-    private router: Router
+    private router: Router,
+      private templeState: TempleLocationService
+
   ) {
-    this.loadDonors();
+    // this.loadDonors();
   }
+
+  ngOnInit() {
+
+      this.loadDonors();
+  
+}
 
   // =========================
   // LOAD DONORS

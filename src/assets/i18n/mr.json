@@ -3,7 +3,7 @@
     "HOME": "मुख्यपृष्ठ",
     "ABOUT": "आमच्याबद्दल",
     "DAILY": "दैनिक कार्यक्रम",
-    "MONTHLY": "मासिक कार्यक्रम",
+    "MONTHLY": "वार्षिक कार्यक्रम",
     "NEARBY": "जवळील स्थळे",
     "TEAM": "कार्यसंघ",
     "CONTACT": "संपर्क",
@@ -20,7 +20,7 @@
     "CARDS": {
       "DAILY_AARTI": {
         "TITLE": "दैनिक आरती",
-        "DESC": "सकाळी ५:३० व संध्याकाळी ७:००"
+        "DESC": "सकाळी ६:०० व संध्याकाळी ६:००"
       },
       "MONTHLY": {
         "TITLE": "मासिक कार्यक्रम",
@@ -83,37 +83,43 @@
     "OPENING": {
       "TITLE": "मंदिर उघडणे",
       "DESC": "मंदिराचे दरवाजे उघडणे व प्रसाद तयारी",
-      "TIME": "सकाळी ५:००"
+      "TIME": "सकाळी ४:००"
     },
     "AARTI": {
       "TITLE": "सकाळची आरती",
       "DESC": "देवीची सकाळची पूजा व आरती",
-      "TIME": "सकाळी ५:३०"
+      "TIME": "सकाळी ६:००"
     },
     "ABHISHEK": {
       "TITLE": "अभिषेक",
       "DESC": "देवीचा पवित्र जलाभिषेक",
-      "TIME": "सकाळी ६:००"
+      "TIME": "सकाळी ४:३०"
     },
     "PRASAD": {
       "TITLE": "प्रसाद वाटप",
       "DESC": "भाविकांना पवित्र प्रसादाचे वाटप",
-      "TIME": "सकाळी ८:००"
+      "TIME": "सकाळी ११:०० ते १२:३०"
     },
-    "AFTERNOON_AARTI": {
-      "TITLE": "दुपारची आरती",
-      "DESC": "विशेष दुपारची पूजा",
-      "TIME": "दुपारी १२:००"
+    "HARIPATH": {
+      "TITLE": "हरिपाठ",
+      "DESC": "सायंकाळचा हरिपाठ",
+      "TIME": "सायंकाळी ५:००"
     },
+
     "EVENING_AARTI": {
       "TITLE": "सायंकाळची आरती",
       "DESC": "सायंकाळची मुख्य आरती व भजन",
-      "TIME": "संध्याकाळी ७:००"
+      "TIME": "संध्याकाळी ६:००"
     },
+    "SHEJ_AARTI": {
+    "TITLE": "शेज आरती",
+    "DESC": "मंदिराची रात्रीची शेज आरती",
+    "TIME": "रात्री ९:००"
+  },
     "CLOSING": {
       "TITLE": "मंदिर बंद",
       "DESC": "रात्रीची पूजा व मंदिर बंद",
-      "TIME": "रात्री ९:००"
+      "TIME": "रात्री ९:३०"
     },
     "IMPORTANT_NOTES": {
       "TITLE": "महत्त्वाच्या सूचना",
@@ -123,57 +129,73 @@
       "NOTE4": "विशेष सणांच्या काळात वेळापत्रकात बदल होऊ शकतो"
     }
   },
-  "MONTHLY_EVENTS": {
-    "TITLE": "मासिक कार्यक्रम",
-    "SUBTITLE": "सण आणि धार्मिक कार्यक्रम",
-    "NOTICE": {
-      "TITLE": "सूचना",
-      "MESSAGE": "कार्यक्रमाच्या तारखा व वेळा बदलू शकतात. कृपया अद्ययावत माहितीसाठी मंदिर कार्यालयाशी संपर्क साधा किंवा सूचना पहा."
-    },
-    "MAKAR_SANKRANTI": {
-      "DAY": "15",
-      "MONTH": "जानेवारी",
-      "TITLE": "मकर संक्रांत",
-      "DESCRIPTION": "विशेष पूजा, तीळ-गूळ वाटप आणि भजन-कीर्तन",
-      "TAG": "सण"
-    },
-    "BHAJAN_EVENING": {
-      "DAY": "21",
-      "MONTH": "जानेवारी",
-      "TITLE": "मासिक भजन संध्या",
-      "DESCRIPTION": "भक्तिगीते, कीर्तन आणि आध्यात्मिक प्रवचन",
-      "TAG": "कार्यक्रम"
-    },
-    "REPUBLIC_DAY": {
-      "DAY": "26",
-      "MONTH": "जानेवारी",
-      "TITLE": "प्रजासत्ताक दिन",
-      "DESCRIPTION": "ध्वजारोहण आणि राष्ट्रगीत",
-      "TAG": "राष्ट्रीय"
-    },
-    "MAHASHIVRATRI": {
-      "DAY": "14",
-      "MONTH": "फेब्रुवारी",
-      "TITLE": "महाशिवरात्री",
-      "DESCRIPTION": "रात्रभर जागरण, रुद्राभिषेक आणि भजने",
-      "TAG": "सण"
-    },
-    "HOLI_FESTIVAL": {
-      "DAY": "25",
-      "MONTH": "मार्च",
-      "TITLE": "होळी उत्सव",
-      "DESCRIPTION": "रंगपंचमी साजरीकरण आणि रंगांची उधळण",
-      "TAG": "सण"
-    },
-    "RAM_NAVAMI": {
-      "DAY": "10",
-      "MONTH": "एप्रिल",
-      "TITLE": "राम नवमी",
-      "DESCRIPTION": "श्रीराम जन्मोत्सव, रामायण वाचन आणि भंडारा",
-      "TAG": "सण"
-    }
+ "MONTHLY_EVENTS": {
+  "TITLE": "वार्षिक उत्सव",
+  "SUBTITLE": "श्री संत मुक्ताबाई संस्थान वार्षिक कार्यक्रम",
+
+  "EVENT_1": {
+    "DAY": "११",
+    "MONTH": "जानेवारी २०२६",
+    "TITLE": "पंचक्रोशी परिक्रमा सोहळा",
+    "TAG": "उत्सव",
+    "DESCRIPTION": "श्रीक्षेत्र महंतनगर-मुक्ताईनगर "
   },
-  
+
+  "EVENT_2": {
+    "DAY": "१२",
+    "MONTH": "फेब्रुवारी २०२६",
+    "TITLE": "माघ महावारी चांगदेव मुक्ताई यात्रोत्सव",
+    "TAG": "यात्रा",
+    "DESCRIPTION": "माघ महोत्सवी यात्रा सोहळा"
+  },
+
+  "EVENT_3": {
+    "DAY": "४",
+    "MONTH": "एप्रिल २०२६",
+    "TITLE": "संत मुक्ताबाई अंतर्धान समाधी सोहळा",
+    "TAG": "स्मृती",
+    "DESCRIPTION": "संत मुक्ताबाई समाधी स्मरणोत्सव"
+  },
+
+  "EVENT_4": {
+    "DAY": "२४",
+    "MONTH": "जून २०२६",
+    "TITLE": "आषाढी वारी संत मुक्ताबाई पालखी प्रस्थान",
+    "TAG": "वारी",
+    "DESCRIPTION": "पालखी प्रस्थान सोहळा"
+  },
+
+  "EVENT_5": {
+    "DAY": "१८",
+    "MONTH": "ऑगस्ट २०२६",
+    "TITLE": "संत मुक्ताबाई पालखी आगमन",
+    "TAG": "वारी",
+    "DESCRIPTION": "पालखी आगमन सोहळा"
+  },
+
+  "EVENT_6": {
+    "DAY": "११",
+    "MONTH": "ऑक्टोबर २०२६",
+    "TITLE": "संत मुक्ताबाई जन्मोत्सव",
+    "TAG": "जयंती",
+    "DESCRIPTION": "जन्मोत्सव सोहळा"
+  },
+
+  "EVENT_7": {
+    "DAY": "२२",
+    "MONTH": "नोव्हेंबर २०२६",
+    "TITLE": "श्री तुळशी विवाह सोहळा",
+    "TAG": "उत्सव",
+    "DESCRIPTION": "पारंपरिक विवाह सोहळा"
+  },
+  "NOTICE": {
+  "TITLE": "सूचना",
+  "MESSAGE": "कार्यक्रमाच्या तारखा व वेळा बदलू शकतात. कृपया मंदिर कार्यालयाशी संपर्क साधा किंवा आमच्या घोषणांकडे लक्ष द्या."
+}
+ 
+ 
+},
+
   "NEARBY_PLACES": {
     "TITLE": "जवळील स्थळे",
     "SUBTITLE": "भेट देण्यासारखी पर्यटन स्थळे",
@@ -257,93 +279,77 @@
     }
   },
   "CONTACT": {
-  "TITLE": "संपर्क साधा",
-  "SUBTITLE": "आमच्याशी संपर्कात रहा"
-},
-"CONTACT_FORM": {
-  "TITLE": "संदेश पाठवा",
-  "NAME": "नाव",
-  "NAME_PLACEHOLDER": "आपले नाव",
-  "MOBILE": "मोबाईल नंबर",
-  "MOBILE_PLACEHOLDER": "आपला मोबाईल नंबर",
-  "MESSAGE": "संदेश",
-  "MESSAGE_PLACEHOLDER": "आपला संदेश",
-  "SUBMIT": "पाठवा"
-},
-"CONTACT_INFO": {
-  "ADDRESS_TITLE": "पत्ता",
-  "ADDRESS_DESC": "मुक्ताईनगर: मुख्य रस्ता, मुक्ताईनगर, जि. जळगाव, महाराष्ट्र - ४२५३०६",
-  "PHONE_TITLE": "फोन",
-  "PHONE_1": "+९१ २५८९ २३४५६७",
-  "PHONE_2": "+९१ ९८७६५ ४३२१०",
-  "EMAIL_TITLE": "ईमेल",
-  "EMAIL_1": "info@muktaitemple.org",
-  "EMAIL_2": "contact@muktaitemple.org",
-  "MAP_TITLE": "नकाशा स्थान",
-  "MAP_DESC": "मुक्ताईनगर, जळगाव"
-},
-
-
-
- "LOGIN": {
+    "TITLE": "संपर्क साधा",
+    "SUBTITLE": "आमच्याशी संपर्कात रहा"
+  },
+  "CONTACT_FORM": {
+    "TITLE": "संदेश पाठवा",
+    "NAME": "नाव",
+    "NAME_PLACEHOLDER": "आपले नाव",
+    "MOBILE": "मोबाईल नंबर",
+    "MOBILE_PLACEHOLDER": "आपला मोबाईल नंबर",
+    "MESSAGE": "संदेश",
+    "MESSAGE_PLACEHOLDER": "आपला संदेश",
+    "SUBMIT": "पाठवा"
+  },
+  "CONTACT_INFO": {
+    "ADDRESS_TITLE": "पत्ता",
+    "ADDRESS_DESC": "मुक्ताईनगर: मुख्य रस्ता, मुक्ताईनगर, जि. जळगाव, महाराष्ट्र - ४२५३०६",
+    "PHONE_TITLE": "फोन",
+    "PHONE_1": "+९१ २५८९ २३४५६७",
+    "PHONE_2": "+९१ ९८७६५ ४३२१०",
+    "EMAIL_TITLE": "ईमेल",
+    "EMAIL_1": "info@muktaitemple.org",
+    "EMAIL_2": "contact@muktaitemple.org",
+    "MAP_TITLE": "नकाशा स्थान",
+    "MAP_DESC": "मुक्ताईनगर, जळगाव"
+  },
+  "LOGIN": {
     "TITLE": "लॉगिन",
     "SUBTITLE": "आपली भूमिका निवडा",
-
     "ADMIN_TITLE": "प्रशासक लॉगिन",
     "ADMIN_DESC": "दैनिक नोंदी, पावत्या व खर्च व्यवस्थापन",
-
     "PRESIDENT_TITLE": "अध्यक्ष लॉगिन",
     "PRESIDENT_DESC": "सर्व मंदिरांचे नियंत्रण व मंजुरी"
   },
-    "ADD_EXPENSE": "खर्च जोडा",
+  "ADD_EXPENSE": "खर्च जोडा",
   "EXPENSE_TITLE": "खर्च शीर्षक",
   "EXPENSE_DATE": "खर्च दिनांक",
   "EXPENSE_STATUS": "खर्च स्थिती",
   "EXPENSE_AMOUNT": "रक्कम",
   "EXPENSE_DESCRIPTION": "वर्णन",
-
   "SELECT_STATUS": "स्थिती निवडा",
   "PENDING": "प्रलंबित",
   "PAID": "भरलेले",
   "UNPAID": "न भरलेले",
-
   "EXPENSE_TITLE_REQUIRED": "खर्च शीर्षक आवश्यक आहे",
   "EXPENSE_DATE_REQUIRED": "खर्च दिनांक आवश्यक आहे",
   "EXPENSE_STATUS_REQUIRED": "कृपया खर्च स्थिती निवडा",
   "EXPENSE_AMOUNT_REQUIRED": "रक्कम आवश्यक आहे",
   "EXPENSE_AMOUNT_INVALID": "रक्कम 0 पेक्षा जास्त असावी",
   "EXPENSE_DESCRIPTION_REQUIRED": "वर्णन आवश्यक आहे",
-
   "SUBMIT_EXPENSE": "खर्च सबमिट करा",
   "SUBMITTING": "सबमिट होत आहे...",
   "CANCEL": "रद्द करा",
-
-
   "ADD_DONATION": "देणगी जोडा",
-
   "DONOR_NAME": "देणगीदाराचे नाव",
   "DONOR_NAME_REQUIRED": "देणगीदाराचे नाव आवश्यक आहे",
-  "MOBILE_NUMBER":"मोबाईल क्रमांक",
-  "MOBILE_NUMBER_REQUIRED":"मोबाईल क्रमांक आवश्यक आहे ",
-
+  "MOBILE_NUMBER": "मोबाईल क्रमांक",
+  "MOBILE_NUMBER_REQUIRED": "मोबाईल क्रमांक आवश्यक आहे ",
   "DONATION_AMOUNT": "रक्कम",
   "DONATION_AMOUNT_REQUIRED": "योग्य रक्कम आवश्यक आहे",
-   "ADDRESS":" पत्ता ",
-  "ADDRESS_REQUIRED":"पत्ता आवश्यक आहे",
-
+  "ADDRESS": " पत्ता ",
+  "ADDRESS_REQUIRED": "पत्ता आवश्यक आहे",
   "DONATION_MODE": "प्रकार",
   "SELECT_MODE": "प्रकार निवडा",
   "CASH": "रोख",
   "ONLINE": "ऑनलाईन",
   "DONATION_MODE_REQUIRED": "देणगीचा प्रकार आवश्यक आहे",
-
   "DONATION_DATE": "दिनांक",
   "DONATION_DATE_REQUIRED": "दिनांक आवश्यक आहे",
-
   "SUBMIT_DONATION": "देणगी जोडा",
-
-"DONATION_REPORT":{
-     "DATE": "दिनांक",
+  "DONATION_REPORT": {
+    "DATE": "दिनांक",
     "DONOR_NAME": "देणगीदाराचे नाव",
     "ADDRESS": "पत्ता",
     "MOBILE_NO": "मोबाईल क्रमांक",
@@ -353,8 +359,7 @@
     "ACTION": "क्रिया",
     "RECEIPT": "पावती",
     "PDF": "पीडीएफ"
-
-},
+  },
   "EXPENSE_TABLE": {
     "TYPE": "प्रकार",
     "AMOUNT": "रक्कम",
@@ -364,37 +369,32 @@
     "PENDING": "प्रलंबित"
   },
   "DONATION": {
-  "RECEIPT": "पावती",
-  "NAME": "देणगीदाराचे नाव",
-  "AMOUNT": "रक्कम",
-  "MODE": "देयक प्रकार",
-  "DATE": "दिनांक"
-},
+    "RECEIPT": "पावती",
+    "NAME": "देणगीदाराचे नाव",
+    "AMOUNT": "रक्कम",
+    "MODE": "देयक प्रकार",
+    "DATE": "दिनांक"
+  },
   "PRESIDENT_DASHBOARD": {
     "TITLE": "अध्यक्ष डॅशबोर्ड",
     "SUBTITLE": "सर्व मंदिरांचा एकत्रित आढावा",
-      "DONATION_REPORT": {
+    "DONATION_REPORT": {
       "TITLE": "देणगी अहवाल",
       "SUBTITLE": "सर्व मंदिरांसाठी एकत्रित देणगी अहवाल"
     },
-
     "EXPENSE_REPORT": {
       "TITLE": "खर्च अहवाल",
       "SUBTITLE": "सर्व मंदिरांसाठी खर्च अहवाल"
     },
-
     "COMBINED_REPORT": {
       "TITLE": "एकत्रित अहवाल",
       "SUBTITLE": "देणगी आणि खर्च यांचा एकत्रित अहवाल"
     }
   },
-
   "COMMON_PDF": {
     "DOWNLOAD_PDF": "PDF डाउनलोड करा",
     "DOWNLOAD_WORD": "Word डाउनलोड करा"
   },
-
-
   "CARDS": {
     "TODAY": "आजची एकूण देणगी",
     "WEEK": "या आठवड्यात",
@@ -409,7 +409,7 @@
     "MONTHLY": "मासिक",
     "DEVOTEES": "भाविक"
   },
-   "APPROVAL": {
+  "APPROVAL": {
     "TITLE": "मंजुरी विनंत्या",
     "SUBTITLE": "३ प्रलंबित विनंत्या",
     "PENDING": "प्रलंबित विनंत्या",
@@ -421,16 +421,14 @@
     "CONFIRM_TITLE": "आपण खात्री आहात का?",
     "CONFIRM_APPROVE": "आपण ही विनंती मंजूर करू इच्छिता का?",
     "CONFIRM_REJECT": "आपण ही विनंती नाकारू इच्छिता का?",
-      "DONATION_REPORT": {
+    "DONATION_REPORT": {
       "TITLE": "देणगी अहवाल",
       "SUBTITLE": "सर्व मंदिरांसाठी एकत्रित देणगी अहवाल"
     },
-
     "EXPENSE_REPORT": {
       "TITLE": "खर्च अहवाल",
       "SUBTITLE": "सर्व मंदिरांसाठी खर्च अहवाल"
     },
-
     "COMBINED_REPORT": {
       "TITLE": "एकत्रित अहवाल",
       "SUBTITLE": "देणगी आणि खर्च यांचा एकत्रित अहवाल"
@@ -439,7 +437,7 @@
   "COMMON": {
     "YES": "होय",
     "NO": "नाही",
-      "DOWNLOAD_PDF": "PDF डाउनलोड करा",
+    "DOWNLOAD_PDF": "PDF डाउनलोड करा",
     "DOWNLOAD_WORD": "Word डाउनलोड करा"
   },
   "receipt": {
@@ -459,8 +457,4 @@
     "computer_generated": "ही संगणकाद्वारे तयार केलेली पावती आहे.",
     "print": "पावती छापा"
   }
-
-
-
-
 }

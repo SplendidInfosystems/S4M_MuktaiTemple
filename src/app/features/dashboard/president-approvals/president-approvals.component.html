@@ -15,9 +15,9 @@
         <h1 class="text-3xl font-semibold text-[#D4AF37]">
             {{ 'APPROVAL.TITLE' | translate }}
         </h1>
-        <p class="text-gray-500 mt-1">
+        <!-- <p class="text-gray-500 mt-1">
             {{ 'APPROVAL.SUBTITLE' | translate }}
-        </p>
+        </p> -->
     </div>
 
     <!-- PENDING COUNT -->
@@ -27,7 +27,7 @@
             {{ 'APPROVAL.PENDING' | translate }}
         </span>
 
-        <!-- ✅ Dynamic Count -->
+        <!--  Dynamic Count -->
         <span class="bg-red-500 text-white text-sm font-semibold
            px-3 py-1 border rounded-[5px]">
             {{ requests.length }}
@@ -35,7 +35,7 @@
 
     </div>
 
-    <!-- ✅ DYNAMIC REQUEST CARD -->
+    <!--  DYNAMIC REQUEST CARD -->
     <div *ngFor="let request of requests" class="bg-white border border-orange-200 rounded-2xl p-6 mb-5
                flex justify-between items-center">
 
@@ -57,20 +57,20 @@
                     <path d="M10 18h4"></path>
                 </svg>
 
-                <!-- ✅ Dynamic Temple Name -->
+                <!--  Dynamic Temple Name -->
                 <span class="font-semibold text-lg text-gray-800">
                     {{ request.location_name }}
 
                 </span>
             </div>
 
-            <!-- ✅ Dynamic Expense Type + Amount -->
+            <!--  Dynamic Expense Type + Amount -->
             <p class="text-[#D4AF37] font-semibold">
                 {{ request.category }} – ₹{{ request.amount | number }}
 
             </p>
 
-            <!-- ✅ Dynamic Requested By + Date -->
+            <!--  Dynamic Requested By + Date -->
             <p class="text-sm text-gray-500 mt-1">
                 {{ 'APPROVAL.REQUESTED_BY' | translate }}: {{ request.admin_name }}
                 &nbsp; | &nbsp;

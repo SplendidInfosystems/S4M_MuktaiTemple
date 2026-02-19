@@ -3,7 +3,7 @@
     "HOME": "Home",
     "ABOUT": "About Us",
     "DAILY": "Daily Program",
-    "MONTHLY": "Monthly Events",
+    "MONTHLY": "Yearly Events",
     "NEARBY": "Nearby Places",
     "TEAM": "Team",
     "CONTACT": "Contact",
@@ -100,16 +100,21 @@
       "DESC": "Distribution of sacred prasad to devotees",
       "TIME": "8:00 AM"
     },
-    "AFTERNOON_AARTI": {
-      "TITLE": "Afternoon Aarti",
-      "DESC": "Special afternoon worship",
-      "TIME": "12:00 PM"
+    "HARIPATH": {
+      "TITLE": "Haripath",
+      "DESC": "Evening Haripath prayer",
+      "TIME": "5:00 PM"
     },
     "EVENING_AARTI": {
       "TITLE": "Evening Aarti",
       "DESC": "Main evening aarti and bhajan",
       "TIME": "7:00 PM"
     },
+     "SHEJ_AARTI": {
+    "TITLE": "Shej Aarti",
+    "DESC": "Night closing aarti of the temple",
+    "TIME": "9:00 PM"
+  },
     "CLOSING": {
       "TITLE": "Temple Closing",
       "DESC": "Night worship and temple doors closing",
@@ -124,55 +129,71 @@
     }
   },
   "MONTHLY_EVENTS": {
-    "TITLE": "Monthly Events",
-    "SUBTITLE": "Festivals and Religious Programs",
-    "NOTICE": {
-      "TITLE": "Notice",
-      "MESSAGE": "The dates and times of the programs may change. Please contact the temple office or check our announcements for updates."
-    },
-    "MAKAR_SANKRANTI": {
-      "DAY": "15",
-      "MONTH": "January",
-      "TITLE": "Makar Sankranti",
-      "DESCRIPTION": "Special puja, til-gul distribution, and bhajan-kirtan",
-      "TAG": "Festival"
-    },
-    "BHAJAN_EVENING": {
-      "DAY": "21",
-      "MONTH": "January",
-      "TITLE": "Monthly Bhajan Evening",
-      "DESCRIPTION": "Devotional songs, kirtan, and spiritual discourse",
-      "TAG": "Program"
-    },
-    "REPUBLIC_DAY": {
-      "DAY": "26",
-      "MONTH": "January",
-      "TITLE": "Republic Day",
-      "DESCRIPTION": "Flag hoisting and national anthem",
-      "TAG": "National"
-    },
-    "MAHASHIVRATRI": {
-      "DAY": "14",
-      "MONTH": "February",
-      "TITLE": "Mahashivratri",
-      "DESCRIPTION": "All-night vigil, Rudrabhishek, and bhajans",
-      "TAG": "Festival"
-    },
-    "HOLI_FESTIVAL": {
-      "DAY": "25",
-      "MONTH": "March",
-      "TITLE": "Holi Festival",
-      "DESCRIPTION": "Rang Panchami celebration and color play",
-      "TAG": "Festival"
-    },
-    "RAM_NAVAMI": {
-      "DAY": "10",
-      "MONTH": "April",
-      "TITLE": "Ram Navami",
-      "DESCRIPTION": "Shri Ram Janmotsav, Ramayana recitation, and bhandara",
-      "TAG": "Festival"
-    }
+  "TITLE": "Yearly Events",
+  "SUBTITLE": "Annual Festival Schedule",
+
+  "EVENT_1": {
+    "DAY": "Jan 11",
+    "MONTH": "2026",
+    "TITLE": "Panchkroshi Parikrama",
+    "TAG": "Festival",
+    "DESCRIPTION": "Sacred temple circumambulation festival"
   },
+
+  "EVENT_2": {
+    "DAY": "Feb 12",
+    "MONTH": "2026",
+    "TITLE": "Magh Yatra",
+    "TAG": "Yatra",
+    "DESCRIPTION": "Traditional Magh pilgrimage celebration"
+  },
+
+  "EVENT_3": {
+    "DAY": "Apr 4",
+    "MONTH": "2026",
+    "TITLE": "Samadhi Sohala",
+    "TAG": "Memorial",
+    "DESCRIPTION": "Commemoration of Sant Muktai Samadhi"
+  },
+
+  "EVENT_4": {
+    "DAY": "Jun 24",
+    "MONTH": "2026",
+    "TITLE": "Ashadhi Wari Departure",
+    "TAG": "Wari",
+    "DESCRIPTION": "Palakhi departure ceremony"
+  },
+
+  "EVENT_5": {
+    "DAY": "Aug 18",
+    "MONTH": "2026",
+    "TITLE": "Palakhi Arrival",
+    "TAG": "Wari",
+    "DESCRIPTION": "Grand arrival celebration"
+  },
+
+  "EVENT_6": {
+    "DAY": "Oct 11",
+    "MONTH": "2026",
+    "TITLE": "Sant Muktai Jayanti",
+    "TAG": "Jayanti",
+    "DESCRIPTION": "Birth anniversary celebration"
+  },
+  "NOTICE": {
+  "TITLE": "Notice",
+  "MESSAGE": "Program dates and times are subject to change. Please contact the temple office or check our announcements."
+},
+
+  "EVENT_7": {
+    "DAY": "Nov 22",
+    "MONTH": "2026",
+    "TITLE": "Shri Tulsi Vivah",
+    "TAG": "Festival",
+    "DESCRIPTION": "Traditional Tulsi marriage festival"
+  }
+ 
+},
+
   "NEARBY_PLACES": {
     "TITLE": "Nearby Places",
     "SUBTITLE": "Tourist Places Worth Visiting",
@@ -191,29 +212,29 @@
       "DISTANCE": "Temple Location",
       "DESCRIPTION": "Vitthoba Temple, one of the most important pilgrimage sites in Maharashtra"
     },
+
+
+
+    
     "REACH_TEMPLE": {
-    "TITLE": "How to Reach the Temple",
-
-    "ROAD": {
-      "TITLE": "By Road",
-      "DESC": "Muktainagar is located on the Mumbai–Agra Highway. Regular bus services are available."
-    },
-
-    "TRAIN": {
-      "TITLE": "By Train",
-      "DESC": "Nearest railway stations: Bhusawal (25 km) and Jalgaon (55 km)."
-    },
-
-    "AIR": {
-      "TITLE": "By Air",
-      "DESC": "Nearest airports: Aurangabad (130 km) and Nashik (180 km)."
+      "TITLE": "How to Reach the Temple",
+      "ROAD": {
+        "TITLE": "By Road",
+        "DESC": "Muktainagar is located on the Mumbai–Agra Highway. Regular bus services are available."
+      },
+      "TRAIN": {
+        "TITLE": "By Train",
+        "DESC": "Nearest railway stations: Bhusawal (25 km) and Jalgaon (55 km)."
+      },
+      "AIR": {
+        "TITLE": "By Air",
+        "DESC": "Nearest airports: Aurangabad (130 km) and Nashik (180 km)."
+      }
     }
-  }
   },
-    "TEAM": {
+  "TEAM": {
     "HERO_TITLE": "Temple Committee",
     "HERO_SUBTITLE": "Our Dedicated Trustees",
-
     "MEMBERS": {
       "PRESIDENT": {
         "NAME": "Shri Ramdas Patil",
@@ -236,128 +257,110 @@
         "PHONE": "+91 98765 43212",
         "EMAIL": "treasurer@muktaitemple.org"
       },
-        "MEMBER_4": {
-      "NAME": "Shri Anil Shinde",
-      "ROLE": "Secretary",
-      "DESC": "Temple office manager",
-      "PHONE": "+91 98765 43213",
-      "EMAIL": "secretary@muktaitemple.org"
-    },
-    "MEMBER_5": {
-      "NAME": "Smt. Sangita Kulkarni",
-      "ROLE": "Member",
-      "DESC": "Head of women's committee",
-      "PHONE": "+91 98765 43214",
-      "EMAIL": "member1@muktaitemple.org"
-    },
-    "MEMBER_6": {
-      "NAME": "Shri Prakash More",
-      "ROLE": "Member",
-      "DESC": "Maintenance and security manager",
-      "PHONE": "+91 98765 43215",
-      "EMAIL": "member2@muktaitemple.org"
-    }
+      "MEMBER_4": {
+        "NAME": "Shri Anil Shinde",
+        "ROLE": "Secretary",
+        "DESC": "Temple office manager",
+        "PHONE": "+91 98765 43213",
+        "EMAIL": "secretary@muktaitemple.org"
+      },
+      "MEMBER_5": {
+        "NAME": "Smt. Sangita Kulkarni",
+        "ROLE": "Member",
+        "DESC": "Head of women's committee",
+        "PHONE": "+91 98765 43214",
+        "EMAIL": "member1@muktaitemple.org"
+      },
+      "MEMBER_6": {
+        "NAME": "Shri Prakash More",
+        "ROLE": "Member",
+        "DESC": "Maintenance and security manager",
+        "PHONE": "+91 98765 43215",
+        "EMAIL": "member2@muktaitemple.org"
+      }
     }
   },
   "CONTACT": {
-  "TITLE": "Contact Us",
-  "SUBTITLE": "Get in Touch with Us"
-},
-"CONTACT_FORM": {
-  "TITLE": "Send a Message",
-  "NAME": "Name",
-  "NAME_PLACEHOLDER": "Your name",
-  "MOBILE": "Mobile Number",
-  "MOBILE_PLACEHOLDER": "Your mobile number",
-  "MESSAGE": "Message",
-  "MESSAGE_PLACEHOLDER": "Your message",
-  "SUBMIT": "Submit"
-},
-"CONTACT_INFO": {
-  "ADDRESS_TITLE": "Address",
-  "ADDRESS_DESC": "Muktainagar: Main Road, Muktainagar, Dist. Jalgaon, Maharashtra - 425306",
-  "PHONE_TITLE": "Phone",
-  "PHONE_1": "+91 2589 234567",
-  "PHONE_2": "+91 98765 43210",
-  "EMAIL_TITLE": "Email",
-  "EMAIL_1": "info@muktaitemple.org",
-  "EMAIL_2": "contact@muktaitemple.org",
-  "MAP_TITLE": "Map Location",
-  "MAP_DESC": "Muktainagar, Jalgaon"
-},
-
-
- "LOGIN": {
+    "TITLE": "Contact Us",
+    "SUBTITLE": "Get in Touch with Us"
+  },
+  "CONTACT_FORM": {
+    "TITLE": "Send a Message",
+    "NAME": "Name",
+    "NAME_PLACEHOLDER": "Your name",
+    "MOBILE": "Mobile Number",
+    "MOBILE_PLACEHOLDER": "Your mobile number",
+    "MESSAGE": "Message",
+    "MESSAGE_PLACEHOLDER": "Your message",
+    "SUBMIT": "Submit"
+  },
+  "CONTACT_INFO": {
+    "ADDRESS_TITLE": "Address",
+    "ADDRESS_DESC": "Muktainagar: Main Road, Muktainagar, Dist. Jalgaon, Maharashtra - 425306",
+    "PHONE_TITLE": "Phone",
+    "PHONE_1": "+91 2589 234567",
+    "PHONE_2": "+91 98765 43210",
+    "EMAIL_TITLE": "Email",
+    "EMAIL_1": "info@muktaitemple.org",
+    "EMAIL_2": "contact@muktaitemple.org",
+    "MAP_TITLE": "Map Location",
+    "MAP_DESC": "Muktainagar, Jalgaon"
+  },
+  "LOGIN": {
     "TITLE": "Login",
     "SUBTITLE": "Select Your Role",
-
     "ADMIN_TITLE": "Admin Login",
     "ADMIN_DESC": "Daily records, receipts, and expense management",
-
     "PRESIDENT_TITLE": "President Login",
     "PRESIDENT_DESC": "All temples overview and approvals"
   },
-   
   "ADD_EXPENSE": "Add Expense",
   "EXPENSE_TITLE": "Expense Title",
   "EXPENSE_DATE": "Expense Date",
   "EXPENSE_STATUS": "Expense Status",
   "EXPENSE_AMOUNT": "Amount",
   "EXPENSE_DESCRIPTION": "Description",
-
   "SELECT_STATUS": "Select Status",
   "PENDING": "Pending",
   "PAID": "Paid",
   "UNPAID": "Unpaid",
-
   "EXPENSE_TITLE_REQUIRED": "Expense title is required",
   "EXPENSE_DATE_REQUIRED": "Expense date is required",
   "EXPENSE_STATUS_REQUIRED": "Please select expense status",
   "EXPENSE_AMOUNT_REQUIRED": "Amount is required",
   "EXPENSE_AMOUNT_INVALID": "Amount must be greater than 0",
   "EXPENSE_DESCRIPTION_REQUIRED": "Description is required",
-
   "SUBMIT_EXPENSE": "Submit Expense",
   "SUBMITTING": "Submitting...",
   "CANCEL": "Cancel",
-
-"DONATION_REPORT": {
-   "ADD_DONATION": "Add Donation",
-
-  "DONOR_NAME": "Donor Name",
-  "DONOR_NAME_REQUIRED": "Donor name is required",
-
-  "MOBILE_NUMBER":" Mobile Number",
-  "MOBILE_MUMBER_REQUIRED":"Mobile Number is required",
-  "ADDRESS":" Address ",
-  "ADDRESS_REQUIRED":"Address Required",
-
-  "DONATION_AMOUNT": "Amount",
-  "DONATION_AMOUNT_REQUIRED": "Valid amount is required",
-
-  "DONATION_MODE": "Mode",
-  "SELECT_MODE": "Select mode",
-  "CASH": "Cash",
-  "ONLINE": "Online",
-  "DONATION_MODE_REQUIRED": "Donation mode is required",
-
-  "DONATION_DATE": "Date",
-  "DONATION_DATE_REQUIRED": "Date is required",
-
-  "SUBMIT_DONATION": "Add Donation",
-  "CANCEL": "Cancel"
-
-
-
-},
-"DONATION": {
-  "RECEIPT": "Receipt",
-  "NAME": "Donor Name",
-  "AMOUNT": "Amount",
-  "MODE": "Payment Mode",
-  "DATE": "Date"
-},
-"EXPENSE_TABLE": {
+  "DONATION_REPORT": {
+    "ADD_DONATION": "Add Donation",
+    "DONOR_NAME": "Donor Name",
+    "DONOR_NAME_REQUIRED": "Donor name is required",
+    "MOBILE_NUMBER": " Mobile Number",
+    "MOBILE_MUMBER_REQUIRED": "Mobile Number is required",
+    "ADDRESS": " Address ",
+    "ADDRESS_REQUIRED": "Address Required",
+    "DONATION_AMOUNT": "Amount",
+    "DONATION_AMOUNT_REQUIRED": "Valid amount is required",
+    "DONATION_MODE": "Mode",
+    "SELECT_MODE": "Select mode",
+    "CASH": "Cash",
+    "ONLINE": "Online",
+    "DONATION_MODE_REQUIRED": "Donation mode is required",
+    "DONATION_DATE": "Date",
+    "DONATION_DATE_REQUIRED": "Date is required",
+    "SUBMIT_DONATION": "Add Donation",
+    "CANCEL": "Cancel"
+  },
+  "DONATION": {
+    "RECEIPT": "Receipt",
+    "NAME": "Donor Name",
+    "AMOUNT": "Amount",
+    "MODE": "Payment Mode",
+    "DATE": "Date"
+  },
+  "EXPENSE_TABLE": {
     "TYPE": "Type",
     "AMOUNT": "Amount",
     "STATUS": "Status",
@@ -365,33 +368,26 @@
     "APPROVED": "Approved",
     "PENDING": "Pending"
   },
-
   "PRESIDENT_DASHBOARD": {
     "TITLE": "President Dashboard",
     "SUBTITLE": "Combined Overview of All Temples",
-    
     "DONATION_REPORT": {
       "TITLE": "Donation Report",
       "SUBTITLE": "Combined donation report for all temples"
     },
-
     "EXPENSE_REPORT": {
       "TITLE": "Expense Report",
       "SUBTITLE": "Expense report for all temples"
     },
-
     "COMBINED_REPORT": {
       "TITLE": "Combined Report",
       "SUBTITLE": "Combined donation and expense report"
     }
   },
-
   "COMMON_PDF": {
     "DOWNLOAD_PDF": "Download PDF",
     "DOWNLOAD_WORD": "Download Word"
   },
-
-
   "CARDS": {
     "TODAY": "Today's Total",
     "WEEK": "This Week",
@@ -406,7 +402,7 @@
     "MONTHLY": "Monthly",
     "DEVOTEES": "Devotees"
   },
-    "APPROVAL": {
+  "APPROVAL": {
     "TITLE": "Approval Requests",
     "SUBTITLE": "3 Pending Requests",
     "PENDING": "Pending Requests",
@@ -423,7 +419,7 @@
     "YES": "Yes",
     "NO": "No"
   },
-   "receipt": {
+  "receipt": {
     "title": "Temple Donation Receipt",
     "location": "Location",
     "receipt_no": "Receipt No",
@@ -441,5 +437,3 @@
     "print": "Print Receipt"
   }
 }
-
- 

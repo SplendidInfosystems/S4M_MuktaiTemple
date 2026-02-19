@@ -51,6 +51,39 @@
                 {{ 'DAILY_PROGRAM.OPENING.TIME' | translate }}
             </span>
         </div>
+          <!-- Card 3 Abhishek -->
+        <div
+            class="flex items-center justify-between gap-4 bg-white rounded-xl border border-l-4 border-[#FF6B35] hover:shadow-xl  p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-yellow-500  text-white text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-sun w-6 h-6 text-white"
+                        data-fg-mtv18="20.9:20.6099:/src/app/components/DailyProgramPage.tsx:86:25:3498:44:e:item.icon">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="m4.93 4.93 1.41 1.41"></path>
+                        <path d="m17.66 17.66 1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="m6.34 17.66-1.41 1.41"></path>
+                        <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-orange-600">
+                        {{ 'DAILY_PROGRAM.ABHISHEK.TITLE' | translate }}
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        {{ 'DAILY_PROGRAM.ABHISHEK.DESC' | translate }}
+                    </p>
+                </div>
+            </div>
+            <span class="text-sm font-semibold text-gray-700">
+                {{ 'DAILY_PROGRAM.ABHISHEK.TIME' | translate }}
+            </span>
+        </div>
 
         <!-- Card 2 Morning Aarti -->
         <div
@@ -87,39 +120,7 @@
             </span>
         </div>
 
-        <!-- Card 3 Abhishek -->
-        <div
-            class="flex items-center justify-between gap-4 bg-white rounded-xl border border-l-4 border-[#FF6B35] hover:shadow-xl  p-6 shadow-sm hover:shadow-md transition">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-yellow-500  text-white text-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-sun w-6 h-6 text-white"
-                        data-fg-mtv18="20.9:20.6099:/src/app/components/DailyProgramPage.tsx:86:25:3498:44:e:item.icon">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <path d="M12 2v2"></path>
-                        <path d="M12 20v2"></path>
-                        <path d="m4.93 4.93 1.41 1.41"></path>
-                        <path d="m17.66 17.66 1.41 1.41"></path>
-                        <path d="M2 12h2"></path>
-                        <path d="M20 12h2"></path>
-                        <path d="m6.34 17.66-1.41 1.41"></path>
-                        <path d="m19.07 4.93-1.41 1.41"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-orange-600">
-                        {{ 'DAILY_PROGRAM.ABHISHEK.TITLE' | translate }}
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        {{ 'DAILY_PROGRAM.ABHISHEK.DESC' | translate }}
-                    </p>
-                </div>
-            </div>
-            <span class="text-sm font-semibold text-gray-700">
-                {{ 'DAILY_PROGRAM.ABHISHEK.TIME' | translate }}
-            </span>
-        </div>
+      
 
         <!-- Card 4  Prasad Distribution-->
         <div
@@ -149,7 +150,7 @@
             </span>
         </div>
 
-        <!-- Afternoon Aarti -->
+        <!-- HARIPATH -->
         <div class="flex items-center justify-between gap-4 bg-white rounded-xl border border-l-4 border-[#FF6B35] p-6">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 text-white">
@@ -163,16 +164,16 @@
 
                 <div>
                     <h3 class="text-lg font-semibold text-orange-600">
-                        {{ 'DAILY_PROGRAM.AFTERNOON_AARTI.TITLE' | translate }}
+                        {{ 'DAILY_PROGRAM.HARIPATH.TITLE' | translate }}
                     </h3>
                     <p class="text-sm text-gray-600">
-                        {{ 'DAILY_PROGRAM.AFTERNOON_AARTI.DESC' | translate }}
+                        {{ 'DAILY_PROGRAM.HARIPATH.DESC' | translate }}
                     </p>
                 </div>
             </div>
 
             <span class="font-semibold text-gray-700">
-                {{ 'DAILY_PROGRAM.AFTERNOON_AARTI.TIME' | translate }}
+                {{ 'DAILY_PROGRAM.HARIPATH.TIME' | translate }}
             </span>
         </div>
 
@@ -211,8 +212,36 @@
             </span>
         </div>
 
-        <!-- Temple Closing -->
+        <!-- SHEJ AARTI -->
         <div class="flex items-center justify-between gap-4 bg-white rounded-xl border border-l-4 border-[#FF6B35] p-6">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-red-400 to-orange-500 text-white">
+                    <!-- Moon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1111.21 3
+                 7 7 0 0021 12.79z" />
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-orange-600">
+                        {{ 'DAILY_PROGRAM.SHEJ_AARTI.TITLE' | translate }}
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        {{ 'DAILY_PROGRAM.SHEJ_AARTI.DESC' | translate }}
+                    </p>
+                </div>
+            </div>
+
+            <span class="font-semibold text-gray-700">
+                {{ 'DAILY_PROGRAM.SHEJ_AARTI.TIME' | translate }}
+            </span>
+        </div>
+
+
+        <!-- MANDIR CLOSING TIME -->
+
+          <div class="flex items-center justify-between gap-4 bg-white rounded-xl border border-l-4 border-[#FF6B35] p-6">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 text-white">
                     <!-- Moon SVG -->

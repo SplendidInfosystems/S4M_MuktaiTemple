@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
-import { Observable } from 'rxjs';
-import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, ExpenseRequest, PresidentDashboardResponse, PresidentLoginResponse, ReportResponse } from '../../models/interface-model';
+import { map, Observable } from 'rxjs';
+import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, ExpenseRequest, ExpenseRequestResponse, PresidentDashboardResponse, PresidentLoginResponse, ReportResponse, TempleLocation } from '../../models/interface-model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -54,10 +54,9 @@ getDonationReceipt(donationId: number) {
   );
 }
 
-downloadReport(type: string, range: string): Observable<Blob> {
-  return this.http.get(
-    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}/reports/${type}/${range}`,
-    { responseType: 'blob' }
+downloadReport(reportId: string) {
+  return this.http.get<ReportResponse>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}?report_id=${reportId}`
   );
 }
 
@@ -66,20 +65,50 @@ downloadReport(type: string, range: string): Observable<Blob> {
 
 
 
+
+
 // EXPENCES REQUEST APPROVAL OR REJECT STATUS API'S
 
-  getRequests(status: string): Observable<ExpenseRequest[]> {
-    return this.http.get<ExpenseRequest[]>(
-      `${environment.baseUrl}${ENDPOINTS.GET_EXPENSE_REQUESTS}?status=${status}`
+  // ================= GET PENDING REQUESTS =================
+  getRequests(status: string): Observable<ExpenseRequestResponse> {
+    return this.http.get<ExpenseRequestResponse>(
+      `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_EXPENSE_REQUESTS}?status=${status}`
     );
   }
 
-  updateStatus(id: string, status: 'accepted' | 'rejected'): Observable<any> {
-    return this.http.put(
-      `${environment.baseUrl}${ENDPOINTS.UPDATE_EXPENSE_STATUS}`,
-      { id, status }
-    );
+  // ================= UPDATE STATUS =================
+  updateStatus(
+    request_id: number,
+    status: 'accepted' | 'rejected'
+  ): Observable<any> {
+
+    // 🔥 get president id from login storage
+    const president_id = Number(localStorage.getItem('president_id')) || 1;
+
+   return this.http.patch(
+  `${APP_CONFIG.BASE_URL}${ENDPOINTS.UPDATE_EXPENSE_STATUS}`,
+  {
+    request_id,
+    president_id,
+    status
   }
+);
+  }
+
+  // ================= GET TEMPLE LOCATIONS =================
+getTempleLocations(): Observable<TempleLocation[]> {
+  return this.http.get<any>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_TEMPLE_LOCATIONS}`
+  ).pipe(
+    map((res: any) => {
+      // handle both API formats safely
+      if (Array.isArray(res)) return res;
+      if (res?.body && Array.isArray(res.body)) return res.body;
+      return [];
+    })
+  );
+}
+
 
 // ============================= POST API'S ALL ============================
 

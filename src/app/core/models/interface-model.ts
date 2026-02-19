@@ -183,6 +183,12 @@ export interface ExpenseRequest {
   request_date: string;
 }
 
+export interface ExpenseRequestResponse {
+  success: boolean;
+  data: ExpenseRequest[];
+}
+
+
 export interface ReportResponse {
   success: boolean;
   report_id: string;
@@ -190,6 +196,19 @@ export interface ReportResponse {
   period: string;
   file_format: string;
   download_url: string;
+}
+
+
+// ================= TEMPLE LOCATION =================
+export interface TempleLocation {
+  location_id: number;
+  location_name: string;
+  created_at: string;
+}
+
+export interface TempleLocationResponse {
+  statusCode?: number;
+  body: TempleLocation[];
 }
 
 

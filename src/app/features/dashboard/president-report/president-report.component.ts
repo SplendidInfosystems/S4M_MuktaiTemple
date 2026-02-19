@@ -26,35 +26,36 @@ export class PresidentReportComponent {
   setRange(type: string, range: string) {
     this.selectedRange[type] = range;
   }
+  getReportId(type: string, range: string): string {
+  const map: any = {
+    donation: { Daily: '1', Monthly: '2', Yearly: '3' },
+    expense: { Daily: '4', Monthly: '5', Yearly: '6' },
+    combined: { Daily: '7', Monthly: '8', Yearly: '9' }
+  };
+
+  return map[type]?.[range] || '1';
+}
 
   // ✅ FIXED DOWNLOAD FUNCTION
 downloadReportById(type: string, range: string) {
-  console.log('Type:', type);
-  console.log('Range:', range);
+  const reportId = this.getReportId(type, range); // mapping logic
 
-  this.reportService.downloadReport(type, range).subscribe({
-    next: (blob: Blob) => {
-      if (!blob || blob.size === 0) {
-        console.error('Report not available');
+  this.reportService.downloadReport(reportId).subscribe({
+    next: (res) => {
+      if (!res.success || !res.download_url) {
         alert('Report not available');
         return;
       }
 
-      const fileName = `${type}_report_${range}.pdf`;
-
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      a.click();
-      window.URL.revokeObjectURL(url);
+      // ✅ open S3 pre-signed URL
+      window.open(res.download_url, '_blank');
     },
-    error: (err) => {
-      console.error('Download failed', err);
+    error: () => {
       alert('Download failed');
     }
   });
 }
+
 
 
 }

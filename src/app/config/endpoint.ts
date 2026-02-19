@@ -45,7 +45,12 @@ export const ENDPOINTS = {
 
   //  generate report endpoint
 
-  GET_DOWNLOAD_REPORT: '/getDownloadReport'
+  GET_DOWNLOAD_REPORT: '/getDownloadReport',
+
+  
+  GET_TEMPLE_LOCATIONS: '/getLocationsTemple'
+
+
 
 
 
