@@ -101,11 +101,12 @@ export const routes: Routes = [
       { path: 'admin-login', component: AdminLoginComponent },
       { path: 'president-login', component: PresidentLoginComponent },
     ]
-  },  // 🔐 DASHBOARD (NO HEADER / FOOTER)
+  },  //  DASHBOARD (NO HEADER / FOOTER)
   {
     path: 'dashboard',
     component: DashboardLayoutComponent,
     canActivate: [AuthGuard],
+   canActivateChild: [AuthGuard],
     loadChildren: () =>
       import('./features/dashboard/dashboard-routing.module')
         .then(m => m.DashboardRoutingModule),

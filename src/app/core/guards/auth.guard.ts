@@ -1,27 +1,31 @@
-import { CanActivateFn, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivateFn, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard {
-  constructor(private auth: AuthService, private router: Router) {}
+ 
+  constructor(private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.checkLogin();
+  canActivate(): boolean | UrlTree {
+    return this.check();
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.checkLogin();
+  canActivateChild(): boolean | UrlTree {
+    return this.check();
   }
 
-  private checkLogin(): boolean {
-    if (!this.auth.isAuthenticated()) {
-      this.router.navigate(['/login']);
-      return false;
+  private check(): boolean | UrlTree {
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return this.router.parseUrl('/login');
     }
+
     return true;
   }
 }

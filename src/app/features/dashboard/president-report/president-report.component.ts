@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { DonationService } from '../../../core/services/donation/donation.service';
 import { ReportResponse } from '../../../core/models/interface-model';
+import jsPDF from 'jspdf';
+import { saveAs } from 'file-saver';
+import { Document, Packer, Paragraph } from 'docx';
 
 @Component({
   selector: 'app-president-report',
@@ -53,6 +56,65 @@ downloadReportById(type: string, range: string) {
     error: () => {
       alert('Download failed');
     }
+  });
+}
+
+downloadPDF(type: string, range: string) {
+  const reportId = this.getReportId(type, range);
+
+  this.reportService.downloadReport(reportId).subscribe({
+    next: (res: ReportResponse) => {
+
+      if (!res.success || !res.download_url) {
+        alert('Report not available');
+        return;
+      }
+
+      // 🔥 Fetch TXT content from S3 URL
+      fetch(res.download_url)
+        .then(response => response.text())
+        .then(textData => {
+
+          const doc = new jsPDF();
+          const lines = textData.split('\n');
+
+          doc.setFontSize(12);
+          doc.text(lines, 10, 10);
+
+          doc.save(`${type}_${range}_report.pdf`);
+        });
+
+    },
+    error: () => alert('Download failed')
+  });
+}
+
+downloadWord(type: string, range: string) {
+  const reportId = this.getReportId(type, range);
+
+  this.reportService.downloadReport(reportId).subscribe({
+    next: async (res: ReportResponse) => {
+
+      if (!res.success || !res.download_url) {
+        alert('Report not available');
+        return;
+      }
+
+      const response = await fetch(res.download_url);
+      const textData = await response.text();
+
+      const doc = new Document({
+        sections: [{
+          children: textData
+            .split('\n')
+            .map(line => new Paragraph(line))
+        }],
+      });
+
+      const blob = await Packer.toBlob(doc);
+      saveAs(blob, `${type}_${range}_report.docx`);
+    },
+    error: () => alert('Download failed')
   });
 }
 
