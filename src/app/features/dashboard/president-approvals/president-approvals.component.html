@@ -1,52 +1,51 @@
-<div class="p-8 min-h-screen">
+<div class="p-4 sm:p-6 lg:p-8 min-h-screen">
 
     <!-- TITLE -->
     <div class="mb-6">
-        <h1 class="text-3xl font-semibold text-[#D4A017]">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-[#D4A017]">
             {{ 'PRESIDENT_DASHBOARD.TITLE' | translate }}
         </h1>
-        <p class="text-sm text-gray-500">
+        <p class="text-xs sm:text-sm text-gray-500">
             {{ 'PRESIDENT_DASHBOARD.SUBTITLE' | translate }}
         </p>
     </div>
 
     <!-- HEADER -->
     <div class="mb-6">
-        <h1 class="text-3xl font-semibold text-[#D4AF37]">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-[#D4AF37]">
             {{ 'APPROVAL.TITLE' | translate }}
         </h1>
-        <!-- <p class="text-gray-500 mt-1">
-            {{ 'APPROVAL.SUBTITLE' | translate }}
-        </p> -->
     </div>
 
     <!-- PENDING COUNT -->
     <div class="flex items-center justify-between mb-6">
-
-        <span class="text-lg font-medium text-gray-700">
+        <span class="text-base sm:text-lg font-medium text-gray-700">
             {{ 'APPROVAL.PENDING' | translate }}
         </span>
 
-        <!--  Dynamic Count -->
-        <span class="bg-red-500 text-white text-sm font-semibold
-           px-3 py-1 border rounded-[5px]">
+        <span class="bg-red-500 text-white text-xs sm:text-sm font-semibold
+                     px-3 py-1 border rounded-[5px]">
             {{ requests.length }}
         </span>
-
     </div>
 
-    <!--  DYNAMIC REQUEST CARD -->
-    <div *ngFor="let request of requests" class="bg-white border border-orange-200 rounded-2xl p-6 mb-5
-               flex justify-between items-center">
+    <!-- DYNAMIC REQUEST CARD -->
+    <div *ngFor="let request of requests"
+         class="bg-white border border-orange-200 rounded-2xl 
+                p-4 sm:p-6 mb-5
+                flex flex-col sm:flex-row
+                gap-4 sm:gap-0
+                sm:justify-between sm:items-center">
 
         <!-- LEFT -->
-        <div>
-            <div class="flex items-center gap-2 mb-1">
+        <div class="w-full">
 
-                <!-- SAME SVG (NOT CHANGED) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-building2 lucide-building-2 w-5 h-5 text-[#FF6B35] mr-2">
+            <div class="flex items-center gap-2 mb-1">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="w-5 h-5 text-[#FF6B35]"
+                     fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round"
+                     stroke-linejoin="round" viewBox="0 0 24 24">
 
                     <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
                     <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
@@ -57,40 +56,40 @@
                     <path d="M10 18h4"></path>
                 </svg>
 
-                <!--  Dynamic Temple Name -->
-                <span class="font-semibold text-lg text-gray-800">
+                <span class="font-semibold text-base sm:text-lg text-gray-800">
                     {{ request.location_name }}
-
                 </span>
             </div>
 
-            <!--  Dynamic Expense Type + Amount -->
-            <p class="text-[#D4AF37] font-semibold">
+            <p class="text-[#D4AF37] font-semibold text-sm sm:text-base">
                 {{ request.category }} – ₹{{ request.amount | number }}
-
             </p>
 
-            <!--  Dynamic Requested By + Date -->
-            <p class="text-sm text-gray-500 mt-1">
+            <p class="text-xs sm:text-sm text-gray-500 mt-1">
                 {{ 'APPROVAL.REQUESTED_BY' | translate }}: {{ request.admin_name }}
-                &nbsp; | &nbsp;
+                <span class="hidden sm:inline"> | </span>
+                <br class="sm:hidden">
                 {{ 'APPROVAL.DATE' | translate }}:
                 {{ request.expense_date | date:'dd/MM/yyyy' }}
             </p>
+
         </div>
 
         <!-- RIGHT BUTTONS -->
-        <div class="flex gap-3">
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
 
             <!-- APPROVE -->
-            <button (click)="openConfirm('approve', request)" class="bg-green-500 hover:bg-green-600
-                       text-white px-5 py-2 rounded-lg
-                       flex items-center gap-2">
+            <button (click)="openConfirm('approve', request)"
+                    class="bg-green-500 hover:bg-green-600
+                           text-white px-5 py-2 rounded-lg
+                           flex items-center justify-center gap-2
+                           w-full sm:w-auto">
 
-                <!-- SAME SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-circle-check-big w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="w-5 h-5"
+                     fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round"
+                     stroke-linejoin="round" viewBox="0 0 24 24">
 
                     <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                     <path d="m9 11 3 3L22 4"></path>
@@ -100,43 +99,49 @@
             </button>
 
             <!-- REJECT -->
-            <button (click)="openConfirm('reject', request)" class="bg-red-500 hover:bg-red-600
-                       text-white px-5 py-2 rounded-lg
-                       flex items-center gap-2">
+            <button (click)="openConfirm('reject', request)"
+                    class="bg-red-500 hover:bg-red-600
+                           text-white px-5 py-2 rounded-lg
+                           w-full sm:w-auto">
 
                 ✕ {{ 'APPROVAL.REJECT' | translate }}
             </button>
         </div>
+
     </div>
 
-    <!-- EMPTY STATE (optional but good practice) -->
-    <div *ngIf="requests.length === 0" class="text-center text-gray-500 mt-10">
+    <!-- EMPTY STATE -->
+    <div *ngIf="requests.length === 0"
+         class="text-center text-gray-500 mt-10 text-sm sm:text-base">
         No pending requests
     </div>
 
-    <!-- CONFIRMATION MODAL (UNCHANGED DESIGN) -->
-    <div *ngIf="showConfirm" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <!-- CONFIRMATION MODAL -->
+    <div *ngIf="showConfirm"
+         class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
 
-        <div class="bg-white rounded-2xl p-6 w-[380px] text-center">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-[380px] text-center">
 
-            <h2 class="text-xl font-semibold text-gray-800 mb-3">
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-3">
                 {{ 'APPROVAL.CONFIRM_TITLE' | translate }}
             </h2>
 
-            <p class="text-gray-600 mb-6">
+            <p class="text-sm sm:text-base text-gray-600 mb-6">
                 {{ confirmType === 'approve'
                 ? ('APPROVAL.CONFIRM_APPROVE' | translate)
                 : ('APPROVAL.CONFIRM_REJECT' | translate)
                 }}
             </p>
 
-            <div class="flex justify-center gap-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
 
-                <button (click)="confirmAction()" class="bg-green-500 text-white px-5 py-2 rounded-lg">
+                <button (click)="confirmAction()"
+                        class="bg-green-500 text-white px-5 py-2 rounded-lg w-full sm:w-auto">
                     {{ 'COMMON.YES' | translate }}
                 </button>
 
-                <button (click)="showConfirm=false" class="bg-gray-200 text-gray-800 px-5 py-2 rounded-lg">
+                <button (click)="showConfirm=false"
+                        class="bg-gray-200 text-gray-800 px-5 py-2 rounded-lg w-full sm:w-auto">
                     {{ 'COMMON.NO' | translate }}
                 </button>
 

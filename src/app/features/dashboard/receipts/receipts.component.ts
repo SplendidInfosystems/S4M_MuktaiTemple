@@ -29,28 +29,29 @@ export class ReceiptsComponent implements OnInit, OnDestroy {
     private loader: LoaderService,
     private toast: ToastService,
     private templeState: TempleLocationService
-  ) {}
+  ) {
+    localStorage.setItem("donation_id", "5")
+  }
 
   // ================= INIT =================
   ngOnInit(): void {
-    this.donationId = this.resolveDonationId();
+  this.donationId = this.resolveDonationId();
 
-    if (!this.donationId) {
-      this.toast.show('Donation ID not found', 'error');
-      return;
-    }
-
-    // 🔥 Listen to temple dropdown change
-    this.templeState.locationId$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(locationId => {
-        if (!locationId) return;
-
-        this.locationId = locationId;
-        this.loadReceipt(this.donationId!, this.locationId);
-      });
+  if (!this.donationId) {
+    this.toast.show('Invalid donation ID', 'error');
+    return;
   }
 
+  this.templeState.locationId$
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(locationId => {
+      if (!locationId) return;
+
+      console.log('Calling API with:', this.donationId, locationId);
+
+      this.loadReceipt(this.donationId!, locationId);
+    });
+}
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
@@ -84,8 +85,20 @@ export class ReceiptsComponent implements OnInit, OnDestroy {
     window.print();
   }
 
-  private resolveDonationId(): number | null {
-    const id = Number(localStorage.getItem('donation_id'));
-    return Number.isFinite(id) && id > 0 ? id : null;
+ private resolveDonationId(): number | null {
+  const raw = localStorage.getItem('donation_id');
+
+  if (!raw) {
+    console.warn('No donation_id in localStorage');
+    return null;
   }
+
+  const id = parseInt(raw, 10);
+  if (isNaN(id) || id <= 0) {
+    console.warn('Invalid donation_id:', raw);
+    return null;
+  }
+
+  return id;
+}
 }

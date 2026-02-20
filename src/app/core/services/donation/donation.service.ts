@@ -59,6 +59,17 @@ downloadReport(reportId: string) {
     `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}?report_id=${reportId}`
   );
 }
+generateReport(payload: {
+  report_type: string;
+  period: string;
+  location_id: number;
+  generated_by: number;
+}) {
+  return this.http.post<any>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.POST_GENERATE_REPORT}`,
+    payload
+  );
+}
 
 deleteDonation(donorId: number) {
   return this.http.delete<any>(

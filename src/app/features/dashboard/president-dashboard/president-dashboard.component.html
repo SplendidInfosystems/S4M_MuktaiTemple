@@ -1,4 +1,4 @@
-<div class="p-6  min-h-screen">
+<div class="p-4 sm:p-6 min-h-screen">
 
     <!-- TITLE -->
     <div class="mb-6">
@@ -11,17 +11,17 @@
     </div>
 
     <!-- STATS CARDS -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8" *ngIf="dashboardData">
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 mb-8" *ngIf="dashboardData">
 
         <!-- CARD -->
-        <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
-            <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
+        <div class="bg-white border border-orange-100 rounded-2xl p-4 sm:p-5 relative shadow-sm">
+            <!-- <span class="absolute top-3 right-3 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
                 +12%
-            </span>
+            </span> -->
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 sm:gap-4">
                 <div
-                    class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-xl">
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-dollar-sign w-6 h-6 text-white"
@@ -39,14 +39,14 @@
             </div>
         </div>
 
-        <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
-            <span class="absolute top-4 right-4 bg-green-100  text-green-600 text-xs px-2 py-1 rounded-full">
+        <div class="bg-white border border-orange-100 rounded-2xl p-4 sm:p-5 relative shadow-sm">
+            <!-- <span class="absolute top-3 right-3 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
                 +8%
-            </span>
+            </span> -->
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 sm:gap-4">
                 <div
-                    class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white">
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-trending-up w-6 h-6 text-white"
@@ -63,9 +63,9 @@
         </div>
 
         <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
-            <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
+            <!-- <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
                 +15%
-            </span>
+            </span> -->
 
             <div class="flex items-center gap-4">
                 <div
@@ -86,9 +86,9 @@
         </div>
 
         <div class="bg-white border border-orange-100 rounded-2xl p-5 relative">
-            <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
+            <!-- <span class="absolute top-4 right-4 bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full">
                 +18%
-            </span>
+            </span> -->
 
             <div class="flex items-center gap-4">
                 <div
@@ -111,13 +111,13 @@
     </div>
 
     <!-- TABLE -->
-    <div class="bg-white border border-orange-100 rounded-2xl p-6 gap-6 mb-8">
+    <div class="bg-white border border-orange-100 rounded-2xl p-4 sm:p-6 mb-8 shadow-sm">
 
         <h2 class="text-lg font-semibold text-[#D4A017] mb-4">
             {{ 'TABLE.TITLE' | translate }}
         </h2>
-
-        <table class="w-full text-sm border-collapse">
+         <div class="overflow-x-auto">
+            <table class="min-w-[700px] w-full text-sm border-collapse">
             <thead>
                 <tr class="text-gray-500 border-b">
                     <th class="text-left py-3 px-4">
@@ -174,10 +174,14 @@
             </tbody>
 
         </table>
+            
+         </div>
+
+        
 
     </div>
 
-    <div class="bg-white rounded-2xl border border-orange-200 p-6">
+    <div class="bg-white rounded-2xl border border-orange-200 p-4 sm:p-6 shadow-sm mb-6">
         <h3 class="text-orange-600 font-semibold mb-4">
             Monthly Trend
         </h3>
@@ -189,7 +193,7 @@
 
     </div>
 
-    <div class="bg-white rounded-2xl border border-orange-100 p-6 shadow-sm mt-6">
+    <div class="bg-white rounded-2xl border border-orange-100 p-4 sm:p-6 shadow-sm">
         <h3 class="text-orange-600 font-semibold mb-4">
             Temple-wise Donations
         </h3>

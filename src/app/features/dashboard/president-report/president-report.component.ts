@@ -29,53 +29,49 @@ ranges = ['Daily', 'Monthly', 'Yearly'];
     this.selectedRange[type] = range;
   }
 
-  // 🔥 Dynamic ID Generator
-  private generateReportId(type: string, range: string, format: string): string {
 
-    const key = `${type}_${range.toLowerCase()}_${format.toLowerCase()}`;
 
-    const reportMap: any = {
-      donation_daily_pdf: '1',
-      donation_monthly_pdf: '2',
-      donation_yearly_pdf: '12',
+ downloadReport(type: string, period: string, format: string) {
 
-      expense_daily_pdf: '5',
-      expense_monthly_pdf: '6',
-      expense_yearly_pdf: '7',
+  const locationId = Number(localStorage.getItem('location_id')) || 9;
+  const generatedBy = Number(localStorage.getItem('president_id')) || 1;
 
-      combined_daily_pdf: '8',
-      combined_monthly_pdf: '9',
-      combined_yearly_pdf: '10',
+  const payload = {
+    report_type: type,
+    period: period.toLowerCase(),
+    location_id: locationId,
+    generated_by: generatedBy
+  };
 
-      // if WORD format needed
-      donation_daily_word: '13',
-      donation_monthly_word: '14',
-      donation_yearly_word: '15'
-    };
+  // 🔥 Step 1: Generate Report
+  this.reportService.generateReport(payload).subscribe({
+    next: (genRes: any) => {
 
-    return reportMap[key];
-  }
-
-  // 🔥 Final Download Function
-  downloadReport(type: string, range: string, format: string) {
-
-    const reportId = this.generateReportId(type, range, format);
-
-    if (!reportId) {
-      console.error('Report ID not found');
-      return;
-    }
-
-    this.reportService.downloadReport(reportId).subscribe({
-      next: (res) => {
-        if (res.success && res.download_url) {
-          window.open(res.download_url, '_blank');
-        }
-      },
-      error: (err) => {
-        console.error('Download failed', err);
+      if (!genRes?.report_id) {
+        console.error('Report ID not returned');
+        return;
       }
-    });
-  }
+
+      const reportId = genRes.report_id;
+
+      // 🔥 Step 2: Download Report
+      this.reportService.downloadReport(reportId).subscribe({
+        next: (downloadRes: any) => {
+
+          if (downloadRes?.success && downloadRes?.download_url) {
+            window.open(downloadRes.download_url, '_blank');
+          } else {
+            console.error('Download URL not found');
+          }
+
+        },
+        error: err => console.error('Download error', err)
+      });
+
+    },
+    error: err => console.error('Generate report error', err)
+  });
+
+}
 
 }
