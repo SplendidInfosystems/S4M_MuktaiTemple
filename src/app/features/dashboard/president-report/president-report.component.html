@@ -25,15 +25,15 @@
         </button>
       </div>
 
-      <button class="btn-primary"
-              (click)="downloadReportById('donation', selectedRange.donation)">
-        {{ 'COMMON.DOWNLOAD_PDF' | translate }}
-      </button>
+     <button class="btn-primary"
+        (click)="downloadReport('donation', selectedRange.donation, 'PDF')">
+  {{ 'COMMON.DOWNLOAD_PDF' | translate }}
+</button>
 
-      <button class="btn-secondary"
-              (click)="downloadReportById('donation', selectedRange.donation)">
-        {{ 'COMMON.DOWNLOAD_WORD' | translate }}
-      </button>
+<button class="btn-secondary"
+        (click)="downloadReport('donation', selectedRange.donation, 'WORD')">
+  {{ 'COMMON.DOWNLOAD_WORD' | translate }}
+</button>
     </div>
 
 
@@ -55,14 +55,14 @@
       </div>
 
       <button class="btn-primary"
-              (click)="downloadReportById('expense', selectedRange.expense)">
-        {{ 'COMMON.DOWNLOAD_PDF' | translate }}
-      </button>
+        (click)="downloadReport('expense', selectedRange.expense, 'PDF')">
+  {{ 'COMMON.DOWNLOAD_PDF' | translate }}
+</button>
 
-      <button class="btn-secondary"
-              (click)="downloadReportById('expense', selectedRange.expense)">
-        {{ 'COMMON.DOWNLOAD_WORD' | translate }}
-      </button>
+<button class="btn-secondary"
+        (click)="downloadReport('expense', selectedRange.expense, 'WORD')">
+  {{ 'COMMON.DOWNLOAD_WORD' | translate }}
+</button>
     </div>
 
 
@@ -83,15 +83,15 @@
         </button>
       </div>
 
-      <button class="btn-primary"
-              (click)="downloadReportById('combined', selectedRange.combined)">
-        {{ 'COMMON_PDF.DOWNLOAD_PDF' | translate }}
-      </button>
+     <button class="btn-primary"
+        (click)="downloadReport('combined', selectedRange.combined, 'PDF')">
+  {{ 'COMMON.DOWNLOAD_PDF' | translate }}
+</button>
 
-      <button class="btn-secondary"
-              (click)="downloadReportById('combined', selectedRange.combined)">
-        {{ 'COMMON_PDF.DOWNLOAD_WORD' | translate }}
-      </button>
+<button class="btn-secondary"
+        (click)="downloadReport('combined', selectedRange.combined, 'WORD')">
+  {{ 'COMMON.DOWNLOAD_WORD' | translate }}
+</button>
     </div>
 
   </div>

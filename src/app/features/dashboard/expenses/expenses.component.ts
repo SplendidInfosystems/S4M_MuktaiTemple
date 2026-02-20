@@ -8,6 +8,7 @@ import { ToastService } from '../../../core/services/toast/toast.service';
 import { DonationService } from '../../../core/services/donation/donation.service';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { environment } from '../../../../environments/environment';
+import { TempleLocationService } from '../../../core/services/temple-state/temple-location.service';
 
 @Component({
   selector: 'app-expenses',
@@ -24,14 +25,22 @@ export class ExpensesComponent implements OnInit {
   // =========================
   currentPage: number = 1;
   pageSize: number = 5; // records per page
+      locationId!: number;
+
 
 
   constructor(private donationService: DonationService,
     private toast: ToastService,
-    private loader: LoaderService) { }
+    private loader: LoaderService,
+     private templeState: TempleLocationService) { }
 
   ngOnInit(): void {
-    this.loadExpenses();
+     this.templeState.locationId$.subscribe(id => {
+      if (id) {
+        this.locationId = id;
+        this.loadExpenses();
+      }
+    })
   }
 
 
@@ -42,7 +51,7 @@ export class ExpensesComponent implements OnInit {
 
     this.loader.show();
 
-    this.donationService.getExpensesInfo()
+    this.donationService.getExpensesInfo(this.locationId)
       .pipe(
         finalize(() => this.loader.hide())
       )
@@ -61,6 +70,37 @@ export class ExpensesComponent implements OnInit {
       });
   }
 
+
+deleteExpense(expenseId: number) {
+
+  const confirmDelete = confirm('Are you sure you want to delete this expense?');
+
+  if (!confirmDelete) return;
+
+  this.loader.show();
+
+  this.donationService.deleteExpences(expenseId)
+    .pipe(finalize(() => this.loader.hide()))
+    .subscribe({
+      next: (res: any) => {
+        if (res?.success) {
+          this.toast.show('Expense deleted successfully', 'success');
+
+          // Reload updated list
+          this.loadExpenses();
+        } else {
+          this.toast.show('Failed to delete expense', 'error');
+        }
+      },
+      error: (err) => {
+        this.toast.show('Error deleting expense', 'error');
+
+        if (!environment.production) {
+          console.error(err);
+        }
+      }
+    });
+}
 
   
     // =========================

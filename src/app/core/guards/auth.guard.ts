@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class AuthGuard {
  
+
   constructor(private router: Router) {}
 
   canActivate(): boolean | UrlTree {
@@ -19,10 +20,17 @@ export class AuthGuard {
   }
 
   private check(): boolean | UrlTree {
-
     const token = localStorage.getItem('token');
 
     if (!token) {
+      return this.router.parseUrl('/login');
+    }
+
+    // Optional: validate role
+    const role = localStorage.getItem('role');
+
+    if (!role) {
+      localStorage.clear();
       return this.router.parseUrl('/login');
     }
 

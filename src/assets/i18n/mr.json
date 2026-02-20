@@ -348,6 +348,9 @@
   "DONATION_DATE": "दिनांक",
   "DONATION_DATE_REQUIRED": "दिनांक आवश्यक आहे",
   "SUBMIT_DONATION": "देणगी जोडा",
+
+
+
   "DONATION_REPORT": {
     "DATE": "दिनांक",
     "DONOR_NAME": "देणगीदाराचे नाव",
@@ -358,7 +361,9 @@
     "AMOUNT_IN_WORDS": "रक्कम (शब्दात)",
     "ACTION": "क्रिया",
     "RECEIPT": "पावती",
-    "PDF": "पीडीएफ"
+    "PDF": "पीडीएफ",
+    "DELETE": "हटवा"
+
   },
   "EXPENSE_TABLE": {
     "TYPE": "प्रकार",
@@ -366,7 +371,8 @@
     "STATUS": "स्थिती",
     "DATE": "दिनांक",
     "APPROVED": "मंजूर",
-    "PENDING": "प्रलंबित"
+    "PENDING": "प्रलंबित",
+     "DELETE": "हटवा"
   },
   "DONATION": {
     "RECEIPT": "पावती",

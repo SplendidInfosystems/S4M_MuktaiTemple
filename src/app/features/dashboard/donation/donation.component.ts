@@ -23,6 +23,8 @@ import { TempleLocationService } from '../../../core/services/temple-state/templ
 export class DonationComponent implements OnInit {
 
   donors: DonorInfo[] = [];
+    locationId!: number;
+
 
   // =========================
   // PAGINATION VARIABLES
@@ -41,9 +43,16 @@ export class DonationComponent implements OnInit {
     // this.loadDonors();
   }
 
+  
   ngOnInit() {
 
-      this.loadDonors();
+       //  LISTEN TO DROPDOWN CHANGES
+    this.templeState.locationId$.subscribe(id => {
+      if (id) {
+        this.locationId = id;
+        this.loadDonors();
+      }
+    })
   
 }
 
@@ -53,7 +62,7 @@ export class DonationComponent implements OnInit {
   loadDonors() {
     this.loader.show();
 
-    this.donationService.getDonorInfo()
+    this.donationService.getDonorInfo(this.locationId)
       .pipe(
         finalize(() => this.loader.hide())
       )
@@ -125,5 +134,37 @@ export class DonationComponent implements OnInit {
     const pdfUrl = URL.createObjectURL(pdfBlob);
     window.open(pdfUrl, '_blank');
   }
+
+
+  deleteDonation(donorId: number) {
+
+  const confirmDelete = confirm('Are you sure you want to delete this donation?');
+
+  if (!confirmDelete) return;
+
+  this.loader.show();
+
+  this.donationService.deleteDonation(donorId)
+    .pipe(finalize(() => this.loader.hide()))
+    .subscribe({
+      next: (res: any) => {
+        if (res?.success) {
+          this.toast.show('Donation deleted successfully', 'success');
+
+          // Reload updated list
+          this.loadDonors();
+        } else {
+          this.toast.show('Failed to delete donation', 'error');
+        }
+      },
+      error: (err) => {
+        this.toast.show('Error deleting donation', 'error');
+
+        if (!environment.production) {
+          console.error(err);
+        }
+      }
+    });
+}
 
 }

@@ -20,21 +20,21 @@ export class DonationService {
 
 //  =============================== GET API'S ===================================
 
-   getDonorInfo(): Observable<{ success: boolean; data: DonorInfo[] }> {
+getDonorInfo(locationId: number): Observable<{ success: boolean; data: DonorInfo[] }> {
   return this.http.get<{ success: boolean; data: DonorInfo[] }>(
-    APP_CONFIG.BASE_URL + ENDPOINTS.GET_DONOR_INFO
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DONOR_INFO}?location_id=${locationId}`
   );
 }
   //  expences table data 
-   getExpensesInfo(): Observable<{ success: boolean; data: ExpenseInfo[] }> {
+   getExpensesInfo(locationId: number): Observable<{ success: boolean; data: ExpenseInfo[] }> {
   return this.http.get<{ success: boolean; data: ExpenseInfo[] }>(
-    APP_CONFIG.BASE_URL + ENDPOINTS.GET_EXPENSES_INFO
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_EXPENSES_INFO}?location_id=${locationId}`
   );
 }
 
 //  admin dashboard data
-getAdminDashboardData(adminId: number): Observable<{ body: AdminDashboardData } | AdminDashboardData> {
-  return this.http.get<{ body: AdminDashboardData } | AdminDashboardData>(`${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_ADMIN_DASHBOARD_DATA}?admin_id=${adminId}`);
+getAdminDashboardData(adminId: number, locationId: number): Observable<{ body: AdminDashboardData } | AdminDashboardData> {
+  return this.http.get<{ body: AdminDashboardData } | AdminDashboardData>(`${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_ADMIN_DASHBOARD_DATA}?admin_id=${adminId}&location_id=${locationId}`);
 }
 
 //  president dashboard data
@@ -45,12 +45,12 @@ getPresidentDashboard(): Observable<PresidentDashboardResponse> {
 }
 
 
-getDonationReceipt(donationId: number) {
+getDonationReceipt(donationId: number,locationId: number) {
   return this.http.get<{
     success: boolean;
     receipt: DonationReceipt;
   }>(
-    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DONATION_RECEIPT}?donation_id=${donationId}`
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DONATION_RECEIPT}?donation_id=${donationId}&location_id=${locationId}`
   );
 }
 
@@ -59,6 +59,25 @@ downloadReport(reportId: string) {
     `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}?report_id=${reportId}`
   );
 }
+
+deleteDonation(donorId: number) {
+  return this.http.delete<any>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.DELETE_DONATION}`,
+    {
+      body: { donor_id: donorId }
+    }
+  );
+}
+
+deleteExpences(expencesId: number) {
+  return this.http.delete<any>(
+    `${APP_CONFIG.BASE_URL}${ENDPOINTS.DELETE_EXPENSE}`,
+    {
+      body: { expense_id: expencesId }
+    }
+  );
+}
+
 
 
 

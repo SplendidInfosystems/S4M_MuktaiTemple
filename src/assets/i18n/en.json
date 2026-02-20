@@ -333,6 +333,8 @@
   "SUBMIT_EXPENSE": "Submit Expense",
   "SUBMITTING": "Submitting...",
   "CANCEL": "Cancel",
+
+
   "DONATION_REPORT": {
     "ADD_DONATION": "Add Donation",
     "DONOR_NAME": "Donor Name",
@@ -351,7 +353,8 @@
     "DONATION_DATE": "Date",
     "DONATION_DATE_REQUIRED": "Date is required",
     "SUBMIT_DONATION": "Add Donation",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "DELETE": "Delete"
   },
   "DONATION": {
     "RECEIPT": "Receipt",
@@ -366,7 +369,9 @@
     "STATUS": "Status",
     "DATE": "Date",
     "APPROVED": "Approved",
-    "PENDING": "Pending"
+    "PENDING": "Pending",
+    "DELETE": "Delete"
+
   },
   "PRESIDENT_DASHBOARD": {
     "TITLE": "President Dashboard",

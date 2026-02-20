@@ -15,6 +15,8 @@ import { ToastService } from '../../../core/services/toast/toast.service';
 export class PresidentLoginComponent {
    loginForm: FormGroup;
     submitted = false;
+      showPassword = false;
+
 
   
   
@@ -70,6 +72,9 @@ export class PresidentLoginComponent {
     }
   });
 }
+ togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   
     goBack() {
@@ -78,5 +83,17 @@ export class PresidentLoginComponent {
     get f() {
     return this.loginForm.controls;
   }
-
+  
+    // Password checks
+  get password(): string {
+    return this.loginForm.get('password')?.value || '';
+  }
+  hasUpperCase(): boolean { return /[A-Z]/.test(this.password); }
+  hasLowerCase(): boolean { return /[a-z]/.test(this.password); }
+  hasNumber(): boolean { return /[0-9]/.test(this.password); }
+  hasSpecialChar(): boolean { return /[\W_]/.test(this.password); }
+  hasMinLength(): boolean { return this.password.length >= 6; }
 }
+
+ 
+

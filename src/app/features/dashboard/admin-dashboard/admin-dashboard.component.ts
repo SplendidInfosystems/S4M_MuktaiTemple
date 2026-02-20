@@ -7,6 +7,7 @@ import { LoaderService } from '../../../core/services/loader/loader.service';
 import { environment } from '../../../../environments/environment';
 import { AdminDashboardData } from '../../../core/models/interface-model';
 import { finalize } from 'rxjs/operators';
+import { TempleLocationService } from '../../../core/services/temple-state/temple-location.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -19,6 +20,7 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
   adminDashboardData: AdminDashboardData | null = null;
   adminId: number | null = null;
   distributionData = { cash: 0, online: 0 };
+  locationId!: number;
 
   private weeklyChart: Chart | null = null;
   private donationChart: Chart | null = null;
@@ -27,17 +29,32 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
   constructor(
     private donationService: DonationService,
     private toast: ToastService,
-    private loader: LoaderService
+    private loader: LoaderService,
+    private templeState: TempleLocationService
   ) {
     this.adminId = this.resolveAdminId();
-    if (this.adminId === null) {
-      this.toast.show('Admin ID not found. Please login again.', 'error');
-      return;
-    }
+   
 
-    this.loadAdminDashboardData(this.adminId);
   }
 
+
+  
+ngOnInit(): void {
+  if (!this.adminId) {
+    this.toast.show('Admin ID not found. Please login again.', 'error');
+    return;
+  }
+
+  // ✅ Listen to temple state
+  this.templeState.locationId$.subscribe(id => {
+    if (!id) return;
+
+    this.locationId = id;
+
+    // ✅ Now both adminId + locationId available
+    this.loadAdminDashboardData(this.adminId!, this.locationId);
+  });
+}
   ngAfterViewInit(): void {
     this.viewInitialized = true;
     this.renderChartsIfReady();
@@ -50,9 +67,9 @@ export class AdminDashboardComponent implements AfterViewInit, OnDestroy {
 
   // ================= API =================
 
-  loadAdminDashboardData(id: number): void {
+  loadAdminDashboardData(adminId: number, locationId: number): void {
     this.loader.show();
-    this.donationService.getAdminDashboardData(id)
+    this.donationService.getAdminDashboardData(adminId, locationId)
       .pipe(finalize(() => this.loader.hide()))
       .subscribe({
         next: (res) => {

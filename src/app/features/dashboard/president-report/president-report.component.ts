@@ -16,108 +16,66 @@ import { Document, Packer, Paragraph } from 'docx';
 })
 export class PresidentReportComponent {
 
-  constructor(private reportService: DonationService) {}
-
-  ranges = ['Daily', 'Monthly', 'Yearly'];
-
+ranges = ['Daily', 'Monthly', 'Yearly'];
   selectedRange: any = {
     donation: 'Daily',
     expense: 'Daily',
     combined: 'Daily'
   };
 
+  constructor(private reportService: DonationService) {}
+
   setRange(type: string, range: string) {
     this.selectedRange[type] = range;
   }
-  getReportId(type: string, range: string): string {
-  const map: any = {
-    donation: { Daily: '1', Monthly: '2', Yearly: '3' },
-    expense: { Daily: '4', Monthly: '5', Yearly: '6' },
-    combined: { Daily: '7', Monthly: '8', Yearly: '9' }
-  };
 
-  return map[type]?.[range] || '1';
-}
+  // 🔥 Dynamic ID Generator
+  private generateReportId(type: string, range: string, format: string): string {
 
-  // ✅ FIXED DOWNLOAD FUNCTION
-downloadReportById(type: string, range: string) {
-  const reportId = this.getReportId(type, range); // mapping logic
+    const key = `${type}_${range.toLowerCase()}_${format.toLowerCase()}`;
 
-  this.reportService.downloadReport(reportId).subscribe({
-    next: (res) => {
-      if (!res.success || !res.download_url) {
-        alert('Report not available');
-        return;
-      }
+    const reportMap: any = {
+      donation_daily_pdf: '1',
+      donation_monthly_pdf: '2',
+      donation_yearly_pdf: '12',
 
-      // ✅ open S3 pre-signed URL
-      window.open(res.download_url, '_blank');
-    },
-    error: () => {
-      alert('Download failed');
+      expense_daily_pdf: '5',
+      expense_monthly_pdf: '6',
+      expense_yearly_pdf: '7',
+
+      combined_daily_pdf: '8',
+      combined_monthly_pdf: '9',
+      combined_yearly_pdf: '10',
+
+      // if WORD format needed
+      donation_daily_word: '13',
+      donation_monthly_word: '14',
+      donation_yearly_word: '15'
+    };
+
+    return reportMap[key];
+  }
+
+  // 🔥 Final Download Function
+  downloadReport(type: string, range: string, format: string) {
+
+    const reportId = this.generateReportId(type, range, format);
+
+    if (!reportId) {
+      console.error('Report ID not found');
+      return;
     }
-  });
-}
 
-downloadPDF(type: string, range: string) {
-  const reportId = this.getReportId(type, range);
-
-  this.reportService.downloadReport(reportId).subscribe({
-    next: (res: ReportResponse) => {
-
-      if (!res.success || !res.download_url) {
-        alert('Report not available');
-        return;
+    this.reportService.downloadReport(reportId).subscribe({
+      next: (res) => {
+        if (res.success && res.download_url) {
+          window.open(res.download_url, '_blank');
+        }
+      },
+      error: (err) => {
+        console.error('Download failed', err);
       }
-
-      // 🔥 Fetch TXT content from S3 URL
-      fetch(res.download_url)
-        .then(response => response.text())
-        .then(textData => {
-
-          const doc = new jsPDF();
-          const lines = textData.split('\n');
-
-          doc.setFontSize(12);
-          doc.text(lines, 10, 10);
-
-          doc.save(`${type}_${range}_report.pdf`);
-        });
-
-    },
-    error: () => alert('Download failed')
-  });
-}
-
-downloadWord(type: string, range: string) {
-  const reportId = this.getReportId(type, range);
-
-  this.reportService.downloadReport(reportId).subscribe({
-    next: async (res: ReportResponse) => {
-
-      if (!res.success || !res.download_url) {
-        alert('Report not available');
-        return;
-      }
-
-      const response = await fetch(res.download_url);
-      const textData = await response.text();
-
-      const doc = new Document({
-        sections: [{
-          children: textData
-            .split('\n')
-            .map(line => new Paragraph(line))
-        }],
-      });
-
-      const blob = await Packer.toBlob(doc);
-      saveAs(blob, `${type}_${range}_report.docx`);
-    },
-    error: () => alert('Download failed')
-  });
-}
-
-
+    });
+  }
 
 }

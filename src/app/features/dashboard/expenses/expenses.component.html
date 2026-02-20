@@ -29,6 +29,9 @@
           <th class="px-4 py-3 border-b text-left">
             {{ 'EXPENSE_TABLE.DATE' | translate }}
           </th>
+           <th class="px-4 py-3 border-b text-left">
+            {{ 'EXPENSE_TABLE.DELETE' | translate }}
+          </th>
         </tr>
       </thead>
 
@@ -61,6 +64,21 @@
           <!-- Date -->
           <td class="px-4 py-3 border-b text-gray-600">
             {{ e.expense_date | date:'mediumDate' }}
+          </td>
+
+          <td class="px-4 py-3 border-b text-gray-600">
+               <!-- Delete Button -->
+            <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm"
+              (click)="deleteExpense(e.expense_id)">
+              Delete
+            </button>
+          </td>
+
+        </tr>
+           <!-- Empty State -->
+        <tr *ngIf="paginatedExpences.length === 0">
+          <td colspan="5" class="text-center py-6 text-gray-500">
+            please Select Temple to view the expense records.
           </td>
         </tr>
       </tbody>

@@ -1,6 +1,6 @@
 // ================= DONATION TABLE =================
 export interface DonorInfo {
-  donor_id: string;
+  donor_id:number;
   name: string;
   mobile_number: string;
   amount: number;
@@ -8,6 +8,7 @@ export interface DonorInfo {
   amount_in_words: string;
   payment_method: string;
   donation_date: string;
+  location_id: number;
 }
 
 // =================================ADMIN LOGIN =================
@@ -36,7 +37,7 @@ export interface PresidentLoginResponse {
 
 // ================= EXPENSE TABLE =================
 export interface ExpenseInfo {
-  expense_id: string;
+  expense_id: number;
   category: string;
   amount: number;
   description: string;

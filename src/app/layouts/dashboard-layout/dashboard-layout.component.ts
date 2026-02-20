@@ -77,16 +77,21 @@ selectTemple(name: string) {
   }
 }
 
-  loadTemples() {
+loadTemples() {
   this.templeservice.getTempleLocations().subscribe({
     next: (res) => {
       this.locations = res;
-      console.log('Temple locations loaded:', this.locations);
       this.temples = res.map(l => l.location_name);
 
-      // set default
-      if (this.temples.length) {
-        this.selectedTemple = this.temples[0];
+      // ✅ SET DEFAULT TEMPLE + PUSH TO GLOBAL STATE
+      if (this.locations.length) {
+        const first = this.locations[0];
+
+        this.selectedTemple = first.location_name;
+        this.selectedLocationId = first.location_id;
+
+        // 🔥 THIS LINE WAS MISSING
+        this.templeState.setLocation(first.location_id);
       }
     },
     error: (err) => {

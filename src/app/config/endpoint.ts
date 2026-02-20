@@ -47,8 +47,13 @@ export const ENDPOINTS = {
 
   GET_DOWNLOAD_REPORT: '/getDownloadReport',
 
+  // temple locations endpoint
   
-  GET_TEMPLE_LOCATIONS: '/getLocationsTemple'
+  GET_TEMPLE_LOCATIONS: '/getLocationsTemple',
+
+  DELETE_DONATION: '/deleteDonationData',
+
+  DELETE_EXPENSE: '/deleteExpenseData'
 
 
 
