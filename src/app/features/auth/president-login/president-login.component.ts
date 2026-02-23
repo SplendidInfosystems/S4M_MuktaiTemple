@@ -37,7 +37,7 @@ export class PresidentLoginComponent {
       localStorage.setItem('role', 'president'); // or 'admin'
     }
   
-  onSubmit() {
+ onSubmit() {
   this.submitted = true;
 
   if (this.loginForm.invalid) {
@@ -56,9 +56,24 @@ export class PresidentLoginComponent {
 
         this.toast.show('President Login successfully', 'success');
 
-        localStorage.setItem('token', 'loggedin');
-        localStorage.setItem('role', 'president');
-        localStorage.setItem('president_id', president.president_id.toString());
+       
+  localStorage.setItem('token', res.token); // real token
+  localStorage.setItem('role', 'president');
+  localStorage.setItem('president_id', president.president_id.toString());
+  localStorage.setItem('location_id', president.location_id.toString());
+
+        localStorage.setItem(
+          'president_id',
+          president.president_id.toString()
+        );
+
+        // 🔥 THIS WAS MISSING (VERY IMPORTANT)
+        localStorage.setItem(
+          'location_id',
+          president.location_id.toString()
+        );
+
+        console.log('Stored Location ID:', president.location_id);
 
         this.router.navigate(['/dashboard/president-Dashboard']);
       } 

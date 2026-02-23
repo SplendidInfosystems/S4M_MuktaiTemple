@@ -35,7 +35,7 @@ export class PresidentReportComponent {
     period: Period,
     format: 'PDF' | 'WORD'
   ) {
-const locationId = parseInt(localStorage.getItem('location_id') || '', 10);
+    const locationId = Number(localStorage.getItem('location_id'));
     const presidentId = Number(localStorage.getItem('president_id'));
     if (!locationId || !presidentId) {
       this.toast.showError('Invalid user or location');
@@ -50,8 +50,6 @@ const locationId = parseInt(localStorage.getItem('location_id') || '', 10);
       file_type: format === 'PDF' ? 'pdf' : 'docx'
     };
     console.log('Sending Payload:', payload);
-    console.log('Location ID:', locationId);
-console.log('President ID:', presidentId);
     this.loader.show();
     this.reportService.generateReport(payload).subscribe({
       next: (res: any) => {
