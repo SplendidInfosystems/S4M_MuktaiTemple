@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '../../../config/endpoint';
 import { APP_CONFIG } from '../../../app.config';
 import { map, Observable } from 'rxjs';
-import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, ExpenseRequest, ExpenseRequestResponse, PresidentDashboardResponse, PresidentLoginResponse, ReportResponse, TempleLocation } from '../../models/interface-model';
+import {  AddDonationRequest, AddDonationResponse, AddExpenseRequest, AddExpenseResponse, AdminDashboardData, AdminLoginResponse, DonationReceipt, DonorInfo, ExpenseInfo, ExpenseRequest, ExpenseRequestResponse, GenerateReportPayload, PresidentDashboardResponse, PresidentLoginResponse, ReportResponse, TempleLocation } from '../../models/interface-model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -54,17 +54,12 @@ getDonationReceipt(donationId: number,locationId: number) {
   );
 }
 
-downloadReport(reportId: string) {
-  return this.http.get<ReportResponse>(
-    `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}?report_id=${reportId}`
-  );
-}
-generateReport(payload: {
-  report_type: string;
-  period: string;
-  location_id: number;
-  generated_by: number;
-}) {
+// downloadReport(reportId: string) {
+//   return this.http.get<ReportResponse>(
+//     `${APP_CONFIG.BASE_URL}${ENDPOINTS.GET_DOWNLOAD_REPORT}?report_id=${reportId}`
+//   );
+// }
+generateReport(payload: GenerateReportPayload) {
   return this.http.post<any>(
     `${APP_CONFIG.BASE_URL}${ENDPOINTS.POST_GENERATE_REPORT}`,
     payload

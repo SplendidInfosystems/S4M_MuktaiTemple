@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { DonationService } from '../../../core/services/donation/donation.service';
-import { ReportResponse } from '../../../core/models/interface-model';
-import jsPDF from 'jspdf';
-import { saveAs } from 'file-saver';
-import { Document, Packer, Paragraph } from 'docx';
+import { ToastService } from '../../../core/services/toast/toast.service';
+import { LoaderService } from '../../../core/services/loader/loader.service';
+import { GenerateReportPayload } from '../../../core/models/interface-model';
 
 @Component({
   selector: 'app-president-report',
@@ -16,62 +15,68 @@ import { Document, Packer, Paragraph } from 'docx';
 })
 export class PresidentReportComponent {
 
-ranges = ['Daily', 'Monthly', 'Yearly'];
+  //  IMPORTANT CHANGE: lowercase values only
+  ranges = ['daily', 'monthly', 'yearly'];
+
+  //  IMPORTANT CHANGE: default lowercase
   selectedRange: any = {
-    donation: 'Daily',
-    expense: 'Daily',
-    combined: 'Daily'
+    donation: 'daily',
+    expense: 'daily',
+    combined: 'daily'
   };
 
-  constructor(private reportService: DonationService) {}
+  constructor(
+    private reportService: DonationService,
+    private toast: ToastService,
+    private loader: LoaderService
+  ) {}
 
   setRange(type: string, range: string) {
     this.selectedRange[type] = range;
   }
 
+  generateReport(
+    type: 'donation' | 'expense' | 'combined',
+    period: 'daily' | 'monthly' | 'yearly',
+    format: 'PDF' | 'WORD'
+  ) {
+    const payload: GenerateReportPayload = {
+      report_type: type,
+      period: period, //  NO toLowerCase needed now
+      location_id: Number(localStorage.getItem('location_id')),
+      generated_by: Number(localStorage.getItem('president_id')),
+      file_type: format.toLowerCase() as 'pdf' | 'word'
+    };
 
+    console.log('Sending Payload:', payload);
 
- downloadReport(type: string, period: string, format: string) {
+    this.loader.show();
 
-  const locationId = Number(localStorage.getItem('location_id')) || 9;
-  const generatedBy = Number(localStorage.getItem('president_id')) || 1;
+    this.reportService.generateReport(payload).subscribe({
+      next: (res: any) => {
+        this.loader.hide();
 
-  const payload = {
-    report_type: type,
-    period: period.toLowerCase(),
-    location_id: locationId,
-    generated_by: generatedBy
-  };
+        if (res.success && res.file_url) {
+          const link = document.createElement('a');
+          link.href = res.file_url;
+          link.target = '_blank';
 
-  // 🔥 Step 1: Generate Report
-  this.reportService.generateReport(payload).subscribe({
-    next: (genRes: any) => {
+          const extension = format === 'PDF' ? 'pdf' : 'docx';
+          link.download = `${type}_${period}.${extension}`;
 
-      if (!genRes?.report_id) {
-        console.error('Report ID not returned');
-        return;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          this.toast.show(`${format} downloaded successfully`, 'success');
+        } else {
+          this.toast.showError('No data found for selected period');
+        }
+      },
+      error: () => {
+        this.loader.hide();
+        this.toast.showError('Failed to generate report');
       }
-
-      const reportId = genRes.report_id;
-
-      // 🔥 Step 2: Download Report
-      this.reportService.downloadReport(reportId).subscribe({
-        next: (downloadRes: any) => {
-
-          if (downloadRes?.success && downloadRes?.download_url) {
-            window.open(downloadRes.download_url, '_blank');
-          } else {
-            console.error('Download URL not found');
-          }
-
-        },
-        error: err => console.error('Download error', err)
-      });
-
-    },
-    error: err => console.error('Generate report error', err)
-  });
-
-}
-
+    });
+  }
 }

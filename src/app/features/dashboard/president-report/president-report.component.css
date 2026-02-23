@@ -11,11 +11,11 @@
 }
 
 .toggle-group {
-  @apply flex bg-gray-100 rounded-full p-1 w-fit mb-4;
+  @apply flex flex-wrap gap-1 bg-gray-100 rounded-full p-1 w-fit max-w-full mb-4;
 }
 
 .toggle-group button {
-  @apply px-5 py-1 text-sm rounded-full text-gray-600;
+  @apply px-5 py-1 text-sm rounded-full text-gray-600 whitespace-nowrap;
 }
 
 .toggle-group button.active {
@@ -28,4 +28,14 @@
 
 .btn-secondary {
   @apply w-full border border-gray-300 py-2 rounded-lg text-gray-700 hover:bg-gray-50 transition;
+}
+
+@media (max-width: 640px) {
+  .report-card {
+    @apply p-4;
+  }
+
+  .toggle-group button {
+    @apply px-4 text-xs;
+  }
 }

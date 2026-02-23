@@ -211,6 +211,13 @@ export interface TempleLocationResponse {
   statusCode?: number;
   body: TempleLocation[];
 }
+export interface GenerateReportPayload {
+  report_type: 'donation' | 'expense' | 'combined';
+  period: 'daily' | 'monthly' | 'yearly';
+  location_id: number;
+  generated_by: number;
+  file_type: 'pdf' | 'word';
+}
 
 
 
