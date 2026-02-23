@@ -5,7 +5,8 @@ import { DonationService } from '../../../core/services/donation/donation.servic
 import { ToastService } from '../../../core/services/toast/toast.service';
 import { LoaderService } from '../../../core/services/loader/loader.service';
 import { GenerateReportPayload } from '../../../core/models/interface-model';
-
+type Period = 'daily' | 'monthly' | 'yearly';
+type ReportType = 'donation' | 'expense' | 'combined';
 @Component({
   selector: 'app-president-report',
   standalone: true,
@@ -14,66 +15,64 @@ import { GenerateReportPayload } from '../../../core/models/interface-model';
   styleUrl: './president-report.component.css'
 })
 export class PresidentReportComponent {
-
-  //  IMPORTANT CHANGE: lowercase values only
-  ranges = ['daily', 'monthly', 'yearly'];
-
-  //  IMPORTANT CHANGE: default lowercase
-  selectedRange: any = {
+  // ✅ typed union (fixes NG5 error)
+  readonly ranges: Period[] = ['daily', 'monthly', 'yearly'];
+  selectedRange: Record<ReportType, Period> = {
     donation: 'daily',
     expense: 'daily',
     combined: 'daily'
   };
-
   constructor(
     private reportService: DonationService,
     private toast: ToastService,
     private loader: LoaderService
   ) {}
-
-  setRange(type: string, range: string) {
+  setRange(type: ReportType, range: Period) {
     this.selectedRange[type] = range;
   }
-
   generateReport(
-    type: 'donation' | 'expense' | 'combined',
-    period: 'daily' | 'monthly' | 'yearly',
+    type: ReportType,
+    period: Period,
     format: 'PDF' | 'WORD'
   ) {
+const locationId = parseInt(localStorage.getItem('location_id') || '', 10);
+    const presidentId = Number(localStorage.getItem('president_id'));
+    if (!locationId || !presidentId) {
+      this.toast.showError('Invalid user or location');
+      return;
+    }
+    // ✅ NOW MATCHES INTERFACE + LAMBDA
     const payload: GenerateReportPayload = {
       report_type: type,
-      period: period, //  NO toLowerCase needed now
-      location_id: Number(localStorage.getItem('location_id')),
-      generated_by: Number(localStorage.getItem('president_id')),
-      file_type: format.toLowerCase() as 'pdf' | 'word'
+      period: period,
+      location_id: locationId,
+      generated_by: presidentId,
+      file_type: format === 'PDF' ? 'pdf' : 'docx'
     };
-
     console.log('Sending Payload:', payload);
-
+    console.log('Location ID:', locationId);
+console.log('President ID:', presidentId);
     this.loader.show();
-
     this.reportService.generateReport(payload).subscribe({
       next: (res: any) => {
         this.loader.hide();
-
-        if (res.success && res.file_url) {
+        const fileUrl = res?.file_url;
+        if (res?.success && fileUrl) {
           const link = document.createElement('a');
-          link.href = res.file_url;
+          link.href = fileUrl;
           link.target = '_blank';
-
           const extension = format === 'PDF' ? 'pdf' : 'docx';
           link.download = `${type}_${period}.${extension}`;
-
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-
-          this.toast.show(`${format} downloaded successfully`, 'success');
+          this.toast.showSuccess(`${format} downloaded successfully`);
         } else {
           this.toast.showError('No data found for selected period');
         }
       },
-      error: () => {
+      error: (err) => {
+        console.error(err);
         this.loader.hide();
         this.toast.showError('Failed to generate report');
       }

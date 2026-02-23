@@ -216,8 +216,7 @@ export interface GenerateReportPayload {
   period: 'daily' | 'monthly' | 'yearly';
   location_id: number;
   generated_by: number;
-  file_type: 'pdf' | 'word';
+  file_type: 'pdf' | 'docx';   // ✅ FIXED
 }
-
 
 

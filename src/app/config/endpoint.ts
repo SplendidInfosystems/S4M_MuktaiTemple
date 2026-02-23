@@ -46,6 +46,9 @@ export const ENDPOINTS = {
   //  generate report endpoint
 
   GET_DOWNLOAD_REPORT: '/getDownloadReport',
+
+// report generated api endpoint
+
   POST_GENERATE_REPORT: '/postGenerateReports',
 
   // temple locations endpoint

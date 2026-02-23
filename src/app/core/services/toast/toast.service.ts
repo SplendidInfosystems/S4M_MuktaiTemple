@@ -7,23 +7,17 @@ export interface ToastMessage {
 @Injectable({
   providedIn: 'root'
 })
-
 export class ToastService {
-  showError(arg0: string) {
-    throw new Error('Method not implemented.');
-  }
-
-  constructor() { }
-  
   private messageSubject = new BehaviorSubject<ToastMessage | null>(null);
   message$ = this.messageSubject.asObservable();
-
   show(text: string, type: 'success' | 'error' = 'success') {
     this.messageSubject.next({ text, type });
-
-    setTimeout(() => {
-      this.messageSubject.next(null);
-    }, 3000);
+    setTimeout(() => this.messageSubject.next(null), 3000);
   }
-
+  showSuccess(msg: string) {
+    this.show(msg, 'success');
+  }
+  showError(msg: string) {
+    this.show(msg, 'error');
+  }
 }
