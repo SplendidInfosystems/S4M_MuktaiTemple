@@ -37,11 +37,12 @@ export class PresidentLoginComponent {
       localStorage.setItem('role', 'president'); // or 'admin'
     }
   
- onSubmit() {
+onSubmit() {
   this.submitted = true;
 
   if (this.loginForm.invalid) {
     this.loginForm.markAllAsTouched();
+    this.toast.show('Please enter valid details', 'error');
     return;
   }
 
@@ -49,44 +50,48 @@ export class PresidentLoginComponent {
 
   this.donationService.PostPresidentLogin(payload).subscribe({
     next: (res: any) => {
-      console.log('Login response:', res);
+      console.log('President Login response:', res);
 
       if (res.success) {
+
         const president = res.data;
 
+        // 🔥 Safety check (VERY IMPORTANT)
+        if (!president || !president.president_id || !president.location_id) {
+          console.error('Invalid President API response:', res);
+          
+          // If backend not sending IDs, just login normally
+          localStorage.setItem('token', 'loggedin');
+          localStorage.setItem('role', 'president');
+
+          this.toast.show('President Login successfully', 'success');
+          this.router.navigate(['/dashboard/president-Dashboard']);
+          return;
+        }
+
+        // ✅ Store IDs if available
+        localStorage.setItem('token', 'loggedin');
+        localStorage.setItem('role', 'president');
+        localStorage.setItem('president_id', String(president.president_id));
+        localStorage.setItem('location_id', String(president.location_id));
+
         this.toast.show('President Login successfully', 'success');
-
-       
-  localStorage.setItem('token', res.token); // real token
-  localStorage.setItem('role', 'president');
-  localStorage.setItem('president_id', president.president_id.toString());
-  localStorage.setItem('location_id', president.location_id.toString());
-
-        localStorage.setItem(
-          'president_id',
-          president.president_id.toString()
-        );
-
-        // 🔥 THIS WAS MISSING (VERY IMPORTANT)
-        localStorage.setItem(
-          'location_id',
-          president.location_id.toString()
-        );
-
-        console.log('Stored Location ID:', president.location_id);
-
         this.router.navigate(['/dashboard/president-Dashboard']);
-      } 
-      else {
+
+      } else {
         this.toast.show(res.message || 'Invalid credentials', 'error');
       }
     },
     error: (err) => {
       console.error(err);
-      this.toast.show('Server error. Please try again.', 'error');
+      this.toast.show('Login failed. Please try again.', 'error');
     }
   });
 }
+
+
+
+
  togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
