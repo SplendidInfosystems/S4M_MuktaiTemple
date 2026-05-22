@@ -29,21 +29,30 @@
                 {{ 'CONTACT_FORM.TITLE' | translate }}
             </h3>
 
-            <form class="space-y-4">
+            <form class="space-y-4" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
                 <div>
                     <label class="text-sm font-medium text-gray-700">
                         {{ 'CONTACT_FORM.NAME' | translate }}
                     </label>
-                    <input type="text"
+                    <input name="name" [(ngModel)]="contact.name" required type="text"
                         class="w-full mt-1 px-4 py-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
                         [placeholder]="'CONTACT_FORM.NAME_PLACEHOLDER' | translate" />
                 </div>
 
                 <div>
                     <label class="text-sm font-medium text-gray-700">
+                        {{ 'CONTACT_FORM.EMAIL' | translate }}
+                    </label>
+                    <input name="email" [(ngModel)]="contact.email" required type="email"
+                        class="w-full mt-1 px-4 py-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                        [placeholder]="'CONTACT_FORM.EMAIL_PLACEHOLDER' | translate" />
+                </div>
+
+                <div>
+                    <label class="text-sm font-medium text-gray-700">
                         {{ 'CONTACT_FORM.MOBILE' | translate }}
                     </label>
-                    <input type="text"
+                    <input name="mobile" [(ngModel)]="contact.mobile" required type="text"
                         class="w-full mt-1 px-4 py-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
                         [placeholder]="'CONTACT_FORM.MOBILE_PLACEHOLDER' | translate" />
                 </div>
@@ -52,13 +61,13 @@
                     <label class="text-sm font-medium text-gray-700">
                         {{ 'CONTACT_FORM.MESSAGE' | translate }}
                     </label>
-                    <textarea rows="4"
+                    <textarea name="message" [(ngModel)]="contact.message" required rows="4"
                         class="w-full mt-1 px-4 py-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
                         [placeholder]="'CONTACT_FORM.MESSAGE_PLACEHOLDER' | translate"></textarea>
                 </div>
 
-                <button type="submit"
-                    class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg transition">
+                <button type="submit" [disabled]="contactForm.invalid"
+                    class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed">
                     {{ 'CONTACT_FORM.SUBMIT' | translate }}
                 </button>
             </form>

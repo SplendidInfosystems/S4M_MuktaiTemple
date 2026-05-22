@@ -286,6 +286,8 @@
     "TITLE": "संदेश पाठवा",
     "NAME": "नाव",
     "NAME_PLACEHOLDER": "आपले नाव",
+    "EMAIL": "ईमेल",
+    "EMAIL_PLACEHOLDER": "आपला ईमेल पत्ता",
     "MOBILE": "मोबाईल नंबर",
     "MOBILE_PLACEHOLDER": "आपला मोबाईल नंबर",
     "MESSAGE": "संदेश",

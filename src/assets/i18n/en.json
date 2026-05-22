@@ -288,6 +288,8 @@
     "TITLE": "Send a Message",
     "NAME": "Name",
     "NAME_PLACEHOLDER": "Your name",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Your email address",
     "MOBILE": "Mobile Number",
     "MOBILE_PLACEHOLDER": "Your mobile number",
     "MESSAGE": "Message",
